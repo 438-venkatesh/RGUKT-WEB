@@ -100,6 +100,7 @@ function ScrollToTop() {
 }
 
 /* Inner component — needs access to useLocation (must be inside BrowserRouter) */
+//this is a comment
 function AppContent() {
   const { pathname } = useLocation();
   const isHome = pathname === '/';
