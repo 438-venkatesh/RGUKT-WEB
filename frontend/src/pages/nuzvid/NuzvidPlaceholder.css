@@ -1,0 +1,61 @@
+.nzp {
+  min-height: 50vh;
+  padding: 48px 24px 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--ap-bg, #f5f7fa);
+}
+
+.nzp-inner {
+  max-width: 520px;
+  text-align: center;
+}
+
+.nzp-kicker {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ap-accent, #c8102e);
+  margin: 0 0 8px;
+}
+
+.nzp-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: var(--ap-text, #0a2744);
+  margin: 0 0 12px;
+  line-height: 1.2;
+}
+
+.nzp-desc {
+  color: var(--ap-text-muted, #5a6472);
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0 0 20px;
+}
+
+.nzp-source {
+  display: inline-block;
+  margin-bottom: 16px;
+  color: var(--ap-accent, #c8102e);
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.nzp-source:hover {
+  text-decoration: underline;
+}
+
+.nzp-back {
+  display: inline-block;
+  font-size: 14px;
+  color: var(--ap-primary, #0a2744);
+  text-decoration: none;
+}
+
+.nzp-back:hover {
+  text-decoration: underline;
+}

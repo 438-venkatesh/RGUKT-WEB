@@ -1,0 +1,201 @@
+/* ── RGUKT-AP Footer — AP-Footer.dc.html ── */
+
+.apf-root {
+  background: #0B141F;
+  color: rgba(255, 255, 255, 0.75);
+  font-family: Inter, system-ui, sans-serif;
+}
+
+/* ── Main grid ── */
+.apf-main {
+  padding: 60px 0 44px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.apf-grid {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+  gap: 48px;
+}
+
+/* ── Col 1 — Brand ── */
+.apf-col-brand { display: flex; flex-direction: column; gap: 0; }
+
+.apf-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.apf-logo-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #C8102E;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.apf-logo-circle .rgukt-logo {
+  width: 28px;
+  height: auto;
+}
+
+.apf-wordmark {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.apf-brand-sub {
+  font-size: 0.68rem;
+  color: rgba(255, 255, 255, 0.45);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.apf-tagline {
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0 0 16px;
+  max-width: 290px;
+}
+
+/* Badge pills */
+.apf-badges {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.apf-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid;
+  letter-spacing: 0.04em;
+}
+
+.apf-badge--dim {
+  border-color: rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Social icons */
+.apf-socials {
+  display: flex;
+  gap: 12px;
+}
+
+.apf-social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.07);
+  color: rgba(255, 255, 255, 0.6);
+  transition: background 0.15s, color 0.15s;
+}
+
+.apf-social:hover {
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+}
+
+/* ── Column headings ── */
+.apf-heading {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0 0 18px;
+}
+
+/* ── Link lists ── */
+.apf-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.apf-links a {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.apf-links a:hover { color: rgba(255, 255, 255, 0.92); }
+
+/* Campus links — with pin icon */
+.apf-campus-link {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+/* ── Bottom bar ── */
+.apf-bottom {
+  padding: 18px 0;
+}
+
+.apf-bottom-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.38);
+}
+
+.apf-bottom-links {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.apf-bottom-links a {
+  color: rgba(255, 255, 255, 0.38);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.apf-bottom-links a:hover { color: rgba(255, 255, 255, 0.75); }
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .apf-grid { grid-template-columns: 1.4fr 1fr 1fr; }
+  .apf-col-brand { grid-column: 1 / -1; flex-direction: row; flex-wrap: wrap; gap: 24px; }
+  .apf-tagline { max-width: 100%; }
+}
+
+@media (max-width: 700px) {
+  .apf-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .apf-col-brand { grid-column: 1 / -1; flex-direction: column; }
+}
+
+@media (max-width: 480px) {
+  .apf-grid { grid-template-columns: 1fr; gap: 28px; }
+  .apf-bottom-inner { flex-direction: column; text-align: center; }
+}

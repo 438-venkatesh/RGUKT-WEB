@@ -1,0 +1,251 @@
+/* ── NuzvidPlacements page ── */
+
+.nzp-root {
+  background: #F1F4F9;
+  min-height: calc(100vh - 98px);
+}
+
+/* ── Hero ── */
+.nzp-hero {
+  background: #0B2B5C;
+  padding: 64px 24px;
+}
+.nzp-hero-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.nzp-h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 44px;
+  color: #fff;
+  margin: 0 0 28px;
+}
+.nzp-stats {
+  display: flex;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+.nzp-stat-val {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #90CAF9;
+}
+.nzp-stat-lbl {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 2px;
+}
+
+/* ── Content wrapper ── */
+.nzp-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 56px 24px 80px;
+}
+.nzp-section { margin-bottom: 56px; }
+.nzp-h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 26px;
+  color: #1A2535;
+  margin: 0 0 20px;
+}
+
+/* ── Bar chart ── */
+.nzp-chart {
+  width: 100%;
+  max-width: 600px;
+  display: block;
+}
+
+/* ── Branch table ── */
+.nzp-tscroll {
+  overflow-x: auto;
+  border: 1px solid #C8D8F0;
+  border-radius: 8px;
+}
+.nzp-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.nzp-thead tr {
+  background: #EBF0F8;
+  text-align: left;
+}
+.nzp-thead th {
+  padding: 12px 16px;
+  font-weight: 600;
+  color: #1A2535;
+  white-space: nowrap;
+}
+.nzp-th-sort {
+  cursor: pointer;
+  user-select: none;
+}
+.nzp-th-sort:hover { background: #dce6f4; }
+.nzp-tr { border-top: 1px solid #C8D8F0; }
+.nzp-td-branch { padding: 12px 16px; font-weight: 600; color: #1A2535; }
+.nzp-td-rate   { padding: 12px 16px; font-family: 'JetBrains Mono', 'Fira Code', monospace; color: #1A2535; }
+.nzp-td-top    { padding: 12px 16px; color: #5A6A7E; }
+
+/* ── Sector filters ── */
+.nzp-filters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.nzp-filter {
+  border-radius: 999px;
+  padding: 7px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid #C8D8F0;
+  background: transparent;
+  color: #1A2535;
+  font-family: inherit;
+  transition: background 0.14s, color 0.14s;
+}
+.nzp-filter:hover { background: #EBF0F8; }
+.nzp-filter--on {
+  background: #0B2B5C;
+  color: #fff;
+  border-color: #0B2B5C;
+}
+.nzp-filter--on:hover { background: #0d3572; }
+
+/* ── Recruiter grid ── */
+.nzp-recruiters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 14px;
+}
+.nzp-recruiter {
+  border: 1px solid #C8D8F0;
+  border-radius: 8px;
+  padding: 18px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 13px;
+  background: #fff;
+  color: #1A2535;
+}
+
+/* ── Process steps ── */
+.nzp-process {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  flex-wrap: wrap;
+}
+.nzp-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+  min-width: 120px;
+  position: relative;
+}
+.nzp-connector {
+  position: absolute;
+  top: 22px;
+  left: -50%;
+  width: 100%;
+  height: 2px;
+  background: #C8D8F0;
+  z-index: 0;
+}
+.nzp-step-num {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #0B2B5C;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 16px;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 12px;
+}
+.nzp-step-label {
+  font-weight: 600;
+  font-size: 14px;
+  color: #1A2535;
+}
+
+/* ── Testimonial ── */
+.nzp-testimonial {
+  background: #EBF0F8;
+  border-radius: 10px;
+  padding: 32px;
+  text-align: center;
+}
+.nzp-quote {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #1A2535;
+  margin: 0 0 12px;
+}
+.nzp-quote-name {
+  font-weight: 600;
+  font-size: 14px;
+  color: #5A6A7E;
+}
+
+/* ── CDPC Contact ── */
+.nzp-contact {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.nzp-contact-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #EBF0F8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #5A6A7E;
+  flex-shrink: 0;
+}
+.nzp-contact-name {
+  font-weight: 700;
+  color: #1A2535;
+  margin-bottom: 4px;
+}
+.nzp-contact-details {
+  font-size: 13px;
+  color: #5A6A7E;
+}
+.nzp-contact-cta {
+  margin-left: auto;
+  background: #1565C0;
+  color: #fff;
+  padding: 12px 22px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 13px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.14s;
+}
+.nzp-contact-cta:hover { background: #0D47A1; }
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .nzp-hero { padding: 40px 16px; }
+  .nzp-h1 { font-size: 34px; }
+  .nzp-stats { gap: 28px; }
+  .nzp-inner { padding: 32px 16px 60px; }
+  .nzp-contact-cta { margin-left: 0; width: 100%; text-align: center; }
+}

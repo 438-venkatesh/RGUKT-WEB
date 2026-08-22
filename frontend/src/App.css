@@ -1,0 +1,5 @@
+/* Home / Nuzvid: no top padding. Inner pages: offset for fixed utility bar + nav. */
+#main { padding-top: 0; }
+#main.inner-page-layout { padding-top: calc(32px + 48px + 12px); }
+#main.home-layout,
+#main.nuzvid-layout { padding-top: 0; }

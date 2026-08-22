@@ -1,0 +1,101 @@
+/* ── RGUKT-AP Tenders page ── */
+
+.apt-root {
+  min-height: calc(100vh - 98px);
+  padding: 48px 24px 80px;
+}
+.apt-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.apt-h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 44px;
+  color: inherit;
+  margin: 0 0 12px;
+}
+.apt-desc {
+  margin: 0 0 32px;
+  max-width: 70ch;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ── Filter chips ── */
+.apt-filters {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+.apt-filter {
+  border-radius: 999px;
+  padding: 7px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.14s, color 0.14s;
+}
+.apt-filter:hover:not(.apt-filter--on) { opacity: 0.8; }
+
+/* ── Table ── */
+.apt-tscroll {
+  overflow-x: auto;
+  border-radius: 8px;
+}
+.apt-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.apt-thead { text-align: left; }
+.apt-th {
+  padding: 12px 16px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.apt-th-dl { width: 40px; }
+
+.apt-td {
+  padding: 12px 16px;
+}
+.apt-td-dl {
+  text-align: right;
+}
+.apt-td-dl a {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  opacity: 0.7;
+  transition: opacity 0.14s;
+}
+.apt-td-dl a:hover { opacity: 1; }
+
+.apt-mono {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 13px;
+}
+
+/* ── Status badge ── */
+.apt-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+/* ── Empty state ── */
+.apt-empty {
+  padding: 32px 16px;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .apt-root { padding: 28px 16px 60px; }
+  .apt-h1 { font-size: 34px; }
+}

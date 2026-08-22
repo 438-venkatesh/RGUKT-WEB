@@ -1,0 +1,267 @@
+/* ── NuzvidAbout page ── */
+
+:root {
+  --nza-accent:   var(--nuzvid-accent, #1565C0);
+  --nza-accent-l: var(--nuzvid-accent-l, #E3F2FD);
+  --nza-primary:  #0B2B5C;
+  --nza-text:     #1A2535;
+  --nza-muted:    #5A6A7E;
+  --nza-surface:  #FFFFFF;
+  --nza-surface2: #EBF0F8;
+  --nza-border:   #C8D8F0;
+  --nza-bg:       #F1F4F9;
+}
+
+/* ── Layout ── */
+.nza-root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 48px 24px 80px;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 56px;
+  background: var(--nza-bg);
+  min-height: calc(100vh - 98px);
+}
+
+/* ── Sidebar ── */
+.nza-aside {
+  position: sticky;
+  top: 112px; /* 98px fixed navbar + 14px breathing room */
+  align-self: start;
+}
+
+.nza-sidenav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.nza-sidelink {
+  display: block;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 6px;
+  color: var(--nza-muted);
+  background: transparent;
+  transition: background 0.14s, color 0.14s;
+}
+.nza-sidelink--on {
+  color: var(--nza-primary);
+  font-weight: 700;
+  background: var(--nza-accent-l);
+}
+.nza-sidelink:hover:not(.nza-sidelink--on) {
+  background: rgba(0,0,0,0.04);
+  color: var(--nza-text);
+}
+
+/* ── Article ── */
+.nza-article { max-width: 72ch; }
+
+.nza-section {
+  margin: 0 0 56px;
+  scroll-margin-top: 118px; /* 98px navbar + 20px buffer */
+}
+
+/* Typography */
+.nza-kicker {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: var(--nza-accent);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.nza-h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 48px;
+  margin: 0 0 24px;
+  color: var(--nza-text);
+  line-height: 1.15;
+}
+.nza-h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 32px;
+  margin: 0 0 24px;
+  color: var(--nza-text);
+}
+.nza-p {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--nza-muted);
+  margin: 0 0 16px;
+}
+.nza-blockquote {
+  border-left: 3px solid var(--nza-accent);
+  margin: 0 0 32px;
+  padding: 4px 0 4px 24px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 20px;
+  line-height: 1.5;
+  color: var(--nza-text);
+}
+
+/* ── Vision / Mission ── */
+.nza-vm-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.nza-vm-card {
+  background: var(--nza-surface);
+  border: 1px solid var(--nza-border);
+  border-radius: 10px;
+  padding: 28px;
+}
+.nza-vm-icon { color: var(--nza-accent); display: block; margin-bottom: 2px; }
+.nza-vm-h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 18px;
+  margin: 14px 0 8px;
+  color: var(--nza-text);
+}
+.nza-vm-p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--nza-muted);
+  margin: 0;
+}
+
+/* ── Director ── */
+.nza-dir-banner {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+  margin-bottom: 24px;
+}
+.nza-dir-quote {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--nza-text);
+  margin: 0 0 20px;
+}
+.nza-dir-sig {
+  width: 120px;
+  height: 36px;
+  border-bottom: 2px solid var(--nza-text);
+  margin-bottom: 8px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  color: var(--nza-text);
+}
+.nza-dir-name {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--nza-text);
+  margin-bottom: 2px;
+}
+.nza-dir-role {
+  font-size: 13px;
+  color: var(--nza-muted);
+}
+
+/* ── Org chart ── */
+.nza-orgchart {
+  width: 100%;
+  max-width: 600px;
+  display: block;
+  margin-bottom: 32px;
+}
+.nza-org-rect  { fill: var(--nza-surface2); stroke: var(--nza-primary); stroke-width: 1.5; }
+.nza-org-text  { font-size: 12px; font-family: Inter, sans-serif; fill: var(--nza-text); }
+.nza-org-line  { stroke: var(--nza-border); stroke-width: 1.5; }
+
+/* ── Admin cards ── */
+.nza-admin-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+.nza-admin-card {
+  background: var(--nza-surface);
+  border: 1px solid var(--nza-border);
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+}
+.nza-admin-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--nza-surface2);
+  color: var(--nza-muted);
+  margin: 0 auto 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nza-admin-name  { font-weight: 700; font-size: 13px; color: var(--nza-text); margin-bottom: 2px; }
+.nza-admin-role  { font-size: 12px; color: var(--nza-muted); margin-bottom: 4px; }
+.nza-admin-email { font-size: 12px; color: var(--nza-primary); text-decoration: none; }
+.nza-admin-email:hover { text-decoration: underline; }
+
+/* ── Map ── */
+.nza-map-wrap {
+  height: 280px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--nza-border);
+}
+.nza-map-frame { width: 100%; height: 100%; border: none; display: block; }
+
+/* ── NAAC ── */
+.nza-naac-card {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  background: var(--nza-accent-l);
+  border-radius: 10px;
+  padding: 24px;
+}
+.nza-naac-badge {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--nza-primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.nza-naac-title { font-weight: 700; font-size: 15px; color: var(--nza-text); margin-bottom: 4px; }
+.nza-naac-sub   { font-size: 13px; color: var(--nza-muted); }
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .nza-root {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 32px 24px 60px;
+  }
+  .nza-aside { display: none; }
+}
+
+@media (max-width: 640px) {
+  .nza-root { padding: 24px 16px 48px; }
+  .nza-h1 { font-size: 34px; }
+  .nza-blockquote { font-size: 17px; }
+  .nza-vm-grid { grid-template-columns: 1fr; }
+  .nza-admin-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 400px) {
+  .nza-admin-grid { grid-template-columns: 1fr; }
+}

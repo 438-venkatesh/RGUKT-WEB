@@ -1,0 +1,212 @@
+/* ── Root wrapper — fixed, above the navbar ── */
+.sh-root {
+  position: fixed;
+  top: 32px; /* below utility bar */
+  left: 0;
+  right: 0;
+  z-index: 1010;
+  transition: opacity 0.25s, transform 0.25s;
+}
+
+.sh-root.hidden-brand {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-12px);
+}
+
+/* ───────────────────────────────────────
+   Branding bar
+─────────────────────────────────────── */
+.sh-brand {
+  height: 90px;
+  background: #fff;
+  border-bottom: 2px solid #e0e0e0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  transition: background 0.25s, border-color 0.25s, box-shadow 0.25s;
+}
+
+.sh-brand-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* Left: logo + text */
+.sh-brand-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+  flex: 1;
+}
+
+.sh-logo {
+  flex-shrink: 0;
+}
+
+.sh-brand-text {
+  min-width: 0;
+}
+
+.sh-brand-name {
+  font-size: 17px;
+  font-weight: 700;
+  color: #0A2744;
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: 'Inter', system-ui, sans-serif;
+  transition: color 0.25s;
+}
+
+.sh-brand-tagline {
+  font-size: 11.5px;
+  color: #444;
+  margin-top: 3px;
+  line-height: 1.35;
+  font-family: 'Inter', system-ui, sans-serif;
+  transition: color 0.25s;
+}
+
+.sh-brand-estab {
+  font-size: 10.5px;
+  color: #666;
+  margin-top: 2px;
+  line-height: 1.3;
+  font-family: 'Inter', system-ui, sans-serif;
+  transition: color 0.25s;
+}
+
+/* Right: logos row — uniform 72×72 slots */
+.sh-logos {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.sh-badge-slot {
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.sh-badge-img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Swarna Andhra — landscape badge, full image visible (no crop) */
+.sh-badge-slot-swarna {
+  width: 88px;
+  height: 64px;
+}
+
+.sh-badge-swarna {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: center center;
+  border-radius: 4px;
+}
+
+.sh-root.overlay.scrolled .sh-badge-img {
+  background: transparent;
+  padding: 0;
+}
+
+/* ───────────────────────────────────────
+   Home overlay mode — dark bar over hero
+─────────────────────────────────────── */
+.sh-root.overlay .sh-brand {
+  background: transparent;
+  border-bottom: none;
+  box-shadow: none;
+}
+
+.sh-root.overlay .sh-brand-name {
+  color: #fff;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.55);
+}
+
+.sh-root.overlay .sh-brand-inner {
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  padding: 0 32px 0 20px;
+}
+
+.sh-root.overlay .sh-brand-left {
+  flex: 0 1 auto;
+}
+
+.sh-root.overlay .sh-brand-tagline,
+.sh-root.overlay .sh-brand-estab {
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Scrolled on home — revert to solid bar */
+.sh-root.overlay.scrolled .sh-brand {
+  background: #fff;
+  border-bottom: 2px solid #e0e0e0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+.sh-root.overlay.scrolled .sh-brand-name { color: #0A2744; text-shadow: none; }
+.sh-root.overlay.scrolled .sh-brand-tagline { color: #444; text-shadow: none; }
+.sh-root.overlay.scrolled .sh-brand-estab { color: #666; text-shadow: none; }
+
+.sh-root.overlay.scrolled .sh-badge-img {
+  background: transparent;
+  padding: 0;
+}
+
+/* ───────────────────────────────────────
+   Responsive
+─────────────────────────────────────── */
+@media (max-width: 960px) {
+  .sh-brand-name { font-size: 14px; }
+  .sh-logos { gap: 8px; }
+}
+
+@media (max-width: 768px) {
+  .sh-brand {
+    height: auto;
+    padding: 10px 0;
+  }
+
+  .sh-brand-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    gap: 8px;
+    padding: 0 16px;
+  }
+
+  .sh-brand-name { white-space: normal; font-size: 13px; }
+  .sh-brand-estab { display: none; }
+
+  .sh-logos {
+    align-self: flex-end;
+  }
+}
+
+@media (max-width: 520px) {
+  .sh-logos { display: none; }
+}

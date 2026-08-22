@@ -1,0 +1,60 @@
+/* ── RGUKT-AP Announcements page ── */
+
+.apan-root {
+  min-height: calc(100vh - 98px);
+  padding: 48px 24px 80px;
+}
+.apan-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.apan-h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 44px;
+  color: inherit;
+  margin: 0 0 32px;
+}
+
+/* ── Feed ── */
+.apan-list {
+  display: flex;
+  flex-direction: column;
+}
+.apan-row {
+  display: flex;
+  gap: 20px;
+  padding: 20px 0;
+}
+.apan-date {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 13px;
+  width: 110px;
+  flex: none;
+  padding-top: 2px;
+}
+.apan-body {
+  flex: 1;
+}
+.apan-title {
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1.5;
+  margin-bottom: 6px;
+  color: inherit;
+}
+.apan-link {
+  font-size: 13px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.14s;
+}
+.apan-link:hover { opacity: 0.75; }
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .apan-root { padding: 28px 16px 60px; }
+  .apan-h1 { font-size: 34px; }
+  .apan-row { flex-direction: column; gap: 6px; }
+  .apan-date { width: auto; }
+}

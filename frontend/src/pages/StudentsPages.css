@@ -1,0 +1,50 @@
+.stu-section {
+  margin-bottom: 32px;
+}
+
+.stu-list {
+  margin: 0;
+  padding-left: 1.25rem;
+  line-height: 1.75;
+  font-size: 15px;
+}
+
+.stu-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.stu-card {
+  padding: 18px;
+  border-radius: 8px;
+}
+
+.stu-card strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 15px;
+}
+
+.stu-card p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.stu-link {
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.stu-link:hover {
+  text-decoration: underline;
+}
+
+.stu-helpline {
+  padding: 16px 18px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+}

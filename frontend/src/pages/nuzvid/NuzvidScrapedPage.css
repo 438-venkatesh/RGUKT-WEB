@@ -1,0 +1,299 @@
+.nzs-page {
+  background: #f4f7fb;
+  min-height: 60vh;
+}
+
+.nzs-hero {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+}
+
+.nzs-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.nzs-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(11, 43, 92, 0.88) 0%, rgba(21, 101, 192, 0.55) 100%);
+}
+
+.nzs-hero-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 28px 32px;
+  color: #fff;
+}
+
+.nzs-kicker {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 0 0 6px;
+  opacity: 0.9;
+}
+
+.nzs-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.15;
+}
+
+.nzs-body {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 32px 24px 64px;
+}
+
+.nzs-note {
+  background: #e3f2fd;
+  border: 1px solid #90caf9;
+  border-radius: 8px;
+  padding: 12px 16px;
+  color: #0d47a1;
+  font-size: 14px;
+  margin: 0 0 24px;
+}
+
+.nzs-intro {
+  font-size: 16px;
+  line-height: 1.65;
+  color: #334155;
+  margin: 0 0 28px;
+}
+
+.nzs-section {
+  margin-bottom: 32px;
+}
+
+.nzs-h2 {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  color: var(--nuzvid-primary, #0b2b5c);
+  margin: 0 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--nuzvid-accent-soft, #bbdefb);
+}
+
+.nzs-para {
+  font-size: 15px;
+  line-height: 1.65;
+  color: #475569;
+  margin: 0 0 12px;
+}
+
+.nzs-list {
+  margin: 0;
+  padding-left: 20px;
+  color: #475569;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.nzs-list li + li {
+  margin-top: 6px;
+}
+
+.nzs-officer {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 24px;
+  background: #fff;
+  border: 1px solid #dbeafe;
+  border-radius: 10px;
+  padding: 24px;
+  margin-bottom: 28px;
+}
+
+.nzs-officer-photo {
+  width: 140px;
+  height: 168px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.nzs-officer-name {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  color: var(--nuzvid-primary, #0b2b5c);
+  margin: 0 0 4px;
+}
+
+.nzs-officer-role {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--nuzvid-accent, #1565c0);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 0 0 12px;
+}
+
+.nzs-email {
+  margin: 8px 0 0;
+  font-size: 14px;
+}
+
+.nzs-email a {
+  color: var(--nuzvid-accent, #1565c0);
+}
+
+.nzs-table-wrap {
+  overflow-x: auto;
+  border: 1px solid #dbeafe;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.nzs-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.nzs-table th,
+.nzs-table td {
+  padding: 10px 14px;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+  color: #334155;
+}
+
+.nzs-table th {
+  background: #e3f2fd;
+  color: var(--nuzvid-primary, #0b2b5c);
+  font-weight: 700;
+}
+
+.nzs-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 12px;
+}
+
+.nzs-gallery-item {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #dbeafe;
+  aspect-ratio: 4/3;
+}
+
+.nzs-gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.nzs-docs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.nzs-doc {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: #fff;
+  border: 1px solid #dbeafe;
+  border-radius: 8px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.nzs-doc:hover {
+  border-color: var(--nuzvid-accent, #1565c0);
+}
+
+.nzs-doc-icon {
+  font-size: 11px;
+  font-weight: 800;
+  color: #fff;
+  background: var(--nuzvid-accent, #1565c0);
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.nzs-doc-title {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--nuzvid-primary, #0b2b5c);
+}
+
+.nzs-doc-arrow {
+  color: var(--nuzvid-accent, #1565c0);
+}
+
+.nzs-dept-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 10px;
+}
+
+.nzs-dept-link {
+  display: block;
+  padding: 12px 14px;
+  background: #fff;
+  border: 1px solid #dbeafe;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--nuzvid-primary, #0b2b5c);
+  text-decoration: none;
+}
+
+.nzs-dept-link:hover {
+  border-color: var(--nuzvid-accent, #1565c0);
+  color: var(--nuzvid-accent, #1565c0);
+}
+
+.nzs-source {
+  font-size: 13px;
+  color: #64748b;
+  margin: 32px 0 16px;
+}
+
+.nzs-source a {
+  color: var(--nuzvid-accent, #1565c0);
+}
+
+.nzs-back {
+  font-size: 14px;
+  color: var(--nuzvid-primary, #0b2b5c);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.nzs-back:hover {
+  color: var(--nuzvid-accent, #1565c0);
+}
+
+@media (max-width: 640px) {
+  .nzs-hero-text {
+    padding: 20px 18px;
+  }
+
+  .nzs-body {
+    padding: 24px 16px 48px;
+  }
+
+  .nzs-officer {
+    grid-template-columns: 1fr;
+  }
+
+  .nzs-officer-photo {
+    width: 120px;
+    height: 144px;
+  }
+}

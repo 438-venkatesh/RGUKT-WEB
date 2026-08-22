@@ -1,0 +1,63 @@
+.cp-root {
+  min-height: 50vh;
+  padding: 40px 24px 80px;
+}
+
+.cp-inner {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.cp-intro {
+  font-size: 15px;
+  line-height: 1.65;
+  margin: 0 0 36px;
+}
+
+.cp-section {
+  margin-bottom: 36px;
+}
+
+.cp-h2 {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 0 12px;
+  line-height: 1.25;
+}
+
+.cp-body {
+  font-size: 15px;
+  line-height: 1.65;
+  margin: 0 0 12px;
+}
+
+.cp-list {
+  margin: 0;
+  padding-left: 1.25rem;
+  line-height: 1.75;
+  font-size: 15px;
+}
+
+.cp-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.cp-link {
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.cp-link:hover {
+  text-decoration: underline;
+}
+
+.cp-title {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  margin: 0 0 12px;
+}

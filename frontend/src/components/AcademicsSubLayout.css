@@ -1,0 +1,69 @@
+/* Sidebar removed — styles kept for sub-page content only */
+
+.acad-exam-filters {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.acad-filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.acad-filter-label {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.acad-select {
+  padding: 9px 12px;
+  border-radius: 6px;
+  font: inherit;
+  font-size: 14px;
+}
+
+.acad-select--exam {
+  min-width: 140px;
+}
+
+.acad-sub-section {
+  margin-bottom: 36px;
+}
+
+.acad-sub-list {
+  margin: 0;
+  padding-left: 1.25rem;
+  line-height: 1.75;
+  font-size: 15px;
+}
+
+.acad-sub-link {
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.acad-sub-link:hover {
+  text-decoration: underline;
+}
+
+.acad-hub-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 10px;
+}
+
+.acad-hub-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 12px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+}

@@ -1,0 +1,20 @@
+/* IIT / rgukt.in style section underline — thin lines + center block */
+.double-line-bottom-theme-colored-2 {
+  --dl-color: var(--ap-accent, #C8102E);
+  width: 76px;
+  height: 6px;
+  margin: 8px auto 28px;
+  background:
+    linear-gradient(var(--dl-color), var(--dl-color)) 50% 50% / 12px 4px no-repeat,
+    linear-gradient(var(--dl-color), var(--dl-color)) 0 50% / calc(50% - 10px) 2px no-repeat,
+    linear-gradient(var(--dl-color), var(--dl-color)) 100% 50% / calc(50% - 10px) 2px no-repeat;
+}
+
+.double-line-bottom-theme-colored-2.is-wide {
+  width: 96px;
+}
+
+/* Nuzvid blue theme */
+.nuzvid-root .double-line-bottom-theme-colored-2 {
+  --dl-color: var(--nuzvid-accent, #1565C0);
+}

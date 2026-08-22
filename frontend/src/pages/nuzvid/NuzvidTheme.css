@@ -1,0 +1,51 @@
+/* ── Nuzvid campus blue theme (scoped to sub-site) ── */
+
+.nuzvid-root {
+  --nuzvid-primary: #0B2B5C;
+  --nuzvid-primary-h: #0D3572;
+  --nuzvid-accent: #1565C0;
+  --nuzvid-accent-h: #0D47A1;
+  --nuzvid-accent-l: #E3F2FD;
+  --nuzvid-accent-soft: #BBDEFB;
+
+  /* aliases used by page stylesheets */
+  --nzh-accent: var(--nuzvid-accent);
+  --nzh-accent-h: var(--nuzvid-accent-h);
+  --nzh-accent-l: var(--nuzvid-accent-l);
+  --nza-accent: var(--nuzvid-accent);
+  --nza-accent-l: var(--nuzvid-accent-l);
+  --nza-primary: var(--nuzvid-primary);
+}
+
+/* ── Utility bar ── */
+.nuzvid-root .util-bar {
+  background: var(--nuzvid-primary);
+}
+
+/* ── Navbar — solid blue bar ── */
+.nuzvid-root .ap-nav-solid {
+  background: var(--nuzvid-primary) !important;
+}
+
+.nuzvid-root .ap-nav-bulge-circle {
+  border-color: var(--nuzvid-primary);
+}
+
+.nuzvid-root .ap-header.overlay:not(.solid) .ap-nav-link:hover,
+.nuzvid-root .ap-header.overlay:not(.solid) .ap-nav-link.is-active,
+.nuzvid-root .ap-header.overlay:not(.solid) .ap-nav-item.is-open .ap-nav-link {
+  background: var(--nuzvid-accent) !important;
+}
+
+.nuzvid-root .ap-mega-link:hover {
+  color: var(--nuzvid-accent);
+}
+
+.nuzvid-root .ap-search-btn:hover {
+  border-color: var(--nuzvid-accent);
+  color: var(--nuzvid-accent);
+}
+
+.nuzvid-root .ap-mobile-overlay {
+  background: var(--nuzvid-primary);
+}

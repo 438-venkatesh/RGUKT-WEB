@@ -1,0 +1,221 @@
+{
+  "scrapedAt": "2026-08-19",
+  "sourceSite": "https://www.rgukt.in",
+  "pages": [
+    {
+      "slug": "overview",
+      "rguktUrl": "https://www.rgukt.in/students/",
+      "localRoute": "/students",
+      "pageStatus": "not_found_on_source",
+      "title": "",
+      "sections": [],
+      "documents": [],
+      "images": [],
+      "helpline": null
+    },
+    {
+      "slug": "scholarships",
+      "rguktUrl": "https://www.rgukt.in/students/scholarships/",
+      "localRoute": "/students/scholarships",
+      "pageStatus": "ok",
+      "title": "",
+      "sections": [],
+      "documents": [
+        {
+          "title": "Scholarships",
+          "url": "https://rgukt.in/files/pdfs/76b968ffb2160dfa5132aff9df9fb984.pdf"
+        }
+      ],
+      "images": [],
+      "helpline": null
+    },
+    {
+      "slug": "medals",
+      "rguktUrl": "https://www.rgukt.in/students/medal-information/",
+      "localRoute": "/students/medals",
+      "pageStatus": "ok",
+      "title": "",
+      "sections": [],
+      "documents": [
+        {
+          "title": "Medals",
+          "url": "https://rgukt.in/files/pdfs/aeaac9ea06bdfa0736cb69943e4cc7b4.pdf"
+        }
+      ],
+      "images": [],
+      "helpline": null
+    },
+    {
+      "slug": "career-growth",
+      "rguktUrl": "https://www.rgukt.in/students/career-growth/",
+      "localRoute": "/students/career-growth",
+      "pageStatus": "not_found_on_source",
+      "title": "",
+      "sections": [],
+      "documents": [],
+      "images": [],
+      "helpline": null
+    },
+    {
+      "slug": "quantum-lab",
+      "rguktUrl": "https://www.rgukt.in/students/quantum-computing-lab/",
+      "localRoute": "/students/quantum-lab",
+      "pageStatus": "not_found_on_source",
+      "title": "",
+      "sections": [],
+      "documents": [],
+      "images": [],
+      "helpline": null
+    },
+    {
+      "slug": "anti-ragging",
+      "rguktUrl": "https://www.rgukt.in/students/anti-ragging/",
+      "localRoute": "/students/anti-ragging",
+      "pageStatus": "ok",
+      "title": "Anti Ragging",
+      "sections": [
+        {
+          "heading": "Anti Ragging",
+          "content": [
+            "UGC Regulation on curbing the menace of Ragging in Higher Educational Institutions",
+            "The students in distress due to ragging related incidents can call the National Anti-Ragging Helpline 1800-180-5522 (24x7 toll free) or e-mail the Anti-Ragging Helpline at helpline@antiragging.in. For any other information regarding ragging, please visit www.ugc.ac.in & www.antiragging.in and contact UGC Monitoring Agency i.e. Aman Satya Kachroo Trust on following No. 09871170303, 09818400116 (only in case of emergency).",
+            "In compliance of the 2nd amendment in UGC regulations, it is compulsory for each student and every parent to submit an online undertaking every academic year at www.antiragging.in & www.amanmovement.org",
+            "Don't Rag. Also don't be a mute witness of Ragging."
+          ],
+          "items": []
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "helpline": {
+        "phones": [
+          "1800-180-5522",
+          "0987117030",
+          "0981840011"
+        ],
+        "emails": []
+      }
+    },
+    {
+      "slug": "icc",
+      "rguktUrl": "https://www.rgukt.in/students/internal-complaint-committee/",
+      "localRoute": "/students/icc",
+      "pageStatus": "not_found_on_source",
+      "title": "",
+      "sections": [],
+      "documents": [],
+      "images": [],
+      "helpline": null
+    },
+    {
+      "slug": "women-empowerment",
+      "rguktUrl": "https://www.rgukt.in/students/women-empowerment/",
+      "localRoute": "/students/women-empowerment",
+      "pageStatus": "ok",
+      "title": "PROMOTION OF GENDER EQUITY",
+      "sections": [
+        {
+          "heading": "PROMOTION OF GENDER EQUITY",
+          "content": [
+            "RGUKT prioritizes the promotion of gender equity across all its campuses. Girl students constitute around 50% of the enrolment. Guest speakers are invited to discuss gender-related issues, emphasizing the contributions of women to society. RGUKT upholds inclusivity, providing equal opportunities to all, regardless of gender, caste, religion, social status, or any other consideration.",
+            "Special facilities are provided on each campus to promote gender equity:"
+          ],
+          "items": [
+            "Girls' Common Room: Equipped with toilets, drinking water facilities, and security.",
+            "Safety and Security: Women security guards are present on campus and in hostels. Security checkpoints are established at key points, and 24x7 surveillance is maintained through CC cameras.",
+            "Medical Facilities: Separate medical facilities for girls with ten beds are available at each campus health center.",
+            "Counseling Services: A counselor is always available to provide emotional support and address gender sensitization issues.",
+            "Women Empowerment Cell: This cell addresses grievances and organizes awareness and empowerment programs.",
+            "Internal Compliance Committee: It handles and resolves issues related to sexual harassment."
+          ]
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "helpline": null
+    },
+    {
+      "slug": "cultural",
+      "rguktUrl": "https://www.rgukt.in/students/cultural-activities/",
+      "localRoute": "/students/cultural",
+      "pageStatus": "ok",
+      "title": "",
+      "sections": [],
+      "documents": [
+        {
+          "title": "Cultural",
+          "url": "https://rgukt.in/files/pdfs/d69db10bc7b04238ebf42b4189e727ad.pdf"
+        }
+      ],
+      "images": [],
+      "helpline": null
+    },
+    {
+      "slug": "sports",
+      "rguktUrl": "https://www.rgukt.in/students/sports/",
+      "localRoute": "/students/sports",
+      "pageStatus": "not_found_on_source",
+      "title": "",
+      "sections": [],
+      "documents": [],
+      "images": [],
+      "helpline": null
+    },
+    {
+      "slug": "community",
+      "rguktUrl": "https://www.rgukt.in/students/community-activities/",
+      "localRoute": "/students/community",
+      "pageStatus": "not_found_on_source",
+      "title": "",
+      "sections": [],
+      "documents": [],
+      "images": [],
+      "helpline": null
+    },
+    {
+      "slug": "alumni-engagement",
+      "rguktUrl": "https://www.rgukt.in/students/alumni-engagement/",
+      "localRoute": "/students/alumni-engagement",
+      "pageStatus": "ok",
+      "title": "Alumni Engagement",
+      "sections": [
+        {
+          "heading": "Alumni Engagement",
+          "content": [
+            "The alumni of the university are distributed across the world in various capacities such as technocrats, entrepreneurs, scientists, academicians, politicians, and IAS/IPS/administrative officers. RGUKT campus institutes have registered alumni associations for building a strong bond between alumni and students and faculty. The associations are registered under the associates ACT XXI of 1860."
+          ],
+          "items": []
+        },
+        {
+          "heading": "Objectives",
+          "content": [],
+          "items": [
+            "To encourage and promote close relations between the institution and its alumni and among the alumni themselves for well-being of the institution.",
+            "To provide and disseminate information regarding their Alma Mater, its graduates, faculties, and students, to the alumni.",
+            "To assist and support the efforts of the institution in obtaining funds for development.",
+            "To serve as a forum through which alumni may support and advance the pursuit of academic excellence at the institution.",
+            "To organize and co-ordinate reunion activities of the alumni and let the alumni acknowledge their gratitude to their Alma Mater.",
+            "To collect, publish, and distribute such information as may be useful to the alumni and their Alma Mater."
+          ]
+        },
+        {
+          "heading": "Activities of the Alumni",
+          "content": [
+            "Rgukt Nuzvid Alumni Association Certificate"
+          ],
+          "items": [
+            "Inviting them to deliver talks, guest lectures, and alumni fora.",
+            "Inviting them as participants/speakers at the workshops and conferences organized by the university.",
+            "Placing students in their respective companies.",
+            "Supporting events of the university as sponsors.",
+            "Sharing their knowledge in a capacity of visiting faculty members.",
+            "Inviting contributions in upgrading the curriculum in the form of feedback."
+          ]
+        }
+      ],
+      "documents": [],
+      "images": [],
+      "helpline": null
+    }
+  ]
+}

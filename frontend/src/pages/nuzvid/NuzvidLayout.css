@@ -1,0 +1,19 @@
+.nuzvid-root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Inter', system-ui, sans-serif;
+  background: #F4F6FA;
+}
+
+/* Home: full-viewport hero sits under overlay header */
+.nuzvid-main--home {
+  flex: 1;
+  padding-top: 0;
+}
+
+/* Inner pages: offset for fixed utility bar + nav */
+.nuzvid-main--inner {
+  flex: 1;
+  padding-top: calc(32px + 48px + 12px);
+}

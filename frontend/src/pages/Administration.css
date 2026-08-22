@@ -1,0 +1,154 @@
+/* ── Page shell ── */
+.admin-page {
+  min-height: 100vh;
+}
+
+.admin-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.admin-content-section {
+  margin-bottom: 32px;
+}
+
+.admin-content-list {
+  margin: 0;
+  padding-left: 1.25rem;
+  line-height: 1.75;
+  font-size: 15px;
+}
+
+/* ── Page title ── */
+.admin-title {
+  font-family: var(--font-heading);
+  font-size: 44px;
+  font-weight: 700;
+  margin: 0 0 32px;
+  line-height: 1.15;
+}
+
+/* ── Filter pills ── */
+.admin-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+
+.admin-filter-btn {
+  border-radius: 999px;
+  padding: 8px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  line-height: 1.4;
+}
+
+/* ── Card grid ── */
+.admin-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+/* ── Person card ── */
+.admin-card {
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.admin-card:hover {
+  box-shadow: 0 8px 24px rgba(10, 39, 68, 0.1);
+  transform: translateY(-2px);
+}
+
+[data-theme="dark"] .admin-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* ── Avatar ── */
+.admin-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  margin: 0 auto 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Card text ── */
+.admin-name {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.35;
+  margin-bottom: 4px;
+}
+
+.admin-role {
+  font-size: 12px;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+
+.admin-email {
+  display: block;
+  font-size: 12px;
+  text-decoration: none;
+  margin-bottom: 4px;
+  word-break: break-all;
+  transition: opacity 0.15s;
+}
+
+.admin-email:hover {
+  opacity: 0.75;
+  text-decoration: underline;
+}
+
+.admin-phone {
+  font-size: 12px;
+}
+
+.admin-profile-link {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.admin-profile-link:hover {
+  text-decoration: underline;
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .admin-title {
+    font-size: 32px;
+    margin-bottom: 24px;
+  }
+
+  .admin-wrap {
+    padding: 32px 16px 64px;
+  }
+
+  .admin-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+  }
+
+  .admin-card {
+    padding: 16px;
+  }
+
+  .admin-avatar {
+    width: 52px;
+    height: 52px;
+  }
+}

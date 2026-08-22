@@ -1,0 +1,116 @@
+/* ── RGUKT-AP Careers page ── */
+
+.apc-root {
+  min-height: calc(100vh - 98px);
+  padding: 48px 24px 80px;
+}
+.apc-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.apc-h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 44px;
+  color: inherit;
+  margin: 0 0 12px;
+}
+.apc-desc {
+  margin: 0 0 32px;
+  max-width: 70ch;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ── Filter chips ── */
+.apc-filters {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+.apc-filter {
+  border-radius: 999px;
+  padding: 7px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.14s, color 0.14s;
+}
+.apc-filter:hover:not(.apc-filter--on) { opacity: 0.8; }
+
+/* ── Job cards ── */
+.apc-jobs {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.apc-job {
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.apc-job-title {
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 6px;
+  color: inherit;
+}
+.apc-job-meta {
+  font-size: 13px;
+}
+.apc-apply {
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 13px;
+  text-decoration: none;
+  flex: none;
+  white-space: nowrap;
+  transition: opacity 0.14s;
+}
+.apc-apply:hover { opacity: 0.85; }
+
+/* ── Empty state ── */
+.apc-empty {
+  font-size: 14px;
+  padding: 20px 0;
+  margin: 0;
+}
+
+/* ── General Applications ── */
+.apc-general {
+  margin-top: 56px;
+  border-radius: 10px;
+  padding: 28px;
+}
+.apc-gen-h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 22px;
+  color: inherit;
+  margin: 0 0 12px;
+}
+.apc-gen-p {
+  font-size: 14px;
+  margin: 0;
+  line-height: 1.6;
+}
+.apc-gen-link {
+  text-decoration: none;
+  font-weight: 600;
+}
+.apc-gen-link:hover { text-decoration: underline; }
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .apc-root { padding: 28px 16px 60px; }
+  .apc-h1 { font-size: 34px; }
+  .apc-job { flex-direction: column; align-items: flex-start; }
+  .apc-apply { width: 100%; text-align: center; }
+}

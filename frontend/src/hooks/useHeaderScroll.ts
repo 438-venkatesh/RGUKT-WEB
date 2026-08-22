@@ -1,0 +1,15 @@
+import { useState, useEffect } from 'react';
+
+/** Shared scroll threshold for compact header (hide utility bar, show nav only). */
+export function useHeaderScroll(threshold = 50) {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > threshold);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [threshold]);
+
+  return scrolled;
+}

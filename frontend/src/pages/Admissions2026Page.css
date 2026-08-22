@@ -1,0 +1,141 @@
+.adm26-page {
+  padding: 0 0 80px;
+  min-height: 50vh;
+}
+
+.adm26-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.adm26-banner {
+  color: #fff;
+  padding: 36px 32px;
+  border-radius: 8px;
+  margin: 0 0 32px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.adm26-kicker {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.85;
+  margin: 0 0 8px;
+}
+
+.adm26-banner-title {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 10px;
+}
+
+.adm26-banner-sub {
+  font-size: 15px;
+  line-height: 1.55;
+  opacity: 0.9;
+  margin: 0;
+  max-width: 480px;
+}
+
+.adm26-cta-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.adm26-cta-primary {
+  display: inline-block;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 12px 22px;
+  border-radius: 4px;
+  text-decoration: none;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.adm26-cta-primary:hover {
+  filter: brightness(1.08);
+}
+
+.adm26-cta-secondary {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.adm26-section {
+  margin-bottom: 36px;
+}
+
+.adm26-h3 {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 14px;
+}
+
+.adm26-list,
+.adm26-steps {
+  margin: 0;
+  padding-left: 1.25rem;
+  line-height: 1.75;
+  font-size: 15px;
+}
+
+.adm26-steps li {
+  margin-bottom: 8px;
+}
+
+.adm26-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.adm26-timeline-item {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding: 14px 18px;
+  border: 1px solid;
+  border-radius: 6px;
+}
+
+.adm26-timeline-date {
+  font-size: 13px;
+  font-weight: 700;
+  min-width: 88px;
+  flex-shrink: 0;
+}
+
+.adm26-timeline-event {
+  font-size: 14px;
+}
+
+.adm26-note {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+@media (max-width: 640px) {
+  .adm26-banner {
+    padding: 28px 20px;
+  }
+
+  .adm26-cta-group {
+    width: 100%;
+  }
+}

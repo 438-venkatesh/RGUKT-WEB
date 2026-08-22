@@ -1,0 +1,224 @@
+/* ── Page shell ── */
+.place-page {
+  min-height: 100vh;
+}
+
+/* ── Stats bar (below PageHero) ── */
+.place-stats-bar {
+  padding: 32px 24px;
+}
+
+/* ── Hero banner (legacy) ── */
+.place-hero {
+  padding: 56px 24px;
+}
+
+.place-hero-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.place-hero-title {
+  font-family: var(--font-heading);
+  font-size: 40px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 24px;
+  line-height: 1.15;
+}
+
+.place-hero-stats {
+  display: flex;
+  gap: 44px;
+  flex-wrap: wrap;
+}
+
+.place-hero-stat-value {
+  font-family: var(--font-heading);
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.place-hero-stat-label {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 13px;
+  margin-top: 2px;
+}
+
+/* ── Content area ── */
+.place-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 56px 24px;
+}
+
+/* ── Section spacing ── */
+.place-section {
+  margin-bottom: 48px;
+}
+
+.place-h2 {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 20px;
+  line-height: 1.2;
+}
+
+/* ── Bar chart ── */
+.place-chart {
+  width: 100%;
+  max-width: 600px;
+  display: block;
+}
+
+/* ── Campus table ── */
+.place-table-wrap {
+  overflow-x: auto;
+  border-radius: 8px;
+}
+
+.place-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.place-th {
+  padding: 12px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.place-td {
+  padding: 12px 16px;
+}
+
+.place-td--bold {
+  font-weight: 600;
+}
+
+.place-td--mono {
+  font-family: var(--font-mono);
+}
+
+/* ── Recruiters grid ── */
+.place-recruiters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 14px;
+}
+
+.place-recruiter-card {
+  border-radius: 8px;
+  padding: 18px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 13px;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.place-recruiter-card:hover {
+  box-shadow: 0 4px 14px rgba(10, 39, 68, 0.1);
+  transform: translateY(-2px);
+}
+
+[data-theme="dark"] .place-recruiter-card:hover {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+}
+
+/* ── CDPC contact form ── */
+.place-form-section {
+  border-radius: 10px;
+  padding: 28px;
+}
+
+.place-form-h2 {
+  font-size: 22px;
+  margin-bottom: 16px;
+}
+
+.place-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.place-input {
+  padding: 11px 12px;
+  border-radius: 6px;
+  font: inherit;
+  font-size: 14px;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.15s;
+}
+
+.place-input:focus-visible {
+  outline: 2px solid #C8102E;
+  outline-offset: 2px;
+}
+
+.place-submit-btn {
+  grid-column: 1 / -1;
+  justify-self: start;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.place-submit-btn:hover {
+  opacity: 0.88;
+}
+
+.place-sent-msg {
+  grid-column: 1 / -1;
+  font-size: 13px;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 680px) {
+  .place-hero {
+    padding: 40px 16px;
+  }
+
+  .place-hero-title {
+    font-size: 28px;
+    margin-bottom: 18px;
+  }
+
+  .place-hero-stats {
+    gap: 24px;
+  }
+
+  .place-hero-stat-value {
+    font-size: 22px;
+  }
+
+  .place-content {
+    padding: 36px 16px;
+  }
+
+  .place-h2 {
+    font-size: 20px;
+  }
+
+  .place-form {
+    grid-template-columns: 1fr;
+  }
+
+  .place-form-section {
+    padding: 20px 16px;
+  }
+}

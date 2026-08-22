@@ -1,0 +1,47 @@
+.res-section {
+  margin-bottom: 32px;
+}
+
+.res-list {
+  margin: 0;
+  padding-left: 1.25rem;
+  line-height: 1.75;
+  font-size: 15px;
+}
+
+.res-link {
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.res-link:hover {
+  text-decoration: underline;
+}
+
+.res-tag-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.res-tag-row {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--ap-border);
+}
+
+.res-tag {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.res-tag-desc {
+  font-size: 14px;
+  line-height: 1.55;
+}

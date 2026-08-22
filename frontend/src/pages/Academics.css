@@ -1,0 +1,336 @@
+/* ── Page shell ── */
+.acad-page {
+  min-height: 100vh;
+}
+
+.acad-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 24px 80px;
+}
+
+/* ── Page title ── */
+.acad-title {
+  font-family: var(--font-heading);
+  font-size: 44px;
+  font-weight: 700;
+  margin: 0 0 28px;
+  line-height: 1.15;
+}
+
+/* ── Tab bar ── */
+.acad-tabbar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.acad-tab {
+  background: none;
+  border: none;
+  border-top: 2px solid transparent; /* keeps height stable */
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+  white-space: nowrap;
+}
+
+.acad-tab:hover {
+  opacity: 0.8;
+}
+
+/* ── Common select ── */
+.acad-select {
+  padding: 8px 12px;
+  border-radius: 6px;
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  outline: none;
+  appearance: auto;
+}
+
+.acad-select:focus-visible {
+  outline: 2px solid #C8102E;
+  outline-offset: 2px;
+}
+
+/* ── Programmes tab ── */
+.acad-campus-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.acad-campus-label {
+  font-size: 13px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.acad-programs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.acad-program-card {
+  border-radius: 10px;
+  padding: 22px;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.acad-program-card:hover {
+  box-shadow: 0 6px 20px rgba(10, 39, 68, 0.1);
+  transform: translateY(-2px);
+}
+
+[data-theme="dark"] .acad-program-card:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.acad-program-name {
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.acad-program-meta {
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* ── Regulations tab ── */
+.acad-doc-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.acad-doc-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-radius: 8px;
+  padding: 14px 18px;
+  text-decoration: none;
+  transition: box-shadow 0.15s, transform 0.15s;
+}
+
+.acad-doc-row:hover {
+  box-shadow: 0 4px 16px rgba(10, 39, 68, 0.1);
+  transform: translateY(-1px);
+}
+
+[data-theme="dark"] .acad-doc-row:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+.acad-doc-title {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.acad-doc-size {
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+/* ── Exams tab ── */
+.acad-exam-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.acad-exam-filters {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.acad-filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.acad-filter-label {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.acad-select--exam {
+  padding: 9px 12px;
+}
+
+.acad-download-btn {
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s;
+  height: fit-content;
+}
+
+.acad-download-btn:hover {
+  opacity: 0.88;
+}
+
+.acad-exam-hint {
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── Library tab ── */
+.acad-lib-section {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.acad-lib-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+}
+
+.acad-lib-card {
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+}
+
+.acad-lib-value {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.1;
+}
+
+.acad-lib-label {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 4px;
+}
+
+.acad-lib-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.acad-lib-link {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  border-radius: 6px;
+  padding: 10px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 0.15s, box-shadow 0.15s;
+}
+
+.acad-lib-link:hover {
+  opacity: 0.8;
+  box-shadow: 0 2px 8px rgba(10, 39, 68, 0.12);
+}
+
+/* ── Scholarships tab ── */
+.acad-scholarships-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.acad-scholarship-card {
+  border-radius: 10px;
+  padding: 20px;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.acad-scholarship-card:hover {
+  box-shadow: 0 6px 20px rgba(10, 39, 68, 0.08);
+  transform: translateY(-1px);
+}
+
+[data-theme="dark"] .acad-scholarship-card:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.acad-scholarship-name {
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+
+.acad-scholarship-desc {
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+/* ── Responsive ── */
+@media (max-width: 700px) {
+  .acad-title {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+
+  .acad-wrap {
+    padding: 32px 16px 64px;
+  }
+
+  .acad-tab {
+    font-size: 13px;
+    padding: 10px 12px;
+  }
+
+  .acad-programs-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .acad-lib-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .acad-exam-filters {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 460px) {
+  .acad-programs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .acad-lib-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .acad-doc-row {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .acad-doc-size {
+    order: 3;
+  }
+}

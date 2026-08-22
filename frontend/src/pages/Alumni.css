@@ -1,0 +1,178 @@
+/* ── Page shell ── */
+.alumni-page {
+  min-height: 100vh;
+}
+
+.alumni-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 48px 24px 80px;
+}
+
+/* ── Title ── */
+.alumni-title {
+  font-family: var(--font-heading);
+  font-size: 44px;
+  font-weight: 700;
+  margin: 0 0 28px;
+  line-height: 1.15;
+}
+
+/* ── Filter pills ── */
+.alumni-filters {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.alumni-filter-btn {
+  border-radius: 999px;
+  padding: 8px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  line-height: 1.4;
+}
+
+/* ── Section ── */
+.alumni-section {
+  margin-bottom: 48px;
+}
+
+.alumni-h2 {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 0 16px;
+  line-height: 1.2;
+}
+
+/* ── Notable alumni grid ── */
+.alumni-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.alumni-card {
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.alumni-card:hover {
+  box-shadow: 0 6px 20px rgba(10, 39, 68, 0.1);
+  transform: translateY(-2px);
+}
+
+[data-theme="dark"] .alumni-card:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ── Avatar ── */
+.alumni-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin: 0 auto 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Card text ── */
+.alumni-name {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.35;
+  margin-bottom: 3px;
+}
+
+.alumni-detail {
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.alumni-campus {
+  font-size: 11px;
+  font-weight: 600;
+  margin-top: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* ── Empty state ── */
+.alumni-empty {
+  font-size: 14px;
+  margin: 0;
+}
+
+/* ── Alumni association banner ── */
+.alumni-banner {
+  border-radius: 10px;
+  padding: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.alumni-banner-name {
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.alumni-banner-sub {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 13px;
+}
+
+.alumni-banner-btn {
+  background: #fff;
+  font-weight: 700;
+  padding: 12px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+  white-space: nowrap;
+  transition: opacity 0.15s;
+  flex-shrink: 0;
+}
+
+.alumni-banner-btn:hover {
+  opacity: 0.88;
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .alumni-title {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+
+  .alumni-wrap {
+    padding: 32px 16px 64px;
+  }
+
+  .alumni-h2 {
+    font-size: 19px;
+  }
+
+  .alumni-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+  }
+
+  .alumni-banner {
+    padding: 24px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

@@ -1,0 +1,188 @@
+/* ── Page ── */
+.orgchart-page {
+  min-height: 100vh;
+  padding: 48px 24px 80px;
+}
+
+.orgchart-wrap {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* ── Header ── */
+.orgchart-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 48px;
+}
+
+.orgchart-title {
+  font-family: var(--font-heading);
+  font-size: 40px;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.orgchart-print-btn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: inherit;
+  transition: background 0.15s;
+}
+
+.orgchart-print-btn:hover {
+  background: rgba(10, 39, 68, 0.06);
+}
+
+[data-theme="dark"] .orgchart-print-btn:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* ── Tree ── */
+.orgchart-tree {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.orgchart-tier-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* ── Cards row ── */
+.orgchart-row {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 16px 0;
+}
+
+/* ── Person card (matches design: 160px wide) ── */
+.person-card {
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+  width: 160px;
+  flex-shrink: 0;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.person-card:hover {
+  box-shadow: 0 8px 24px rgba(10, 39, 68, 0.1);
+  transform: translateY(-2px);
+}
+
+.person-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  margin: 0 auto 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.person-name {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.35;
+  margin-bottom: 3px;
+}
+
+.person-role {
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+/* ── Connector area ── */
+.orgchart-connector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+/* Single vertical stem from card to the horizontal bar (or next card) */
+.orgchart-stem {
+  width: 2px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+/* Horizontal bar spanning the width of next tier */
+.orgchart-hbar {
+  height: 2px;
+  max-width: 90vw;
+  flex-shrink: 0;
+}
+
+/* Drop lines from horizontal bar down to each next-tier card */
+.orgchart-drops {
+  display: flex;
+  justify-content: space-between;
+  max-width: 90vw;
+  flex-shrink: 0;
+}
+
+.orgchart-drop {
+  width: 2px;
+  height: 24px;
+}
+
+/* ── Print styles ── */
+@media print {
+  .no-print { display: none !important; }
+
+  .orgchart-page {
+    padding: 24px;
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  .person-card {
+    border-color: #ccc !important;
+    background: #fff !important;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+
+  .person-avatar {
+    background: #eee !important;
+  }
+
+  .person-name  { color: #000 !important; }
+  .person-role  { color: #555 !important; }
+
+  .orgchart-stem,
+  .orgchart-hbar,
+  .orgchart-drop {
+    background: #bbb !important;
+  }
+}
+
+/* ── Responsive ── */
+@media (max-width: 700px) {
+  .orgchart-title { font-size: 28px; }
+
+  .person-card { width: 140px; }
+
+  /* On very small screens collapse the 4-campus row to 2×2 */
+  .orgchart-row { gap: 12px; }
+
+  /* Hide the fancy h-bar/drops on small screens — just show a simple stem */
+  .orgchart-hbar,
+  .orgchart-drops { display: none; }
+}

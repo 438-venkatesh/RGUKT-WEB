@@ -1,0 +1,481 @@
+{
+  "scrapedAt": "2026-08-19",
+  "sourceSite": "https://www.rgukt.in",
+  "summary": {
+    "totalPages": 16,
+    "availableOnSource": 6,
+    "notFoundOnSource": 10
+  },
+  "urlMap": [
+    {
+      "menuItem": "Academics",
+      "slug": "overview",
+      "localRoute": "/academics",
+      "rguktUrl": "https://www.rgukt.in/academics/",
+      "pageStatus": "ok"
+    },
+    {
+      "menuItem": "Undergraduate Programmes - Programmes - Academics",
+      "slug": "undergraduate",
+      "localRoute": "/academics/undergraduate",
+      "rguktUrl": "https://www.rgukt.in/academics/programmes/undergraduate-programmes/",
+      "pageStatus": "ok"
+    },
+    {
+      "menuItem": "Postgraduate Programmes - Programmes - Academics",
+      "slug": "postgraduate",
+      "localRoute": "/academics/postgraduate",
+      "rguktUrl": "https://www.rgukt.in/academics/programmes/postgraduate-programmes/",
+      "pageStatus": "ok"
+    },
+    {
+      "menuItem": "Research Programmes - Programmes - Academics",
+      "slug": "research",
+      "localRoute": "/academics/research",
+      "rguktUrl": "https://www.rgukt.in/academics/programmes/research-programmes/",
+      "pageStatus": "ok"
+    },
+    {
+      "menuItem": "Summer Programmes - Programmes - Academics",
+      "slug": "summer",
+      "localRoute": "/academics/summer",
+      "rguktUrl": "https://www.rgukt.in/academics/programmes/summer-programmes/",
+      "pageStatus": "not_found_on_source"
+    },
+    {
+      "menuItem": "Regulations - Academics",
+      "slug": "regulations",
+      "localRoute": "/academics/regulations",
+      "rguktUrl": "https://www.rgukt.in/academics/regulations/",
+      "pageStatus": "not_found_on_source"
+    },
+    {
+      "menuItem": "Calendar - Academics",
+      "slug": "calendar",
+      "localRoute": "/academics/calendar",
+      "rguktUrl": "https://www.rgukt.in/academics/calendar/",
+      "pageStatus": "not_found_on_source"
+    },
+    {
+      "menuItem": "Curriculam - Academics",
+      "slug": "curriculum",
+      "localRoute": "/academics/curriculum",
+      "rguktUrl": "https://www.rgukt.in/academics/curriculam/",
+      "pageStatus": "not_found_on_source"
+    },
+    {
+      "menuItem": "Examination Procedures",
+      "slug": "examination-procedures",
+      "localRoute": "/academics/examination-procedures",
+      "rguktUrl": "https://www.rgukt.in/academics/examination/procedures/",
+      "pageStatus": "ok"
+    },
+    {
+      "menuItem": "Schedules - Examination - Academics",
+      "slug": "examination-schedules",
+      "localRoute": "/academics/examination-schedules",
+      "rguktUrl": "https://www.rgukt.in/academics/examination/schedules/",
+      "pageStatus": "not_found_on_source"
+    },
+    {
+      "menuItem": "Central Library - Facilities - Academics",
+      "slug": "central-library",
+      "localRoute": "/academics/central-library",
+      "rguktUrl": "https://www.rgukt.in/academics/facilities/central-library/",
+      "pageStatus": "not_found_on_source"
+    },
+    {
+      "menuItem": "Lms - Facilities - Academics",
+      "slug": "lms",
+      "localRoute": "/academics/lms",
+      "rguktUrl": "https://www.rgukt.in/academics/facilities/lms/",
+      "pageStatus": "not_found_on_source"
+    },
+    {
+      "menuItem": "Timetables - Services - Academics",
+      "slug": "timetables",
+      "localRoute": "/academics/timetables",
+      "rguktUrl": "https://www.rgukt.in/academics/services/timetables/",
+      "pageStatus": "ok"
+    },
+    {
+      "menuItem": "Scholarships And Financial Assistance - Services - Academics",
+      "slug": "scholarships",
+      "localRoute": "/academics/scholarships",
+      "rguktUrl": "https://www.rgukt.in/academics/services/scholarships-and-financial-assistance/",
+      "pageStatus": "not_found_on_source"
+    },
+    {
+      "menuItem": "Orientation Programme - Services - Academics",
+      "slug": "orientation",
+      "localRoute": "/academics/orientation",
+      "rguktUrl": "https://www.rgukt.in/academics/services/orientation-programme/",
+      "pageStatus": "not_found_on_source"
+    },
+    {
+      "menuItem": "Academic Council Minutes - Academics",
+      "slug": "council-minutes",
+      "localRoute": "/academics/council-minutes",
+      "rguktUrl": "https://www.rgukt.in/academics/academic-council-minutes/",
+      "pageStatus": "not_found_on_source"
+    }
+  ],
+  "pages": [
+    {
+      "slug": "overview",
+      "rguktUrl": "https://www.rgukt.in/academics/",
+      "title": "Academics",
+      "intro": [],
+      "sections": [
+        {
+          "heading": "Overview of Academics at RGUKT-AP",
+          "content": [
+            "Rajiv Gandhi University of Knowledge Technologies - Andhra Pradesh (RGUKT-AP) is a premier institution dedicated to nurturing talent and fostering innovation. The university firmly believes that brilliance and groundbreaking ideas can emerge from any corner of society. With a vibrant and diverse student community, RGUKT-AP attracts learners from across Andhra Pradesh, other Indian states, and even international regions. Our students are characterized by their intense curiosity, a passion for exploration, and a commitment to excellence. They thrive on rigorous analytical thinking, creative problem-solving, hands-on experimentation, and the pursuit of transformative ideas.",
+            "The academic framework at RGUKT-AP is structured around its departments and centers, which are responsible for driving teaching, research, and industry collaboration. The university offers a range of programs designed to provide a holistic and immersive learning experience. Courses are organized into semester patterns, with each semester comprising a minimum of seventy instructional days. English serves as the medium of instruction, ensuring global compatibility and accessibility. Continuous evaluation is a cornerstone of the academic process, with assessments conducted by faculty members, reflecting the autonomous and rigorous standards upheld by the university.",
+            "Research at RGUKT-AP is a dynamic and integral part of the academic ecosystem. Student and faculty research projects are evaluated through a robust peer-review process, involving experts from both national and international arenas. This ensures that the research output meets global standards and contributes meaningfully to the advancement of knowledge.",
+            "The academic policies and programs at RGUKT-AP are governed by the university's highest academic body, which formulates ordinances and guidelines to maintain excellence in education. The curriculum is designed to strike a balance between rigorous academic training and co-curricular activities, fostering well-rounded development. The university regularly hosts special lectures, seminars, and workshops under its Extra Mural Lecture series, featuring eminent scholars and industry leaders who share insights on diverse and relevant topics.",
+            "RGUKT-AP also takes pride in its collaborative spirit. The university organizes numerous conferences, symposia, and workshops that attract participation from scholars and professionals worldwide. Additionally, RGUKT-AP has established academic partnerships with renowned institutions across the globe through faculty exchange programs and Memoranda of Understanding (MOUs). These collaborations facilitate cooperative projects, joint research initiatives, and mutual academic growth.",
+            "The faculty at RGUKT-AP are distinguished achievers, recognized for their academic contributions through awards and accolades from both national and international organizations. Their expertise and dedication play a pivotal role in shaping the university's academic landscape. Furthermore, RGUKT-AP maintains strong ties with industry, offering consultancy services and engaging in projects sponsored by various institutions. This interaction not only bridges the gap between academia and industry but also provides students with practical exposure and innovative learning opportunities.",
+            "At RGUKT-AP, the pursuit of knowledge is complemented by a commitment to societal impact. The university encourages the application of innovative ideas to real-world challenges, ensuring that education translates into meaningful progress. With its unwavering focus on academic excellence, research innovation, and industry collaboration, RGUKT-AP stands as a beacon of transformative education in Andhra Pradesh and beyond.",
+            "To view Academic curricula - click here",
+            "For latest updates and information, please visit the Announcements Page"
+          ]
+        }
+      ],
+      "documents": [],
+      "pageStatus": "ok"
+    },
+    {
+      "slug": "undergraduate",
+      "rguktUrl": "https://www.rgukt.in/academics/programmes/undergraduate-programmes/",
+      "title": "Undergraduate Programmes - Programmes - Academics",
+      "intro": [],
+      "sections": [
+        {
+          "heading": "Features of Six-Year Integrated Course",
+          "content": [
+            "The program offered by the RGUKT consists of a six year integrated course after 10th class examination leading to a B.Tech. degree. The first part of the six-year course is a two-year Pre University Course (equivalent to (AP) Intermediate) followed by a second part of four-year Engineering Course. At present the pre-university part of education offers premature specialization in tracks such as Mathematics, Physics, Chemistry and Life sciences (equivalent to MPC + BiPC). By bringing students in to the University at an earlier stage we hope to impart a broad based education including humanities and liberal arts to students.",
+            "The Pre-University Part",
+            "This is equivalent to the two year Intermediate (AP) education. The program provides a qualitative plus two education in itself and further lays a stronger foundation for the technical and professional courses ahead. It has an inbuilt system for remedial education for the students who are relatively weak. In addition, there is a foundation course in IT, preparing students to make full use of the Information Technology and Communication resources provided by the RGUKT in its novel model of teaching learning. There is a permitted exit after Pre-University if the student chooses to go for a career in other professional programs. The program also provides short-term courses in humanities and social sciences so that the students emerge as confident, energetic, enthusiastic youngsters seeking challenges in their university education and life.",
+            "Cirriculam Regulations",
+            "Degree Programs at RGUKTs",
+            "Upon completing six years of education (3 semesters per year), graduates receive a B.Tech. degree in one of the following disciplines:",
+            "Further, depending on the performance and by earning additional credits, it is possible to get a B.Tech. with two Majors, i.e., one in Computer Science and the other from among Chemical, Civil, Electronics and Communication, Materials Science and Mechanical. Alternatively it is possible to get a degree with one Major and two Minors or one Major and one Minor. One of the two Minors may be from Business Management, Economics Mathematics, Social Sciences and Statistics.",
+            "Cirriculam Regulations"
+          ],
+          "items": [
+            "Chemical Engineering",
+            "Civil Engineering",
+            "Computer Science and Engineering",
+            "Electrical & Electronics Engineering",
+            "Electronics & Communications Engineering",
+            "Materials Science and Metallurgical Engineering",
+            "Mechanical Engineering"
+          ]
+        },
+        {
+          "heading": "Employment Prospects",
+          "content": [
+            "It is expected that the employment prospects of graduates of RGUKT (IIITs) will be comparable to the other world class universities in India. It is also anticipated that the broad-based education including soft skills will provide a strong foundation for national competitive examinations. Appropriate placement guidance and awareness programs will be conducted to prepare the students for private and public sector opportunities. Students also learn entrepreneurship and other skills that can help them to set out on their own."
+          ]
+        },
+        {
+          "heading": "Tuition Fees",
+          "content": [
+            "As a government sponsored university, the tuition fees at Rajiv Gandhi University are highly subsidized by the AP government. The annual fee (for AP students) for the first two years (Pre University program) is Rs.36,000/-. This includes tuition, lodging and boarding."
+          ]
+        },
+        {
+          "heading": "Focus on Liberal and Professional Education Including Soft Skills",
+          "content": [
+            "The program at RGUKT is built on a new model of liberal professional education creating future leaders with a broad understanding of the world. A structured environment of broad based education including basic skills of communication, teamwork and leadership is provided. It aims at making students well equipped with life skills and confident problem solvers rather than over specialized engineers who just know the theory. It prepares the student to meet the demands of the work place and society as he or she navigates through life. It stresses lifelong learning through learning to learn, and learning to live.",
+            "The program uses the learning-by-doing paradigm of education using personalized mentors and intelligent tutoring systems. The program adapts self-paced learning with variable duration to reach the mastery level outcome. Highly qualified and meritorious faculty will be participating in teaching, learning and research. Many of them are being drawn from the world class institutions such as IITs.",
+            "There will be a focus on all-round development with emphasis on personality development and education in Humanities and Social Sciences to make students responsible world citizens. The program is intensive with emphasis on physical training, sports and soft skills. About 30% of time is devoted to soft skills."
+          ]
+        },
+        {
+          "heading": "Life in a Residential Campus",
+          "content": [
+            "As a fully residential program, all students will stay on the campus. The program is intensive and runs for 3 semesters of 16 weeks of 6 days a week each. Only 6 weeks of vacation is permitted: 1 week in Dasara, 1 week during Sankranthi and four weeks in summer. While the program appears intensive, it is also designed to help absorption by making students apply concepts right-then-and-there in class.",
+            "All education is mediated through the use of Information and Communication technologies. The academic complex is being connected by high speed LAN which extends to each student's desk and a laptop is provided to each student right from his or her first year. Each class of about 50 students will have mentors who will conduct a discourse and discussion around a prerecorded expert lecture. The best part of this learning paradigm is that students will have time in these class sessions to receive the lecture, ask questions, discuss with the help of mentors and apply the concepts to problem solving. A good student would have no homework!",
+            "To keep up with this program and life in general, time is set apart for physical fitness activities. During the first two years all students would attend physical training and exercise each morning and participate in sports in the evening. The daily academic program will consist of 4 periods of just less than 2 hours duration each from 8 AM to 4PM with a lunch break. During the evening after dinner, there will be programs in soft skills, reading classics, and viewing selected movie programs from 7.30PM to 10.30PM. This will be a more relaxing and a quiet learning time. Students get to explore their talents in art, drama and music as well. Subsequent year will offer greater flexibility in individual daily schedule.",
+            "Separate and secure hostel facilities will be provided for girls and boys. Food and dining facilities will be according to modern standards."
+          ]
+        }
+      ],
+      "documents": [],
+      "pageStatus": "ok"
+    },
+    {
+      "slug": "postgraduate",
+      "rguktUrl": "https://www.rgukt.in/academics/programmes/postgraduate-programmes/",
+      "title": "Postgraduate Programmes - Programmes - Academics",
+      "intro": [],
+      "sections": [
+        {
+          "heading": "Postgraduate Programme",
+          "content": [
+            "Rajiv Gandhi University of Knowledge Technologies (RGUKT) in Andhra Pradesh offers postgraduate programs aimed at providing advanced education and research opportunities. The primary postgraduate offering is the Master of Technology (M.Tech) program, designed to equip students with specialized knowledge and skills in various engineering disciplines.",
+            "This course has been designed incorporating advanced Computing Techniques and Tools to suit for the people seeking TEACHING/RESEARCH CAREER in computational Engineering/Sciences competing with world class curricula.",
+            "M.Tech Programs:",
+            "The M.Tech curriculum at RGUKT is structured to incorporate advanced computing techniques and tools, catering to individuals aspiring for teaching or research careers in computational engineering and sciences. The programs are aligned with global standards to ensure competitiveness.",
+            "The M.Tech specializations available include:",
+            "Admission Process:",
+            "Prospective candidates interested in the M.Tech or Ph.D. programs should refer to the official RGUKT website for detailed information on eligibility criteria, application procedures, and important dates. Admission notifications, along with specific requirements for each program, are regularly updated on the university's official portal.",
+            "For comprehensive details on curricula, regulations, and other academic information, applicants are encouraged to consult the academic section of the RGUKT website.",
+            "By offering these postgraduate programs, RGUKT aims to develop skilled professionals and researchers equipped to contribute significantly to their respective fields."
+          ],
+          "items": [
+            "Transportation Engineering (Civil Engineering): Focuses on the planning, design, operation, and management of transportation systems.",
+            "Advanced Materials Technology (Metallurgical and Materials Engineering): Centers on the development and application of advanced materials in engineering.",
+            "Artificial Intelligence and Machine Learning (Computer Science and Engineering): Emphasizes the development of intelligent systems and algorithms capable of learning and decision-making.",
+            "Engineering Analysis and Design (Mechanical Engineering): Concentrates on the application of analytical and computational methods to solve complex engineering problems."
+          ]
+        }
+      ],
+      "documents": [],
+      "pageStatus": "ok"
+    },
+    {
+      "slug": "research",
+      "rguktUrl": "https://www.rgukt.in/academics/programmes/research-programmes/",
+      "title": "Research Programmes - Programmes - Academics",
+      "intro": [],
+      "sections": [
+        {
+          "heading": "Research Programmes",
+          "content": [
+            "Rajiv Gandhi University of Knowledge Technologies (RGUKT) offers various research opportunities across its campuses for students in disciplines such as Electronics and Communications Engineering (ECE), Computer Science and Engineering (CSE), Electrical and Electronics Engineering (EEE), Mechanical Engineering, and Chemical Engineering.",
+            "Research Opportunities at RGUKT:",
+            "Additional Research Initiatives:",
+            "Minor and Double Minor Programs: RGUKT offers options for students to pursue minors or double minors in various disciplines, allowing them to broaden their research scope. For instance, students can opt for a minor in Computer Science and Engineering or other engineering branches, enhancing interdisciplinary research opportunities."
+          ],
+          "items": [
+            "Chemical Engineering: RGUKT Nuzvid: The Department of Chemical Engineering focuses on sustainable solutions and global impact through cutting-edge education and research. RGUKT Basar: Established in 2010, the department offers a strong curriculum integrated with electives in emerging areas such as Computational Fluid Dynamics, Nanotechnology, and Petroleum Engineering.",
+            "Electrical and Electronics Engineering (EEE): RGUKT Srikakulam: The department emphasizes a comprehensive education that prepares students for successful careers in industry, academia, and research.",
+            "Mechanical Engineering: RGUKT Basar: The department offers a curriculum that includes both core and elective courses, providing students with opportunities to engage in research projects and internships.",
+            "Computer Science and Engineering (CSE): RGUKT Nuzvid: The CSE department provides a curriculum that includes core and elective courses, offering students opportunities to engage in research projects and internships.",
+            "Electronics and Communications Engineering (ECE): RGUKT Basar: The department offers a curriculum that includes both core and elective courses, providing students with opportunities to engage in research projects and internships."
+          ]
+        }
+      ],
+      "documents": [],
+      "pageStatus": "ok"
+    },
+    {
+      "slug": "summer",
+      "rguktUrl": "https://www.rgukt.in/academics/programmes/summer-programmes/",
+      "title": "Summer Programmes - Programmes - Academics",
+      "intro": [],
+      "sections": [],
+      "documents": [],
+      "pageStatus": "not_found_on_source",
+      "note": "Page returns soft 404 on rgukt.in (linked in nav but content unavailable)."
+    },
+    {
+      "slug": "regulations",
+      "rguktUrl": "https://www.rgukt.in/academics/regulations/",
+      "title": "Regulations - Academics",
+      "intro": [],
+      "sections": [],
+      "documents": [],
+      "pageStatus": "not_found_on_source",
+      "note": "Page returns soft 404 on rgukt.in (linked in nav but content unavailable)."
+    },
+    {
+      "slug": "calendar",
+      "rguktUrl": "https://www.rgukt.in/academics/calendar/",
+      "title": "Calendar - Academics",
+      "intro": [],
+      "sections": [],
+      "documents": [],
+      "pageStatus": "not_found_on_source",
+      "note": "Page returns soft 404 on rgukt.in (linked in nav but content unavailable)."
+    },
+    {
+      "slug": "curriculum",
+      "rguktUrl": "https://www.rgukt.in/academics/curriculam/",
+      "title": "Curriculam - Academics",
+      "intro": [],
+      "sections": [],
+      "documents": [],
+      "pageStatus": "not_found_on_source",
+      "note": "Page returns soft 404 on rgukt.in (linked in nav but content unavailable)."
+    },
+    {
+      "slug": "examination-procedures",
+      "rguktUrl": "https://www.rgukt.in/academics/examination/procedures/",
+      "title": "Examination Procedures",
+      "intro": [],
+      "sections": [
+        {
+          "heading": "Examination Procedures",
+          "content": [
+            "EXAMINATION PROCEDURES The University has fully integrated the Information Technology with the examination processes.",
+            "The University follows 40:60 model for distribution of marks between internal and external examination.",
+            "For the Internal component three tests are conducted using MCQs generated on the computer system.",
+            "The students are also directed to answer them through the system only.",
+            "It is the policy and practice of the University that every student who gets admission in the University is provided with a Laptop; which is required to be utilised for the purpose of learning and attending internal tests and term-end examinations.",
+            "The following is the IT integration happening at different stages of the examination processes: Pre-examination: The Admission data of the students is forwarded to the Examination section, which generates profile of every student for the purpose of creating ID and conduction of examination.",
+            "Based on the Data furnished by the Dean, Academic, the Subjects in which the candidates are taking exam are registered.",
+            "Accordingly, list of examinees is prepared and tests are held.",
+            "During the Examination: The pattern followed by the University consists of both descriptive and objective.",
+            "The objective part of the test is done through MCQs.",
+            "These MCQs are answered through computer systems.",
+            "Marks are also noted through the system and forwarded to the Examination office.",
+            "The practical marks are also forwarded online.",
+            "Post Examination: After the exam is completed, both internal and external marks are forwarded to the Controller’s office.",
+            "The COE will process the same and declares the result.",
+            "The results are communicated through the Website and the students can download the Marks lists also.",
+            "Further, the University, has the provision for revaluation and the students can apply through the Website and get their grievances redressed.",
+            "The University has also got registered under the National Academic Depository and appointed a Coordinator for this purpose.",
+            "As part of the process, students and prospective employers will have the advantage of verifying the academic credits and performance through this portal.",
+            "During the Covid period, the entire process was done through the online mode only.",
+            "The IT systems were revised according to the situation prevalent then.",
+            "Further, the University maintains a Question Bank under the supervision of Dean, Academic and the exam questions are drawn from the Bank through an automatic random selection.",
+            "Office of the Controller of Examination, will provide the model question paper following Bloom’s taxonomy.",
+            "Paper setters must assess on course outcomes outlined in each course and there by the program outcomes can be evaluated.",
+            "All these processes are handled through computer systems. • The declaration of result and the final distribution of Marks cards is done through the online systems.",
+            "The Physical Marks cards also carry various kinds of security features such as water marks, encrypted data and colour changing, etc."
+          ],
+          "source": "pdf_extract"
+        }
+      ],
+      "documents": [
+        {
+          "title": "Examination Procedures",
+          "url": "https://rgukt.in/files/pdfs/496fbb8f7015b42763311eea08e014d5.pdf"
+        }
+      ],
+      "pdfExtract": {
+        "sourceDocument": "Examination Procedures",
+        "sourceUrl": "https://rgukt.in/files/pdfs/496fbb8f7015b42763311eea08e014d5.pdf",
+        "paragraphs": [
+          "EXAMINATION PROCEDURES The University has fully integrated the Information Technology with the examination processes.",
+          "The University follows 40:60 model for distribution of marks between internal and external examination.",
+          "For the Internal component three tests are conducted using MCQs generated on the computer system.",
+          "The students are also directed to answer them through the system only.",
+          "It is the policy and practice of the University that every student who gets admission in the University is provided with a Laptop; which is required to be utilised for the purpose of learning and attending internal tests and term-end examinations.",
+          "The following is the IT integration happening at different stages of the examination processes: Pre-examination: The Admission data of the students is forwarded to the Examination section, which generates profile of every student for the purpose of creating ID and conduction of examination.",
+          "Based on the Data furnished by the Dean, Academic, the Subjects in which the candidates are taking exam are registered.",
+          "Accordingly, list of examinees is prepared and tests are held.",
+          "During the Examination: The pattern followed by the University consists of both descriptive and objective.",
+          "The objective part of the test is done through MCQs.",
+          "These MCQs are answered through computer systems.",
+          "Marks are also noted through the system and forwarded to the Examination office.",
+          "The practical marks are also forwarded online.",
+          "Post Examination: After the exam is completed, both internal and external marks are forwarded to the Controller’s office.",
+          "The COE will process the same and declares the result.",
+          "The results are communicated through the Website and the students can download the Marks lists also.",
+          "Further, the University, has the provision for revaluation and the students can apply through the Website and get their grievances redressed.",
+          "The University has also got registered under the National Academic Depository and appointed a Coordinator for this purpose.",
+          "As part of the process, students and prospective employers will have the advantage of verifying the academic credits and performance through this portal.",
+          "During the Covid period, the entire process was done through the online mode only.",
+          "The IT systems were revised according to the situation prevalent then.",
+          "Further, the University maintains a Question Bank under the supervision of Dean, Academic and the exam questions are drawn from the Bank through an automatic random selection.",
+          "Office of the Controller of Examination, will provide the model question paper following Bloom’s taxonomy.",
+          "Paper setters must assess on course outcomes outlined in each course and there by the program outcomes can be evaluated.",
+          "All these processes are handled through computer systems. • The declaration of result and the final distribution of Marks cards is done through the online systems.",
+          "The Physical Marks cards also carry various kinds of security features such as water marks, encrypted data and colour changing, etc."
+        ]
+      },
+      "pageStatus": "ok"
+    },
+    {
+      "slug": "examination-schedules",
+      "rguktUrl": "https://www.rgukt.in/academics/examination/schedules/",
+      "title": "Schedules - Examination - Academics",
+      "intro": [],
+      "sections": [],
+      "documents": [],
+      "pageStatus": "not_found_on_source",
+      "note": "Page returns soft 404 on rgukt.in (linked in nav but content unavailable)."
+    },
+    {
+      "slug": "central-library",
+      "rguktUrl": "https://www.rgukt.in/academics/facilities/central-library/",
+      "title": "Central Library - Facilities - Academics",
+      "intro": [],
+      "sections": [],
+      "documents": [],
+      "pageStatus": "not_found_on_source",
+      "note": "Page returns soft 404 on rgukt.in (linked in nav but content unavailable)."
+    },
+    {
+      "slug": "lms",
+      "rguktUrl": "https://www.rgukt.in/academics/facilities/lms/",
+      "title": "Lms - Facilities - Academics",
+      "intro": [],
+      "sections": [],
+      "documents": [],
+      "pageStatus": "not_found_on_source",
+      "note": "Page returns soft 404 on rgukt.in (linked in nav but content unavailable)."
+    },
+    {
+      "slug": "timetables",
+      "rguktUrl": "https://www.rgukt.in/academics/services/timetables/",
+      "title": "Timetables - Services - Academics",
+      "intro": [],
+      "sections": [
+        {
+          "heading": "Sem Timetables",
+          "items": [
+            {
+              "title": "Regular EST Time Table Sem1(AY 25-26)",
+              "url": "https://www.rgukt.in/academics/services/timetables/sem-1-reg/",
+              "date": "11-2025"
+            },
+            {
+              "title": "Remedial Time Table sem1(A.Y 25-26)",
+              "url": "https://www.rgukt.in/academics/services/timetables/sem-1-rem/",
+              "date": "11-2025"
+            }
+          ]
+        }
+      ],
+      "documents": [
+        {
+          "title": "Regular EST Time Table Sem1(AY 25-26)",
+          "url": "https://rgukt.in/files/pdfs/38accdebe6e24a1d7d98ecb5390ff058.pdf",
+          "date": "11-2025"
+        },
+        {
+          "title": "Remedial Time Table sem1(A.Y 25-26)",
+          "url": "https://rgukt.in/files/pdfs/9262d3ab826be9c441449af908b4f766.pdf",
+          "date": "11-2025"
+        }
+      ],
+      "pageStatus": "ok"
+    },
+    {
+      "slug": "scholarships",
+      "rguktUrl": "https://www.rgukt.in/academics/services/scholarships-and-financial-assistance/",
+      "title": "Scholarships And Financial Assistance - Services - Academics",
+      "intro": [],
+      "sections": [],
+      "documents": [],
+      "pageStatus": "not_found_on_source",
+      "note": "Page returns soft 404 on rgukt.in (linked in nav but content unavailable)."
+    },
+    {
+      "slug": "orientation",
+      "rguktUrl": "https://www.rgukt.in/academics/services/orientation-programme/",
+      "title": "Orientation Programme - Services - Academics",
+      "intro": [],
+      "sections": [],
+      "documents": [],
+      "pageStatus": "not_found_on_source",
+      "note": "Page returns soft 404 on rgukt.in (linked in nav but content unavailable)."
+    },
+    {
+      "slug": "council-minutes",
+      "rguktUrl": "https://www.rgukt.in/academics/academic-council-minutes/",
+      "title": "Academic Council Minutes - Academics",
+      "intro": [],
+      "sections": [],
+      "documents": [],
+      "pageStatus": "not_found_on_source",
+      "note": "Page returns soft 404 on rgukt.in (linked in nav but content unavailable)."
+    }
+  ]
+}

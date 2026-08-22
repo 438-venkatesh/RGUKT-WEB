@@ -1,0 +1,38 @@
+.about-doc-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  border-radius: 6px;
+  text-decoration: none;
+  max-width: 480px;
+  transition: box-shadow 0.15s, transform 0.15s;
+}
+
+.about-doc-link:hover {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+}
+
+.about-doc-label {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.about-doc-size {
+  font-size: 12px;
+}
+
+.about-doc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.about-doc-list .about-doc-link {
+  max-width: none;
+}

@@ -1,0 +1,116 @@
+/* ── RGUKT-AP IQAC page ── */
+
+.apiq-root {
+  min-height: calc(100vh - 98px);
+  padding: 48px 24px 80px;
+}
+.apiq-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.apiq-h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 44px;
+  color: inherit;
+  margin: 0 0 12px;
+  line-height: 1.15;
+}
+.apiq-intro {
+  line-height: 1.65;
+  margin: 0 0 40px;
+  font-size: 15px;
+}
+
+/* ── Sections ── */
+.apiq-section { margin-bottom: 48px; }
+.apiq-h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 22px;
+  color: inherit;
+  margin: 0 0 16px;
+}
+
+/* ── Dean card ── */
+.apiq-dean-card {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  border-radius: 10px;
+  padding: 20px;
+}
+.apiq-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.apiq-dean-name {
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 4px;
+  color: inherit;
+}
+.apiq-dean-email { font-size: 13px; }
+.apiq-email-link { text-decoration: none; }
+.apiq-email-link:hover { text-decoration: underline; }
+
+/* ── Quality initiatives ── */
+.apiq-initiatives {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.apiq-initiative {
+  display: flex;
+  gap: 14px;
+  align-items: baseline;
+}
+.apiq-tag {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 999px;
+  flex: none;
+  white-space: nowrap;
+}
+.apiq-initiative-desc {
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+/* ── Documents ── */
+.apiq-docs {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.apiq-doc {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-radius: 8px;
+  padding: 14px 18px;
+  text-decoration: none;
+  transition: box-shadow 0.14s;
+}
+.apiq-doc:hover { box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07); }
+.apiq-doc-title {
+  flex: 1;
+  font-size: 14px;
+}
+.apiq-doc-size {
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .apiq-root { padding: 28px 16px 60px; }
+  .apiq-h1 { font-size: 32px; }
+  .apiq-initiative { flex-direction: column; gap: 6px; }
+  .apiq-doc { flex-wrap: wrap; }
+}

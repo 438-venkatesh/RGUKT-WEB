@@ -1,0 +1,199 @@
+/* IIT Delhi–style photo gallery */
+
+.iit-gallery {
+  background: #fff;
+  padding: 56px 24px 64px;
+}
+
+.iit-gallery-head {
+  max-width: 1200px;
+  margin: 0 auto 28px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.iit-gallery-kicker {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ap-accent);
+  margin-bottom: 6px;
+}
+
+.iit-gallery-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 3vw, 36px);
+  font-weight: 700;
+  color: var(--ap-primary);
+  margin: 0;
+  line-height: 1.15;
+}
+
+.iit-gallery-viewall {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ap-primary);
+  text-decoration: none;
+  white-space: nowrap;
+  padding-bottom: 4px;
+  border-bottom: 2px solid var(--ap-accent);
+  transition: opacity 0.15s;
+}
+
+.iit-gallery-viewall:hover { opacity: 0.75; }
+
+.iit-gallery-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+}
+
+.iit-gallery-item {
+  position: relative;
+  aspect-ratio: 1;
+  border: none;
+  padding: 0;
+  overflow: hidden;
+  cursor: pointer;
+  background: #111;
+  display: block;
+}
+
+.iit-gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease, opacity 0.25s;
+}
+
+.iit-gallery-item:hover .iit-gallery-img {
+  transform: scale(1.06);
+  opacity: 0.82;
+}
+
+.iit-gallery-expand {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: rgba(10, 39, 68, 0.45);
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+.iit-gallery-item:hover .iit-gallery-expand { opacity: 1; }
+
+/* Lightbox */
+.iit-gallery-lb {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  background: rgba(0, 0, 0, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.iit-gallery-lb-img {
+  max-width: min(92vw, 1100px);
+  max-height: 88vh;
+  object-fit: contain;
+  border-radius: 2px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.iit-gallery-lb-close {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 36px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 8px;
+  opacity: 0.85;
+}
+
+.iit-gallery-lb-close:hover { opacity: 1; }
+
+.iit-gallery-lb-prev,
+.iit-gallery-lb-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #fff;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s;
+}
+
+.iit-gallery-lb-prev:hover,
+.iit-gallery-lb-next:hover { background: rgba(255, 255, 255, 0.22); }
+
+.iit-gallery-lb-prev { left: 20px; }
+.iit-gallery-lb-next { right: 20px; }
+
+/* Gallery page wrapper */
+.iit-gallery-page {
+  min-height: calc(100vh - 142px);
+  background: #fff;
+  padding: 40px 24px 80px;
+}
+
+.iit-gallery-page .iit-gallery {
+  padding: 0;
+  background: transparent;
+}
+
+.iit-gallery-page-title {
+  max-width: 1200px;
+  margin: 0 auto 8px;
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 44px);
+  color: var(--ap-primary);
+}
+
+.iit-gallery-breadcrumb {
+  max-width: 1200px;
+  margin: 0 auto 32px;
+  font-size: 13px;
+  color: var(--ap-text-muted);
+}
+
+.iit-gallery-breadcrumb a {
+  color: var(--ap-primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.iit-gallery-breadcrumb a:hover { text-decoration: underline; }
+
+@media (max-width: 900px) {
+  .iit-gallery-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .iit-gallery { padding: 40px 16px 48px; }
+  .iit-gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 4px; }
+  .iit-gallery-lb-prev { left: 8px; }
+  .iit-gallery-lb-next { right: 8px; }
+}

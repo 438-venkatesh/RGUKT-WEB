@@ -1,0 +1,204 @@
+/* ── Page shell ── */
+.contact-page {
+  min-height: 100vh;
+}
+
+.contact-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 48px 24px 80px;
+}
+
+/* ── Title ── */
+.contact-title {
+  font-family: var(--font-heading);
+  font-size: 44px;
+  font-weight: 700;
+  margin: 0 0 28px;
+  line-height: 1.15;
+}
+
+/* ── Central office card ── */
+.contact-central {
+  border-radius: 10px;
+  padding: 24px;
+  margin-bottom: 40px;
+}
+
+.contact-central-name {
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+
+.contact-central-detail {
+  font-size: 14px;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ── Section spacing ── */
+.contact-section {
+  margin-bottom: 48px;
+}
+
+.contact-h2 {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 0 20px;
+  line-height: 1.2;
+}
+
+/* ── Campus contacts grid ── */
+.contact-campus-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.contact-campus-card {
+  border-radius: 10px;
+  padding: 20px;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.contact-campus-card:hover {
+  box-shadow: 0 6px 20px rgba(10, 39, 68, 0.1);
+  transform: translateY(-2px);
+}
+
+[data-theme="dark"] .contact-campus-card:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.contact-campus-name {
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+
+.contact-campus-info {
+  font-size: 13px;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.contact-maps-link {
+  font-size: 12px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.15s;
+  display: inline-block;
+}
+
+.contact-maps-link:hover {
+  opacity: 0.75;
+  text-decoration: underline;
+}
+
+/* ── Enquiry form section ── */
+.contact-form-section {
+  border-radius: 10px;
+  padding: 28px;
+}
+
+.contact-form-section .contact-h2 {
+  margin-bottom: 16px;
+}
+
+/* ── Form grid ── */
+.contact-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.contact-input,
+.contact-select,
+.contact-textarea {
+  padding: 11px 12px;
+  border-radius: 6px;
+  font: inherit;
+  font-size: 14px;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.15s;
+}
+
+.contact-input:focus-visible,
+.contact-select:focus-visible,
+.contact-textarea:focus-visible {
+  outline: 2px solid #C8102E;
+  outline-offset: 2px;
+}
+
+.contact-input--full {
+  grid-column: 1 / -1;
+}
+
+.contact-select {
+  appearance: auto;
+  cursor: pointer;
+}
+
+.contact-textarea {
+  grid-column: 1 / -1;
+  resize: vertical;
+  min-height: 96px;
+}
+
+.contact-submit-btn {
+  grid-column: 1 / -1;
+  justify-self: start;
+  color: #fff;
+  border: none;
+  padding: 13px 24px;
+  border-radius: 6px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.contact-submit-btn:hover {
+  opacity: 0.88;
+}
+
+.contact-sent-msg {
+  grid-column: 1 / -1;
+  font-size: 13px;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .contact-title {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+
+  .contact-wrap {
+    padding: 32px 16px 64px;
+  }
+
+  .contact-h2 {
+    font-size: 19px;
+  }
+
+  .contact-form {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form-section {
+    padding: 20px 16px;
+  }
+
+  .contact-central {
+    padding: 18px 16px;
+    margin-bottom: 28px;
+  }
+}

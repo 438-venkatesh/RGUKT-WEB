@@ -1,0 +1,317 @@
+/* ── Header wrapper ── */
+.ap-header {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: top 0.25s;
+  overflow: visible;
+}
+
+.ap-header:not(.overlay):not(.compact) {
+  top: 32px;
+}
+
+.ap-header.overlay:not(.compact) {
+  top: calc(32px + 90px);
+}
+
+.ap-header.compact {
+  top: 0;
+}
+
+/* ── Main nav ── */
+.ap-nav {
+  background: var(--ap-surface);
+  border-bottom: 1px solid var(--ap-border);
+  transition: background 0.25s, box-shadow 0.2s;
+  overflow: visible;
+}
+
+.ap-nav-inner {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 12px 0 16px;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  height: 44px;
+  gap: 8px;
+  position: relative;
+  overflow: visible;
+}
+
+/* Home overlay — transparent nav over hero */
+.ap-header.overlay:not(.solid) .ap-nav {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.ap-header.overlay:not(.solid) .ap-nav-inner {
+  max-width: none;
+  width: 100%;
+  padding: 0 clamp(16px, 3vw, 48px);
+}
+
+.ap-header.overlay:not(.solid) .ap-nav-link {
+  color: #fff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
+}
+
+.ap-header.overlay:not(.solid) .ap-nav-link:hover,
+.ap-header.overlay:not(.solid) .ap-nav-link.is-active,
+.ap-header.overlay:not(.solid) .ap-nav-item.is-open .ap-nav-link {
+  background: #C8102E;
+  color: #fff !important;
+  text-shadow: none;
+}
+
+.ap-header.overlay:not(.solid) .ap-search-btn,
+.ap-header.overlay:not(.solid) .ap-mobile-btn {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.55);
+  align-self: center;
+}
+
+/* ── Solid red nav (scrolled / inner pages) ── */
+.ap-nav-solid {
+  background: #C8102E !important;
+  border: none !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  overflow: visible;
+}
+
+.ap-nav-solid .ap-nav-link {
+  color: #fff !important;
+  text-shadow: none !important;
+}
+
+.ap-nav-solid .ap-nav-link:hover,
+.ap-nav-solid .ap-nav-link.is-active,
+.ap-nav-solid .ap-nav-item.is-open .ap-nav-link {
+  background: rgba(0, 0, 0, 0.18) !important;
+  color: #fff !important;
+}
+
+.ap-nav-solid .ap-search-btn {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.65);
+  align-self: center;
+}
+
+/* ── Bulge logo — hangs below nav bar (IIT Delhi) ── */
+.ap-nav-inner.has-bulge {
+  padding-left: 104px;
+  overflow: visible;
+}
+
+.ap-nav-bulge {
+  position: absolute;
+  left: 16px;
+  top: 100%;
+  transform: translateY(-46%);
+  z-index: 1011;
+  text-decoration: none;
+}
+
+.ap-nav-bulge-circle {
+  width: 82px;
+  height: 82px;
+  background: #fff;
+  border-radius: 50%;
+  border: 3px solid #C8102E;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+  overflow: hidden;
+}
+
+.ap-nav-bulge-circle .rgukt-logo {
+  width: 44px;
+  height: auto;
+}
+
+/* ── Nav links — IIT Delhi tab style ── */
+.ap-nav-links {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  font-size: 11px;
+  font-weight: 600;
+  flex: 1;
+  flex-wrap: nowrap;
+  overflow: visible;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+.ap-nav-item {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  overflow: visible;
+}
+
+.ap-nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 0 8px;
+  height: 100%;
+  color: var(--ap-text);
+  border-radius: 0;
+  transition: background 0.15s, color 0.15s;
+  white-space: nowrap;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-size: 10.5px;
+  font-weight: 600;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.ap-nav-home-icon {
+  padding: 0 12px;
+}
+
+.ap-nav-home-icon.is-active,
+.ap-header.overlay:not(.solid) .ap-nav-link.ap-nav-home-icon.is-active,
+.ap-nav-solid .ap-nav-link.ap-nav-home-icon.is-active {
+  background: transparent !important;
+}
+
+/* Mega dropdown — IIT vertical panel */
+.ap-mega {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  border: 1px solid #d8d8d8;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  padding: 6px 0;
+  min-width: 260px;
+  max-width: 320px;
+  max-height: min(70vh, 420px);
+  overflow-y: auto;
+  z-index: 1100;
+  animation: dropIn 0.12s ease;
+}
+
+@keyframes dropIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.ap-mega-link {
+  display: block;
+  padding: 10px 20px;
+  font-size: 13px;
+  font-weight: 400;
+  color: #333;
+  text-decoration: none;
+  text-transform: none;
+  letter-spacing: 0;
+  transition: background 0.12s, color 0.12s;
+  border: none;
+}
+
+.ap-mega-link:hover {
+  background: #f5f5f5;
+  color: #C8102E;
+}
+
+/* Search button */
+.ap-search-btn {
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1.5px solid var(--ap-border);
+  background: transparent;
+  color: var(--ap-text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.15s, color 0.15s;
+  align-self: center;
+}
+
+.ap-search-btn:hover {
+  border-color: var(--ap-accent);
+  color: var(--ap-accent);
+}
+
+/* Mobile button */
+.ap-mobile-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--ap-text);
+  cursor: pointer;
+  padding: 6px;
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+}
+
+/* ── Mobile overlay ── */
+.ap-mobile-overlay {
+  position: fixed;
+  inset: 0;
+  background: #C8102E;
+  z-index: 2000;
+  overflow: auto;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.ap-mobile-close {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+  align-self: flex-end;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.ap-mobile-link {
+  display: block;
+  color: #fff;
+  padding: 14px 8px;
+  font-size: 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  min-height: 44px;
+  text-decoration: none;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1280px) {
+  .ap-nav-link { padding: 0 7px; font-size: 10px; }
+}
+
+@media (max-width: 1024px) {
+  .ap-nav-links  { display: none; }
+  .ap-mobile-btn { display: flex; }
+  .ap-search-btn  { display: none; }
+}
+
+@media (max-width: 768px) {
+  .ap-header.overlay:not(.solid) { top: 32px; }
+  .ap-nav-bulge { display: none; }
+  .ap-nav-inner.has-bulge { padding-left: 16px; }
+}
