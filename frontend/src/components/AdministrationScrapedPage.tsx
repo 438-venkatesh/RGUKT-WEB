@@ -33,27 +33,21 @@ function DocCard({
   textMuted: string;
   accent: string;
 }) {
-  const inner = (
-    <>
+  const external = isExternal(doc.url);
+  return (
+    <a
+      href={doc.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="acad-doc-card"
+      style={{ background: surface, border: `1px solid ${border}` }}
+    >
       <span className="acad-doc-icon" aria-hidden>PDF</span>
       <span className="acad-doc-body">
         <span className="acad-doc-title" style={{ color: text }}>{doc.title}</span>
         {doc.size && <span className="acad-doc-meta" style={{ color: textMuted }}>{doc.size}</span>}
       </span>
-      <span className="acad-doc-arrow" style={{ color: accent }}>↓</span>
-    </>
-  );
-
-  if (isExternal(doc.url)) {
-    return (
-      <a href={doc.url} target="_blank" rel="noopener noreferrer" className="acad-doc-card" style={{ background: surface, border: `1px solid ${border}` }}>
-        {inner}
-      </a>
-    );
-  }
-  return (
-    <a href={doc.url} download className="acad-doc-card" style={{ background: surface, border: `1px solid ${border}` }}>
-      {inner}
+      <span className="acad-doc-arrow" style={{ color: accent }}>{external ? '↗' : '↓'}</span>
     </a>
   );
 }
@@ -84,18 +78,78 @@ function DirectorCard({
   );
 }
 
-function SectionBlock({ section, c }: { section: AdminSection; c: ReturnType<typeof useSectionTheme> }) {
+function renderParagraphWithLinks(text: string, c: ReturnType<typeof useSectionTheme>) {
+  if (text.includes('Official Contact:')) {
+    const parts = text.split(/(Official Contact:\s*)([^\s|]+)(\s*\|\s*Phone:\s*)([^\n]+)/);
+    if (parts.length >= 5) {
+      return (
+        <p className="acad-scraped-para admin-director-contacts-line" style={{ color: c.textMuted }}>
+          <strong style={{ color: c.text }}>Official Contact: </strong>
+          <a href={`mailto:${parts[2]}`} style={{ color: c.primary, fontWeight: 600 }}>{parts[2]}</a>
+          <span style={{ margin: '0 8px', color: c.border }}>|</span>
+          <strong style={{ color: c.text }}>Phone: </strong>
+          <a href={`tel:${parts[4].replace(/[^0-9+]/g, '')}`} style={{ color: c.accent, fontWeight: 600 }}>{parts[4]}</a>
+        </p>
+      );
+    }
+  }
+  return <p className="acad-scraped-para" style={{ color: c.textMuted }}>{text}</p>;
+}
+
+function SectionBlock({
+  section,
+  index,
+  c,
+}: {
+  section: AdminSection;
+  index: number;
+  c: ReturnType<typeof useSectionTheme>;
+}) {
+  const hasImage = !!section.image?.src;
+  const isImageLeft = index % 2 === 1;
+
   return (
-    <section className="acad-scraped-section">
+    <section className={`acad-scraped-section ${hasImage ? 'admin-section-with-media' : ''}`}>
       <h2 className="acad-page-h2">{section.heading}</h2>
-      {section.content?.map((para, i) => (
-        <p key={i} className="acad-scraped-para" style={{ color: c.textMuted }}>{para}</p>
-      ))}
-      {section.items && section.items.length > 0 && (
-        <ul className="acad-scraped-list" style={{ color: c.textMuted }}>
-          {section.items.map((item, i) => <li key={i}>{item}</li>)}
-        </ul>
-      )}
+      
+      <div className={`${hasImage ? 'admin-section-media-layout' : ''} ${hasImage && isImageLeft ? 'media-left' : ''}`}>
+        <div className="admin-section-text-col">
+          {section.content?.map((para, i) => (
+            <div key={i}>{renderParagraphWithLinks(para, c)}</div>
+          ))}
+          {section.items && section.items.length > 0 && (
+            <ul className="acad-scraped-list" style={{ color: c.textMuted }}>
+              {section.items.map((item, i) => <li key={i}>{item}</li>)}
+            </ul>
+          )}
+        </div>
+
+        {hasImage && section.image && (() => {
+          const isLandscape = section.image.src.includes('gallery') || section.image.src.includes('campuses');
+          return (
+            <figure className={`admin-section-media-figure ${isLandscape ? 'is-landscape' : 'is-portrait'}`} style={{ background: c.surface, border: `1px solid ${c.border}` }}>
+              <div className={`admin-section-media-wrap ${isLandscape ? 'wrap-landscape' : 'wrap-portrait'}`}>
+                <img
+                  src={section.image.src}
+                  alt={section.image.alt || section.heading}
+                  className="admin-section-media-img"
+                  loading="lazy"
+                />
+                {section.image.tag && (
+                  <span className="admin-section-media-tag" style={{ background: c.accent, color: '#fff' }}>
+                    {section.image.tag}
+                  </span>
+                )}
+              </div>
+              {section.image.caption && (
+                <figcaption className="admin-section-media-caption" style={{ color: c.textMuted }}>
+                  {section.image.caption}
+                </figcaption>
+              )}
+            </figure>
+          );
+        })()}
+      </div>
     </section>
   );
 }
@@ -129,7 +183,7 @@ export default function AdministrationScrapedPage({ pageKey }: Props) {
           <div className="admin-officer-meta">
             <h2 className="admin-officer-name" style={{ color: c.text }}>{page.officer.name}</h2>
             {page.officer.role && (
-              <p className="admin-officer-role" style={{ color: c.accent }}>{page.displayTitle}</p>
+              <p className="admin-officer-role" style={{ color: c.accent }}>{page.officer.role}</p>
             )}
             {page.officer.emails.length > 0 && (
               <div className="admin-officer-contacts">
@@ -145,7 +199,7 @@ export default function AdministrationScrapedPage({ pageKey }: Props) {
         </div>
       )}
 
-      {page.intro && !page.officer && (
+      {page.intro && (
         <p className="section-page-intro acad-scraped-intro" style={{ color: c.textMuted }}>{page.intro}</p>
       )}
 
@@ -170,8 +224,8 @@ export default function AdministrationScrapedPage({ pageKey }: Props) {
         </section>
       )}
 
-      {page.sections.map(section => (
-        <SectionBlock key={section.heading} section={section} c={c} />
+      {page.sections.map((section, idx) => (
+        <SectionBlock key={section.heading} section={section} index={idx} c={c} />
       ))}
 
       {page.documents.length > 0 && (

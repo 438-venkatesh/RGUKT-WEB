@@ -19,6 +19,13 @@
   object-position: top center;
   border-radius: 8px;
   display: block;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+}
+
+.admin-officer-card:hover .admin-officer-photo {
+  transform: scale(1.025);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.14);
 }
 
 .admin-officer-name {
@@ -76,5 +83,148 @@
 
   .admin-officer-photo {
     margin: 0 auto;
+  }
+}
+
+/* ── Inline Section Media Layout ── */
+.admin-section-media-layout {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 28px;
+  align-items: start;
+  margin-top: 12px;
+}
+
+.admin-section-text-col {
+  min-width: 0;
+}
+
+.admin-section-media-figure {
+  margin: 0;
+  padding: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+  box-shadow: 0 4px 16px rgba(10, 39, 68, 0.08);
+  width: 100%;
+}
+
+.admin-section-media-figure.is-portrait {
+  max-width: 280px;
+}
+
+.admin-section-media-figure.is-landscape {
+  max-width: 340px;
+}
+
+.admin-section-media-figure:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(10, 39, 68, 0.15);
+}
+
+[data-theme="dark"] .admin-section-media-figure {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+[data-theme="dark"] .admin-section-media-figure:hover {
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
+}
+
+.admin-section-media-wrap {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #f8fafc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-section-media-wrap.wrap-portrait {
+  aspect-ratio: 3 / 3.86;
+}
+
+.admin-section-media-wrap.wrap-landscape {
+  aspect-ratio: 16 / 10;
+}
+
+[data-theme="dark"] .admin-section-media-wrap {
+  background: #1e293b;
+}
+
+.admin-section-media-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.admin-section-media-figure:hover .admin-section-media-img {
+  transform: scale(1.035);
+}
+
+.admin-section-media-tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 4px 9px;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.admin-section-media-caption {
+  padding: 12px 14px;
+  font-size: 13px;
+  line-height: 1.45;
+  font-weight: 500;
+  margin: 0;
+}
+
+.admin-section-media-layout.media-left {
+  grid-template-columns: 280px 1fr;
+}
+
+.admin-section-media-layout.media-left .admin-section-media-figure {
+  order: -1;
+}
+
+.admin-director-contacts-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: rgba(10, 39, 68, 0.04);
+  font-size: 13.5px;
+}
+
+[data-theme="dark"] .admin-director-contacts-line {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+@media (max-width: 860px) {
+  .admin-section-media-layout,
+  .admin-section-media-layout.media-left {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .admin-section-media-layout.media-left .admin-section-media-figure {
+    order: 0;
+  }
+
+  .admin-section-media-figure {
+    max-width: 480px;
+    margin: 12px 0 0;
   }
 }

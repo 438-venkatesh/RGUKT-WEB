@@ -86,7 +86,7 @@ export const NAV_MENUS: NavMenu[] = [
       { label: 'Dean of EITP', href: '/administration/dean-eitp' },
       { label: 'Dean of R & D', href: '/administration/dean-rd' },
       { label: 'Dean of IQAC', href: '/iqac' },
-      { label: 'Dean of Student Affairs', href: '/administration/dean-student-affairs' },
+      { label: 'Dean of Student Welfare', href: '/administration/dean-student-welfare' },
       { label: 'Finance Officer', href: '/administration/finance-officer' },
       { label: 'Sports Board', href: '/administration/sports-board' },
     ],
