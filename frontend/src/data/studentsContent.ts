@@ -75,7 +75,7 @@ export const ICC = {
   contact: [
     'Email: icc@rgukt.ac.in',
     'Confidential complaint submission at each campus',
-    'Dean of Student Affairs coordinates student welfare grievances',
+    'Dean of Student Welfare coordinates student welfare grievances',
   ],
 };
 

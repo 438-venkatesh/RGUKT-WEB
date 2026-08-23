@@ -157,6 +157,7 @@ function AppContent() {
           <Route path="/administration/directors"         element={<DirectorsPage />} />
           <Route path="/administration/cao"               element={<CaoPage />} />
           <Route path="/administration/finance-officer"   element={<FinanceOfficerPage />} />
+          <Route path="/administration/iqac"              element={<IQAC />} />
           <Route path="/administration/sports-board"      element={<SportsBoardPage />} />
           <Route path="/admissions"              element={<Admissions />} />
           <Route path="/admissions/2025"         element={<Admissions2025Page />} />

@@ -9,14 +9,54 @@
         {
           "heading": "About Governing Council",
           "content": [
-            "The Government of Andhra Pradesh established Rajiv Gandhi University of Knowledge Technologies (RGUKT) in 2008 to cater to the educational needs of the meritorious rural youth of Andhra Pradesh. Four Institutions (IIITs) are established under RGUKT, one each at Nuzivid (Krishna dt), Rajiv Knowledge Valley (Kadapa dt), Ongole and Srikakulam. These autonomous Institutions will specialize in teaching and research in Information Technology and other emerging engineering and other disciplines under the control of a common University Governing Council and following a common syllabus."
+            "The Government of Andhra Pradesh established the Rajiv Gandhi University of Knowledge Technologies (RGUKT AP) in 2008 to cater to the educational needs of the meritorious rural youth of Andhra Pradesh. Four constituent Institutions (IIITs) operate under the university umbrella: Nuzvid, Rajiv Knowledge Valley (RK Valley), Ongole, and Srikakulam. These autonomous institutions specialize in teaching and research in Information Technology and emerging engineering disciplines. All campuses operate under the administration of a common University Governing Council and follow a synchronized syllabus."
           ],
           "items": []
         },
         {
-          "heading": "Governing Council Members",
+          "heading": "Core Responsibilities & Scope",
           "content": [],
-          "items": []
+          "items": [
+            "Supreme Administration: Acts as the primary executive and policy-making authority governing all four regional IIIT campuses.",
+            "Financial Management: Reviews, amends, and passes annual fiscal budgets and capital funds for infrastructure expansions.",
+            "Curriculum Synchronization: Ensures uniform educational benchmarks by mandating a standard 6-year integrated B.Tech syllabus across all clusters.",
+            "Strategic Evolution: Establishes institutional corporate partnerships to advance research avenues and placement opportunities for rural engineering talents."
+          ]
+        },
+        {
+          "heading": "Council Composition & Hierarchy — Executive Leadership",
+          "content": [],
+          "items": [
+            "Chairman: Prof. (Dr.) Kotha Madhu Murthy (Hon'ble Chancellor, RGUKT AP & Chairman, APSCHE)",
+            "Member-Convener: Prof. Maddali Lakshmi Narayana Rao (Vice-Chancellor, RGUKT AP)"
+          ]
+        },
+        {
+          "heading": "Ex-Officio Government Members",
+          "content": [],
+          "items": [
+            "Principal Secretary: Department of Higher Education (Government of Andhra Pradesh)",
+            "Principal Secretary: Department of Finance (Government of Andhra Pradesh)",
+            "Principal Secretary / Secretary: Department of Information Technology, Electronics & Communications (Government of Andhra Pradesh)",
+            "The Chairman: Andhra Pradesh State Council of Higher Education (APSCHE)"
+          ]
+        },
+        {
+          "heading": "Institutional Administrators",
+          "content": [],
+          "items": [
+            "Director, Srikakulam Campus: Prof. Giridhar Madras",
+            "Director, RK Valley Campus: Prof. Gaddam Vijaya Prakash",
+            "Director, Nuzvid & Ongole Campuses: Prof. Amarendra Kumar Sandra"
+          ]
+        },
+        {
+          "heading": "Nominated Experts & Corporate Icons",
+          "content": [],
+          "items": [
+            "National Academic Pioneers: Appointed Directors and distinguished senior faculties from elite national bodies (including IITs, IISc, and IIIT Hyderabad).",
+            "Global Industry Partners: Prominent leadership figures representing global foundations and tech industries (such as the Infosys Foundation and Aurobindo Pharma) to align engineering streams with contemporary technical workflows."
+          ]
         }
       ],
       "documents": [],
@@ -28,11 +68,75 @@
       "localRoute": "/administration"
     },
     {
-      "pageStatus": "not_found_on_source",
-      "sections": [],
-      "documents": [],
-      "title": "",
-      "intro": [],
+      "pageStatus": "ok",
+      "title": "Governing Council",
+      "sections": [
+        {
+          "heading": "About Governing Council",
+          "content": [
+            "The Government of Andhra Pradesh established the Rajiv Gandhi University of Knowledge Technologies (RGUKT AP) in 2008 to cater to the educational needs of the meritorious rural youth of Andhra Pradesh. Four constituent Institutions (IIITs) operate under the university umbrella: Nuzvid, Rajiv Knowledge Valley (RK Valley), Ongole, and Srikakulam. These autonomous institutions specialize in teaching and research in Information Technology and emerging engineering disciplines. All campuses operate under the administration of a common University Governing Council and follow a synchronized syllabus."
+          ],
+          "items": []
+        },
+        {
+          "heading": "Core Responsibilities & Scope",
+          "content": [],
+          "items": [
+            "Supreme Administration: Acts as the primary executive and policy-making authority governing all four regional IIIT campuses.",
+            "Financial Management: Reviews, amends, and passes annual fiscal budgets and capital funds for infrastructure expansions.",
+            "Curriculum Synchronization: Ensures uniform educational benchmarks by mandating a standard 6-year integrated B.Tech syllabus across all clusters.",
+            "Strategic Evolution: Establishes institutional corporate partnerships to advance research avenues and placement opportunities for rural engineering talents."
+          ]
+        },
+        {
+          "heading": "Executive Leadership",
+          "content": [],
+          "items": [
+            "Chairman: Prof. (Dr.) Kotha Madhu Murthy (Hon'ble Chancellor, RGUKT AP & Chairman, APSCHE)",
+            "Member-Convener: Prof. Maddali Lakshmi Narayana Rao (Vice-Chancellor, RGUKT AP)"
+          ]
+        },
+        {
+          "heading": "Ex-Officio Government Members",
+          "content": [],
+          "items": [
+            "Principal Secretary: Department of Higher Education (Government of Andhra Pradesh)",
+            "Principal Secretary: Department of Finance (Government of Andhra Pradesh)",
+            "Principal Secretary / Secretary: Department of Information Technology, Electronics & Communications (Government of Andhra Pradesh)",
+            "The Chairman: Andhra Pradesh State Council of Higher Education (APSCHE)"
+          ]
+        },
+        {
+          "heading": "Institutional Administrators",
+          "content": [],
+          "items": [
+            "Director, Srikakulam Campus: Prof. Giridhar Madras",
+            "Director, RK Valley Campus: Prof. Gaddam Vijaya Prakash",
+            "Director, Nuzvid & Ongole Campuses: Prof. Amarendra Kumar Sandra"
+          ]
+        },
+        {
+          "heading": "Nominated Experts & Corporate Icons",
+          "content": [],
+          "items": [
+            "National Academic Pioneers: Appointed Directors and distinguished senior faculties from elite national bodies (including IITs, IISc, and IIIT Hyderabad).",
+            "Global Industry Partners: Prominent leadership figures representing global foundations and tech industries (such as the Infosys Foundation and Aurobindo Pharma) to align engineering streams with contemporary technical workflows."
+          ]
+        }
+      ],
+      "documents": [
+        {
+          "title": "Governing Council — 8th Meeting Minutes (2025)",
+          "url": "/docs/academics/governing-council-8-2025.pdf"
+        },
+        {
+          "title": "RGUKT Act 18 of 2008 & Statutory Framework",
+          "url": "/about/rgukt-act/"
+        }
+      ],
+      "images": [],
+      "emails": [],
+      "phones": [],
       "slug": "governing-council",
       "rguktUrl": "https://www.rgukt.in/administration/governing-council/",
       "localRoute": "/administration/governing-council"
@@ -42,51 +146,44 @@
       "title": "About Chancellor",
       "sections": [
         {
-          "heading": "About Chancellor",
-          "content": [],
-          "items": []
-        },
-        {
-          "heading": "Prof. K. Madhu Murthy",
+          "heading": "Prof. (Dr.) Kotha Madhu Murthy",
           "content": [
-            "Prof. (Dr.) Kotha Madhu Murthy assumed charge as Chancellor (FAC) on 18.04.2025. An accomplished academician and administrator, he is currently serving as the Chairman of the Andhra Pradesh State Council of Higher Education (APSCHE). With over 37 years of experience in Mechanical Engineering and Entrepreneurship, he has made significant contributions to higher education policy, research, and institutional development.",
-            "Prior to his current role, Prof. Murthy was a Professor (HAG) in the Department of Mechanical Engineering at the National Institute of Technology, Warangal (NITW), where he also served as a Member of the Board of Governors . His leadership roles at NITW included Dean (Faculty Welfare), Head of the Mechanical Engineering Department, and Registrar (Additional Charge). He also held the position of Registrar at NIT Delhi.",
-            "Prof. Murthy holds a Ph.D. in Mechanical Engineering from Regional Engineering College, Warangal (now NITW), an M.Tech. in IC Engines & Gas Turbines, a B.E. in Mechanical Engineering, and a PG Diploma in Business Administration. His research expertise encompasses IC engines, biofuels, solar energy, and rocket propellants, with numerous publications in reputed journals.",
-            "Beyond academia, he has contributed to national policy as an Advisor at the All India Council for Technical Education (AICTE), focusing on policy formulation, governance restructuring, and curriculum reforms. Internationally, he served as a LEDA Management Advisor for UNDP/ILO in Cambodia and collaborated with Samsung India Software Organization on HR and training initiatives.",
-            "A Fellow of The Institution of Engineers (India), Andhra Pradesh Akademi of Sciences, and the Indian Institution of Production Engineers, Prof. Murthy has been instrumental in entrepreneurship and skill development initiatives, establishing incubation centers, and enhancing campus placements. His accolades include the British Council TCTP Fellowship (1996) under the Indo-UK RECs Project, four Best Paper Awards, and a Lifetime Achievement Recognition for his impact on engineering education and entrepreneurship development.",
-            "As Chairman of APSCHE, Prof. Murthy is spearheading reforms in higher education policy, academic innovation, and industry-academia collaboration, aiming to build a robust, future-ready education system in Andhra Pradesh."
+            "The current Chancellor (in-charge / FAC) of the Rajiv Gandhi University of Knowledge Technologies - AP (RGUKT-AP) is Prof. (Dr.) Kotha Madhu Murthy. He also serves as the Chairman of the Andhra Pradesh State Council of Higher Education (APSCHE)."
           ],
           "items": []
         },
         {
-          "heading": "Profile Links :",
+          "heading": "Profile and Background",
           "content": [],
-          "items": []
-        },
-        {
-          "heading": "Contact Details :",
-          "content": [],
-          "items": []
+          "items": [
+            "Role: Appointed as the in-charge Chancellor to guide administrative and academic functions across RGUKT campuses (including Nuzvid, RK Valley, Ongole, and Srikakulam).",
+            "Expertise: An academician and administrator specializing in areas like solar energy, IC engines, and biofuels, with extensive experience in technical education reforms.",
+            "Previous Leadership: He took over the responsibility following previous transitions in university administration to stabilize and steer policy and campus development."
+          ]
         },
         {
           "heading": "Office Address :",
           "content": [
-            "I3 BlockRGUKT Nuzvid"
+            "I3 Block, RGUKT Nuzvid / APSCHE Office, Mangalagiri, Andhra Pradesh"
           ],
           "items": []
         }
       ],
       "documents": [
         {
-          "title": "https://apsche.ap.gov.in/chair_profile_25.pdf",
+          "title": "Prof. (Dr.) Kotha Madhu Murthy Profile (APSCHE)",
           "url": "https://apsche.ap.gov.in/chair_profile_25.pdf"
         }
       ],
       "images": [
-        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgohn946ZO-RwOsZ_LH-WEA_-8hbz9wdM7LIJVLMNO2PL9nRN1YJ9wX3lnBieo7zxPO76A1fu2YKStdnyEbzzz0mg_GDqrFmNF4ewiHxCgnFrjhjYMG7RM9bu3zEY5P4p0bpXAYRfd-GK7M_rYKt8K1GzTos1NU4l3EiYbe11364WkjuofuvUZkBff9zddh/s408/chancellor.jpeg"
+        "/people/chancellor.jpg"
       ],
-      "emails": [],
-      "phones": [],
+      "emails": [
+        "chancellor@rgukt.in"
+      ],
+      "phones": [
+        "+91-863-2344700"
+      ],
       "slug": "chancellor",
       "rguktUrl": "https://www.rgukt.in/administration/chancellor/",
       "localRoute": "/administration/chancellor"
@@ -96,15 +193,93 @@
       "title": "Academic Council",
       "sections": [
         {
-          "heading": "Academic Council",
+          "heading": "About Academic Council",
           "content": [
-            "COMPOSITION OF ACADEMIC COUNCIL OF RGUKT ( As per the Statute-11 of Act 18 of 2008 )"
+            "The Academic Council is the apex statutory academic authority of Rajiv Gandhi University of Knowledge Technologies (RGUKT AP). Constituted under Statute-11 of Act 18 of 2008, it is presided over by the Hon'ble Chancellor and includes the Vice Chancellor, Campus Academic Deans, distinguished directors from premier national institutes (IITs, IIITs, IISc), and eminent academicians. The Council coordinates and exercises general supervision over all academic policies, curriculum synchronization, examination standards, research initiatives, and instructional quality across all four constituent IIIT campuses."
           ],
           "items": []
+        },
+        {
+          "heading": "Statutory Powers & Scope of the Academic Council",
+          "content": [],
+          "items": [
+            "Curriculum & Syllabus Synchronization: Formulate, review, and approve the unified 6-Year Integrated B.Tech curriculum, course syllabi, and interdisciplinary engineering branches across all constituent campuses.",
+            "Academic Regulations (R24/R25): Prescribe and ratify academic ordinances, credit systems, grading frameworks, and student attendance/promotion policies.",
+            "Board of Studies (BOS) Guidance: Coordinate, review, and supervise recommendations submitted by departmental Boards of Studies across engineering and science disciplines.",
+            "Quality & Standards Maintenance: Oversee instructional methodologies, digital learning, laboratory infrastructure, and outcome-based education benchmarks.",
+            "Recognition of Research & Centers of Excellence: Sanction new specialized undergraduate/postgraduate programs, interdisciplinary research centers, and Quantum/AI laboratories.",
+            "Conferment of Degrees & Honors: Formulate recommendations to the Governing Council regarding the award of degrees, diplomas, medals, prizes, and academic distinctions.",
+            "Academic Calendar & Examination Norms: Approve the annual university academic calendar, examination schedules, evaluation procedures, and degree audit policies."
+          ]
+        },
+        {
+          "heading": "Composition — Executive & University Leadership",
+          "content": [],
+          "items": [
+            "Chancellor, RGUKT AP — Chairman",
+            "Vice-Chancellor, RGUKT AP — Member",
+            "Deans of Academics of Constituent Institutes of RGUKT (Nuzvid, RK Valley, Srikakulam, Ongole) — Members",
+            "Dean of Academics, International Institute of Information Technology (IIIT) Hyderabad — Member",
+            "Director, Center of Education Technology and Learning Science (CETLS) - RGUKT — Member"
+          ]
+        },
+        {
+          "heading": "Eminent Academicians (Nominated by Governing Council)",
+          "content": [],
+          "items": [
+            "Prof. B. S. Murty, Director, Indian Institute of Technology (IIT) Hyderabad — Member",
+            "Prof. Kavi Mahesh, Director, Indian Institute of Information Technology (IIIT) Dharwad — Member",
+            "Dr. Vijay Chandru, Former Professor, Indian Institute of Science (IISc) Bengaluru & Co-founder, Strand Life Sciences — Member"
+          ]
+        },
+        {
+          "heading": "Permanent Invitees (National Leaders & Experts)",
+          "content": [],
+          "items": [
+            "Prof. P. J. Narayanan, Director, International Institute of Information Technology (IIIT) Hyderabad — Permanent Invitee",
+            "Prof. N. Balakrishnan, Former Associate Director, Indian Institute of Science (IISc) Bengaluru — Permanent Invitee",
+            "Three or Four Experts from Industry, Emerging Technologies & Civil Society — Permanent Invitees"
+          ]
+        },
+        {
+          "heading": "Special Invitees (Campus Directors)",
+          "content": [],
+          "items": [
+            "Director, RGUKT Nuzvid Campus — Special Invitee",
+            "Director, RGUKT RK Valley Campus — Special Invitee",
+            "Director, RGUKT Srikakulam Campus — Special Invitee",
+            "Director, RGUKT Ongole Campus — Special Invitee"
+          ]
         }
       ],
-      "documents": [],
-      "images": [],
+      "documents": [
+        {
+          "title": "Academic Council — 12th Meeting Minutes (2025)",
+          "url": "/docs/academics/academic-council-12-2025.pdf"
+        },
+        {
+          "title": "Academic Council — 11th Meeting Minutes (2025)",
+          "url": "/docs/academics/academic-council-11-2025.pdf"
+        },
+        {
+          "title": "B.Tech Academic Regulations & Ordinances",
+          "url": "/docs/academics/btech-regulations-2024.pdf"
+        },
+        {
+          "title": "UG Synchronized Curriculum Structure",
+          "url": "/docs/academics/btech-curriculum-2024.pdf"
+        },
+        {
+          "title": "Grading Scheme & Promotion Guidelines",
+          "url": "/docs/academics/grading-promotion-policy.pdf"
+        }
+      ],
+      "images": [
+        "/gallery/gallery-7.jpg",
+        "/gallery/gallery-1.jpg",
+        "/gallery/gallery-12.jpg",
+        "/campuses/nuzvid.jpg"
+      ],
       "emails": [],
       "phones": [],
       "slug": "academic-council",
@@ -113,114 +288,278 @@
     },
     {
       "pageStatus": "ok",
-      "title": "About Vice Chancellor",
+      "title": "Vice Chancellor",
       "sections": [
         {
           "heading": "About Vice Chancellor",
           "content": [
-            "Prof. Maddali Lakshmi Narayana Rao (M.L.N. Rao) , Professor (HAG), Dept. of Chemistry, IIT Kanpur, has assumed charge as Vice Chancellor of RGUKT-AP."
+            "Prof. Maddali Lakshmi Narayana Rao (M. L. N. Rao) is a distinguished chemist, educator, and Higher Administrative Grade (HAG) Professor from the Department of Chemistry at the Indian Institute of Technology Kanpur (IIT Kanpur) serving as the Vice-Chancellor of Rajiv Gandhi University of Knowledge Technologies, Andhra Pradesh (RGUKT-AP). With over two decades of distinguished academic, research, and administrative leadership, Prof. Rao spearheads university governance, outcome-based engineering education, and research innovation across the four constituent IIIT campuses."
           ],
           "items": []
         },
         {
-          "heading": "Contact Details:",
+          "heading": "Academic Qualifications & International Research",
           "content": [],
-          "items": []
+          "items": [
+            "Doctor of Philosophy (Ph.D.) in Chemistry (1996) — School of Chemistry, University of Hyderabad (Mentored by Prof. M. Periasamy).",
+            "Postdoctoral Research Fellow (1994–1997) — Department of Chemistry, Wayne State University, Michigan, USA.",
+            "Postdoctoral Research Associate (1997–1999) — School of Chemical Sciences, University of Illinois at Urbana-Champaign (UIUC), USA."
+          ]
         },
         {
-          "heading": "Office Address:",
+          "heading": "Professional Experience & IIT Kanpur Tenure",
+          "content": [],
+          "items": [
+            "Professor (Higher Administrative Grade - HAG), Department of Chemistry, IIT Kanpur (2018–Present / on deputation).",
+            "Professor, Department of Chemistry, IIT Kanpur (2013–2018).",
+            "Associate Professor, Department of Chemistry, IIT Kanpur (2009–2013).",
+            "Assistant Professor, Department of Chemistry, IIT Kanpur (2003–2009).",
+            "Over 20+ years of high-impact teaching, doctoral supervision, institutional mentoring, CSIR/DST advisory panels, and scientific research at IIT Kanpur."
+          ]
+        },
+        {
+          "heading": "Research Breakthroughs & Scholarly Contributions",
+          "content": [],
+          "items": [
+            "Pioneered 'Rao Cross-Coupling': Globally acclaimed for inventing atom-economic, sustainable cross-coupling reactions utilizing triarylbismuth reagents in palladium catalysis.",
+            "Scholarly Publications: Authored over 110+ peer-reviewed research papers in high-impact international journals including Organic Letters, The Journal of Organic Chemistry (ACS), Chemical Communications (RSC), and European Journal of Organic Chemistry.",
+            "Doctoral Mentorship: Guided 15+ Ph.D. scholars and numerous Master's research dissertations in synthetic organic and organometallic chemistry.",
+            "Honours & Medals: Recipient of the CRSI Bronze Medal (Chemical Research Society of India), Distinguished Alumni Award (University of Hyderabad), and visiting research appointments."
+          ]
+        },
+        {
+          "heading": "Vision, Role & Responsibilities at RGUKT-AP",
+          "content": [],
+          "items": [
+            "Principal Academic & Executive Officer: Exercises overall supervision over university governance, academic delivery, examination integrity, and student welfare across Nuzvid, RK Valley, Srikakulam, and Ongole campuses.",
+            "Member-Convener, Governing Council: Drives statutory execution, fiscal budget passage, and state government policy coordination.",
+            "Synchronized Academic Excellence: Championing modernized B.Tech curricula (R24/R25), Outcome-Based Education (OBE), and experiential 'Learning by Doing' pedagogy.",
+            "Research & Incubation Ecosystem: Spearheading the establishment of state-of-the-art Quantum Computing Labs, AI innovation hubs, and corporate placement partnerships."
+          ]
+        },
+        {
+          "heading": "Office Address :",
           "content": [
-            "Email ID: pstovc@rgukt.in I3 BlockRGUKT Nuzvid"
+            "Office of the Vice-Chancellor, I3 Block, RGUKT-AP / Central Administrative Office, Andhra Pradesh"
           ],
           "items": []
         }
       ],
-      "documents": [],
+      "documents": [
+        {
+          "title": "Prof. (Dr.) M. L. N. Rao Academic Dossier & Research Profile",
+          "url": "/docs/governance/vc-profile-mln-rao.pdf"
+        },
+        {
+          "title": "B.Tech Academic Regulations & Ordinances (R24/R25)",
+          "url": "/docs/academics/btech-regulations-2024.pdf"
+        }
+      ],
       "images": [
-        "https://rgukt.in/images/vcm.jpeg"
+        "/people/vice-chancellor.jpg"
       ],
       "emails": [
         "vc@rgukt.in",
         "pstovc@rgukt.in"
       ],
-      "phones": [],
+      "phones": [
+        "+91-863-2344701",
+        "+91-8656-235147"
+      ],
       "slug": "vice-chancellor",
       "rguktUrl": "https://www.rgukt.in/administration/vice-chancellor/",
       "localRoute": "/administration/vice-chancellor"
     },
     {
       "pageStatus": "ok",
-      "title": "About Registrar",
+      "title": "Registrar",
       "sections": [
         {
           "heading": "About Registrar",
-          "content": [],
-          "items": []
-        },
-        {
-          "heading": "Prof. Amarendra Kumar Sandra",
           "content": [
-            "Dr. Amarendra Kumar Sandra is a highly accomplished academician and researcher with extensive expertise in transportation engineering and civil engineering. He holds a Ph.D. in Transportation Engineering from Birla Institute of Technology and Science (BITS), Pilani, Rajasthan, completed in April 2008. He earned his M.Tech. in Transportation Engineering from the Indian Institute of Technology (IIT), Kharagpur, and TU-Darmstadt, Germany, in March 2003, where he was awarded the prestigious Dr. Shanker Dayal Sharma Gold Medal for being the best all-rounder and the Institute Silver Medal for being the department topper. He also holds a B.Tech. in Civil Engineering from the National Institute of Technology (NIT), Warangal, which he completed in May 2001. His strong academic foundation, coupled with his passion for research and innovation, has established him as a leading figure in the field of transportation engineering.",
-            "Dr. Amarendra’s professional career is marked by a blend of academic excellence and industry contributions. Over the last five years, he has successfully managed and completed more than 50 consultancy projects as a project manager and team member, ensuring timely delivery and quality outcomes. His technical expertise and ability to work on large-scale infrastructure projects have earned him recognition within the industry. In addition to his research and consultancy work, Dr. Amarendra has been actively involved in mentoring students and guiding them in their academic and professional pursuits. His commitment to education and knowledge-sharing has made him a respected figure among his peers and students.",
-            "Dr. Amarendra’s research interests are deeply rooted in transportation engineering, focusing on sustainable and efficient transportation systems. He has authored numerous research papers in high-impact journals and has presented his findings at several national and international conferences. His research work explores the complexities of transportation infrastructure, traffic management, and urban mobility, contributing to the development of innovative solutions to modern transportation challenges. His ability to combine theoretical knowledge with practical applications has made his research highly valuable in the field of civil engineering.",
-            "Dr. Amarendra's academic and professional journey is characterized by a relentless pursuit of excellence and a deep commitment to advancing the field of transportation engineering. His exceptional achievements, both in academia and industry, reflect his dedication to fostering innovation and improving transportation systems globally. Through his research, teaching, and consultancy work, Dr. Amarendra continues to inspire the next generation of engineers and researchers, leaving a lasting impact on the academic and professional communities."
+            "Prof. Amarendra Kumar Sandra is a distinguished academician, transportation engineering specialist, and senior administrator serving as the Registrar of Rajiv Gandhi University of Knowledge Technologies, Andhra Pradesh (RGUKT-AP). Bringing over two decades of extensive leadership across university administration, doctoral teaching, and large-scale infrastructure consultancy, Prof. Sandra directs central administrative operations, statutory council secretariats, regulatory compliance, and inter-campus coordination across Nuzvid, RK Valley, Srikakulam, and Ongole constituent institutes."
           ],
           "items": []
         },
         {
-          "heading": "Experiences",
+          "heading": "Academic Qualifications & Honors",
           "content": [],
           "items": [
-            "Convenor to the RGUKT Admissions",
-            "Director (FAC), RK Valley Campus",
-            "Administrative Officer, RK Valley Campus"
+            "Doctor of Philosophy (Ph.D.) in Transportation Engineering (2008) — Birla Institute of Technology and Science (BITS), Pilani, Rajasthan.",
+            "Master of Technology (M.Tech.) in Transportation Engineering (2003) — Indian Institute of Technology (IIT), Kharagpur in collaboration with TU-Darmstadt, Germany.",
+            "Bachelor of Technology (B.Tech.) in Civil Engineering (2001) — National Institute of Technology (NIT), Warangal.",
+            "Prestigious Academic Honors: Recipient of the Dr. Shanker Dayal Sharma Gold Medal for Best All-Rounder and the Institute Silver Medal for Department Topper at IIT Kharagpur."
           ]
         },
         {
-          "heading": "Contact Details:",
+          "heading": "Professional Experience & Institutional Leadership",
           "content": [],
-          "items": []
+          "items": [
+            "Professor, Department of Civil Engineering, RGUKT Andhra Pradesh.",
+            "Former Director (FAC), RGUKT Ongole Campus and RGUKT RK Valley Campus.",
+            "Convenor, RGUKT Centralized State Admissions (spearheading merit-based admissions for rural engineering talents).",
+            "Administrative Officer, RGUKT RK Valley Campus.",
+            "Over 20+ years of high-impact career spanning academic governance, institutional accreditation, and industry leadership with GMR Infrastructure, L&T-Ramboll, and HBS Infra Engineering."
+          ]
         },
         {
-          "heading": "Office Address:",
+          "heading": "Statutory Administrative Responsibilities",
+          "content": [],
+          "items": [
+            "Custodian of University Records: Holds official custody of university records, common seal, statutes, ordinances, and registers under Section 16 of RGUKT Act 18 of 2008.",
+            "Statutory Councils Secretariat: Manages the secretariat, official records, agenda drafting, and resolutions for the Governing Council and Academic Council.",
+            "University Administration & Establishment: Superintends central establishment, service matters, university notifications, circulars, and official proceedings.",
+            "Regulatory & Statutory Compliance: Ensures strict compliance with UGC, AICTE, and Andhra Pradesh State Government directives.",
+            "Academic & Student Coordination: Coordinates state admissions counseling, examination logistics, degree certification, and inter-campus synchronization."
+          ]
+        },
+        {
+          "heading": "Research Expertise & Infrastructure Consultancy",
+          "content": [],
+          "items": [
+            "Specialization: Pavement engineering, highway materials characterization, traffic engineering, airport pavement analysis, and sustainable urban transportation planning.",
+            "50+ Major Consultancy Engagements: Successfully executed over 50 transportation, pavement design, and highway consultancy assignments for state and national infrastructure bodies.",
+            "Scholarly Research: Authored numerous peer-reviewed research papers in high-impact international and national transportation engineering journals and conference proceedings."
+          ]
+        },
+        {
+          "heading": "Recent Institutional Engagements",
+          "content": [],
+          "items": [
+            "Felicitated and mentored GATE-2026 meritorious high-rankers across RGUKT constituent campuses.",
+            "Chaired central admission committee meetings and reviewed standardized entrance counseling procedures.",
+            "Coordinated statutory university convocations, honorary medal conferments, and annual administrative reviews."
+          ]
+        },
+        {
+          "heading": "Office Address :",
           "content": [
-            "I3 BlockRGUKT Nuzvid"
+            "Office of the Registrar, I3 Block, RGUKT-AP / Central Administrative Office, Andhra Pradesh"
           ],
           "items": []
         }
       ],
-      "documents": [],
-      "images": [
-        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjz97BxSg6RIoZG9J1ip57rGItb6C3xvKA1K4WspnBaQmxVmFSX57ICX4kOXyJ3reMFi03PKBW435-Q4ADZ2tb6vlD3BqSXdMPvwzuoeC8W9s-ylGCkaQkRNP0GWTKq0tVFYp1h6uoCA9YF0h00gIF_tjf1NKQs0bI0z3SsvbbQ0-vXJk0HkE9puBDvZ3YU/s320/registrar.jpg\""
+      "documents": [
+        {
+          "title": "Prof. Amarendra Kumar Sandra Profile & Administrative Dossier",
+          "url": "/docs/governance/registrar-profile-amarendra-kumar.pdf"
+        },
+        {
+          "title": "RGUKT Statutory Framework & Governance Statutes",
+          "url": "/docs/governance/statutory-framework.pdf"
+        },
+        {
+          "title": "RGUKT Act 18 of 2008 (Official Legislative Act)",
+          "url": "/docs/governance/rgukt-act-2008.pdf"
+        }
       ],
-      "emails": [],
-      "phones": [],
+      "images": [
+        "/people/registrar.jpg"
+      ],
+      "emails": [
+        "registrar@rgukt.in"
+      ],
+      "phones": [
+        "+91-863-2344702",
+        "+91-8656-235147"
+      ],
       "slug": "registrar",
       "rguktUrl": "https://www.rgukt.in/administration/registrar/",
       "localRoute": "/administration/registrar"
     },
     {
       "pageStatus": "ok",
-      "title": "Our Directors",
+      "title": "Campus Directors",
       "sections": [
         {
-          "heading": "Our Directors",
-          "content": [],
-          "items": []
+          "heading": "Role & Statutory Responsibilities of a Campus Director",
+          "content": [
+            "Under the statutory framework of RGUKT Act 18 of 2008 and the general superintendence of the Governing Council and the Vice-Chancellor, a Campus Director acts as the chief academic and executive leader of the constituent IIIT campus. Campus Directors coordinate day-to-day administration, academic delivery of the 6-Year Integrated B.Tech program, student residential life, faculty mentoring, laboratory development, and central university alignment."
+          ],
+          "items": [
+            "Academic Governance & Curriculum Delivery: Presides over campus academic committees, enforcing synchronized B.Tech regulations (R24/R25), academic calendars, laboratory schedules, and continuous internal evaluations.",
+            "Campus Administration & Operations: Manages administrative officers, finance sections, engineering estates, health centers, security personnel, and ICT infrastructure.",
+            "Student Welfare & Residential Life: Directs residential hostel operations, student dining halls, anti-ragging measures, counseling services, student clubs, and sports tournaments.",
+            "Faculty Mentorship & Research Culture: Fosters outcome-based engineering education, interdisciplinary research centers, faculty development programs, and laboratory modernization.",
+            "Institutional Coordination: Serves as the primary administrative link between campus statutory bodies and the Central University Leadership (Chancellor, Vice-Chancellor, Registrar, and Governing Council)."
+          ]
+        },
+        {
+          "heading": "1. Nuzvid Campus — Prof. Sagi Satya Venkata Gopala Raju",
+          "content": [
+            "Designation: Campus Director (In-Charge), RGUKT Nuzvid",
+            "Office: Administrative Block (I-3), RGUKT Nuzvid, Krishna District, AP - 521202",
+            "Official Contact: director@rguktn.ac.in | Phone: +91-8656-235147"
+          ],
+          "items": [
+            "Academic & Professional Background: Doctor of Philosophy (Ph.D.) in Civil Engineering specializing in Transportation Engineering and Concrete Technology; M.Tech. in Civil Engineering (Transportation Engineering); B.Tech. in Civil Engineering. Senior Professor in Civil Engineering with over 25+ years of distinguished teaching, doctoral mentorship, and university administration. Former Registrar of RGUKT-AP, former Director of CETLS, former Director (FAC) and Administrative Officer of RGUKT Nuzvid.",
+            "Role at RGUKT: Directs overall executive administration, academic governance, and residential student welfare for the historic ~6,000+ student Nuzvid constituent campus, supervising synchronized B.Tech curriculum delivery and laboratory infrastructure upgrades.",
+            "Experience & Expertise: Specialization in pavement materials characterization, traffic engineering, advanced concrete technology, geospatial flood modeling, and education technology pedagogy. Member of the Research Advisory Committee for RGUKT-AP.",
+            "Key Contributions & Recent Activities: Pioneered outcome-based engineering education (OBE), digitized classroom learning initiatives, and student technical club mentoring; championed student GATE mentoring, academic calendar synchronization, and modern laboratory development."
+          ]
+        },
+        {
+          "heading": "2. RK Valley (Idupulapaya) Campus — Prof. G. Vijaya Prakash",
+          "content": [
+            "Designation: Campus Director, RGUKT RK Valley",
+            "Office: Academic Block - 1, Ground Floor, RGUKT-RK Valley, Idupulapaya, YSR Kadapa District, AP - 516330",
+            "Official Contact: director@rguktrkv.ac.in | Phone: +91-8588-283603"
+          ],
+          "items": [
+            "Academic & Professional Background: Ph.D. in Physics; Postdoctoral Fellow at Optoelectronics Research Centre (ORC), University of Southampton, UK. Institute Chair Professor and Higher Administrative Grade (HAG) Professor of Physics at IIT Delhi (on lien). Founded the Nanophotonics Research Laboratory at IIT Delhi in 2005. Elected Fellow of FNASc, FRSC (UK), and FInstP (UK). Stanford/Elsevier Top 2% World Scientist.",
+            "Role at RGUKT: Heads executive administration and academic management for the sprawling 1000-acre RK Valley constituent campus in YSR Kadapa district, driving advanced science education, research grant incubation, and digital campus governance.",
+            "Experience & Expertise: Specialization in nanophotonics, quantum functional materials, nonlinear optics, glass photonics, and inorganic-organic hybrid perovskites for solar cells and LEDs. Authored 150+ high-impact research papers.",
+            "Key Contributions & Recent Activities: Commissioned specialized research computing and quantum physics laboratory equipment for undergraduate rural engineers; mentored faculty research proposals and organized international research seminars."
+          ]
+        },
+        {
+          "heading": "3. Ongole Campus — Prof. Amarendra Kumar Sandra",
+          "content": [
+            "Designation: Campus Director, RGUKT Ongole",
+            "Office: Director's Office, RGUKT Ongole Campus, Rao & Naidu Campus, Ongole, Prakasam District, AP - 523001",
+            "Official Contact: director@rguktong.ac.in | Phone: +91-8592-223133"
+          ],
+          "items": [
+            "Academic & Professional Background: Ph.D. in Transportation Engineering (BITS Pilani, 2008); M.Tech. (IIT Kharagpur & TU-Darmstadt Germany, 2003); B.Tech. (NIT Warangal, 2001). Dr. Shanker Dayal Sharma Gold Medalist and Senior Professor in Civil Engineering. Extensive infrastructure engineering management experience with GMR Infrastructure, L&T-Ramboll, and HBS Infra Engineering.",
+            "Role at RGUKT: Administers academic delivery and residential student welfare at the established Ongole campus while supervising the development of the permanent 100-acre campus at Santhanuthalapadu.",
+            "Experience & Expertise: Infrastructure project management, campus master planning, civil engineering materials, and quality assurance.",
+            "Key Contributions & Recent Activities: Spearheaded modern digital classrooms, high-bandwidth IT connectivity, and advanced laboratory equipment for engineering departments; streamlined residential facilities and career placement training."
+          ]
+        },
+        {
+          "heading": "4. Srikakulam Campus — Prof. Giridhar Madras",
+          "content": [
+            "Designation: Campus Director, RGUKT Srikakulam",
+            "Office: Director's Office, RGUKT Srikakulam, SM Puram (V), Etcherla (M), Srikakulam District, AP - 532402",
+            "Official Contact: director@rguktsklm.ac.in | Phone: +91-8942-240700"
+          ],
+          "items": [
+            "Academic & Professional Background: Ph.D. in Chemical Engineering; Senior Professor at IISc Bangalore (Dept. of Chemical Engineering) & IIT Hyderabad. Recipient of India’s highest multidisciplinary science award: the Shanti Swarup Bhatnagar Prize. Recipient of J.C. Bose National Fellowship and Swarnajayanthi Fellowship. Elected Fellow of FASc, FNA, FNASc, and FNAE. Top 2% World Scientist with 600+ publications, 30,000+ citations, h-index 100+, and mentor to 50+ Ph.D. scholars.",
+            "Role at RGUKT: Leads academic and infrastructural development for the northern coastal campus at Etcherla, Srikakulam, fostering scientific excellence for rural talents. Directs outcome-based engineering education, faculty research grant mentorship, and state-of-the-art laboratory expansion.",
+            "Experience & Expertise: Specialization in polymer degradation, catalytic materials, environmental engineering, supercritical fluid technologies, and reaction kinetics.",
+            "Key Contributions & Recent Activities: Accelerated development of campus academic blocks, student hostels, and engineering laboratories; established competitive technical mentoring, GATE coaching initiatives, and rural student innovation challenges."
+          ]
         }
       ],
       "documents": [],
       "images": [
-        "https://rguktrkv.ac.in/images/GVijayprakash.jpg",
-        "https://rguktn.ac.in/administration/images/director.jpg",
-        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjz97BxSg6RIoZG9J1ip57rGItb6C3xvKA1K4WspnBaQmxVmFSX57ICX4kOXyJ3reMFi03PKBW435-Q4ADZ2tb6vlD3BqSXdMPvwzuoeC8W9s-ylGCkaQkRNP0GWTKq0tVFYp1h6uoCA9YF0h00gIF_tjf1NKQs0bI0z3SsvbbQ0-vXJk0HkE9puBDvZ3YU/s320/registrar.jpg"
+        "/people/director-nuzvid.jpg",
+        "/people/director-rk-valley.jpg",
+        "/people/director-ongole.jpg",
+        "/people/director-srikakulam.jpg"
       ],
       "emails": [
-        "director@rguktrkv.ac.in",
         "director@rguktn.ac.in",
-        "director@rguktong.ac.in"
+        "director@rguktrkv.ac.in",
+        "director@rguktong.ac.in",
+        "director@rguktsklm.ac.in"
       ],
-      "phones": [],
+      "phones": [
+        "+91-8656-235147",
+        "+91-8588-283603",
+        "+91-8592-223133",
+        "+91-8942-240700"
+      ],
       "slug": "directors",
       "rguktUrl": "https://www.rgukt.in/administration/directors/",
       "localRoute": "/administration/directors"
@@ -354,12 +693,16 @@
       ],
       "documents": [],
       "images": [
-        "https://rgukt.in/images/RN061116001.jpg"
+        "/people/cao-b-prasad.jpg"
       ],
       "emails": [
+        "cao@rgukt.in",
         "prasadb@rguktn.ac.in"
       ],
-      "phones": [],
+      "phones": [
+        "+91-863-2344705",
+        "+91-8656-235147"
+      ],
       "slug": "cao",
       "rguktUrl": "https://www.rgukt.in/administration/chief-administrative-officer/",
       "localRoute": "/administration/cao"
@@ -398,10 +741,16 @@
       ],
       "documents": [],
       "images": [
-        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiVoxJprONsQIUIx6JR2WEYluKXpzlNuyxtkcS3EeDaysYMAc_z6hFNxoldG63FUksDfQxeCs1UMv53NHEoXEL7NWo-L8j5KvLSC8H4xV0u4v6CP-KFqQ2xN_hI1PrcfpQQW9gsccVj-30jjRNLcVq7X-NbZc2UHpMd1_OS1Za6r2d2YWw1JJIj5C8zVpLO/s320/ccv.jpg"
+        "/people/dean-evaluation-riyaz-hussain.jpg"
       ],
-      "emails": [],
-      "phones": [],
+      "emails": [
+        "dean.evaluation@rgukt.in",
+        "riyaz@rguktn.ac.in"
+      ],
+      "phones": [
+        "+91-863-2344714",
+        "+91-8656-235147"
+      ],
       "slug": "dean-evaluation",
       "rguktUrl": "https://www.rgukt.in/administration/dean-evaluation/",
       "localRoute": "/administration/dean-evaluation"
@@ -440,10 +789,16 @@
       ],
       "documents": [],
       "images": [
-        "https://rgukt.in/images/sravanida.jpg"
+        "/people/dean-academics-sravani-duvvuri.jpg"
       ],
-      "emails": [],
-      "phones": [],
+      "emails": [
+        "dean.acad@rgukt.ac.in",
+        "sravanid@rguktn.ac.in"
+      ],
+      "phones": [
+        "+91-863-2344710",
+        "+91-8656-235147"
+      ],
       "slug": "dean-academics",
       "rguktUrl": "https://www.rgukt.in/administration/dean-academics/",
       "localRoute": "/administration/dean-academics"
@@ -480,10 +835,16 @@
       ],
       "documents": [],
       "images": [
-        "https://rgukt.in/images/RN071116003.jpg"
+        "/people/dean-eitp-shyam.jpg"
       ],
-      "emails": [],
-      "phones": [],
+      "emails": [
+        "dean.eitp@rgukt.ac.in",
+        "shyamperika@rguktn.ac.in"
+      ],
+      "phones": [
+        "+91-863-2344715",
+        "+91-8656-235147"
+      ],
       "slug": "dean-eitp",
       "rguktUrl": "https://www.rgukt.in/administration/dean-eitp/",
       "localRoute": "/administration/dean-eitp"
@@ -520,23 +881,39 @@
       ],
       "documents": [],
       "images": [
-        "https://rgukt.in/images/1162501.jpg"
+        "/people/dean-rd-konda-reddy.jpg"
       ],
-      "emails": [],
-      "phones": [],
+      "emails": [
+        "dean.rd@rgukt.ac.in",
+        "kondareddy@rguktrkv.ac.in"
+      ],
+      "phones": [
+        "+91-863-2344711",
+        "+91-8588-283602"
+      ],
       "slug": "dean-rd",
       "rguktUrl": "https://www.rgukt.in/administration/dean-rd/",
       "localRoute": "/administration/dean-rd"
     },
     {
-      "pageStatus": "not_found_on_source",
+      "pageStatus": "ok",
       "sections": [],
       "documents": [],
-      "title": "",
+      "title": "About Dean of Student Welfare",
       "intro": [],
+      "images": [
+        "/gallery/gallery-8.jpg"
+      ],
+      "emails": [
+        "dsw@rgukt.ac.in",
+        "dean.sw@rgukt.ac.in"
+      ],
+      "phones": [
+        "+91-863-2344713"
+      ],
       "slug": "dean-student-affairs",
-      "rguktUrl": "https://www.rgukt.in/administration/dean-student-affairs/",
-      "localRoute": "/administration/dean-student-affairs"
+      "rguktUrl": "https://www.rgukt.in/administration/dean-student-welfare/",
+      "localRoute": "/administration/dean-student-welfare"
     },
     {
       "pageStatus": "ok",
@@ -571,12 +948,18 @@
           "items": []
         }
       ],
-      "documents": [],
       "images": [
-        "http://intranet.rguktn.ac.in/CITADEL/profile/profileimg/medium/RN051116003.jpg"
+        "/people/finance-officer-nagarjana-devi.jpg"
       ],
-      "emails": [],
-      "phones": [],
+      "emails": [
+        "fo@rgukt.ac.in",
+        "finance@rgukt.ac.in",
+        "nagarjanadevi@rguktn.ac.in"
+      ],
+      "phones": [
+        "+91-863-2344708",
+        "0866-2468516"
+      ],
       "slug": "finance-officer",
       "rguktUrl": "https://www.rgukt.in/administration/finance-officer/",
       "localRoute": "/administration/finance-officer"
@@ -588,15 +971,22 @@
         {
           "heading": "About Sports Board",
           "content": [
-            "The Vice Chancellor has constituted the Sports Board for RGUKT with the following Members, as per the guidelines of the Association of Indian Universities(AIU). The Sports Board will be responsible for planning and monitoring various games and sports activities in the University."
+            "The Vice Chancellor has constituted the Sports Board for RGUKT with the following Members, as per the guidelines of the Association of Indian Universities (AIU). The Sports Board is responsible for planning, coordinating, and monitoring various games and sports activities in the University."
           ],
           "items": []
         }
       ],
       "documents": [],
-      "images": [],
-      "emails": [],
-      "phones": [],
+      "images": [
+        "/gallery/gallery-5.jpg"
+      ],
+      "emails": [
+        "sports@rgukt.ac.in",
+        "physicaleducation@rgukt.ac.in"
+      ],
+      "phones": [
+        "+91-863-2344700"
+      ],
       "slug": "sports-board",
       "rguktUrl": "https://www.rgukt.in/administration/sports-board/",
       "localRoute": "/administration/sports-board"

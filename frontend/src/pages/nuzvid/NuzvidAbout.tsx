@@ -14,7 +14,7 @@ const ADMINS = [
   { name: 'Prof. M L N Rao', role: 'Incharge Director',    email: 'director@rguktn.ac.in' },
   { name: 'Dr. K Ramesh',    role: 'Registrar',             email: 'registrar@rguktn.ac.in' },
   { name: 'Dr. S Bhaskar',   role: 'Dean, Academics',       email: 'dean.acad@rguktn.ac.in' },
-  { name: 'Dr. P Latha',     role: 'Dean, Student Affairs', email: 'dean.sa@rguktn.ac.in' },
+  { name: 'Dr. Rajesh Lankapalli', role: 'Dean, Student Welfare (I/c)', email: 'dsw@rguktn.ac.in' },
 ];
 
 const ORG_NODES = [
