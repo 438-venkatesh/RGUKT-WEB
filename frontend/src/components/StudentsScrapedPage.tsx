@@ -8,6 +8,7 @@ import {
 } from '../data/studentsScrapedData';
 import { STUDENTS_NAV } from '../data/studentsContent';
 import './AcademicsScrapedPage.css';
+import './AdministrationScrapedPage.css';
 import './StudentsScrapedPage.css';
 import '../pages/StudentsPages.css';
 
@@ -43,18 +44,112 @@ function DocCard({
   );
 }
 
-function SectionBlock({ section, c }: { section: StudentsSection; c: ReturnType<typeof useSectionTheme> }) {
+function formatLineWithLinks(line: string, c: ReturnType<typeof useSectionTheme>) {
+  const colonIndex = line.indexOf(': ');
+  let prefix = '';
+  let rest = line;
+  if (colonIndex !== -1 && colonIndex < 45 && !line.startsWith('http')) {
+    prefix = line.slice(0, colonIndex + 1);
+    rest = line.slice(colonIndex + 1);
+  }
+
+  const urlRegex = /(https?:\/\/[^\s]+)/g;
+  const emailRegex = /([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g;
+
   return (
-    <section className="acad-scraped-section">
+    <>
+      {prefix && <strong style={{ color: c.text, marginRight: 6 }}>{prefix}</strong>}
+      {rest.split(urlRegex).map((chunk, i) => {
+        if (chunk.startsWith('http://') || chunk.startsWith('https://')) {
+          return (
+            <a
+              key={i}
+              href={chunk}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: c.accent, wordBreak: 'break-all', fontWeight: 600 }}
+            >
+              {chunk}
+            </a>
+          );
+        }
+        return chunk.split(emailRegex).map((subChunk, j) => {
+          if (subChunk.includes('@') && subChunk.includes('.')) {
+            return (
+              <a
+                key={j}
+                href={`mailto:${subChunk}`}
+                style={{ color: c.primary, fontWeight: 600 }}
+              >
+                {subChunk}
+              </a>
+            );
+          }
+          return subChunk;
+        });
+      })}
+    </>
+  );
+}
+
+function SectionBlock({
+  section,
+  index,
+  c,
+}: {
+  section: StudentsSection;
+  index: number;
+  c: ReturnType<typeof useSectionTheme>;
+}) {
+  const hasImage = !!section.image?.src;
+  const isImageLeft = index % 2 === 1;
+
+  return (
+    <section className={`acad-scraped-section ${hasImage ? 'stu-section-with-media' : ''}`}>
       <h2 className="acad-page-h2">{section.heading}</h2>
-      {section.content?.map((para, i) => (
-        <p key={i} className="acad-scraped-para" style={{ color: c.textMuted }}>{para}</p>
-      ))}
-      {section.items && section.items.length > 0 && (
-        <ul className="acad-scraped-list" style={{ color: c.textMuted }}>
-          {section.items.map((item, i) => <li key={i}>{item}</li>)}
-        </ul>
-      )}
+
+      <div className={`${hasImage ? 'stu-section-media-layout' : ''} ${hasImage && isImageLeft ? 'media-left' : ''}`}>
+        <div className="stu-section-text-col">
+          {section.content?.map((para, i) => (
+            <p key={i} className="acad-scraped-para" style={{ color: c.textMuted }}>
+              {formatLineWithLinks(para, c)}
+            </p>
+          ))}
+          {section.items && section.items.length > 0 && (
+            <ul className="acad-scraped-list" style={{ color: c.textMuted }}>
+              {section.items.map((item, i) => (
+                <li key={i}>{formatLineWithLinks(item, c)}</li>
+              ))}
+            </ul>
+          )}
+        </div>
+
+        {hasImage && section.image && (
+          <figure
+            className="stu-section-media-figure"
+            style={{ background: c.surface, border: `1px solid ${c.border}` }}
+          >
+            <div className="stu-section-media-wrap">
+              <img
+                src={section.image.src}
+                alt={section.image.alt || section.heading}
+                className="stu-section-media-img"
+                loading="lazy"
+              />
+              {section.image.tag && (
+                <span className="stu-section-media-tag" style={{ background: c.accent, color: '#fff' }}>
+                  {section.image.tag}
+                </span>
+              )}
+            </div>
+            {section.image.caption && (
+              <figcaption className="stu-section-media-caption" style={{ color: c.textMuted }}>
+                {section.image.caption}
+              </figcaption>
+            )}
+          </figure>
+        )}
+      </div>
     </section>
   );
 }
@@ -113,8 +208,8 @@ export default function StudentsScrapedPage({ pageKey }: Props) {
         </section>
       )}
 
-      {page.sections.map(section => (
-        <SectionBlock key={section.heading} section={section} c={c} />
+      {page.sections.map((section, index) => (
+        <SectionBlock key={section.heading} section={section} index={index} c={c} />
       ))}
 
       {page.documents.length > 0 && (
