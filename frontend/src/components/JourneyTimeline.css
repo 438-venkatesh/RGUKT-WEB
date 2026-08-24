@@ -1,0 +1,132 @@
+.timeline-wrap {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+}
+
+/* Stepper Horizontal Scroll Container */
+.timeline-stepper {
+  display: grid;
+ grid-template-columns: repeat(8, minmax(210px, 1fr));
+  min-height: 350px;
+  padding: 22px 18px;
+  gap: 12px;
+  overflow-x: auto;
+  padding: 10px 4px 18px;
+  scroll-snap-type: x mandatory;
+}
+
+.timeline-stepper-5 {
+  grid-template-columns: repeat(5, minmax(190px, 1fr));
+}
+
+.timeline-card {
+  background: #ffffff;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 12px;
+  padding: 14px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+  transition: all 0.22s ease;
+  scroll-snap-align: start;
+  box-shadow: 0 3px 12px rgba(10, 39, 68, 0.04);
+}
+
+.timeline-card:hover {
+  transform: translateY(-3px);
+  border-color: #C8102E;
+  box-shadow: 0 8px 18px rgba(200, 16, 46, 0.10);
+}
+
+.timeline-card.active-phase {
+  border-color: #C8102E;
+  background: linear-gradient(180deg, #FFFFFF 0%, #FFF5F6 100%);
+}
+
+.timeline-step-badge {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.timeline-number {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(200, 16, 46, 0.1);
+  color: #C8102E;
+  font-weight: 900;
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timeline-duration {
+  font-size: 10px;
+  font-weight: 700;
+  color: #64748B;
+  background: #F1F5F9;
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+
+.timeline-phase {
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #0A2744;
+  margin: 0;
+}
+
+.timeline-title {
+  font-size: 17px;
+  font-weight: 800;
+  color: #0F172A;
+  margin: 0;
+  line-height: 1.25;
+}
+
+.timeline-desc {
+  font-size: 15px;
+  line-height: 1.5;
+  color: #475569;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.timeline-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding-top: 8px;
+  border-top: 1px dashed #E2E8F0;
+}
+
+.timeline-highlight-item {
+  font-size: 15px;
+  color: #0A2744;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.timeline-highlight-item::before {
+  content: '✓';
+  color: #C8102E;
+  font-weight: bold;
+}
+
+@media (max-width: 900px) {
+  .timeline-stepper {
+    grid-template-columns: repeat(8, 200px);
+  }
+  .timeline-stepper-5 {
+    grid-template-columns: repeat(5, 220px);
+  }
+}

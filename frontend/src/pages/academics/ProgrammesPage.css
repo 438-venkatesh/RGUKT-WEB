@@ -1,0 +1,815 @@
+@import '../AcademicsOverviewPage.css';
+@import '../../components/JourneyTimeline.css';
+
+/* ── PROGRAMMES PORTAL CONTAINER ── */
+.prog-page-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
+}
+
+/* ── 1. MODERN SPLIT HERO SECTION (MATCHING ACADEMICS OVERVIEW BACKGROUND & STYLE) ── */
+.prog-split-hero {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 24px;
+  align-items: stretch;
+  background: linear-gradient(
+    135deg,
+    rgba(14, 46, 78, 0.98) 0%,
+    rgba(170, 20, 55, 0.92) 100%
+  );
+  border-radius: 20px;
+  padding: 32px 36px;
+  box-shadow: 0 12px 32px rgba(8, 39, 71, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  position: relative;
+  overflow: hidden;
+  color: #ffffff;
+}
+
+.prog-hero-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+}
+
+.prog-hero-badge {
+  display: inline-block;
+  align-self: flex-start;
+  background: rgba(15, 247, 247, 0.22);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  padding: 5px 14px;
+  border-radius: 20px;
+  text-transform: uppercase;
+}
+
+.prog-hero-main-title {
+  font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1.16;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.prog-hero-tagline {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.92);
+  margin: 0;
+}
+
+.prog-hero-description {
+  font-size: 14px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.90);
+  margin: 0;
+}
+
+/* Overview-Style Quick Access Chips */
+.prog-hero-quick-links {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 14px;
+  margin-top: 4px;
+}
+
+.prog-hero-quick-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.prog-hero-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.prog-hero-chip-link {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 16px;
+  text-decoration: none;
+  background: rgba(8, 173, 223, 0.75);
+  color: #ffffff !important;
+  transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  display: inline-block;
+}
+
+.prog-hero-chip-link:hover {
+  background: rgba(13, 92, 121, 0.9);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 100, 140, 0.25);
+  color: #ffffff !important;
+}
+
+.prog-hero-right {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  min-height: 280px;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.prog-hero-media-img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+}
+
+.prog-hero-media-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10, 39, 68, 0.05) 0%, rgba(10, 39, 68, 0.85) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 16px;
+}
+
+.prog-hero-stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.prog-hero-stat-pill {
+  background: rgba(255, 255, 255, 0.95);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-radius: 10px;
+  padding: 8px 6px;
+  display: flex;
+  max-width: fit-content;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+.prog-stat-val {
+  font-size: 14px;
+  font-weight: 900;
+  color: #C8102E;
+  line-height: 1.1;
+}
+
+.prog-stat-lbl {
+  font-size: 9px;
+  font-weight: 800;
+  color: #0A2744;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+/* ── 2. SECTIONS & SECTION INTRODUCTION BANNERS (LIKE OVERVIEW) ── */
+.prog-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.prog-section-header {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px 20px;
+  border-radius: 14px;
+  border: 1px solid rgba(197, 211, 232, 0.7);
+  background: linear-gradient(
+    135deg,
+    #eaf3fc 0%,
+    #e2effa 28%,
+    #def4f4 55%,
+    #f2e5f7 80%,
+    #fce8f3 100%
+  );
+  box-shadow: 0 3px 12px rgba(10, 39, 68, 0.04);
+}
+
+.prog-section-kicker {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #C8102E;
+}
+
+.prog-section-title {
+  font-size: clamp(1.3rem, 2.2vw, 1.75rem);
+  font-weight: 800;
+  line-height: 1.25;
+  color: #0A2744;
+  margin: 0;
+}
+
+.prog-section-subtitle {
+  font-size: 14px;
+  line-height: 1.65;
+  color: #334155;
+  max-width: 860px;
+  margin: 0;
+}
+
+/* ── 3. DISCIPLINE PROGRAMME CARDS WITH DISTINCT SUBTLE LINEAR GRADIENTS ── */
+.prog-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 18px;
+}
+
+.prog-discipline-card {
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1.5px solid #CBD5E1;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 14px rgba(10, 39, 68, 0.05);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+/* 7 Subtle Linear Gradients for the 7 Engineering Branches */
+.prog-discipline-card:nth-child(1) {
+  background: linear-gradient(160deg, #ffffff 0%, #f0f7ff 50%, #e0f2fe 100%);
+  border-color: #BAE6FD;
+}
+
+.prog-discipline-card:nth-child(2) {
+  background: linear-gradient(160deg, #ffffff 0%, #f5f3ff 50%, #ede9fe 100%);
+  border-color: #DDD6FE;
+}
+
+.prog-discipline-card:nth-child(3) {
+  background: linear-gradient(160deg, #ffffff 0%, #fffbeb 50%, #fef3c7 100%);
+  border-color: #FDE68A;
+}
+
+.prog-discipline-card:nth-child(4) {
+  background: linear-gradient(160deg, #ffffff 0%, #f8fafc 50%, #e2e8f0 100%);
+  border-color: #CBD5E1;
+}
+
+.prog-discipline-card:nth-child(5) {
+  background: linear-gradient(160deg, #ffffff 0%, #f0fdf4 50%, #dcfce7 100%);
+  border-color: #BBF7D0;
+}
+
+.prog-discipline-card:nth-child(6) {
+  background: linear-gradient(160deg, #ffffff 0%, #ecfeff 50%, #cffafe 100%);
+  border-color: #A5F3FC;
+}
+
+.prog-discipline-card:nth-child(7) {
+  background: linear-gradient(160deg, #ffffff 0%, #fff1f2 50%, #ffe4e6 100%);
+  border-color: #FECDD3;
+}
+
+.prog-discipline-card:hover {
+  transform: translateY(-3px);
+  border-color: #C8102E;
+  box-shadow: 0 10px 24px rgba(200, 16, 46, 0.12);
+}
+
+.prog-card-image-wrap {
+  aspect-ratio: 4 / 3;
+  width: 100%;
+  max-height: 170px;
+  overflow: hidden;
+  position: relative;
+  background: #0A2744;
+}
+
+.prog-card-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.prog-discipline-card:hover .prog-card-image-wrap img {
+  transform: scale(1.04);
+}
+
+.prog-card-code-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(10, 39, 68, 0.92);
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 3px 8px;
+  border-radius: 6px;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+.prog-card-body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-grow: 1;
+}
+
+.prog-card-header-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.prog-card-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: rgba(200, 16, 46, 0.1);
+  color: #C8102E;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.prog-card-name {
+  font-size: 14.5px;
+  font-weight: 800;
+  color: #0A2744;
+  margin: 0;
+  line-height: 1.25;
+}
+
+.prog-card-short-desc {
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: #334155;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.prog-card-key-areas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.prog-key-area-tag {
+  font-size: 10.5px;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.85);
+  color: #334155;
+  padding: 2px 7px;
+  border-radius: 5px;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+}
+
+.prog-card-footer {
+  padding: 12px 16px;
+  border-top: 1px solid rgba(148, 163, 184, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.65);
+}
+
+.prog-card-intake {
+  font-size: 11.5px;
+  color: #475569;
+  font-weight: 600;
+}
+
+.prog-card-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 13px;
+  border-radius: 7px;
+  font-size: 12px;
+  font-weight: 700;
+  background: #0A2744;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.prog-card-btn:hover {
+  background: #C8102E;
+}
+
+/* ── 4. FOUR-CAMPUS SECTION (NEAT 16:9 CARDS) ── */
+.prog-campus-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 16px;
+}
+
+.prog-campus-card {
+  background: #ffffff;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1.5px solid #E2E8F0;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 14px rgba(10, 39, 68, 0.04);
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.prog-campus-card:hover {
+  transform: translateY(-3px);
+  border-color: #0A2744;
+  box-shadow: 0 10px 24px rgba(10, 39, 68, 0.10);
+}
+
+.prog-campus-media {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  max-height: 145px;
+  overflow: hidden;
+  position: relative;
+  background: #0A2744;
+}
+
+.prog-campus-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.prog-campus-card:hover .prog-campus-media img {
+  transform: scale(1.04);
+}
+
+.prog-campus-badge-overlay {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  background: rgba(10, 39, 68, 0.9);
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 5px;
+}
+
+.prog-campus-body {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-grow: 1;
+}
+
+.prog-campus-name {
+  font-size: 14.5px;
+  font-weight: 800;
+  color: #0A2744;
+  margin: 0;
+}
+
+.prog-campus-district {
+  font-size: 11.5px;
+  color: #C8102E;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.prog-campus-desc {
+  font-size: 12px;
+  line-height: 1.5;
+  color: #475569;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.prog-campus-branches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+}
+
+.prog-campus-branch-tag {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 5px;
+  background: #EFF6FF;
+  color: #1D4ED8;
+}
+
+.prog-campus-footer {
+  padding: 10px 14px;
+  border-top: 1px solid #F1F5F9;
+  background: #FAFAFC;
+}
+
+.prog-campus-link-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 100%;
+  padding: 6px 12px;
+  border-radius: 7px;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  background: #0A2744;
+  color: #ffffff !important;
+  transition: opacity 0.2s ease;
+}
+
+.prog-campus-link-btn:hover {
+  background: #C8102E;
+}
+
+/* ── 5. PEDAGOGY / LEARNING MODEL (3 COMPACT CARDS) ── */
+.prog-pedagogy-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.prog-pedagogy-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 18px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border: 1.5px solid #E2E8F0;
+  box-shadow: 0 3px 12px rgba(10, 39, 68, 0.03);
+  transition: all 0.22s ease;
+}
+
+.prog-pedagogy-card:hover {
+  transform: translateY(-3px);
+  border-color: #C8102E;
+  box-shadow: 0 8px 20px rgba(200, 16, 46, 0.08);
+}
+
+.prog-pedagogy-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(200, 16, 46, 0.1);
+  color: #C8102E;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.prog-pedagogy-title {
+  font-size: 14px;
+  font-weight: 800;
+  color: #0A2744;
+  margin: 0;
+}
+
+.prog-pedagogy-desc {
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: #475569;
+  margin: 0;
+}
+
+/* ── 6. RESEARCH THRUST CARDS (NEAT SIZE) ── */
+.prog-thrust-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 18px;
+}
+
+.prog-thrust-card {
+  background: #ffffff;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1.5px solid #E2E8F0;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 14px rgba(10, 39, 68, 0.04);
+  transition: all 0.22s ease;
+}
+
+.prog-thrust-card:hover {
+  transform: translateY(-3px);
+  border-color: #C8102E;
+  box-shadow: 0 10px 24px rgba(10, 39, 68, 0.10);
+}
+
+.prog-thrust-media {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  max-height: 155px;
+  overflow: hidden;
+  position: relative;
+}
+
+.prog-thrust-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.prog-thrust-card:hover .prog-thrust-media img {
+  transform: scale(1.04);
+}
+
+.prog-thrust-body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-grow: 1;
+}
+
+.prog-thrust-depts {
+  font-size: 10.5px;
+  font-weight: 800;
+  color: #C8102E;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.prog-thrust-title {
+  font-size: 15px;
+  font-weight: 800;
+  color: #0A2744;
+  margin: 0;
+}
+
+.prog-thrust-desc {
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: #475569;
+  margin: 0;
+}
+
+.prog-thrust-initiatives {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.prog-thrust-item {
+  font-size: 11.5px;
+  color: #334155;
+  display: flex;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+.prog-thrust-item::before {
+  content: '▸';
+  color: #C8102E;
+  font-weight: bold;
+}
+
+/* ── 7. ADMISSIONS CTA BANNER (CLEAN & COMPACT) ── */
+.prog-cta-banner {
+  background: linear-gradient(135deg, #0A2744 0%, #153B64 100%);
+  border-radius: 16px;
+  padding: 28px 32px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  box-shadow: 0 8px 24px rgba(10, 39, 68, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.prog-cta-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 580px;
+}
+
+.prog-cta-kicker {
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: #F87171;
+  text-transform: uppercase;
+}
+
+.prog-cta-title {
+  font-size: clamp(1.3rem, 2vw, 1.65rem);
+  font-weight: 800;
+  margin: 0;
+  color: #ffffff;
+}
+
+.prog-cta-desc {
+  font-size: 13px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.88);
+  margin: 0;
+}
+
+.prog-cta-btn-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.prog-cta-btn-primary {
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 800;
+  text-decoration: none;
+  background: #C8102E;
+  color: #ffffff !important;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(200, 16, 46, 0.35);
+}
+
+.prog-cta-btn-primary:hover {
+  background: #A00B22;
+  transform: translateY(-1px);
+}
+
+.prog-cta-btn-outline {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  transition: all 0.2s ease;
+}
+
+.prog-cta-btn-outline:hover {
+  background: rgba(255, 255, 255, 0.22);
+  transform: translateY(-1px);
+}
+
+/* ── RESPONSIVE ADAPTATIONS ── */
+@media (max-width: 960px) {
+  .prog-split-hero {
+    grid-template-columns: 1fr;
+    padding: 22px;
+  }
+  .prog-hero-right {
+    min-height: 220px;
+  }
+  .prog-hero-stats-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .prog-page-container {
+    gap: 32px;
+  }
+  .prog-split-hero {
+    padding: 18px 16px;
+  }
+  .prog-card-grid,
+  .prog-campus-grid,
+  .prog-thrust-grid {
+    grid-template-columns: 1fr;
+  }
+  .prog-cta-banner {
+    padding: 22px 18px;
+  }
+}
