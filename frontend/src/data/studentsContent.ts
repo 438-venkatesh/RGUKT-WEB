@@ -582,9 +582,9 @@ export const ALUMNI_ENGAGEMENT = {
     },
   ],
   stats: [
-    { value: '25,000+', label: 'Global Alumni Network' },
+    { value: 'Four Campuses', label: 'Coordinated Alumni Desks' },
     { value: 'Fortune 500', label: 'Top Tech & Research Placements' },
-    { value: '100+', label: 'Annual Mentorship Sessions' },
+    { value: '1:1 Mentoring', label: 'Student Career & Exam Guidance' },
     { value: 'Registered', label: 'Societies Act XXI Alumni Bodies' },
   ],
 };
