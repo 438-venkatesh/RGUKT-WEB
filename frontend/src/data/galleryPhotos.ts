@@ -18,6 +18,16 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
   { id: 10, thumb: '/gallery/gallery-10.jpg', full: '/gallery/gallery-10.jpg', alt: 'Campus infrastructure' },
   { id: 11, thumb: '/gallery/gallery-11.jpg', full: '/gallery/gallery-11.jpg', alt: 'Campus grounds' },
   { id: 12, thumb: '/gallery/gallery-12.jpg', full: '/gallery/gallery-12.jpg', alt: 'NCC Guard of Honor at VI Convocation' },
+  { id: 13, thumb: '/gallery/Convocation.jpeg', full: '/gallery/Convocation.jpeg', alt: 'Convocation ceremony stage and dignitaries' },
+  { id: 14, thumb: '/gallery/campus1.jpeg', full: '/gallery/campus1.jpeg', alt: 'RGUKT campus main academic block' },
+  { id: 15, thumb: '/gallery/campus2.jpeg', full: '/gallery/campus2.jpeg', alt: 'RGUKT campus architectural view' },
+  { id: 16, thumb: '/gallery/campus3.jpeg', full: '/gallery/campus3.jpeg', alt: 'RGUKT campus panoramic view' },
+  { id: 17, thumb: '/gallery/campus4.jpeg', full: '/gallery/campus4.jpeg', alt: 'RGUKT campus walkways and buildings' },
+  { id: 18, thumb: '/gallery/campus5.jpeg', full: '/gallery/campus5.jpeg', alt: 'RGUKT campus academic facilities' },
+  { id: 19, thumb: '/gallery/convocation2.jpeg', full: '/gallery/convocation2.jpeg', alt: 'Convocation ceremony academic presentation' },
+  { id: 20, thumb: '/gallery/convocation3.jpeg', full: '/gallery/convocation3.jpeg', alt: 'Convocation auditorium gathering' },
+  { id: 21, thumb: '/gallery/convocation4.jpeg', full: '/gallery/convocation4.jpeg', alt: 'Convocation dais and award conferral' },
+  { id: 22, thumb: '/gallery/nss.jpeg', full: '/gallery/nss.jpeg', alt: 'NSS volunteers and community activities' },
 ];
 
 export const GALLERY_KICKER = 'MULTI-HUED REFLECTIONS';

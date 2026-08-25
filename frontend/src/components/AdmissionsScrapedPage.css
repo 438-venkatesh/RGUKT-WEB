@@ -1,172 +1,511 @@
-.adm-scrape-banner {
+/** AdmissionsScrapedPage.css — Dedicated styles for RGUKT Admissions */
+
+.adm-hero {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 24px;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+}
+
+.adm-hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.adm-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(8, 20, 36, 0.90) 0%, rgba(10, 39, 68, 0.75) 60%, rgba(8, 20, 36, 0.92) 100%);
+}
+
+.adm-hero-text {
+  position: relative;
+  z-index: 2;
+  padding: 32px 28px;
+  max-width: 800px;
+}
+
+.adm-eyebrow {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #E8203C;
+  margin-bottom: 6px;
+  white-space: nowrap;
+}
+
+.adm-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.15;
+  margin: 0 0 6px 0;
+}
+
+.adm-rgukt-label {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #E2E8F0;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+/* Status Banner */
+.adm-status-banner {
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+}
+
+.adm-status-banner.status-closed-sports {
+  border-left: 6px solid #E8203C;
+}
+
+.adm-status-banner.status-archive {
+  border-left: 6px solid #64748B;
+}
+
+.adm-banner-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.adm-banner-badge {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.adm-banner-badge.badge-urgent {
+  background: #FFE4E6;
+  color: #9F1239;
+}
+
+.adm-banner-badge.badge-archive {
+  background: #E2E8F0;
+  color: #334155;
+}
+
+.adm-banner-title {
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+.adm-banner-desc {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.adm-banner-sports-box {
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.adm-banner-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  font-size: 0.88rem;
+  padding: 8px 18px;
+  border-radius: 6px;
+  text-decoration: none;
+  width: fit-content;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.adm-banner-action:hover {
+  transform: translateX(4px);
+  opacity: 0.92;
+}
+
+/* Steps Grid */
+.adm-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+  margin: 16px 0 28px 0;
+}
+
+.adm-step-card {
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.adm-step-card:hover {
+  transform: translateY(-3px);
+}
+
+.adm-step-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
-  flex-wrap: wrap;
-  padding: 24px 28px;
-  border-radius: 10px;
-  margin-bottom: 24px;
 }
 
-.adm-scrape-banner-kicker {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
+.adm-step-badge {
+  font-size: 0.72rem;
+  font-weight: 800;
   text-transform: uppercase;
-  margin: 0 0 6px;
-  opacity: 0.85;
+  padding: 3px 9px;
+  border-radius: 14px;
 }
 
-.adm-scrape-banner-title {
-  font-family: var(--font-heading);
-  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+.adm-step-num {
+  font-size: 1.5rem;
+  font-weight: 900;
+  opacity: 0.4;
+}
+
+.adm-step-title {
+  font-size: 1.05rem;
   font-weight: 700;
-  margin: 0 0 6px;
-  line-height: 1.2;
-}
-
-.adm-scrape-banner-date {
-  font-size: 14px;
-  font-weight: 600;
-  margin: 0 0 8px;
-}
-
-.adm-scrape-banner-sub {
-  font-size: 14px;
-  line-height: 1.55;
   margin: 0;
-  max-width: 560px;
 }
 
-.adm-scrape-apply-btn {
-  display: inline-flex;
-  align-items: center;
-  padding: 12px 22px;
+.adm-step-desc {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  margin: 0;
+  flex: 1;
+}
+
+.adm-step-action-note {
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 6px 10px;
   border-radius: 6px;
-  color: #fff !important;
-  font-size: 14px;
-  font-weight: 700;
-  text-decoration: none;
-  white-space: nowrap;
+  margin-top: 4px;
+}
+
+/* Checklist Box */
+.adm-checklist-card {
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin: 16px 0 28px 0;
+}
+
+.adm-checklist-title {
+  font-size: 1.08rem;
+  font-weight: 800;
+  margin: 0 0 12px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.adm-checklist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 10px 18px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.adm-checklist-item {
+  font-size: 0.88rem;
+  line-height: 1.45;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.adm-check-icon {
+  color: #16A34A;
+  font-weight: 800;
   flex-shrink: 0;
 }
 
-.adm-scrape-apply-btn:hover {
-  filter: brightness(1.05);
+/* Schedule Table */
+.adm-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 10px;
+  margin: 16px 0 28px 0;
 }
 
-.adm-scrape-hero-overlay {
-  background: linear-gradient(135deg, rgba(10, 39, 68, 0.85) 0%, rgba(200, 16, 46, 0.5) 100%);
+.adm-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  text-align: left;
 }
 
-.adm-scrape-steps {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.adm-scrape-step {
-  display: grid;
-  grid-template-columns: 40px 1fr;
-  gap: 16px;
-  align-items: start;
-  padding: 16px 18px;
-  border-radius: 8px;
-}
-
-.adm-scrape-step-num {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 800;
-  font-size: 16px;
-}
-
-.adm-scrape-timeline {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.adm-scrape-timeline-item {
-  display: grid;
-  grid-template-columns: 140px 1fr;
-  gap: 16px;
-  padding: 14px 18px;
-  border-radius: 8px;
-}
-
-.adm-scrape-timeline-date {
+.adm-table th {
+  padding: 12px 16px;
   font-weight: 700;
-  font-size: 14px;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
-.adm-scrape-timeline-event {
-  font-size: 14px;
+.adm-table td {
+  padding: 12px 16px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
   line-height: 1.45;
 }
 
-.adm-scrape-helpline {
-  padding: 20px 22px;
-  border-radius: 10px;
-}
-
-.adm-scrape-helpline-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-.adm-scrape-phone {
-  font-size: 18px;
+.adm-status-pill {
+  display: inline-block;
+  font-size: 0.72rem;
   font-weight: 700;
-  text-decoration: none;
+  padding: 3px 8px;
+  border-radius: 12px;
+  text-transform: uppercase;
 }
 
-.adm-scrape-phone:hover {
-  text-decoration: underline;
+.adm-status-pill.pill-completed {
+  background: #DCFCE7;
+  color: #166534;
 }
 
-.adm-scrape-faq {
+.adm-status-pill.pill-progress {
+  background: #FEF3C7;
+  color: #92400E;
+}
+
+/* Campuses Grid */
+.adm-campuses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+  margin: 16px 0 28px 0;
+}
+
+.adm-campus-card {
+  border-radius: 10px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.adm-scrape-faq-item {
-  padding: 14px 18px;
-  border-radius: 8px;
+.adm-campus-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px;
 }
 
-.adm-scrape-faq-item summary {
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 15px;
+.adm-campus-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin: 0;
 }
 
-.adm-scrape-portal-cta {
-  padding: 20px 22px;
+.adm-campus-district {
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 2px 8px;
   border-radius: 10px;
-  margin-top: 32px;
 }
 
-.adm-scrape-apply-btn--inline {
-  font-size: 13px;
-  padding: 10px 18px;
+.adm-campus-loc {
+  font-size: 0.82rem;
+  margin: 0;
 }
 
-@media (max-width: 640px) {
-  .adm-scrape-banner {
-    flex-direction: column;
-    align-items: flex-start;
+.adm-campus-desc {
+  font-size: 0.86rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.adm-campus-branches-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 6px 0 2px 0;
+}
+
+.adm-branch-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.adm-branch-tag {
+  font-size: 0.75rem;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.adm-campus-link {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Specializations & Doctoral Cards */
+.adm-spec-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 18px;
+  margin: 16px 0 28px 0;
+}
+
+.adm-spec-card {
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.adm-spec-name {
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+.adm-spec-dept {
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.adm-spec-detail {
+  font-size: 0.86rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Tie Breaking Box */
+.adm-tie-box {
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin: 16px 0 28px 0;
+}
+
+.adm-tie-title {
+  font-size: 1.08rem;
+  font-weight: 800;
+  margin: 0 0 12px 0;
+}
+
+.adm-tie-list {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.adm-tie-item {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  margin-bottom: 6px;
+}
+
+/* Helpdesk Section */
+.adm-helpdesk-card {
+  border-radius: 12px;
+  padding: 24px 28px;
+  margin: 24px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.adm-helpdesk-title {
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.adm-helpdesk-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.adm-helpdesk-item-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 4px;
+}
+
+.adm-helpdesk-value {
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  display: block;
+}
+
+.adm-helpdesk-note {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  padding: 10px 14px;
+  border-radius: 6px;
+  margin: 0;
+}
+
+/* FAQ Section */
+.adm-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 16px 0 28px 0;
+}
+
+.adm-faq-card {
+  border-radius: 8px;
+  padding: 16px 20px;
+}
+
+.adm-faq-q {
+  font-size: 0.98rem;
+  font-weight: 800;
+  margin: 0 0 6px 0;
+}
+
+.adm-faq-a {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .adm-hero-text {
+    padding: 24px 18px;
   }
-
-  .adm-scrape-timeline-item {
-    grid-template-columns: 1fr;
-    gap: 4px;
+  .adm-title {
+    font-size: 1.6rem;
+  }
+  .adm-table th, .adm-table td {
+    padding: 10px 12px;
   }
 }

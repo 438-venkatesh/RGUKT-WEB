@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-08-19",
+  "scrapedAt": "2026-08-24",
   "sourceSite": "https://www.rgukt.in",
   "portalUrl": "https://admissions.rgukt.in/",
   "pages": [
@@ -8,11 +8,7 @@
       "rguktUrl": "https://www.rgukt.in/admissions/ug-admissions/",
       "localRoute": "/admissions",
       "pageStatus": "ok",
-      "title": "Overview",
-      "sections": [],
-      "documents": [],
-      "banner": null,
-      "helpline": null,
+      "title": "UG Admissions",
       "portalUrl": "https://admissions.rgukt.in/"
     },
     {
@@ -20,29 +16,7 @@
       "rguktUrl": "https://www.rgukt.in/admissions/ug-admissions/2025/",
       "localRoute": "/admissions/2025",
       "pageStatus": "ok",
-      "title": "2025",
-      "sections": [],
-      "documents": [],
-      "banner": {
-        "status": "closed",
-        "headline": "Registrations are Closed",
-        "applyUrl": "https://admissions.rgukt.in/"
-      },
-      "helpline": {
-        "email": "admissions@rgukt.in",
-        "phones": [
-          "9703542597",
-          "9705472597"
-        ],
-        "timings": "10:00 AM to 1:00 PM and 2:00 PM to 5:00 PM (O",
-        "emailFields": [
-          "RGUKT Application Number",
-          "Full Name",
-          "SSC Hall Ticket Number",
-          "Mobile Number",
-          "Problem Description"
-        ]
-      },
+      "title": "Admissions 2025",
       "portalUrl": "https://admissions.rgukt.in/"
     },
     {
@@ -50,21 +24,20 @@
       "rguktUrl": "https://www.rgukt.in/admissions/ug-admissions/2026/",
       "localRoute": "/admissions/2026",
       "pageStatus": "ok",
-      "title": "2026",
-      "sections": [],
-      "documents": [],
+      "title": "Admissions 2026",
       "banner": {
-        "status": "open",
-        "headline": "Registrations are Open",
+        "status": "closed-sports-open",
+        "headline": "ADMISSIONS 2026 ARE CLOSED EXCEPT SPORTS QUOTA",
+        "lastDate": "30-05-2026",
         "applyUrl": "https://admissions.rgukt.in/"
       },
       "helpline": {
         "email": "admissions@rgukt.in",
         "phones": [
-          "9703542597",
-          "9705472597"
+          "97035 42597",
+          "97054 72597"
         ],
-        "timings": "10:00 AM to 1:00 PM and 2:00 PM to 5:00 PM (O",
+        "timings": "10:00 AM to 1:00 PM and 2:00 PM to 5:00 PM (Working days only)",
         "emailFields": [
           "RGUKT Application Number",
           "Full Name",
@@ -78,18 +51,42 @@
     {
       "slug": "postgraduate",
       "rguktUrl": "https://www.rgukt.in/admissions/pg-admissions/",
-      "pageStatus": "not_found_on_source",
-      "title": "",
-      "sections": [],
-      "documents": []
+      "localRoute": "/admissions/postgraduate",
+      "pageStatus": "ok",
+      "title": "PG Admissions",
+      "portalUrl": "https://www.rgukt.in/"
     },
     {
       "slug": "doctoral",
       "rguktUrl": "https://www.rgukt.in/admissions/doctorial-admissions/",
-      "pageStatus": "not_found_on_source",
-      "title": "",
-      "sections": [],
-      "documents": []
+      "localRoute": "/admissions/doctoral",
+      "pageStatus": "ok",
+      "title": "Doctoral Admissions",
+      "portalUrl": "https://www.rgukt.in/"
+    },
+    {
+      "slug": "eligibility",
+      "rguktUrl": "https://www.rgukt.in/admissions/ug-admissions/",
+      "localRoute": "/admissions/eligibility",
+      "pageStatus": "ok",
+      "title": "Eligibility Criteria",
+      "portalUrl": "https://admissions.rgukt.in/"
+    },
+    {
+      "slug": "process",
+      "rguktUrl": "https://admissions.rgukt.in/application",
+      "localRoute": "/admissions/process",
+      "pageStatus": "ok",
+      "title": "Application Process",
+      "portalUrl": "https://admissions.rgukt.in/"
+    },
+    {
+      "slug": "fees",
+      "rguktUrl": "https://admissions.rgukt.in/",
+      "localRoute": "/admissions/fees",
+      "pageStatus": "ok",
+      "title": "Fee Structure",
+      "portalUrl": "https://admissions.rgukt.in/"
     }
   ]
 }

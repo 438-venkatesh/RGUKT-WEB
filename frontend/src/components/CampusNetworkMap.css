@@ -1,0 +1,401 @@
+/** CampusNetworkMap.css — Interactive RGUKT 4-Campus Network Visualization */
+
+.campus-network-section {
+  margin: 28px 0 40px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.cn-header-block {
+  text-align: left;
+}
+
+.cn-kicker {
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #C8102E;
+  margin-bottom: 4px;
+}
+
+.cn-title {
+  font-size: 1.65rem;
+  font-weight: 800;
+  margin: 0 0 6px 0;
+  line-height: 1.2;
+}
+
+.cn-subtitle {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Map Canvas Container */
+.cn-map-container {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 30px rgba(10, 39, 68, 0.06);
+}
+
+.cn-map-svg-wrap {
+  width: 100%;
+  max-width: 900px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.cn-svg-map {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.08));
+}
+
+/* Background Map Image inside SVG */
+.cn-base-map-img {
+  transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+/* Dark mode adjustment for base map */
+.dark-mode .cn-base-map-img {
+  filter: invert(0.88) hue-rotate(180deg) brightness(0.75) contrast(1.2);
+}
+
+/* Network Path */
+.cn-network-line-glow {
+  pointer-events: none;
+  stroke: rgba(200, 16, 46, 0.35);
+  stroke-width: 8px;
+  filter: blur(4px);
+}
+
+.cn-network-line {
+  pointer-events: none;
+  stroke: #C8102E;
+  stroke-width: 2.8px;
+  stroke-linecap: round;
+  stroke-dasharray: 8 6;
+  animation: cnDashMove 25s linear infinite;
+}
+
+.dark-mode .cn-network-line {
+  stroke: #E8203C;
+}
+
+@keyframes cnDashMove {
+  from {
+    stroke-dashoffset: 280;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Campus Marker Node */
+.cn-node-group {
+  cursor: pointer;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  outline: none;
+}
+
+.cn-node-group:focus-visible {
+  outline: 2px solid #C8102E;
+  outline-offset: 4px;
+}
+
+.cn-beacon-ring {
+  animation: cnBeaconWave 2.4s cubic-bezier(0.25, 0.8, 0.25, 1) infinite;
+  transform-origin: center;
+}
+
+@keyframes cnBeaconWave {
+  0% {
+    r: 10;
+    opacity: 0.8;
+    stroke-width: 3px;
+  }
+  70% {
+    r: 32;
+    opacity: 0;
+    stroke-width: 1px;
+  }
+  100% {
+    r: 32;
+    opacity: 0;
+  }
+}
+
+.cn-node-group:hover,
+.cn-node-group.is-active {
+  transform: scale(1.08);
+}
+
+.cn-node-group:hover .cn-pin-core,
+.cn-node-group.is-active .cn-pin-core {
+  filter: drop-shadow(0 0 12px rgba(200, 16, 46, 0.8));
+}
+
+.cn-pin-outer {
+  transition: fill 0.25s ease, r 0.25s ease;
+}
+
+.cn-pin-core {
+  transition: transform 0.25s ease, fill 0.25s ease;
+}
+
+/* Leader Lines & Callout Badges */
+.cn-leader-line {
+  stroke-dasharray: 4 3;
+  transition: stroke 0.25s ease, stroke-width 0.25s ease;
+}
+
+.cn-node-group:hover .cn-leader-line,
+.cn-node-group.is-active .cn-leader-line {
+  stroke-width: 2.2px;
+  stroke-dasharray: none;
+}
+
+.cn-badge-bg {
+  transition: fill 0.25s ease, stroke 0.25s ease, filter 0.25s ease;
+}
+
+.cn-node-group:hover .cn-badge-bg,
+.cn-node-group.is-active .cn-badge-bg {
+  filter: drop-shadow(0 4px 12px rgba(10, 39, 68, 0.25));
+}
+
+.cn-badge-title {
+  font-family: inherit;
+  font-size: 13.5px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  transition: fill 0.25s ease;
+}
+
+.cn-badge-sub {
+  font-family: inherit;
+  font-size: 10.5px;
+  font-weight: 600;
+  transition: fill 0.25s ease;
+}
+
+/* Floating Active Popover on Map */
+.cn-popover-card {
+  position: absolute;
+  bottom: 20px;
+  right: 24px;
+  max-width: 320px;
+  border-radius: 12px;
+  padding: 16px 20px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+  animation: cnFadeInUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+@keyframes cnFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cn-popover-tag {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #C8102E;
+}
+
+.cn-popover-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.cn-popover-loc {
+  font-size: 0.82rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.cn-popover-desc {
+  font-size: 0.85rem;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.cn-popover-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+  margin-top: 4px;
+  width: fit-content;
+  transition: transform 0.2s ease;
+}
+
+.cn-popover-btn:hover {
+  transform: translateX(3px);
+}
+
+/* 4 Campus Synchronized Cards Grid */
+.cn-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.cn-campus-card {
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-decoration: none;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.cn-campus-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: transparent;
+  transition: background-color 0.25s ease;
+}
+
+.cn-campus-card:hover,
+.cn-campus-card.is-active {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(10, 39, 68, 0.1);
+}
+
+.cn-campus-card:hover::before,
+.cn-campus-card.is-active::before {
+  background: #C8102E;
+}
+
+.cn-card-thumb-wrap {
+  width: 100%;
+  height: 130px;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.cn-card-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.cn-campus-card:hover .cn-card-thumb,
+.cn-campus-card.is-active .cn-card-thumb {
+  transform: scale(1.05);
+}
+
+.cn-card-tag {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: rgba(10, 39, 68, 0.85);
+  color: #FFFFFF;
+  backdrop-filter: blur(4px);
+}
+
+.cn-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.cn-card-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  margin: 0;
+  line-height: 1.25;
+}
+
+.cn-card-district {
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.cn-card-desc {
+  font-size: 0.82rem;
+  line-height: 1.45;
+  margin: 4px 0 0 0;
+  flex: 1;
+}
+
+.cn-card-action {
+  font-size: 0.82rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 6px;
+  color: #C8102E;
+  transition: transform 0.2s ease;
+}
+
+.cn-campus-card:hover .cn-card-action {
+  transform: translateX(4px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .cn-title {
+    font-size: 1.4rem;
+  }
+  .cn-map-container {
+    padding: 14px 10px;
+  }
+  .cn-popover-card {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    max-width: 100%;
+    margin-top: 14px;
+    width: 100%;
+  }
+  .cn-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
