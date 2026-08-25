@@ -28,14 +28,14 @@ export default function AdmissionsModal() {
     <div className="adm-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="adm-modal-title">
       <div className="adm-modal">
         <button type="button" className="adm-modal-close" aria-label="Close" onClick={dismiss}>×</button>
-        <p className="adm-modal-kicker">RGUKT-AP Admissions</p>
-        <h2 id="adm-modal-title" className="adm-modal-title">UG Admissions 2026</h2>
+        <p className="adm-modal-kicker">RGUKT-AP Admissions 2026</p>
+        <h2 id="adm-modal-title" className="adm-modal-title">Admissions Status Update</h2>
         <p className="adm-modal-body">
-          Applications are now open for the six-year integrated B.Tech programme for rural SSC graduates of Andhra Pradesh.
+          Regular Admissions for AY 2026–27 are <strong>CLOSED EXCEPT SPORTS QUOTA</strong>. Candidates who applied under Special Category (Sports) should track provisional lists on the admissions portal.
         </p>
         <div className="adm-modal-actions">
           <Link to="/admissions/2026" className="adm-modal-primary" onClick={dismiss}>
-            Go to Admissions 2026 Page
+            View Admissions 2026 Details
           </Link>
           <button type="button" className="adm-modal-secondary" onClick={dismiss}>
             Dismiss
