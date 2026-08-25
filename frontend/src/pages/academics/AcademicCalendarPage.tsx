@@ -61,8 +61,8 @@ export default function AcademicCalendarPage() {
 
           <div className="prog-hero-right">
             <img
-              src="/gallery/academic-calendar-hero.jpg"
-              alt="RGUKT Academic Calendar and Semester Almanac Planning"
+              src="/gallery/gallery-7.jpg"
+              alt="RGUKT Academic Calendar Planning"
               className="prog-hero-media-img"
             />
             <div className="prog-hero-media-overlay">

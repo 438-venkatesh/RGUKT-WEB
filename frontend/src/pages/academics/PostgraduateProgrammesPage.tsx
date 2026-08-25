@@ -81,8 +81,8 @@ export default function PostgraduateProgrammesPage() {
 
           <div className="prog-hero-right">
             <img
-              src="/gallery/postgraduate-programmes-hero.jpg"
-              alt="Postgraduate Advanced Computational Engineering and R&D Laboratories"
+              src="/gallery/gallery-10.jpg"
+              alt="Postgraduate Advanced Computing and Engineering Laboratories"
               className="prog-hero-media-img"
             />
             <div className="prog-hero-media-overlay">

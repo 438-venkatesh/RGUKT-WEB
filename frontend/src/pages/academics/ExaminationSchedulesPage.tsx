@@ -23,50 +23,73 @@ export default function ExaminationSchedulesPage() {
       campus: 'Nuzvid',
       semester: 'Semester-I End Exams (PUC & B.Tech E1–E4)',
       academicYear: 'AY 2025–26 (Dec 1–15, 2025)',
-
-
+      dates: 'Dec 1 – Dec 15, 2025',
+      session: 'FN (09:30 AM – 12:30 PM) & AN (02:00 PM – 05:00 PM)',
+      branches: 'CSE, ECE, EEE, MECH, CIVIL, CHEM, MME + PUC',
+      pdfUrl: '/docs/academics/exam-schedule-nuzvid-sem1.pdf',
     },
     {
       campus: 'Nuzvid',
       semester: 'Semester-II End Exams (PUC & B.Tech E1–E4)',
       academicYear: 'AY 2025–26 (May 4–18, 2026)',
-
+      dates: 'May 4 – May 18, 2026',
+      session: 'FN (09:30 AM – 12:30 PM) & Project Defenses',
+      branches: 'All 7 B.Tech Engineering Branches + Minor Degrees',
+      pdfUrl: '/docs/academics/exam-schedule-nuzvid-sem2.pdf',
     },
     {
       campus: 'RK Valley',
       semester: 'Semester-I End Exams (PUC & B.Tech E1–E4)',
       academicYear: 'AY 2025–26 (Dec 1–15, 2025)',
-
+      dates: 'Dec 1 – Dec 15, 2025',
+      session: 'FN (09:30 AM – 12:30 PM) & AN (02:00 PM – 05:00 PM)',
+      branches: 'CSE, ECE, EEE, MECH, CIVIL, CHEM, MME + PUC',
+      pdfUrl: '/docs/academics/exam-schedule-rk-valley-sem1.pdf',
     },
     {
       campus: 'RK Valley',
       semester: 'Semester-II End Exams (PUC & B.Tech E1–E4)',
       academicYear: 'AY 2025–26 (May 4–18, 2026)',
-
+      dates: 'May 4 – May 18, 2026',
+      session: 'FN (09:30 AM – 12:30 PM)',
+      branches: 'All 7 B.Tech Engineering Branches + PUC Foundation',
+      pdfUrl: '/docs/academics/exam-schedule-rk-valley-sem2.pdf',
     },
     {
       campus: 'Srikakulam',
       semester: 'Semester-I End Exams (PUC & B.Tech E1–E4)',
       academicYear: 'AY 2025–26 (Dec 1–15, 2025)',
-
+      dates: 'Dec 1 – Dec 15, 2025',
+      session: 'FN (09:30 AM – 12:30 PM)',
+      branches: 'CSE, ECE, MECH, CIVIL + PUC-1 & PUC-2',
+      pdfUrl: '/docs/academics/exam-schedule-srikakulam-sem1.pdf',
     },
     {
       campus: 'Srikakulam',
       semester: 'Semester-II End Exams (PUC & B.Tech E1–E4)',
       academicYear: 'AY 2025–26 (May 4–18, 2026)',
-
+      dates: 'May 4 – May 18, 2026',
+      session: 'FN (09:30 AM – 12:30 PM)',
+      branches: 'CSE, ECE, MECH, CIVIL + PUC-1 & PUC-2',
+      pdfUrl: '/docs/academics/exam-schedule-srikakulam-sem2.pdf',
     },
     {
       campus: 'Ongole',
       semester: 'Semester-I End Exams (PUC & B.Tech E1–E4)',
       academicYear: 'AY 2025–26 (Dec 1–15, 2025)',
-
+      dates: 'Dec 1 – Dec 15, 2025',
+      session: 'FN (09:30 AM – 12:30 PM)',
+      branches: 'CSE, ECE, EEE, MECH, CIVIL + PUC-1 & PUC-2',
+      pdfUrl: '/docs/academics/exam-schedule-ongole-sem1.pdf',
     },
     {
       campus: 'Ongole',
       semester: 'Semester-II End Exams (PUC & B.Tech E1–E4)',
       academicYear: 'AY 2025–26 (May 4–18, 2026)',
-
+      dates: 'May 4 – May 18, 2026',
+      session: 'FN (09:30 AM – 12:30 PM)',
+      branches: 'CSE, ECE, EEE, MECH, CIVIL + PUC-1 & PUC-2',
+      pdfUrl: '/docs/academics/exam-schedule-ongole-sem2.pdf',
     },
   ];
 
@@ -97,8 +120,8 @@ export default function ExaminationSchedulesPage() {
 
           <div className="prog-hero-right">
             <img
-              src="/gallery/examination-schedules-hero.jpg"
-              alt="Official University Examination Timetables and Seating Schedules"
+              src="/gallery/gallery-11.jpg"
+              alt="RGUKT-AP Examination Notice Board and Central Examination Cell"
               className="prog-hero-media-img"
             />
             <div className="prog-hero-media-overlay">
@@ -220,7 +243,7 @@ export default function ExaminationSchedulesPage() {
                   background: '#FFFFFF',
                   border: '1.5px solid #E2E8F0',
                   borderRadius: '12px',
-                  boxShadow: '0 2px 8px rgba(6, 35, 65, 0.03)',
+                  boxShadow: '0 2px 8px rgba(10, 39, 68, 0.03)',
                   transition: 'all 0.22s ease',
                 }}
               >
@@ -234,7 +257,7 @@ export default function ExaminationSchedulesPage() {
                         style={{
                           fontSize: '10.5px',
                           fontWeight: 800,
-                          background: '#1b7ce4',
+                          background: '#14283E',
                           color: '#FFFFFF',
                           padding: '2px 8px',
                           borderRadius: '5px',
@@ -263,10 +286,17 @@ export default function ExaminationSchedulesPage() {
                     </div>
 
                     <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap', fontSize: '11.5px', color: '#475569', marginTop: '2px' }}>
-
-
-
-
+                      <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        <Calendar size={12} color="#C8102E" />
+                        <strong>Dates:</strong> {s.dates}
+                      </span>
+                      <span>•</span>
+                      <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        <Clock size={12} color="#14283E" />
+                        <strong>Shift:</strong> {s.session}
+                      </span>
+                      <span>•</span>
+                      <span><strong>Disciplines:</strong> {s.branches}</span>
                     </div>
                   </div>
                 </div>
@@ -274,6 +304,7 @@ export default function ExaminationSchedulesPage() {
                 {/* Right-aligned Actions */}
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
                   <a
+                    href={s.pdfUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="doc-row-btn-primary"
@@ -283,6 +314,7 @@ export default function ExaminationSchedulesPage() {
                     <span>View PDF</span>
                   </a>
                   <a
+                    href={s.pdfUrl}
                     download
                     className="doc-row-btn-secondary"
                     title={`Download ${s.campus} ${s.semester} PDF`}
@@ -296,7 +328,19 @@ export default function ExaminationSchedulesPage() {
           </div>
         </section>
 
-        
+        {/* 4. VERIFIED EXAMINATION SCHEDULE DOCUMENTS (LINE-BY-LINE) */}
+        <section className="prog-section">
+          <div className="prog-section-header">
+            <span className="prog-section-kicker">Official Timetable Gazettes</span>
+            <h2 className="prog-section-title">Verified Examination Schedules Documents (PDFs)</h2>
+            <p className="prog-section-subtitle">
+              Download the official campus-wise examination notifications, schedule gazettes, and
+              seating charts published by the Controller of Examinations.
+            </p>
+          </div>
+
+          <DocumentSection documents={scheduleDocs} />
+        </section>
 
         {/* 5. EXAMINATION NOTIFICATIONS CTA */}
         <section className="prog-cta-banner">

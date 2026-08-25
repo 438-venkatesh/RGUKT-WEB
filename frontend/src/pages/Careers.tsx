@@ -1,127 +1,198 @@
-import { useState } from 'react';
-import { useDarkMode } from '../context/DarkModeContext';
+import { useState, useMemo } from 'react';
+import SectionPageLayout, { useSectionTheme } from '../components/SectionPageLayout';
+import CareersHero from '../components/careers/CareersHero';
+import CareerCategories from '../components/careers/CareerCategories';
+import CareerFilters from '../components/careers/CareerFilters';
+import CareerOpeningCard from '../components/careers/CareerOpeningCard';
+import CampusCareers from '../components/careers/CampusCareers';
+import RecruitmentTimeline from '../components/careers/RecruitmentTimeline';
+import RecruitmentDocuments from '../components/careers/RecruitmentDocuments';
+import ArchivedRecruitment from '../components/careers/ArchivedRecruitment';
+import CareerWhyRgukt from '../components/careers/CareerWhyRgukt';
+import CareerContact from '../components/careers/CareerContact';
+import {
+  CAREER_OPENINGS,
+} from '../data/careersContent';
+import type { CareerCategoryType } from '../data/careersContent';
 import './Careers.css';
 
-/* ─────────── data ─────────── */
-type JobType   = 'Faculty' | 'Staff';
-type FilterKey = 'All' | JobType;
-
-interface Job {
-  title:  string;
-  dept:   string;
-  campus: string;
-  type:   JobType;
-}
-
-const ALL_JOBS: Job[] = [
-  { title: 'Assistant Professor — Computer Science',    dept: 'CSE',            campus: 'Nuzvid',     type: 'Faculty' },
-  { title: 'Associate Professor — Electronics',         dept: 'ECE',            campus: 'RK Valley',  type: 'Faculty' },
-  { title: 'Assistant Professor — Mathematics',         dept: 'Sciences',       campus: 'Srikakulam', type: 'Faculty' },
-  { title: 'Junior Assistant',                          dept: 'Administration', campus: 'Ongole',     type: 'Staff'   },
-  { title: 'Lab Technician — Mechanical',               dept: 'MECH',           campus: 'Nuzvid',     type: 'Staff'   },
-  { title: 'Assistant Professor — Chemical Engineering',dept: 'Chemical',       campus: 'RK Valley',  type: 'Faculty' },
-];
-
-const FILTERS: FilterKey[] = ['All', 'Faculty', 'Staff'];
-
-/* ─────────── component ─────────── */
 export default function Careers() {
-  const { dark } = useDarkMode();
-  const [filter, setFilter] = useState<FilterKey>('All');
+  const c = useSectionTheme();
 
-  const c = dark ? {
-    primary:   '#0B141F',
-    accent:    '#E8203C',
-    surface:   '#112030',
-    surface2:  '#18293c',
-    text:      '#C0D4EE',
-    textMuted: 'rgba(192,212,238,0.65)',
-    border:    'rgba(192,212,238,0.18)',
-    bg:        '#0B141F',
-  } : {
-    primary:   '#0A2744',
-    accent:    '#C8102E',
-    surface:   '#FFFFFF',
-    surface2:  '#E8EEF8',
-    text:      '#18243A',
-    textMuted: '#526070',
-    border:    '#C5D3E8',
-    bg:        '#F2F5FA',
+  // Filter States
+  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('All Categories');
+  const [selectedCampus, setSelectedCampus] = useState('All Campuses');
+  const [selectedStatus, setSelectedStatus] = useState('All Statuses');
+
+  // Filter Logic
+  const filteredOpenings = useMemo(() => {
+    return CAREER_OPENINGS.filter((item) => {
+      // 1. Search Query
+      if (searchQuery.trim() !== '') {
+        const q = searchQuery.toLowerCase().trim();
+        const matchesTitle = item.title.toLowerCase().includes(q);
+        const matchesAdvt = item.advtNo.toLowerCase().includes(q);
+        const matchesDept = item.dept.toLowerCase().includes(q);
+        const matchesDesc = item.description.toLowerCase().includes(q);
+        const matchesCampus = item.campus.toLowerCase().includes(q);
+        const matchesCat = item.category.toLowerCase().includes(q);
+        if (!matchesTitle && !matchesAdvt && !matchesDept && !matchesDesc && !matchesCampus && !matchesCat) {
+          return false;
+        }
+      }
+
+      // 2. Category Filter
+      if (selectedCategory !== 'All Categories' && item.category !== selectedCategory) {
+        return false;
+      }
+
+      // 3. Campus Filter
+      if (selectedCampus !== 'All Campuses') {
+        if (item.campus !== 'All Campuses' && item.campus !== selectedCampus) {
+          return false;
+        }
+      }
+
+      // 4. Status Filter
+      if (selectedStatus !== 'All Statuses' && item.status !== selectedStatus) {
+        return false;
+      }
+
+      return true;
+    });
+  }, [searchQuery, selectedCategory, selectedCampus, selectedStatus]);
+
+  // Handler helpers
+  const handleScrollToOpenings = () => {
+    const el = document.getElementById('current-openings');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
-  const visible = ALL_JOBS.filter(j => filter === 'All' || j.type === filter);
+  const handleScrollToDocuments = () => {
+    const el = document.getElementById('documents');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleSelectCategoryFromHero = (category: string) => {
+    setSelectedCategory(category);
+    handleScrollToOpenings();
+  };
+
+  const handleSelectCategoryFromCards = (category: CareerCategoryType) => {
+    setSelectedCategory(category);
+    handleScrollToOpenings();
+  };
+
+  const handleSelectCampusFromCards = (campus: string) => {
+    setSelectedCampus(campus);
+    handleScrollToOpenings();
+  };
+
+  const handleResetFilters = () => {
+    setSearchQuery('');
+    setSelectedCategory('All Categories');
+    setSelectedCampus('All Campuses');
+    setSelectedStatus('All Statuses');
+  };
 
   return (
-    <div className="apc-root" style={{ background: c.bg, color: c.text }}>
-      <div className="apc-inner">
-        <p className="apc-desc" style={{ color: c.textMuted }}>
-          Faculty and staff recruitment opportunities across RGUKT-AP's four campuses.
-        </p>
+    <SectionPageLayout>
+      <div className="careers-container">
+        {/* 1. HERO SECTION */}
+        <CareersHero
+          onScrollToOpenings={handleScrollToOpenings}
+          onScrollToDocuments={handleScrollToDocuments}
+          onSelectCategory={handleSelectCategoryFromHero}
+        />
 
-        {/* ── Filter chips ── */}
-        <div className="apc-filters">
-          {FILTERS.map(f => (
-            <button
-              key={f}
-              className={`apc-filter${filter === f ? ' apc-filter--on' : ''}`}
-              style={{
-                border:     `1px solid ${c.border}`,
-                background: filter === f ? c.primary : 'transparent',
-                color:      filter === f ? '#fff' : c.text,
-              }}
-              onClick={() => setFilter(f)}
-            >
-              {f}
-            </button>
-          ))}
-        </div>
+        {/* 2. EXPLORE CAREER OPPORTUNITIES (3+3 GRID) */}
+        <CareerCategories onSelectCategory={handleSelectCategoryFromCards} />
 
-        {/* ── Job listings ── */}
-        <div className="apc-jobs">
-          {visible.map(j => (
-            <div
-              key={`${j.title}-${j.campus}`}
-              className="apc-job"
-              style={{ background: c.surface, border: `1px solid ${c.border}` }}
-            >
-              <div className="apc-job-info">
-                <div className="apc-job-title">{j.title}</div>
-                <div className="apc-job-meta" style={{ color: c.textMuted }}>
-                  {j.dept} · {j.campus} · {j.type}
-                </div>
-              </div>
-              <a
-                href="#"
-                className="apc-apply"
-                style={{ background: c.primary }}
-              >
-                View &amp; Apply →
-              </a>
-            </div>
-          ))}
-          {visible.length === 0 && (
-            <p className="apc-empty" style={{ color: c.textMuted }}>
-              No openings match the selected filter.
+        {/* 3. CURRENT OPENINGS & RECRUITMENT NOTIFICATIONS */}
+        <section className="careers-section" id="current-openings">
+          <div className="careers-section-header">
+            <span className="careers-subheading">Recruitment Desk</span>
+            <h2 className="careers-heading" style={{ color: c.text }}>
+              Current &amp; Active Recruitment Openings
+            </h2>
+            <p className="careers-intro" style={{ color: c.textMuted }}>
+              Official employment notifications across RGUKT-AP. Every recruitment listing includes
+              verified advertisement references, eligibility norms, downloadable notification PDFs,
+              and official application links:
             </p>
-          )}
-        </div>
+          </div>
 
-        {/* ── General Applications ── */}
-        <section className="apc-general" style={{ background: c.surface2 }}>
-          <h2 className="apc-gen-h2">General Applications</h2>
-          <p className="apc-gen-p" style={{ color: c.textMuted }}>
-            Don't see a matching role? Send your CV to{' '}
-            <a
-              href="mailto:careers@rgukt.ac.in"
-              className="apc-gen-link"
-              style={{ color: c.primary }}
-            >
-              careers@rgukt.ac.in
-            </a>{' '}
-            for future openings.
-          </p>
+          {/* Filter Bar */}
+          <CareerFilters
+            searchQuery={searchQuery}
+            onSearchChange={setSearchQuery}
+            selectedCategory={selectedCategory}
+            onCategoryChange={setSelectedCategory}
+            selectedCampus={selectedCampus}
+            onCampusChange={setSelectedCampus}
+            selectedStatus={selectedStatus}
+            onStatusChange={setSelectedStatus}
+            onReset={handleResetFilters}
+            activeMatchesCount={filteredOpenings.length}
+          />
+
+          {/* Openings Card Listing */}
+          <div className="careers-openings-list">
+            {filteredOpenings.map((opening) => (
+              <CareerOpeningCard key={opening.id} opening={opening} />
+            ))}
+
+            {filteredOpenings.length === 0 && (
+              <div
+                className="careers-empty-state"
+                style={{
+                  background: c.surface,
+                  border: `1px solid ${c.border}`,
+                }}
+              >
+                <span className="careers-empty-icon">📂</span>
+                <h3 className="careers-empty-title" style={{ color: c.text }}>
+                  No current recruitment openings match your selected filters.
+                </h3>
+                <p className="careers-empty-desc" style={{ color: c.textMuted }}>
+                  Check the official recruitment documents below or try resetting your filters.
+                </p>
+                <button
+                  type="button"
+                  className="careers-btn-primary"
+                  onClick={handleResetFilters}
+                  style={{ marginTop: 8 }}
+                >
+                  <span>Reset All Filters ↺</span>
+                </button>
+              </div>
+            )}
+          </div>
         </section>
+
+        {/* 4. FOUR-CAMPUS CAREER OPPORTUNITIES */}
+        <CampusCareers onSelectCampus={handleSelectCampusFromCards} />
+
+        {/* 5. RECRUITMENT PROCESS (6-STEP TIMELINE) */}
+        <RecruitmentTimeline />
+
+        {/* 6. IMPORTANT RECRUITMENT DOCUMENTS (OFFICIAL PDFS) */}
+        <RecruitmentDocuments />
+
+        {/* 7. ARCHIVED RECRUITMENTS */}
+        <ArchivedRecruitment />
+
+        {/* 8. WHY BUILD A CAREER AT RGUKT */}
+        <CareerWhyRgukt />
+
+        {/* 9. RECRUITMENT CONTACT & HELPDESK */}
+        <CareerContact />
       </div>
-    </div>
+    </SectionPageLayout>
   );
 }

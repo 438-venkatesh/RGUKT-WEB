@@ -6,9 +6,9 @@ import {
   Building,
   FlaskRound,
   Atom,
-  BookOpen,
   Layers,
   Award,
+  BookOpen,
 } from 'lucide-react';
 import AcademicsSubLayout from '../../components/AcademicsSubLayout';
 import { ACADEMIC_PROGRAM_DOCUMENTS } from '../../data/academicDocuments';
@@ -26,6 +26,7 @@ export default function AcademicCurriculumPage() {
       name: 'Computer Science & Engineering',
       credits: '160 Credits',
       icon: <Code size={18} />,
+      image: '/disciplines/cse.jpg',
       coreTopics: ['Data Structures & Algorithms', 'Operating Systems', 'AI & Machine Learning', 'Cloud Computing', 'Database Management Systems'],
       labs: ['Advanced Programming Lab', 'AI & Data Engineering Lab', 'Computer Networks Lab'],
     },
@@ -34,6 +35,7 @@ export default function AcademicCurriculumPage() {
       name: 'Electronics & Communication Engineering',
       credits: '160 Credits',
       icon: <Radio size={18} />,
+      image: '/disciplines/ece.jpg',
       coreTopics: ['Digital VLSI Design', 'Signals & Systems', 'Embedded IoT Systems', 'Wireless Communication', 'Microprocessors & Microcontrollers'],
       labs: ['VLSI Simulation Lab', 'Embedded Systems Testbed', 'Microwave & Optical Lab'],
     },
@@ -42,6 +44,7 @@ export default function AcademicCurriculumPage() {
       name: 'Electrical & Electronics Engineering',
       credits: '160 Credits',
       icon: <Zap size={18} />,
+      image: '/disciplines/eee.jpg',
       coreTopics: ['Power Systems Engineering', 'Power Electronics', 'Electric Vehicle Technology', 'Smart Grids', 'Control Systems Theory'],
       labs: ['Power Electronics Simulation Lab', 'Electric Machines Lab', 'Smart Grid Facility'],
     },
@@ -50,6 +53,7 @@ export default function AcademicCurriculumPage() {
       name: 'Mechanical Engineering',
       credits: '160 Credits',
       icon: <Settings size={18} />,
+      image: '/disciplines/mech.jpg',
       coreTopics: ['Thermodynamics & Heat Transfer', 'CAD/CAM/CAE Modeling', 'Finite Element Analysis', 'Robotics & Automation', 'Fluid Mechanics'],
       labs: ['CNC & Advanced Machining Lab', 'Automotive Systems Lab', 'CFD Simulation Cell'],
     },
@@ -58,6 +62,7 @@ export default function AcademicCurriculumPage() {
       name: 'Civil Engineering',
       credits: '160 Credits',
       icon: <Building size={18} />,
+      image: '/disciplines/civil.jpg',
       coreTopics: ['Structural Analysis & Design', 'Geotechnical Engineering', 'Highway & Transportation Design', 'Water Resources', 'GIS & Remote Sensing'],
       labs: ['Structural Concrete Testing Lab', 'Soil Mechanics Lab', 'Environmental Engineering Lab'],
     },
@@ -66,6 +71,7 @@ export default function AcademicCurriculumPage() {
       name: 'Chemical Engineering',
       credits: '160 Credits',
       icon: <FlaskRound size={18} />,
+      image: '/disciplines/chem.jpg',
       coreTopics: ['Chemical Reaction Engineering', 'Heat & Mass Transfer Operations', 'Process Dynamics & Control', 'Petrochemical Processing', 'Green Chemistry'],
       labs: ['Process Control Lab', 'Reaction Engineering Lab', 'Mass Transfer Unit Lab'],
     },
@@ -74,6 +80,7 @@ export default function AcademicCurriculumPage() {
       name: 'Materials & Metallurgical Engineering',
       credits: '160 Credits',
       icon: <Atom size={18} />,
+      image: '/disciplines/mme.jpg',
       coreTopics: ['Physical Metallurgy', 'Advanced Characterization (SEM/XRD)', 'Nanomaterials & Composites', 'Corrosion Engineering', 'Phase Transformations'],
       labs: ['Metallography Lab', 'Materials Characterization Suite', 'Heat Treatment Facility'],
     },
@@ -100,16 +107,16 @@ export default function AcademicCurriculumPage() {
               Outcome-Based Education • Choice-Based Credit System • Interdisciplinary Minors
             </p>
             <p className="prog-hero-description">
-              Comprehensive curriculum structures, departmental course syllabi, laboratory
-              frameworks, and educational objectives across PUC foundational sciences, 7 B.Tech
-              engineering branches, M.Tech specializations, and doctoral coursework.
+              RGUKT-AP follows an advanced AICTE and NBA aligned curriculum emphasizing foundational
+              sciences in the Pre-University Course (PUC) and cutting-edge engineering specializations
+              with heavy laboratory computing in the 4-year B.Tech programme.
             </p>
           </div>
 
           <div className="prog-hero-right">
             <img
-              src="/gallery/academic-curriculum-hero.jpg"
-              alt="RGUKT Engineering Curriculum and Interactive ICT Learning"
+              src="/gallery/gallery-10.jpg"
+              alt="RGUKT Curriculum Development and Laboratories"
               className="prog-hero-media-img"
             />
             <div className="prog-hero-media-overlay">
@@ -189,7 +196,18 @@ export default function AcademicCurriculumPage() {
           <div className="prog-card-grid">
             {branches.map((b) => (
               <div key={b.code} className="prog-discipline-card">
-                <div className="prog-card-body" style={{ paddingTop: '18px' }}>
+                <div className="prog-card-image-wrap" style={{ maxHeight: '135px' }}>
+                  <img
+                    src={b.image}
+                    alt={`${b.name} engineering branch at RGUKT`}
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = '/disciplines/cse.jpg';
+                    }}
+                  />
+                  <span className="prog-card-code-badge">{b.code}</span>
+                </div>
+
+                <div className="prog-card-body" style={{ padding: '14px 16px' }}>
                   <div className="prog-card-header-row">
                     <div className="prog-card-icon">{b.icon}</div>
                     <div>
@@ -227,7 +245,7 @@ export default function AcademicCurriculumPage() {
                   </div>
                 </div>
 
-                <div className="prog-card-footer">
+                <div className="prog-card-footer" style={{ padding: '10px 16px' }}>
                   <span className="prog-card-intake">
                     Total Credits: <strong>{b.credits}</strong>
                   </span>
@@ -240,33 +258,37 @@ export default function AcademicCurriculumPage() {
           </div>
         </section>
 
-        {/* 4. INTERDISCIPLINARY MINOR SPECIALIZATIONS */}
+        {/* 4. INTERDISCIPLINARY MINOR DEGREES */}
         <section className="prog-section">
           <div className="prog-section-header">
             <span className="prog-section-kicker">Multi-Disciplinary Options</span>
-            <h2 className="prog-section-title">Interdisciplinary Minor Degrees (20 Credits)</h2>
+            <h2 className="prog-section-title">Interdisciplinary Minor Degree Programmes</h2>
             <p className="prog-section-subtitle">
-              Expand your engineering horizon with AICTE-approved interdisciplinary minors offered concurrently.
+              Expand your engineering horizons by opting for a 20-credit minor degree alongside your
+              primary B.Tech major discipline.
             </p>
           </div>
 
           <div className="prog-card-grid">
             {minors.map((m) => (
               <div key={m.title} className="prog-discipline-card" style={{ padding: '16px' }}>
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
-                  <span style={{ fontSize: '11px', fontWeight: 800, color: '#C8102E', textTransform: 'uppercase' }}>
-                    {m.dept}
-                  </span>
-                  <span style={{ fontSize: '11px', fontWeight: 800, background: '#0A2744', color: '#ffffff', padding: '2px 8px', borderRadius: '5px' }}>
-                    {m.credits}
-                  </span>
-                </div>
-                <h4 style={{ fontSize: '14px', fontWeight: 800, color: '#0A2744', margin: '0 0 6px' }}>
+                <span style={{ fontSize: '11px', fontWeight: 800, color: '#64748B', textTransform: 'uppercase' }}>
+                  Offered by: {m.dept}
+                </span>
+                <h3 style={{ fontSize: '14.5px', fontWeight: 800, color: '#0A2744', margin: '4px 0 6px' }}>
                   {m.title}
-                </h4>
-                <p style={{ fontSize: '12px', color: '#475569', margin: 0, lineHeight: 1.45 }}>
+                </h3>
+                <p style={{ fontSize: '12px', color: '#475569', margin: '0 0 10px', lineHeight: 1.45 }}>
                   {m.desc}
                 </p>
+                <div style={{ marginTop: 'auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: '10px', borderTop: '1px solid #F1F5F9' }}>
+                  <span style={{ fontSize: '11.5px', fontWeight: 700, color: '#0A2744' }}>
+                    Requirement: <strong>{m.credits}</strong>
+                  </span>
+                  <span style={{ fontSize: '11px', fontWeight: 800, color: '#C8102E' }}>
+                    Optional Pathway
+                  </span>
+                </div>
               </div>
             ))}
           </div>
@@ -275,25 +297,25 @@ export default function AcademicCurriculumPage() {
         {/* 5. VERIFIED CURRICULUM DOCUMENTS (LINE-BY-LINE) */}
         <section className="prog-section">
           <div className="prog-section-header">
-            <span className="prog-section-kicker">Official Syllabi Booklets</span>
+            <span className="prog-section-kicker">Course Syllabi &amp; Booklets</span>
             <h2 className="prog-section-title">Verified Academic Curriculum Documents (PDFs)</h2>
             <p className="prog-section-subtitle">
-              Download the complete 4-year B.Tech syllabus booklet, PUC curriculum framework, and
-              minor degree ordinances published by RGUKT-AP.
+              Download the approved B.Tech branch-wise syllabi, Pre-University course structure, and
+              interdisciplinary minor degree regulations published by RGUKT-AP.
             </p>
           </div>
 
-          <DocumentSection documents={currDocs} defaultFilter="Curriculum" />
+          <DocumentSection documents={currDocs} />
         </section>
 
-        {/* 6. CURRICULUM CTA */}
+        {/* 6. CURRICULUM ENQUIRY CTA */}
         <section className="prog-cta-banner">
           <div className="prog-cta-content">
-            <span className="prog-cta-kicker">Curriculum Resources</span>
+            <span className="prog-cta-kicker">Curriculum Advisory Board</span>
             <h2 className="prog-cta-title">Explore Detailed Course Syllabi</h2>
             <p className="prog-cta-desc">
-              Access the complete subject-wise lecture plans, textbook references, and laboratory
-              manuals via the university Learning Management System (LMS).
+              Access the complete course catalogs, departmental electives, and laboratory manuals
+              approved by the Board of Studies (BoS).
             </p>
           </div>
 
@@ -304,7 +326,7 @@ export default function AcademicCurriculumPage() {
               rel="noopener noreferrer"
               className="prog-cta-btn-primary"
             >
-              B.Tech Syllabus PDF →
+              B.Tech Curriculum PDF →
             </a>
             <a
               href="/docs/academics/minor-degree-curriculum-framework.pdf"
@@ -312,7 +334,7 @@ export default function AcademicCurriculumPage() {
               rel="noopener noreferrer"
               className="prog-cta-btn-outline"
             >
-              Minor Degree Framework PDF
+              Minor Degree Framework
             </a>
           </div>
         </section>

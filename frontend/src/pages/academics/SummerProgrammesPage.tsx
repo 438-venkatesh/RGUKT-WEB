@@ -99,8 +99,8 @@ export default function SummerProgrammesPage() {
 
           <div className="prog-hero-right">
             <img
-              src="/gallery/summer-programmes-hero.jpg"
-              alt="Students collaborating in Summer Technical Workshops and Internship Projects"
+              src="/gallery/gallery-6.jpg"
+              alt="Summer Academic Workshops and Training"
               className="prog-hero-media-img"
             />
             <div className="prog-hero-media-overlay">
