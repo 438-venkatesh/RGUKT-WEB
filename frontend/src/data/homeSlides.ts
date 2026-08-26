@@ -8,27 +8,32 @@ export type HeroSlide = {
 
 export const HERO_SLIDES: HeroSlide[] = [
   {
-    id: 'nuzvid-campus',
-    image: '/campuses/nuzvid-campus-wide.jpg',
-    caption: 'Catering to the Educational Needs of Gifted Rural Youth of Andhra Pradesh',
+    id: 'convocation',
+    image: '/hero/hero-convocation.jpg',
+    caption: 'Excellence Through Rural Education',
   },
   {
-    id: 'academic-complex',
-    image: '/campuses/academic-complex-nuzvid.jpg',
-    caption: 'Premier Residential Technical Education Across Four Vibrant Campuses',
+    id: 'vi-convocation',
+    image: '/gallery/gallery-12.jpg',
+    caption: 'Honouring Excellence at VI Convocation',
   },
   {
-    id: 'cultural-fest',
-    image: '/students/sitara-cultural-1.jpg',
-    caption: 'Fostering Innovation, Scientific Inquiry & Holistic Development',
+    id: 'classroom-career',
+    image: '/gallery/gallery-7.jpg',
+    caption: 'Learning by Doing — Classroom to Career',
+  },
+  {
+    id: 'four-campuses',
+    image: '/gallery/gallery-1.jpg',
+    caption: 'Four Campuses · One Mission · Rural India',
   },
 ];
 
 export const CAMPUS_QUICK_LINKS = [
-  { name: 'Nuzvid',     href: '/nuzvid',            variant: 'light' as const },
-  { name: 'RK Valley',  href: '/campus/rk-valley',  variant: 'red' as const },
-  { name: 'Ongole',     href: '/campus/ongole',     variant: 'light' as const },
-  { name: 'Srikakulam', href: '/campus/srikakulam', variant: 'red' as const },
+  { name: 'Nuzvid',     href: '/nuzvid',                variant: 'light' as const },
+  { name: 'RK Valley',  href: 'https://rguktrkv.ac.in', variant: 'red' as const },
+  { name: 'Ongole',     href: 'https://rguktong.ac.in', variant: 'light' as const },
+  { name: 'Srikakulam', href: 'https://rguktsklm.ac.in', variant: 'red' as const },
 ];
 
 export const ANNOUNCEMENTS = [

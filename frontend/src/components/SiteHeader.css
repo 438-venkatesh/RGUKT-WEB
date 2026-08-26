@@ -58,11 +58,14 @@
   font-weight: 700;
   color: #0A2744;
   line-height: 1.25;
+  font-family: 'Inter', system-ui, sans-serif;
+  transition: color 0.25s;
+}
+
+.sh-brand-name .bilingual-line {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-family: 'Inter', system-ui, sans-serif;
-  transition: color 0.25s;
 }
 
 .sh-brand-tagline {
@@ -72,6 +75,11 @@
   line-height: 1.35;
   font-family: 'Inter', system-ui, sans-serif;
   transition: color 0.25s;
+}
+
+.sh-brand-tagline .bilingual-line,
+.sh-brand-estab .bilingual-line {
+  white-space: normal;
 }
 
 .sh-brand-estab {
@@ -139,9 +147,18 @@
   box-shadow: none;
 }
 
-.sh-root.overlay .sh-brand-name {
+.sh-root.overlay .sh-brand-name,
+.sh-root.overlay .sh-brand-name .bilingual-line {
   color: #fff;
   text-shadow: 0 1px 6px rgba(0, 0, 0, 0.55);
+}
+
+.sh-root.overlay .sh-brand-tagline,
+.sh-root.overlay .sh-brand-tagline .bilingual-line,
+.sh-root.overlay .sh-brand-estab,
+.sh-root.overlay .sh-brand-estab .bilingual-line {
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
 }
 
 .sh-root.overlay .sh-brand-inner {
@@ -155,12 +172,6 @@
   flex: 0 1 auto;
 }
 
-.sh-root.overlay .sh-brand-tagline,
-.sh-root.overlay .sh-brand-estab {
-  color: rgba(255, 255, 255, 0.92);
-  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
-}
-
 /* Scrolled on home — revert to solid bar */
 .sh-root.overlay.scrolled .sh-brand {
   background: #fff;
@@ -168,9 +179,12 @@
   box-shadow: 0 2px 8px rgba(0,0,0,0.07);
 }
 
-.sh-root.overlay.scrolled .sh-brand-name { color: #0A2744; text-shadow: none; }
-.sh-root.overlay.scrolled .sh-brand-tagline { color: #444; text-shadow: none; }
-.sh-root.overlay.scrolled .sh-brand-estab { color: #666; text-shadow: none; }
+.sh-root.overlay.scrolled .sh-brand-name,
+.sh-root.overlay.scrolled .sh-brand-name .bilingual-line { color: #0A2744; text-shadow: none; }
+.sh-root.overlay.scrolled .sh-brand-tagline,
+.sh-root.overlay.scrolled .sh-brand-tagline .bilingual-line { color: #444; text-shadow: none; }
+.sh-root.overlay.scrolled .sh-brand-estab,
+.sh-root.overlay.scrolled .sh-brand-estab .bilingual-line { color: #666; text-shadow: none; }
 
 .sh-root.overlay.scrolled .sh-badge-img {
   background: transparent;
@@ -199,7 +213,7 @@
     padding: 0 16px;
   }
 
-  .sh-brand-name { white-space: normal; font-size: 13px; }
+  .sh-brand-name .bilingual-line { white-space: normal; font-size: 13px; }
   .sh-brand-estab { display: none; }
 
   .sh-logos {

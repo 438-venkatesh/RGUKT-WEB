@@ -21,7 +21,7 @@ const hero = (title: string, extra?: Partial<PageHeroProps>): Omit<PageHeroConfi
 
 /** Core pages with custom hero copy */
 const CORE_HERO_CONFIGS: PageHeroConfig[] = [
-  { ...hero('About@RGUKT-AP'), match: '/about', quote: DEFAULT_QUOTE, quoteAuthor: DEFAULT_AUTHOR },
+  { ...hero('About@RGUKT-AP'), match: '/about' },
   { ...hero('VisionMission@RGUKT-AP'), match: '/about/vision-mission' },
   { ...hero('BestPractices@RGUKT-AP'), match: '/about/best-practices' },
   { ...hero('OrgChart@RGUKT-AP'), match: '/about/orgchart' },

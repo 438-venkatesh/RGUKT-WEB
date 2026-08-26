@@ -18,6 +18,9 @@ export const ADMIN_NAV = [
   { label: 'Sports Board', href: '/administration/sports-board' },
 ];
 
+export const ADMIN_OVERVIEW_INTRO =
+  'RGUKT-AP administration comprises statutory councils, central university leadership, campus directors, and specialized deanships that coordinate academic delivery, evaluation, student welfare, finance, and sports across Nuzvid, RK Valley, Ongole, and Srikakulam.';
+
 export const ADMIN_OVERVIEW_STATS = [
   { value: '4', label: 'Campuses' },
   { value: '4', label: 'Campus Directors' },
@@ -27,7 +30,7 @@ export const ADMIN_OVERVIEW_STATS = [
 
 export const GOVERNING_COUNCIL = {
   intro:
-    'The Government of Andhra Pradesh established the Rajiv Gandhi University of Knowledge Technologies (RGUKT AP) in 2008 to cater to the educational needs of the meritorious rural youth of Andhra Pradesh. Four constituent Institutions (IIITs) operate under the university umbrella: Nuzvid, Rajiv Knowledge Valley (RK Valley), Ongole, and Srikakulam. These autonomous institutions specialize in teaching and research in Information Technology and emerging engineering disciplines. All campuses operate under the administration of a common University Governing Council and follow a synchronized syllabus.',
+    'The Government of Andhra Pradesh established Rajiv Gandhi University of Knowledge Technologies (RGUKT) in 2008 to cater to the educational needs of the meritorious rural youth of Andhra Pradesh. Four Institutions (IIITs) are established under RGUKT, one each at Nuzivid (Krishna dt), Rajiv Knowledge Valley (Kadapa dt), Ongole and Srikakulam. These autonomous Institutions will specialize in teaching and research in Information Technology and other emerging engineering and other disciplines under the control of a common University Governing Council and following a common syllabus.',
   responsibilities: [
     'Supreme Administration: Acts as the primary executive and policy-making authority governing all four regional IIIT campuses.',
     'Financial Management: Reviews, amends, and passes annual fiscal budgets and capital funds for infrastructure expansions.',
@@ -39,19 +42,27 @@ export const GOVERNING_COUNCIL = {
     'Member-Convener: Prof. Maddali Lakshmi Narayana Rao (Vice-Chancellor, RGUKT AP)',
   ],
   exOfficioMembers: [
-    'Principal Secretary: Department of Higher Education (Government of Andhra Pradesh)',
-    'Principal Secretary: Department of Finance (Government of Andhra Pradesh)',
-    'Principal Secretary / Secretary: Department of Information Technology, Electronics & Communications (Government of Andhra Pradesh)',
-    'The Chairman: Andhra Pradesh State Council of Higher Education (APSCHE)',
+    'Principal Secretary to Government, Higher Education Department, Govt. of A.P.',
+    'Principal Secretary to Government, Finance Department, Govt. of A.P.',
+    'Secretary to Government, IT, E&C Department, Govt. of A.P.',
+    'Chairman, Andhra Pradesh State Council of Higher Education (APSCHE)',
   ],
   institutionalAdministrators: [
-    'Director, Srikakulam Campus: Prof. Giridhar Madras',
-    'Director, RK Valley Campus: Prof. Gaddam Vijaya Prakash',
-    'Director, Nuzvid & Ongole Campuses: Prof. Amarendra Kumar Sandra',
+    'Director, RGUKT Nuzvid Campus: Prof. M. Lakshminarayana Rao',
+    'Director, RGUKT RK Valley Campus: Prof. A. V. S. S. Kumara Swami Gupta',
+    'Director, RGUKT Ongole Campus: Prof. Amarendra Kumar Sandra',
+    'Director, RGUKT Srikakulam Campus: Prof. Giridhar Madras',
   ],
   nominatedExperts: [
-    'National Academic Pioneers: Appointed Directors and distinguished senior faculties from elite national bodies (including IITs, IISc, and IIIT Hyderabad).',
-    'Global Industry Partners: Prominent leadership figures representing global foundations and tech industries (such as the Infosys Foundation and Aurobindo Pharma) to align engineering streams with contemporary technical workflows.',
+    'Prof. Sandeep Kumar Shukla — Director, IIIT Hyderabad',
+    'Prof. N. Balakrishnan — Former Associate Director, Indian Institute of Science, Bengaluru',
+    'Dr. Sudha Murthy — Chairperson, Infosys Foundation, Bangalore',
+    'Sri K. Nityananda Reddy — Vice-Chairman, Aurobindo Pharma',
+  ],
+  specialInvitees: [
+    'Prof. K. N. Satyanarayana — Director, IIT Tirupati',
+    'Prof. Amarendra Kumar Sandra — Registrar, RGUKT-AP',
+    'Dr. D. V. Nagarjana Devi — Finance Officer, RGUKT-AP',
   ],
   stats: [
     { value: 'Apex Body', label: 'University Governance & Policy' },
@@ -80,6 +91,193 @@ export const GOVERNING_COUNCIL = {
     },
   ],
 };
+
+export type CouncilDesignation =
+  | 'Chairman/Member-Convener'
+  | 'Chairman'
+  | 'Member'
+  | 'Permanent Invitee'
+  | 'Special Invitee';
+
+export type GoverningCouncilMember = {
+  name: string;
+  role: string;
+  designation: CouncilDesignation;
+  photo?: string;
+  href?: string;
+};
+
+export type GoverningCouncilGroupIcon =
+  | 'executive'
+  | 'government'
+  | 'nominated'
+  | 'campus'
+  | 'special'
+  | 'university';
+
+export type GoverningCouncilGroup = {
+  id: string;
+  title: string;
+  icon: GoverningCouncilGroupIcon;
+  members: GoverningCouncilMember[];
+};
+
+/** Member roster aligned with rgukt.in/administration (Governing Council table). */
+export const GOVERNING_COUNCIL_GROUPS: GoverningCouncilGroup[] = [
+  {
+    id: 'executive',
+    title: 'Executive Leadership',
+    icon: 'executive',
+    members: [
+      {
+        name: 'Prof. (Dr.) Kotha Madhu Murthy',
+        role: 'Chancellor, RGUKT-AP',
+        designation: 'Chairman/Member-Convener',
+        photo: '/people/governing-council/madhu-murthy.jpg',
+        href: '/administration/chancellor',
+      },
+      {
+        name: 'Prof. Maddali Lakshmi Narayana Rao',
+        role: 'Vice-Chancellor, RGUKT-AP',
+        designation: 'Member',
+        photo: '/people/governing-council/mln-rao.jpg',
+        href: '/administration/vice-chancellor',
+      },
+    ],
+  },
+  {
+    id: 'ex-officio',
+    title: 'Ex-Officio Government Members',
+    icon: 'government',
+    members: [
+      {
+        name: 'Shri Kona Sasidhar, I.A.S.',
+        role: 'Principal Secretary, Higher Education Dept., Govt. of A.P.',
+        designation: 'Member',
+        photo: '/people/governing-council/kona-sasidhar.png',
+      },
+      {
+        name: 'Shri V. Vinay Chand, I.A.S.',
+        role: 'Principal Secretary, Finance Dept., Govt. of A.P.',
+        designation: 'Member',
+        photo: '/people/governing-council/vinay-chand.jpg',
+      },
+      {
+        name: 'Shri Bhaskar Katamneni, I.A.S.',
+        role: 'Secretary, IT & E&C Dept., Govt. of A.P.',
+        designation: 'Member',
+        photo: '/people/governing-council/bhaskar-katamneni.jpg',
+      },
+      {
+        name: 'Prof. (Dr.) Kotha Madhu Murthy',
+        role: 'Chairman, APSCHE, Mangalagiri',
+        designation: 'Member',
+        photo: '/people/governing-council/madhu-murthy.jpg',
+        href: '/administration/chancellor',
+      },
+    ],
+  },
+  {
+    id: 'nominated',
+    title: 'Nominated Academicians & Industry Representatives',
+    icon: 'nominated',
+    members: [
+      {
+        name: 'Prof. Sandeep Kumar Shukla',
+        role: 'Director, IIIT Hyderabad',
+        designation: 'Member',
+        photo: '/people/governing-council/sandeep-shukla.jpg',
+      },
+      {
+        name: 'Prof. N. Balakrishnan',
+        role: 'Former Associate Director, IISc Bengaluru',
+        designation: 'Member',
+        photo: '/people/governing-council/n-balakrishnan.jpg',
+      },
+      {
+        name: 'Dr. Sudha Murthy',
+        role: 'Chairperson, Infosys Foundation',
+        designation: 'Member',
+        photo: '/people/governing-council/sudha-murthy.jpg',
+      },
+      {
+        name: 'Sri K. Nityananda Reddy',
+        role: 'Vice-Chairman, Aurobindo Pharma',
+        designation: 'Member',
+        photo: '/people/governing-council/nityananda-reddy.jpg',
+      },
+    ],
+  },
+  {
+    id: 'campus',
+    title: 'Campus Directors',
+    icon: 'campus',
+    members: [
+      {
+        name: 'Prof. M. Lakshminarayana Rao',
+        role: 'Director, RGUKT Nuzvid Campus',
+        designation: 'Member',
+        photo: '/people/governing-council/lakshminarayana-rao.jpg',
+        href: '/nuzvid',
+      },
+      {
+        name: 'Prof. A. V. S. S. Kumara Swami Gupta',
+        role: 'Director, RGUKT RK Valley Campus',
+        designation: 'Member',
+        photo: '/people/director-rk-valley.jpg',
+        href: '/campus/rk-valley',
+      },
+      {
+        name: 'Prof. Amarendra Kumar Sandra',
+        role: 'Director, RGUKT Ongole Campus',
+        designation: 'Member',
+        photo: '/people/governing-council/amarendra-sandra.jpg',
+        href: '/campus/ongole',
+      },
+      {
+        name: 'Prof. Giridhar Madras',
+        role: 'Director, RGUKT Srikakulam Campus',
+        designation: 'Member',
+        photo: '/people/governing-council/giridhar-madras.jpg',
+        href: '/campus/srikakulam',
+      },
+    ],
+  },
+  {
+    id: 'special',
+    title: 'Special Invitees',
+    icon: 'special',
+    members: [
+      {
+        name: 'Prof. K. N. Satyanarayana',
+        role: 'Director, IIT Tirupati',
+        designation: 'Special Invitee',
+        photo: '/people/governing-council/kn-satyanarayana.jpg',
+      },
+      {
+        name: 'Prof. Amarendra Kumar Sandra',
+        role: 'Registrar, RGUKT-AP',
+        designation: 'Special Invitee',
+        photo: '/people/governing-council/amarendra-sandra.jpg',
+        href: '/administration/registrar',
+      },
+      {
+        name: 'Dr. D. V. Nagarjana Devi',
+        role: 'Finance Officer, RGUKT-AP',
+        designation: 'Special Invitee',
+        photo: '/people/finance-officer-nagarjana-devi.jpg',
+        href: '/administration/finance-officer',
+      },
+    ],
+  },
+];
+
+export const GOVERNING_COUNCIL_RESPONSIBILITY_ICONS = [
+  'governance',
+  'finance',
+  'curriculum',
+  'partnership',
+] as const;
 
 export const VICE_CHANCELLOR = {
   name: 'Prof. Maddali Lakshmi Narayana Rao',
@@ -121,7 +319,7 @@ export const VICE_CHANCELLOR = {
     emails: ['vc@rgukt.in', 'pstovc@rgukt.in'],
     phone: '+91-863-2344701 / +91-8656-235147',
     officeAddress: 'Office of the Vice-Chancellor, I3 Block, RGUKT-AP / Central Administrative Office, Andhra Pradesh',
-    photo: '/people/vice-chancellor.jpg',
+    photo: '/people/governing-council/mln-rao.jpg',
   },
   documents: [
     {
@@ -150,7 +348,12 @@ export const CHANCELLOR = {
     'Expertise: An academician and administrator specializing in areas like solar energy, IC engines, and biofuels, with extensive experience in technical education reforms.',
     'Previous Leadership: He took over the responsibility following previous transitions in university administration to stabilize and steer policy and campus development.',
   ],
-  contact: { email: 'chancellor@rgukt.in', phone: '+91-863-2344700' },
+  contact: {
+    email: 'chancellor@rgukt.in',
+    phone: '+91-863-2344700',
+    officeAddress: 'I3 Block, RGUKT Nuzvid / APSCHE Office, Mangalagiri, Andhra Pradesh',
+    photo: '/people/governing-council/madhu-murthy.jpg',
+  },
   documents: [
     {
       title: 'Prof. (Dr.) Kotha Madhu Murthy Detailed Profile (APSCHE)',
@@ -207,7 +410,7 @@ export const REGISTRAR = {
     emails: ['registrar@rgukt.in'],
     phone: '+91-863-2344702 / +91-8656-235147',
     officeAddress: 'Office of the Registrar, I3 Block, RGUKT-AP / Central Administrative Office, Andhra Pradesh',
-    photo: '/people/registrar.jpg',
+    photo: '/people/amarendra-kumar-sandra.jpg',
   },
   documents: [
     {
@@ -235,7 +438,7 @@ export const ACADEMIC_COUNCIL = {
   title: 'Composition of Academic Council of RGUKT',
   statute: 'As per Statute-11 of Act 18 of 2008',
   intro:
-    'The Academic Council is the apex statutory academic authority of Rajiv Gandhi University of Knowledge Technologies (RGUKT AP). Constituted under Statute-11 of Act 18 of 2008, it is presided over by the Hon\'ble Chancellor and includes the Vice Chancellor, Campus Academic Deans, distinguished directors from premier national institutes (IITs, IIITs, IISc), and eminent academicians. The Council coordinates and exercises general supervision over all academic policies, curriculum synchronization, examination standards, research initiatives, and instructional quality across all four constituent IIIT campuses.',
+    'The Academic Council is the apex statutory academic authority of Rajiv Gandhi University of Knowledge Technologies (RGUKT AP). It is presided over by the Hon\'ble Chancellor and coordinates academic policies, curriculum synchronization, examination standards, and instructional quality across all four constituent IIIT campuses.',
   stats: [
     { value: 'Statute 11', label: 'RGUKT Act 18 of 2008' },
     { value: '4 Campuses', label: 'Synchronized Curriculum' },
@@ -308,6 +511,136 @@ export const ACADEMIC_COUNCIL = {
   ],
 };
 
+/** Member roster aligned with rgukt.in/administration/academic-council */
+export const ACADEMIC_COUNCIL_GROUPS: GoverningCouncilGroup[] = [
+  {
+    id: 'executive',
+    title: 'Executive Leadership',
+    icon: 'executive',
+    members: [
+      {
+        name: 'Prof. (Dr.) Kotha Madhu Murthy',
+        role: 'Chancellor, RGUKT-AP',
+        designation: 'Chairman',
+        photo: '/people/academic-council/chancellor.jpg',
+        href: '/administration/chancellor',
+      },
+      {
+        name: 'Prof. Maddali Lakshmi Narayana Rao',
+        role: 'Vice-Chancellor, RGUKT-AP',
+        designation: 'Member',
+        photo: '/people/academic-council/vice-chancellor.jpg',
+        href: '/administration/vice-chancellor',
+      },
+    ],
+  },
+  {
+    id: 'university',
+    title: 'University & Institute Members',
+    icon: 'university',
+    members: [
+      {
+        name: 'Mrs. D. Sravani Duvvuri',
+        role: 'Dean of Academics, Constituent Institutes (Nuzvid, RK Valley, Ongole, Srikakulam)',
+        designation: 'Member',
+        photo: '/people/academic-council/dean-academics.jpg',
+        href: '/administration/dean-academics',
+      },
+      {
+        name: 'Prof. Sandeep Kumar Shukla',
+        role: 'Dean of Academics, IIIT Hyderabad',
+        designation: 'Member',
+        photo: '/people/academic-council/iiit-hyderabad-dean.jpg',
+      },
+      {
+        name: 'Director, CETLS',
+        role: 'Director, Center of Education Technology and Learning Science (CETLS), RGUKT',
+        designation: 'Member',
+        photo: '/people/academic-council/cetls-director.jpg',
+      },
+    ],
+  },
+  {
+    id: 'eminent',
+    title: 'Eminent Academicians (Nominated by Governing Council)',
+    icon: 'nominated',
+    members: [
+      {
+        name: 'Prof. B. S. Murty',
+        role: 'Director, Indian Institute of Technology (IIT) Hyderabad',
+        designation: 'Member',
+        photo: '/people/academic-council/bs-murty.jpg',
+      },
+      {
+        name: 'Prof. Kavi Mahesh',
+        role: 'Director, Indian Institute of Information Technology (IIIT) Dharwad',
+        designation: 'Member',
+        photo: '/people/academic-council/kavi-mahesh.jpg',
+      },
+      {
+        name: 'Dr. Vijay Chandru',
+        role: 'Former Professor, IISc Bengaluru; Co-founder, Strand Life Sciences',
+        designation: 'Member',
+        photo: '/people/academic-council/vijay-chandru.jpg',
+      },
+    ],
+  },
+  {
+    id: 'permanent',
+    title: 'Permanent Invitees',
+    icon: 'special',
+    members: [
+      {
+        name: 'Prof. P. J. Narayanan',
+        role: 'Director, IIIT Hyderabad',
+        designation: 'Permanent Invitee',
+        photo: '/people/academic-council/pj-narayanan.jpg',
+      },
+      {
+        name: 'Prof. N. Balakrishnan',
+        role: 'Former Associate Director, IISc Bengaluru',
+        designation: 'Permanent Invitee',
+        photo: '/people/academic-council/permanent-balakrishnan.jpg',
+      },
+    ],
+  },
+  {
+    id: 'campus',
+    title: 'Special Invitees — Campus Directors',
+    icon: 'campus',
+    members: [
+      {
+        name: 'Prof. M. Lakshminarayana Rao',
+        role: 'Director, RGUKT Nuzvid Campus',
+        designation: 'Special Invitee',
+        photo: '/people/academic-council/director-nuzvid.jpg',
+        href: '/nuzvid',
+      },
+      {
+        name: 'Prof. A. V. S. S. Kumara Swami Gupta',
+        role: 'Director, RGUKT RK Valley Campus',
+        designation: 'Special Invitee',
+        photo: '/people/academic-council/director-rk-valley.jpg',
+        href: '/campus/rk-valley',
+      },
+      {
+        name: 'Prof. Amarendra Kumar Sandra',
+        role: 'Director, RGUKT Ongole Campus',
+        designation: 'Special Invitee',
+        photo: '/people/academic-council/director-ongole.jpg',
+        href: '/campus/ongole',
+      },
+      {
+        name: 'Prof. Giridhar Madras',
+        role: 'Director, RGUKT Srikakulam Campus',
+        designation: 'Special Invitee',
+        photo: '/people/academic-council/director-srikakulam.jpg',
+        href: '/campus/srikakulam',
+      },
+    ],
+  },
+];
+
 export type CampusDirector = {
   name: string;
   campus: string;
@@ -343,36 +676,26 @@ export const CAMPUS_DIRECTORS_DATA = {
   directors: [
     {
       campus: 'Nuzvid Campus',
-      name: 'Prof. Maddali Lakshmi Narayana Rao',
-      designation: 'Campus Director (In-Charge / FAC), RGUKT Nuzvid',
-      photo: '/people/director-nuzvid.jpg',
+      name: 'Prof. M. Lakshminarayana Rao',
+      designation: 'In-charge Director, RGUKT Nuzvid',
+      photo: '/people/vice-chancellor.jpg',
       email: 'director@rguktn.ac.in',
       phone: '+91-8656-235147',
       office: 'Administrative Block (I-3), RGUKT Nuzvid Campus, Krishna District, AP - 521202',
       campusHref: '/nuzvid',
       background: [
-        'Doctor of Philosophy (Ph.D.) in Chemistry from University of Hyderabad (1994).',
-        'Postdoctoral Fellow at Case Western Reserve University (USA), University of Illinois at Chicago (USA), and University of Tsukuba (Japan).',
-        'Higher Administrative Grade (HAG) Professor in the Department of Chemistry at IIT Kanpur.',
-        'Vice-Chancellor of RGUKT-AP, concurrently holding the direct executive stewardship of the flagship Nuzvid campus as Director in-charge (FAC).',
-        'Elected Fellow of the National Academy of Sciences (FNASc) and Fellow of the Royal Society of Chemistry (FRSC, UK).',
+        'In-charge Director of the flagship Nuzvid campus, exercising executive and academic leadership under the general superintendence of the Vice-Chancellor and Governing Council.',
       ],
       role: [
-        'Directs overall executive administration, academic governance, student welfare, and campus infrastructure for the flagship 6,000+ student Nuzvid campus.',
-        'Spearheads Outcome-Based Education (OBE), advanced engineering laboratories, student research incubation, and corporate placement partnerships.',
+        'Directs campus academic governance, residential student welfare, faculty coordination, and day-to-day administration for the 6-Year Integrated B.Tech programme.',
+        'Coordinates synchronized curriculum delivery, laboratory development, and central university alignment for the Nuzvid constituent institute.',
       ],
-      expertise: [
-        'Organometallic Chemistry, Cross-Coupling Reactions, Catalysis, Green Synthesis, and Higher Technical Education Reforms.',
-        'Authored over 140+ research publications in top-tier international journals and supervised 25+ doctoral and postdoctoral scholars.',
-      ],
-      achievements: [
-        'Commissioned state-of-the-art computing centers, Quantum Computing initiatives, and modernized engineering laboratory facilities at Nuzvid.',
-        'Strengthened campus placement drives with top tier technology firms and nurtured gifted rural students through rigorous technical training.',
-      ],
+      expertise: ['University administration and academic leadership at RGUKT Nuzvid.'],
+      achievements: [],
     },
     {
       campus: 'RK Valley (Idupulapaya) Campus',
-      name: 'Prof. G. Vijaya Prakash',
+      name: 'Prof. A. V. S. S. Kumara Swami Gupta',
       designation: 'Campus Director, RGUKT RK Valley',
       photo: '/people/director-rk-valley.jpg',
       email: 'director@rguktrkv.ac.in',
@@ -380,50 +703,33 @@ export const CAMPUS_DIRECTORS_DATA = {
       office: 'Academic Block - 1, Ground Floor, RGUKT-RK Valley, Idupulapaya, YSR Kadapa District, AP - 516330',
       campusHref: '/campus/rk-valley',
       background: [
-        'Doctor of Philosophy (Ph.D.) in Physics; Postdoctoral Fellow at Optoelectronics Research Centre (ORC), University of Southampton, UK.',
-        'Institute Chair Professor and Higher Administrative Grade (HAG) Professor of Physics at IIT Delhi (on lien).',
-        'Founded the Nanophotonics Research Laboratory at IIT Delhi in 2005.',
-        'Elected Fellow of the National Academy of Sciences (FNASc), Fellow of the Royal Society of Chemistry (FRSC, UK), and Fellow of the Institute of Physics (FInstP, UK).',
-        'Consistently recognized in the Stanford University / Elsevier Top 2% World Scientists ranking.',
+        'Campus Director of RGUKT RK Valley (Idupulapaya), leading academic and administrative operations for the 1000-acre constituent campus in YSR Kadapa district.',
       ],
       role: [
-        'Heads executive administration and academic management for the sprawling 1000-acre RK Valley constituent campus in YSR Kadapa district.',
-        'Drives advanced science education, research grant incubation, digital campus governance, and university-industry MoUs.',
+        'Heads executive administration and academic management for RK Valley, including synchronized B.Tech delivery, residential welfare, and campus infrastructure.',
+        'Drives faculty mentoring, research culture, digital campus governance, and university-industry coordination.',
       ],
-      expertise: [
-        'Specialization: Nanophotonics, quantum functional materials, nonlinear optics, glass photonics, and inorganic-organic hybrid perovskites for solar cells and LEDs.',
-        'Authored over 150+ high-impact research papers in prestigious international physical science and material journals.',
-      ],
-      achievements: [
-        'Commissioned specialized research computing and quantum physics laboratory equipment for undergraduate rural engineers.',
-        'Mentored faculty research proposals and organized international research seminars at RK Valley campus.',
-      ],
+      expertise: ['Higher technical education administration and campus leadership at RGUKT RK Valley.'],
+      achievements: [],
     },
     {
       campus: 'Ongole Campus',
       name: 'Prof. Amarendra Kumar Sandra',
       designation: 'Campus Director, RGUKT Ongole',
-      photo: '/people/director-ongole.jpg',
+      photo: '/people/amarendra-kumar-sandra.jpg',
       email: 'director@rguktong.ac.in',
       phone: '+91-8592-223133',
       office: "Director's Office, RGUKT Ongole Campus, Rao & Naidu Campus, Ongole, Prakasam District, AP - 523001",
       campusHref: '/campus/ongole',
       background: [
-        'Ph.D. in Transportation Engineering (BITS Pilani, 2008); M.Tech. (IIT Kharagpur & TU-Darmstadt Germany, 2003); B.Tech. (NIT Warangal, 2001).',
-        'Dr. Shanker Dayal Sharma Gold Medalist and Senior Professor in Civil Engineering.',
-        'Extensive infrastructure engineering management experience with GMR Infrastructure, L&T-Ramboll, and HBS Infra Engineering.',
+        'Campus Director of RGUKT Ongole, administering academic delivery and residential student welfare at the Prakasam district constituent institute.',
       ],
       role: [
-        'Administers academic delivery and residential student welfare at the established Ongole campus while supervising the development of the permanent 100-acre campus at Santhanuthalapadu.',
-        'Coordinates faculty recruitment, student laboratory development, and central admission counseling.',
+        'Oversees synchronized curriculum implementation, faculty coordination, student services, and development of campus facilities including the permanent campus at Santhanuthalapadu.',
+        'Coordinates laboratory modernization, admission counseling support, and placement readiness initiatives for Ongole students.',
       ],
-      expertise: [
-        'Infrastructure project management, campus master planning, civil engineering materials, and quality assurance.',
-      ],
-      achievements: [
-        'Spearheaded modern digital classrooms, high-bandwidth IT connectivity, and advanced laboratory equipment for engineering departments.',
-        'Streamlined campus residential facilities, mess nutrition monitoring, and career placement training.',
-      ],
+      expertise: ['Campus administration and academic leadership at RGUKT Ongole.'],
+      achievements: [],
     },
     {
       campus: 'Srikakulam Campus',

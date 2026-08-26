@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import AboutSubLayout, { useAboutTheme } from '../../components/AboutSubLayout';
 import { getCampusByPath } from '../../data/aboutContent';
-import '../../components/AboutSubLayout.css';
+import '../../components/AboutSubPages.css';
 import './CampusPage.css';
 
 export default function CampusPage() {
@@ -46,20 +46,13 @@ export default function CampusPage() {
       </section>
 
       <section className="campus-section">
-        <h2 className="about-sub-h2">Campus Gallery</h2>
-        <div className="campus-gallery-row">
-          {campus.galleryImages.map(src => (
-            <img key={src} src={src} alt="" className="campus-gallery-thumb" />
-          ))}
-        </div>
-      </section>
-
-      <section className="campus-section">
         <h2 className="about-sub-h2">Contact</h2>
         <ul className="campus-contact-list" style={{ color: c.textMuted }}>
           <li><strong style={{ color: c.text }}>Address:</strong> {campus.address}</li>
           <li><strong style={{ color: c.text }}>Phone:</strong> {campus.phone}</li>
-          <li><strong style={{ color: c.text }}>Email:</strong> <a href={`mailto:${campus.email}`} style={{ color: c.accent }}>{campus.email}</a></li>
+          <li><strong style={{ color: c.text }}>Email:</strong>{' '}
+            <a href={`mailto:${campus.email}`} style={{ color: c.accent }}>{campus.email}</a>
+          </li>
           <li><strong style={{ color: c.text }}>Established:</strong> {campus.established} · {campus.district}</li>
         </ul>
       </section>
@@ -75,9 +68,6 @@ export default function CampusPage() {
             Official Website →
           </a>
         )}
-        <Link to="/contact" className="campus-btn campus-btn-outline" style={{ borderColor: c.border, color: c.text }}>
-          Contact Info
-        </Link>
       </div>
     </AboutSubLayout>
   );

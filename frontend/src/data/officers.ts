@@ -35,7 +35,7 @@ export const OFFICER_PROFILES: OfficerProfile[] = [
     name: 'Prof. (Dr.) Kotha Madhu Murthy',
     role: 'Chancellor (in-charge / FAC), RGUKT-AP',
     subtitle: 'Chairman, Andhra Pradesh State Council of Higher Education (APSCHE)',
-    photo: '/people/chancellor.jpg',
+    photo: '/people/governing-council/madhu-murthy.jpg',
     email: 'chancellor@rgukt.in',
     phone: '+91-863-2344700',
     message: CHANCELLOR_MESSAGE,
@@ -53,7 +53,7 @@ export const OFFICER_PROFILES: OfficerProfile[] = [
     name: 'Prof. Maddali Lakshmi Narayana Rao',
     role: 'Vice-Chancellor, RGUKT-AP',
     subtitle: 'Professor (HAG), Department of Chemistry, IIT Kanpur',
-    photo: '/people/vice-chancellor.jpg',
+    photo: '/people/governing-council/mln-rao.jpg',
     email: 'vc@rgukt.in',
     phone: '+91-863-2344701',
     message: `As Vice Chancellor of RGUKT-AP, I am committed to advancing academic excellence, outcome-based technical education, and world-class research incubation to empower gifted rural engineering students across Nuzvid, RK Valley, Srikakulam, and Ongole campuses.`,
@@ -72,7 +72,7 @@ export const OFFICER_PROFILES: OfficerProfile[] = [
     name: 'Prof. Amarendra Kumar Sandra',
     role: 'Registrar (FAC), RGUKT-AP',
     subtitle: 'Professor, Department of Civil Engineering (Transportation Engineering)',
-    photo: '/people/registrar.jpg',
+    photo: '/people/amarendra-kumar-sandra.jpg',
     email: 'registrar@rgukt.in',
     phone: '+91-863-2344702',
     message: `As Registrar of RGUKT-AP, I am dedicated to maintaining the highest standards of administrative integrity, regulatory compliance, statutory governance, and seamless student support across all four constituent IIIT campuses.`,
@@ -254,4 +254,15 @@ export function getOfficerByPath(path: string): OfficerProfile | undefined {
   return OFFICER_BY_PATH.get(path);
 }
 
-export const OFFICER_PATHS = OFFICER_PROFILES.map(o => o.path);
+const DEDICATED_OFFICER_ROUTES = new Set([
+  '/administration/chancellor',
+  '/administration/vice-chancellor',
+  '/administration/registrar',
+  '/administration/dean-evaluation',
+  '/administration/dean-eitp',
+  '/administration/cao',
+]);
+
+export const OFFICER_PATHS = OFFICER_PROFILES
+  .map(o => o.path)
+  .filter(path => !DEDICATED_OFFICER_ROUTES.has(path));

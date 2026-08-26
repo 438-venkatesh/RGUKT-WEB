@@ -36,7 +36,7 @@ export const CAMPUS_NODES: CampusNetworkNode[] = [
     district: 'Srikakulam District',
     location: 'SM Puram, Etcherla Mandal, AP – 532410',
     established: '2016',
-    desc: 'Empowering meritorious rural students across northern coastal Andhra Pradesh with cutting-edge engineering curriculum and modern infrastructure.',
+    desc: 'Serving north coastal Andhra Pradesh with fully residential six-year integrated engineering education.',
     route: '/campus/srikakulam',
     image: '/campuses/srikakulam.jpg',
     x: 1047,

@@ -52,6 +52,11 @@ import OrientationPage from './pages/academics/OrientationPage';
 import CouncilMinutesPage from './pages/academics/CouncilMinutesPage';
 import GoverningCouncilPage from './pages/administration/GoverningCouncilPage';
 import AcademicCouncilPage from './pages/administration/AcademicCouncilPage';
+import ChancellorPage from './pages/administration/ChancellorPage';
+import ViceChancellorPage from './pages/administration/ViceChancellorPage';
+import RegistrarPage from './pages/administration/RegistrarPage';
+import DeanEvaluationPage from './pages/administration/DeanEvaluationPage';
+import DeanEitpPage from './pages/administration/DeanEitpPage';
 import DirectorsPage from './pages/administration/DirectorsPage';
 import CaoPage from './pages/administration/CaoPage';
 import FinanceOfficerPage from './pages/administration/FinanceOfficerPage';
@@ -154,6 +159,11 @@ function AppContent() {
           <Route path="/administration"                  element={<Administration />} />
           <Route path="/administration/governing-council" element={<GoverningCouncilPage />} />
           <Route path="/administration/academic-council"  element={<AcademicCouncilPage />} />
+          <Route path="/administration/chancellor"         element={<ChancellorPage />} />
+          <Route path="/administration/vice-chancellor"   element={<ViceChancellorPage />} />
+          <Route path="/administration/registrar"         element={<RegistrarPage />} />
+          <Route path="/administration/dean-evaluation"   element={<DeanEvaluationPage />} />
+          <Route path="/administration/dean-eitp"         element={<DeanEitpPage />} />
           <Route path="/administration/directors"         element={<DirectorsPage />} />
           <Route path="/administration/cao"               element={<CaoPage />} />
           <Route path="/administration/finance-officer"   element={<FinanceOfficerPage />} />

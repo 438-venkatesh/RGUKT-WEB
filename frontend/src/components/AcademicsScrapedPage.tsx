@@ -1,90 +1,38 @@
 import { Link } from 'react-router-dom';
-import AcademicsSubLayout, { useAcademicsTheme } from './AcademicsSubLayout';
+import SectionPageLayout, { useSectionTheme } from './SectionPageLayout';
 import NavHubLinks from './NavHubLinks';
+import {
+  BranchGrid,
+  DocGrid,
+  StatsGrid,
+} from './AcademicsContentHelpers';
 import {
   getAcademicsPage,
   isShortLine,
   type AcademicsDocument,
   type AcademicsSection,
 } from '../data/academicsScrapedData';
-import { ACADEMICS_NAV } from '../data/academicsContent';
+import {
+  ACADEMICS_NAV,
+  PG_PROGRAMMES,
+  RESEARCH_AREAS,
+  UG_BRANCHES,
+} from '../data/academicsContent';
 import './AcademicsScrapedPage.css';
-import './AcademicsSubLayout.css';
+import './AcademicsContentPage.css';
+import './SectionPageLayout.css';
 import '../pages/AcademicSubpage.css';
 
 type Props = {
   pageKey: string;
 };
 
-function isExternalUrl(url: string) {
-  return url.startsWith('http://') || url.startsWith('https://');
-}
-
-function DocCard({
-  doc,
-  surface,
-  border,
-  text,
-  textMuted,
-  accent,
-}: {
-  doc: AcademicsDocument;
-  surface: string;
-  border: string;
-  text: string;
-  textMuted: string;
-  accent: string;
-}) {
-  const href = doc.url;
-  const external = isExternalUrl(href);
-
-  const inner = (
-    <>
-      <span className="acad-doc-icon" aria-hidden>PDF</span>
-      <span className="acad-doc-body">
-        <span className="acad-doc-title" style={{ color: text }}>{doc.title}</span>
-        {(doc.date || doc.size) && (
-          <span className="acad-doc-meta" style={{ color: textMuted }}>
-            {[doc.date, doc.size].filter(Boolean).join(' · ')}
-          </span>
-        )}
-      </span>
-      <span className="acad-doc-arrow" style={{ color: accent }}>↓</span>
-    </>
-  );
-
-  if (external) {
-    return (
-      <a
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="acad-doc-card"
-        style={{ background: surface, border: `1px solid ${border}` }}
-      >
-        {inner}
-      </a>
-    );
-  }
-
-  return (
-    <a
-      href={href}
-      download
-      className="acad-doc-card"
-      style={{ background: surface, border: `1px solid ${border}` }}
-    >
-      {inner}
-    </a>
-  );
-}
-
 function SectionBlock({
   section,
   c,
 }: {
   section: AcademicsSection;
-  c: ReturnType<typeof useAcademicsTheme>;
+  c: ReturnType<typeof useSectionTheme>;
 }) {
   const paragraphs = (section.content ?? []).filter(p => !isShortLine(p) || p.length > 40);
   const subheads = (section.content ?? []).filter(p => isShortLine(p) && p.length <= 40);
@@ -96,6 +44,13 @@ function SectionBlock({
     (item): item is { title: string; url?: string; date?: string } =>
       typeof item === 'object' && 'title' in item && Boolean(item.url) && !item.url!.includes('.pdf'),
   );
+
+  const sectionDocs: AcademicsDocument[] = (section.documents ?? []).map(d => ({
+    title: d.title,
+    url: d.url,
+    size: d.size,
+    date: d.date,
+  }));
 
   return (
     <section className="acad-scraped-section">
@@ -156,27 +111,22 @@ function SectionBlock({
           ))}
         </div>
       )}
+
+      {sectionDocs.length > 0 && <DocGrid docs={sectionDocs} />}
     </section>
   );
 }
 
 export default function AcademicsScrapedPage({ pageKey }: Props) {
-  const c = useAcademicsTheme();
+  const c = useSectionTheme();
   const page = getAcademicsPage(pageKey);
 
   const sectionDocs = page.sections.flatMap(s => s.documents ?? []);
   const allDocs = [...page.documents, ...sectionDocs];
 
   return (
-    <AcademicsSubLayout>
-      <div className="acad-scraped-hero" style={{ border: `1px solid ${c.border}` }}>
-        <img src={page.heroImage} alt="" className="acad-scraped-hero-img" />
-        <div className="acad-scraped-hero-overlay" />
-        <div className="acad-scraped-hero-text">
-          <span className="acad-scraped-eyebrow">Academics</span>
-          <h1 className="acad-scraped-title">{page.displayTitle}</h1>
-        </div>
-      </div>
+    <SectionPageLayout>
+      <h1 className="section-page-h1">{page.displayTitle}</h1>
 
       {page.pageStatus === 'fallback' && page.sourceNote && (
         <p className="acad-scraped-note" style={{ background: c.surface2, color: c.textMuted, border: `1px solid ${c.border}` }}>
@@ -189,22 +139,46 @@ export default function AcademicsScrapedPage({ pageKey }: Props) {
       )}
 
       {page.intro && (
-        <p className="acad-page-intro acad-scraped-intro" style={{ color: c.textMuted }}>{page.intro}</p>
+        <p className="section-page-intro acad-scraped-intro" style={{ color: c.textMuted }}>{page.intro}</p>
       )}
 
-      {page.highlights.length > 0 && (
-        <div className="acad-sub-stats acad-scraped-stats">
-          {page.highlights.map(h => (
-            <div
-              key={h.label}
-              className="acad-sub-stat"
-              style={{ background: c.surface, border: `1px solid ${c.border}` }}
-            >
-              <div className="acad-sub-stat-value" style={{ color: c.accent }}>{h.value}</div>
-              <div className="acad-sub-stat-label" style={{ color: c.textMuted }}>{h.label}</div>
-            </div>
-          ))}
-        </div>
+      {page.highlights.length > 0 && <StatsGrid stats={page.highlights} />}
+
+      {pageKey === 'undergraduate' && (
+        <section className="acad-scraped-section">
+          <h2 className="acad-page-h2">B.Tech Branches</h2>
+          <BranchGrid branches={UG_BRANCHES} />
+        </section>
+      )}
+
+      {pageKey === 'postgraduate' && (
+        <section className="acad-scraped-section">
+          <h2 className="acad-page-h2">M.Tech Programmes</h2>
+          <div className="acad-sub-cards">
+            {PG_PROGRAMMES.map(pg => (
+              <div
+                key={pg.branch}
+                className="acad-sub-card"
+                style={{ background: c.surface, border: `1px solid ${c.border}` }}
+              >
+                <span className="acad-sub-card-label" style={{ color: c.accent }}>M.Tech</span>
+                <strong style={{ color: c.text }}>{pg.branch}</strong>
+                <p style={{ color: c.textMuted }}>{pg.focus}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {pageKey === 'research-programmes' && (
+        <section className="acad-scraped-section">
+          <h2 className="acad-page-h2">Research Areas</h2>
+          <ul className="acad-scraped-list" style={{ color: c.textMuted }}>
+            {RESEARCH_AREAS.map(area => (
+              <li key={area}>{area}</li>
+            ))}
+          </ul>
+        </section>
       )}
 
       {page.sections.map(section => (
@@ -214,19 +188,7 @@ export default function AcademicsScrapedPage({ pageKey }: Props) {
       {allDocs.length > 0 && (
         <section className="acad-scraped-section">
           <h2 className="acad-page-h2">Documents & Downloads</h2>
-          <div className="acad-doc-grid">
-            {allDocs.map(doc => (
-              <DocCard
-                key={doc.url + doc.title}
-                doc={doc}
-                surface={c.surface}
-                border={c.border}
-                text={c.text}
-                textMuted={c.textMuted}
-                accent={c.accent}
-              />
-            ))}
-          </div>
+          <DocGrid docs={allDocs.map(d => ({ title: d.title, url: d.url, size: d.size, date: d.date }))} />
         </section>
       )}
 
@@ -245,6 +207,6 @@ export default function AcademicsScrapedPage({ pageKey }: Props) {
           title="Programmes & Resources"
         />
       )}
-    </AcademicsSubLayout>
+    </SectionPageLayout>
   );
 }

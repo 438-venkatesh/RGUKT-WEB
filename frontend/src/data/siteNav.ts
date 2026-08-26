@@ -1,5 +1,7 @@
 /** Main navigation structure aligned with https://rgukt.in/ */
 
+import { ACADEMICS_NAV } from './academicsContent';
+
 export type NavLink = {
   label: string;
   href: string;
@@ -50,24 +52,7 @@ export const NAV_MENUS: NavMenu[] = [
     key: 'academics',
     label: 'Academics',
     href: '/academics',
-    items: [
-      { label: 'Overview', href: '/academics' },
-      { label: 'Undergraduate Programmes', href: '/academics/undergraduate' },
-      { label: 'Postgraduate Programmes', href: '/academics/postgraduate' },
-      { label: 'Research Programmes', href: '/academics/research-programmes' },
-      { label: 'Summer Programmes', href: '/academics/summer' },
-      { label: 'Academic Regulations', href: '/academics/regulations' },
-      { label: 'Academic Calendar', href: '/academics/calendar' },
-      { label: 'Academic Curriculum', href: '/academics/curriculum' },
-      { label: 'Examination Procedures', href: '/academics/examinations' },
-      { label: 'Examination Schedules', href: '/academics/exam-schedules' },
-      { label: 'Central Library', href: '/academics/central-library' },
-      { label: 'Learning Management System', href: '/academics/lms' },
-      { label: 'Timetables', href: '/academics/timetables' },
-      { label: 'Scholarships and Financial Assistance', href: '/academics/scholarships' },
-      { label: 'Orientation Programme', href: '/academics/orientation' },
-      { label: 'Council Minutes', href: '/academics/council-minutes' },
-    ],
+    items: ACADEMICS_NAV.map(({ label, href }) => ({ label, href })),
   },
   {
     key: 'administration',

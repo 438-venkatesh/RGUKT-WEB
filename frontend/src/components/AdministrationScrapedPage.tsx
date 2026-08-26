@@ -1,3 +1,4 @@
+import type { KeyboardEvent, MouseEvent } from 'react';
 import { Link } from 'react-router-dom';
 import SectionPageLayout, { useSectionTheme } from './SectionPageLayout';
 import NavHubLinks from './NavHubLinks';
@@ -10,6 +11,7 @@ import {
 import { ADMIN_NAV } from '../data/administrationContent';
 import './AcademicsScrapedPage.css';
 import './AdministrationScrapedPage.css';
+import './SectionPageLayout.css';
 import '../pages/Administration.css';
 
 type Props = { pageKey: string };
@@ -52,29 +54,45 @@ function DocCard({
   );
 }
 
-function DirectorCard({
-  director,
-  c,
-}: {
-  director: AdminDirector;
-  c: ReturnType<typeof useSectionTheme>;
-}) {
+function stopLinkNavigation(e: MouseEvent | KeyboardEvent) {
+  e.preventDefault();
+  e.stopPropagation();
+}
+
+function DirectorCard({ director }: { director: AdminDirector }) {
   return (
-    <div className="admin-card admin-director-card" style={{ background: c.surface, border: `1px solid ${c.border}` }}>
-      <div className="admin-director-photo-wrap">
-        {director.photo ? (
-          <img src={director.photo} alt={director.name} className="admin-director-photo" />
-        ) : (
-          <div className="admin-avatar" style={{ background: c.surface2 }} aria-hidden />
+    <Link to={director.campusHref} className="admin-person-card">
+      {director.photo ? (
+        <img src={director.photo} alt={director.name} className="admin-person-photo" loading="lazy" />
+      ) : (
+        <div className="admin-person-photo admin-person-photo-fallback" aria-hidden />
+      )}
+      <div className="admin-person-overlay" aria-hidden />
+      <div className="admin-person-caption">
+        <div className="admin-person-label">{director.campus}</div>
+        <div className="admin-person-name">{director.name}</div>
+        {director.email && (
+          <span
+            role="link"
+            tabIndex={0}
+            className="admin-person-email"
+            onClick={e => {
+              stopLinkNavigation(e);
+              window.location.href = `mailto:${director.email}`;
+            }}
+            onKeyDown={e => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                stopLinkNavigation(e);
+                window.location.href = `mailto:${director.email}`;
+              }
+            }}
+          >
+            {director.email}
+          </span>
         )}
+        <span className="admin-person-visit">Visit campus →</span>
       </div>
-      <div className="admin-name" style={{ color: c.text }}>{director.name}</div>
-      <div className="admin-role" style={{ color: c.textMuted }}>Director, {director.campus} Campus</div>
-      <a href={`mailto:${director.email}`} className="admin-email" style={{ color: c.primary }}>{director.email}</a>
-      <Link to={director.campusHref} className="admin-profile-link" style={{ color: c.accent }}>
-        Visit campus →
-      </Link>
-    </div>
+    </Link>
   );
 }
 
@@ -111,7 +129,7 @@ function SectionBlock({
   return (
     <section className={`acad-scraped-section ${hasImage ? 'admin-section-with-media' : ''}`}>
       <h2 className="acad-page-h2">{section.heading}</h2>
-      
+
       <div className={`${hasImage ? 'admin-section-media-layout' : ''} ${hasImage && isImageLeft ? 'media-left' : ''}`}>
         <div className="admin-section-text-col">
           {section.content?.map((para, i) => (
@@ -160,14 +178,7 @@ export default function AdministrationScrapedPage({ pageKey }: Props) {
 
   return (
     <SectionPageLayout>
-      <div className="acad-scraped-hero admin-scraped-hero" style={{ border: `1px solid ${c.border}` }}>
-        <img src={page.heroImage} alt="" className="acad-scraped-hero-img" />
-        <div className="acad-scraped-hero-overlay admin-scraped-hero-overlay" />
-        <div className="acad-scraped-hero-text">
-          <span className="acad-scraped-eyebrow">Administration</span>
-          <h1 className="acad-scraped-title">{page.displayTitle}</h1>
-        </div>
-      </div>
+      <h1 className="section-page-h1">{page.displayTitle}</h1>
 
       {page.pageStatus === 'fallback' && page.sourceNote && (
         <p className="acad-scraped-note" style={{ background: c.surface2, color: c.textMuted, border: `1px solid ${c.border}` }}>
@@ -176,11 +187,13 @@ export default function AdministrationScrapedPage({ pageKey }: Props) {
       )}
 
       {page.officer && (
-        <div className="admin-officer-card" style={{ background: c.surface, border: `1px solid ${c.border}` }}>
+        <div className="admin-officer-profile" style={{ border: `1px solid ${c.border}`, background: c.surface }}>
           {page.officer.photo && (
-            <img src={page.officer.photo} alt={page.officer.name} className="admin-officer-photo" />
+            <div className="admin-officer-portrait-frame">
+              <img src={page.officer.photo} alt={page.officer.name} className="admin-officer-portrait-photo" loading="lazy" />
+            </div>
           )}
-          <div className="admin-officer-meta">
+          <div className="admin-officer-portrait-body">
             <h2 className="admin-officer-name" style={{ color: c.text }}>{page.officer.name}</h2>
             {page.officer.role && (
               <p className="admin-officer-role" style={{ color: c.accent }}>{page.officer.role}</p>
@@ -217,9 +230,8 @@ export default function AdministrationScrapedPage({ pageKey }: Props) {
       {page.directors && page.directors.length > 0 && (
         <section className="acad-scraped-section">
           <h2 className="acad-page-h2">Campus Directors</h2>
-          {page.intro && <p className="acad-scraped-para" style={{ color: c.textMuted }}>{page.intro}</p>}
-          <div className="admin-grid">
-            {page.directors.map(d => <DirectorCard key={d.campus} director={d} c={c} />)}
+          <div className="admin-directors-grid">
+            {page.directors.map(d => <DirectorCard key={d.campus} director={d} />)}
           </div>
         </section>
       )}

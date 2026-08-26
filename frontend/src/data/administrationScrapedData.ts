@@ -2,6 +2,7 @@ import scraped from './administrationScraped.json';
 import {
   ACADEMIC_COUNCIL,
   ADMIN_NAV,
+  ADMIN_OVERVIEW_INTRO,
   ADMIN_OVERVIEW_STATS,
   CAO,
   CAMPUS_DIRECTORS_DATA,
@@ -168,7 +169,11 @@ const SKIP_HEADINGS = new Set([
 
 const NAME_PATTERN = /^(Prof\.|Dr\.|Mrs\.|Mr\.|Ms\.)/;
 
-type ScrapedPage = (typeof scraped.pages)[number];
+type ScrapedDocument = { title: string; url: string; date?: string; size?: string };
+
+type ScrapedPage = Omit<(typeof scraped.pages)[number], 'documents'> & {
+  documents?: ScrapedDocument[];
+};
 
 function cleanTitle(raw: string, slug: string): string {
   return DISPLAY_TITLES[slug] ?? raw.replace(/\s*-\s*Administration.*$/i, '').trim();
@@ -218,10 +223,27 @@ function extractOfficer(raw: ScrapedPage): AdminOfficerProfile | undefined {
   };
 }
 
+function mapCampusDirectors(): AdminDirector[] {
+  return CAMPUS_DIRECTORS_DATA.directors.map(d => ({
+    name: d.name,
+    campus: d.campus.replace(' Campus', '').replace(' (Idupulapaya)', ''),
+    email: d.email,
+    photo: d.photo,
+    campusHref: d.campusHref,
+    designation: d.designation,
+    phone: d.phone,
+    officeAddress: d.office,
+  }));
+}
+
 function buildFallback(slug: string): Partial<AdminPageData> {
   switch (slug) {
     case 'overview':
-      return { highlights: ADMIN_OVERVIEW_STATS };
+      return {
+        intro: ADMIN_OVERVIEW_INTRO,
+        highlights: ADMIN_OVERVIEW_STATS,
+        pageStatus: 'ok',
+      };
     case 'governing-council': {
       return {
         intro: GOVERNING_COUNCIL.intro,
@@ -267,7 +289,7 @@ function buildFallback(slug: string): Partial<AdminPageData> {
           role: CHANCELLOR.role,
           emails: [CHANCELLOR.contact.email],
           officeAddress: 'I3 Block, RGUKT Nuzvid / APSCHE Office, Mangalagiri, Andhra Pradesh',
-          photo: '/people/chancellor.jpg',
+          photo: CHANCELLOR.contact.photo ?? '/people/chancellor.jpg',
         },
         pageStatus: 'ok',
       };
@@ -399,6 +421,7 @@ function buildFallback(slug: string): Partial<AdminPageData> {
       return {
         intro: CAMPUS_DIRECTORS_DATA.intro,
         highlights: CAMPUS_DIRECTORS_DATA.stats,
+        directors: mapCampusDirectors(),
         sections: [
           {
             heading: 'Role & Statutory Responsibilities of a Campus Director',
@@ -413,26 +436,6 @@ function buildFallback(slug: string): Partial<AdminPageData> {
               tag: 'Campus Leadership',
             },
           },
-          ...CAMPUS_DIRECTORS_DATA.directors.map((d, index) => ({
-            heading: `${index + 1}. ${d.campus} — ${d.name}`,
-            content: [
-              `Designation: ${d.designation}`,
-              `Office: ${d.office}`,
-              `Official Contact: ${d.email} | Phone: ${d.phone}`,
-            ],
-            items: [
-              `Academic & Professional Background: ${d.background.join(' ')}`,
-              `Role at RGUKT: ${d.role.join(' ')}`,
-              `Experience & Expertise: ${d.expertise.join(' ')}`,
-              `Key Contributions & Recent Activities: ${d.achievements.join(' ')}`,
-            ],
-            image: {
-              src: d.photo,
-              alt: `${d.name} — ${d.designation}`,
-              caption: `${d.name}, ${d.designation}`,
-              tag: d.campus.replace(' Campus', ''),
-            },
-          })),
         ],
         documents: [],
         pageStatus: 'ok',
@@ -931,7 +934,7 @@ function buildIntro(sections: AdminSection[], fallbackIntro?: string): string {
 
 export function getAdministrationPage(pageKey: string): AdminPageData {
   const slug = ADMIN_PAGE_KEYS[pageKey] ?? pageKey;
-  const raw = scraped.pages.find(p => p.slug === slug || (slug === 'dean-student-welfare' && p.slug === 'dean-student-affairs'));
+  const raw = scraped.pages.find(p => p.slug === slug || (slug === 'dean-student-welfare' && p.slug === 'dean-student-affairs')) as ScrapedPage | undefined;
   const fallback = buildFallback(slug);
 
   if (!raw) {
@@ -1033,7 +1036,7 @@ export function getAdministrationPage(pageKey: string): AdminPageData {
     documents: finalDocs,
     highlights: fallback.highlights ?? [],
     officer: fallback.officer ?? officer,
-    directors: slug === 'directors' ? undefined : fallback.directors,
+    directors: slug === 'directors' ? mapCampusDirectors() : fallback.directors,
     pageStatus: 'ok',
   };
 }

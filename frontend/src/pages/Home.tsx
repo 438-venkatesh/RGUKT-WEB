@@ -313,8 +313,8 @@ export default function Home() {
             {[
               { name: 'Nuzvid',     region: 'Krishna District',    stats: ['7 Depts','3,500+ Students','Est. 2008'], url: '/nuzvid',                 img: '/campuses/nuzvid.jpg' },
               { name: 'RK Valley',  region: 'Kadapa District',     stats: ['6 Depts','3,200+ Students','Est. 2008'], url: 'https://rguktrkv.ac.in',  img: '/campuses/rk-valley.jpg' },
-              { name: 'Ongole',     region: 'Prakasam District',   stats: ['5 Depts','2,400+ Students','Est. 2009'], url: 'https://rguktong.ac.in',  img: '/campuses/ongole.jpg' },
-              { name: 'Srikakulam', region: 'Srikakulam District', stats: ['5 Depts','2,800+ Students','Est. 2009'], url: 'https://rguktsklm.ac.in', img: '/campuses/srikakulam.jpg' },
+              { name: 'Srikakulam', region: 'Srikakulam District', stats: ['5 Depts','2,800+ Students','Est. 2016'], url: 'https://rguktsklm.ac.in', img: '/campuses/srikakulam.jpg' },
+              { name: 'Ongole',     region: 'Prakasam District',   stats: ['5 Depts','2,400+ Students','Est. 2016'], url: 'https://rguktong.ac.in',  img: '/campuses/ongole.jpg' },
             ].map(cm => {
               const card = (
                 <>

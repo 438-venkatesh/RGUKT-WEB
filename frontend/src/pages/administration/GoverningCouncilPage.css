@@ -1,0 +1,39 @@
+.gc-section {
+  margin-bottom: 36px;
+}
+
+.gc-section-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.gc-section-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.gc-section-title {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.25;
+}
+
+/* Two executive cards — centred, same portrait style as About leadership */
+.gc-leadership-grid {
+  max-width: 640px;
+}
+
+@media (max-width: 900px) {
+  .gc-leadership-grid {
+    max-width: none;
+  }
+}

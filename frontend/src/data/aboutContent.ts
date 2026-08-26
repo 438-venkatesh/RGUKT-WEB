@@ -25,58 +25,193 @@ export const ABOUT_DOCUMENTS = {
   ] as AboutDocument[],
 };
 
+export const ABOUT_FOUNDING = [
+  'Rajiv Gandhi University of Knowledge Technologies (RGUKT) was established by the Government of Andhra Pradesh through Act No. 18 of 2008 at Nuzvid (Krishna District), RK Valley (Kadapa District), and Basara (Adilabad District). Following the bifurcation of Andhra Pradesh in 2014, Nuzvid and RK Valley remained with Andhra Pradesh. Two additional campuses were established in Ongole and Srikakulam in 2016.',
+  'RGUKT offers a six-year integrated programme (two years of pre-university course and four years of engineering) in fully residential mode — the first of its kind in the country. Admissions are based on Class 10 merit, with additional weightage for students from government schools in Andhra Pradesh. About 90% of students are gifted rural youth who may otherwise be deprived of high-quality technological education.',
+  'The university is recognised under Section 2(f) and 12(B) of the UGC Act, 1956 and accredited by NAAC. RGUKT currently operates four fully residential campuses with approximately 26,000 students in the integrated PUC cum B.Tech programme, and offers M.Tech and doctoral programmes at select campuses.',
+];
+
+export type AboutObjective = {
+  text: string;
+  icon: 'education' | 'skills' | 'values' | 'tech' | 'humanities' | 'innovation' | 'industry' | 'ict';
+};
+
+export const ABOUT_OBJECTIVES: AboutObjective[] = [
+  { icon: 'education', text: 'Provide high-quality professional and technical education to the rural youth of Andhra Pradesh.' },
+  { icon: 'skills', text: 'Impart broad skills in each student for Learning to Learn, Learning to Think, and Learning to Live.' },
+  { icon: 'values', text: 'Reinforce core values of integrity, respect for all, and environmental responsibility.' },
+  { icon: 'tech', text: 'Disseminate and advance knowledge in emerging fields such as Information Technology and Nanotechnology.' },
+  { icon: 'humanities', text: 'Offer integrated courses in Humanities, Social Sciences, and interdisciplinary areas for broad-based education.' },
+  { icon: 'innovation', text: 'Function as a resource centre for knowledge management and entrepreneurship in emerging technologies.' },
+  { icon: 'industry', text: 'Establish strong industry linkages and align teaching and research with national and global needs.' },
+  { icon: 'ict', text: 'Leverage ICT to scale learning environments through learner-centric pedagogy and personal computing access.' },
+];
+
+export const ABOUT_LEADERSHIP = [
+  {
+    name: 'Prof. (Dr.) Kotha Madhu Murthy',
+    role: 'Chancellor',
+    note: 'Chairman, Andhra Pradesh State Council of Higher Education (APSCHE)',
+    photo: '/people/chancellor.jpg',
+    href: '/administration/chancellor',
+  },
+  {
+    name: 'Prof. Maddali Lakshmi Narayana Rao',
+    role: 'Vice-Chancellor',
+    note: 'Professor (HAG), Department of Chemistry, IIT Kanpur',
+    photo: '/people/vice-chancellor.jpg',
+    href: '/administration/vice-chancellor',
+  },
+  {
+    name: 'Dr. Amarendra Kumar Sandra',
+    role: 'Registrar',
+    photo: '/people/amarendra-kumar-sandra.jpg',
+    href: '/administration/registrar',
+  },
+];
+
+export type CampusDirector = {
+  campus: string;
+  name: string;
+  roleLabel: string;
+  photo: string;
+  href: string;
+  note?: string;
+  email?: string;
+};
+
+export const ABOUT_CAMPUS_DIRECTORS: CampusDirector[] = [
+  {
+    campus: 'Nuzvid',
+    name: 'Prof. M. Lakshminarayana Rao',
+    roleLabel: 'In-charge Director, RGUKT Nuzvid',
+    photo: '/people/vice-chancellor.jpg',
+    href: '/nuzvid',
+  },
+  {
+    campus: 'RK Valley',
+    name: 'Prof. A. V. S. S. Kumara Swami Gupta',
+    roleLabel: 'Director, RGUKT RK Valley',
+    photo: '/people/director-rk-valley.jpg',
+    href: '/campus/rk-valley',
+  },
+  {
+    campus: 'Ongole',
+    name: 'Prof. Amarendra Kumar Sandra',
+    roleLabel: 'Director, RGUKT Ongole',
+    photo: '/people/amarendra-kumar-sandra.jpg',
+    href: '/campus/ongole',
+    email: 'director@rguktong.ac.in',
+  },
+  {
+    campus: 'Srikakulam',
+    name: 'Prof. Giridhar Madras',
+    roleLabel: 'Director, RGUKT-Srikakulam',
+    photo: '/people/director-srikakulam.jpg',
+    href: '/campus/srikakulam',
+    note: 'Ph.D. (Chemical Engineering)',
+    email: 'director@rguktsklm.ac.in',
+  },
+];
+
 export const VMQ_CARDS = [
   {
     title: 'Vision',
-    body: 'To be a globally respected institution that empowers gifted rural youth of Andhra Pradesh to lead in technology, innovation, and nation-building at the highest levels.',
+    icon: 'vision' as const,
+    body: 'To transform rural youth into global leaders and innovators in science, technology, and multidisciplinary areas and contribute to the maximization of the welfare of humanity.',
   },
   {
     title: 'Mission',
-    body: 'To identify rural talent at the pre-university stage and provide free, residential, IIT-level education — nurturing engineers, researchers, entrepreneurs, and leaders who serve society.',
+    icon: 'mission' as const,
+    body: 'To provide quality technical education with the goal of inclusiveness in terms of access to the meritorious rural youth, who are perennially deprived of opportunities through an innovative blend of modern computer-assisted, learner-centric instructional methodology along with rigorous traditional teaching in a world-class ambience.',
   },
   {
     title: 'Quality Policy',
-    body: 'RGUKT-AP is committed to continuous improvement in teaching, learning, research and governance through IQAC-led processes, stakeholder feedback, and NAAC-aligned quality benchmarks across all campuses.',
+    icon: 'quality' as const,
+    body: 'To impart world class engineering education to the students of the University through highly focused teaching–learning methodology optimising resources.',
   },
 ];
 
-export const BEST_PRACTICES = [
-  {
-    title: 'Mentorship-Based Learning',
-    body: 'Every student is paired with a faculty mentor who monitors academic progress, career aspirations, and personal wellbeing throughout the six-year integrated programme.',
-  },
-  {
-    title: 'Industry-Integrated Curriculum',
-    body: 'Syllabi are co-designed with industry partners and reviewed bi-annually to reflect current technologies, tools, and workplace expectations.',
-  },
-  {
-    title: 'Rural Outreach Admissions',
-    body: 'Dedicated counselling camps are conducted in rural mandals to guide eligible SSC graduates and their families through the application and counselling process.',
-  },
-  {
-    title: 'Free & Fully Residential Education',
-    body: 'Eligible admitted students receive tuition, accommodation, meals, and study materials at no cost — removing financial barriers to higher education.',
-  },
-  {
-    title: 'Learning by Doing',
-    body: 'Laboratory-intensive pedagogy, project-based learning, and summer internships ensure students gain practical skills alongside theoretical foundations.',
-  },
-  {
-    title: 'Cross-Campus Collaboration',
-    body: 'Shared academic policies, inter-campus faculty exchange, and unified examination systems maintain consistent quality across Nuzvid, RK Valley, Srikakulam and Ongole.',
-  },
-];
+export type BestPractice = {
+  title: string;
+  points: string[];
+};
 
-export const STRATEGIC_PLAN_PRIORITIES = [
-  { title: 'Research & Innovation', body: 'Expand quantum computing, AI/ML labs and funded research projects in partnership with Amaravati Quantum Valley and national agencies.' },
-  { title: 'Infrastructure', body: 'Upgrade hostels, laboratories, smart classrooms and campus connectivity across all four locations.' },
-  { title: 'Industry Partnerships', body: 'Deepen MoUs with industry, startups and philanthropic organisations for placements, internships and skill development.' },
-  { title: 'Student Outcomes', body: 'Strengthen GATE, UPSC and higher-studies coaching; track graduate outcomes and alumni success.' },
-  { title: 'Quality Assurance', body: 'Advance NAAC accreditation, academic audits and digital governance through IQAC.' },
+export const BEST_PRACTICES: BestPractice[] = [
+  {
+    title: 'Unique Six-Year Integrated Programme (PUC + B.Tech)',
+    points: [
+      'Six-year integrated curriculum: two-year Pre-University Course followed by four-year B.Tech.',
+      'Eliminates competitive entrance exams after Class 10, strengthening fundamentals before professional engineering.',
+    ],
+  },
+  {
+    title: 'ICT-Enabled Learning & Digital Education',
+    points: [
+      'Each student receives a laptop; teaching integrates e-learning, video lectures, and digital assessments.',
+      'Expert lectures from IITs, IISc, IIITs and NPTEL courses; Problem-Based and Self-Paced Learning approaches.',
+    ],
+  },
+  {
+    title: 'Fully Residential University with Holistic Development',
+    points: [
+      'Fully residential campuses with hostels, healthcare, and recreational facilities.',
+      'Co-curricular activities, sports, cultural events, and soft-skills training integrated into student life.',
+    ],
+  },
+  {
+    title: 'Transparent and Merit-Based Admissions',
+    points: [
+      'Admissions based on Class 10 merit with weightage for government-school students.',
+      'Transparent, structured merit-based ranking under the Mandal best model.',
+    ],
+  },
+  {
+    title: 'Industry–Academia Collaboration and Internships',
+    points: [
+      'Mandatory two-month Summer School; one-year internships permitted in the fourth year of B.Tech.',
+      'Industry visits, MoUs, and real-world projects with leading companies and research organisations.',
+    ],
+  },
+  {
+    title: 'Research, Innovation, and Entrepreneurship',
+    points: [
+      'R&D centres, incubation labs, and participation in hackathons and technical symposiums.',
+      'Entrepreneurship and Incubation Cell supports student startups and faculty-led research projects.',
+    ],
+  },
+  {
+    title: 'Soft Skills, Communication, and Employability',
+    points: [
+      'English proficiency, group discussions, and placement training including mock interviews and aptitude tests.',
+      'Career Development and Placement Cells (CDPCs) coordinate with recruiters across campuses.',
+    ],
+  },
+  {
+    title: 'Student-Centric Policies and Welfare',
+    points: [
+      'Free education, food, uniforms, and laptops as per government policy; scholarships for disadvantaged students.',
+      'Health and wellness programmes and a student grievance redressal mechanism.',
+    ],
+  },
+  {
+    title: 'Green and Sustainable Campus Initiatives',
+    points: [
+      'Rainwater harvesting, solar energy, waste management, and tree plantation drives.',
+      'Energy-efficient campus operations to reduce carbon footprint.',
+    ],
+  },
+  {
+    title: 'Continuous Curriculum Upgradation',
+    points: [
+      'Curriculum updated to align with industry trends; credit-based grading and interdisciplinary learning.',
+      'Faculty development programmes keep pedagogy current with modern teaching methods.',
+    ],
+  },
 ];
 
 export const RGUKT_ACT_SUMMARY = [
-  'Established Rajiv Gandhi University of Knowledge Technologies by the Government of Andhra Pradesh (2008).',
+  'Established Rajiv Gandhi University of Knowledge Technologies by the Government of Andhra Pradesh (Act No. 18 of 2008).',
   'Mandate to provide free residential education to gifted rural youth through a six-year integrated B.Tech programme.',
   'Defines governance structure including Chancellor, Vice Chancellor, Registrar and campus directors.',
   'Prescribes reservation and admission policies for rural students who complete 10th standard in Andhra Pradesh.',
@@ -90,7 +225,6 @@ export type CampusInfo = {
   shortName: string;
   heroTitle: string;
   image: string;
-  galleryImages: string[];
   established: string;
   district: string;
   address: string;
@@ -111,7 +245,6 @@ export const CAMPUSES: CampusInfo[] = [
     shortName: 'Nuzvid',
     heroTitle: 'Nuzvid',
     image: '/campuses/nuzvid.jpg',
-    galleryImages: ['/campuses/nuzvid.jpg', '/gallery/gallery-1.jpg', '/gallery/gallery-7.jpg'],
     established: '2008',
     district: 'Krishna District',
     address: 'NH-9, Nuzvid, Krishna District, Andhra Pradesh 521202',
@@ -120,11 +253,11 @@ export const CAMPUSES: CampusInfo[] = [
     internalHref: '/nuzvid',
     departments: ['CSE', 'ECE', 'EEE', 'Mechanical', 'Civil', 'Chemical', 'MME', 'Sciences'],
     stats: [
-      { label: 'Students', value: '3,500+' },
-      { label: 'Departments', value: '7' },
       { label: 'Established', value: '2008' },
+      { label: 'District', value: 'Krishna' },
+      { label: 'Programme', value: '6-Yr B.Tech' },
     ],
-    about: 'The Nuzvid campus is a major centre for RGUKT-AP in the Krishna region, hosting the undergraduate quantum computing laboratory and leading convocation and national event hosting.',
+    about: 'RGUKT Nuzvid is a founding campus in Krishna District, offering the six-year integrated residential B.Tech programme with ICT-enabled pedagogy and modern laboratories.',
   },
   {
     slug: 'rk-valley',
@@ -133,20 +266,19 @@ export const CAMPUSES: CampusInfo[] = [
     shortName: 'RK Valley',
     heroTitle: 'RKValley',
     image: '/campuses/rk-valley.jpg',
-    galleryImages: ['/campuses/rk-valley.jpg', '/hero/hero-convocation.jpg', '/gallery/gallery-12.jpg'],
     established: '2008',
-    district: 'Kadapa District (Idupulapaya)',
+    district: 'YSR Kadapa District',
     address: 'Idupulapaya, Vempalli Mandal, Kadapa District, AP 516330',
     phone: '+91-8565-249202',
     email: 'info@rguktrkv.ac.in',
     website: 'https://rguktrkv.ac.in',
     departments: ['CSE', 'ECE', 'EEE', 'Mechanical', 'Civil', 'Chemical'],
     stats: [
-      { label: 'Students', value: '3,200+' },
-      { label: 'Departments', value: '6' },
       { label: 'Established', value: '2008' },
+      { label: 'District', value: 'Kadapa' },
+      { label: 'Programme', value: '6-Yr B.Tech' },
     ],
-    about: 'RK Valley at Idupulapaya is the founding campus of RGUKT-AP, envisioned by Dr. Y.S. Rajasekhara Reddy to bring world-class technical education to rural Andhra Pradesh.',
+    about: 'RK Valley at Idupulapaya is a founding campus envisioned by Dr. Y.S. Rajasekhara Reddy to bring world-class technical education to rural Andhra Pradesh.',
   },
   {
     slug: 'srikakulam',
@@ -155,20 +287,19 @@ export const CAMPUSES: CampusInfo[] = [
     shortName: 'Srikakulam',
     heroTitle: 'Srikakulam',
     image: '/campuses/srikakulam.jpg',
-    galleryImages: ['/campuses/srikakulam.jpg', '/gallery/gallery-7.jpg', '/gallery/gallery-6.jpg'],
-    established: '2009',
+    established: '2016',
     district: 'Srikakulam District',
-    address: 'Etcherla, Srikakulam District, Andhra Pradesh 532410',
-    phone: '+91-8942-244102',
+    address: 'SM Puram, Etcherla Mandal, Srikakulam District, AP 532402',
+    phone: '+91-8942-240700',
     email: 'info@rguktsklm.ac.in',
     website: 'https://rguktsklm.ac.in',
     departments: ['CSE', 'ECE', 'EEE', 'Mechanical', 'Civil'],
     stats: [
-      { label: 'Students', value: '2,800+' },
-      { label: 'Departments', value: '5' },
-      { label: 'Established', value: '2009' },
+      { label: 'Established', value: '2016' },
+      { label: 'District', value: 'Srikakulam' },
+      { label: 'Programme', value: '6-Yr B.Tech' },
     ],
-    about: 'The Srikakulam campus serves north coastal Andhra Pradesh, providing fully residential six-year integrated engineering education to gifted rural students.',
+    about: 'The Srikakulam campus serves north coastal Andhra Pradesh with fully residential six-year integrated engineering education for gifted rural students.',
   },
   {
     slug: 'ongole',
@@ -177,20 +308,19 @@ export const CAMPUSES: CampusInfo[] = [
     shortName: 'Ongole',
     heroTitle: 'Ongole',
     image: '/campuses/ongole.jpg',
-    galleryImages: ['/campuses/ongole.jpg', '/gallery/gallery-3.jpg', '/gallery/gallery-9.jpg'],
-    established: '2009',
+    established: '2016',
     district: 'Prakasam District',
-    address: 'Vejendla, Ongole, Prakasam District, Andhra Pradesh 523272',
-    phone: '+91-8592-224302',
+    address: 'Rao & Naidu Campus, Ongole, Prakasam District, AP 523001',
+    phone: '+91-8592-223133',
     email: 'info@rguktong.ac.in',
     website: 'https://rguktong.ac.in',
     departments: ['CSE', 'ECE', 'EEE', 'Mechanical', 'Civil'],
     stats: [
-      { label: 'Students', value: '2,400+' },
-      { label: 'Departments', value: '5' },
-      { label: 'Established', value: '2009' },
+      { label: 'Established', value: '2016' },
+      { label: 'District', value: 'Prakasam' },
+      { label: 'Programme', value: '6-Yr B.Tech' },
     ],
-    about: 'The Ongole campus extends RGUKT-AP\'s mission to Prakasam district, with modern laboratories, hostels and active placement and industry collaboration programmes.',
+    about: 'The Ongole campus extends RGUKT-AP\'s mission to Prakasam district with modern laboratories, residential facilities, and industry collaboration programmes.',
   },
 ];
 
