@@ -92,8 +92,8 @@ export default function ExaminationProceduresPage() {
 
           <div className="prog-hero-right">
             <img
-              src="/gallery/gallery-9.jpg"
-              alt="RGUKT Autonomous Examination Control and Evaluation Cell"
+              src="/gallery/examination-procedures-hero.jpg"
+              alt="Examination Procedures & Evaluation Cell"
               className="prog-hero-media-img"
             />
             <div className="prog-hero-media-overlay">

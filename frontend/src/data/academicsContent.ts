@@ -32,14 +32,14 @@ export const UG_BRANCHES = [
   { code: 'MECH', name: 'Mechanical Engineering', seats: 60 },
   { code: 'CIVIL', name: 'Civil Engineering', seats: 60 },
   { code: 'CHEM', name: 'Chemical Engineering', seats: 60 },
-  { code: 'MME', name: 'Materials & Metallurgical Engineering', seats: 60 },
+  { code: 'MME', name: 'Metallurgical & Materials Engineering', seats: 60 },
 ];
 
 export const PG_PROGRAMMES = [
-  { branch: 'M.Tech CSE', focus: 'AI, Data Science & Cloud Computing' },
-  { branch: 'M.Tech ECE', focus: 'VLSI, Embedded Systems & IoT' },
-  { branch: 'M.Tech Mechanical', focus: 'Design, Thermal & Manufacturing' },
-  { branch: 'M.Tech Chemical', focus: 'Process Engineering & Energy Systems' },
+  { branch: 'M.Tech Transportation Engineering', focus: 'Highway, Traffic & Infrastructure (RGUKT Nuzvid)' },
+  { branch: 'M.Tech Engineering Analysis & Design', focus: 'FEA, CFD & Mechanical Dynamics (RGUKT Nuzvid)' },
+  { branch: 'M.Tech AI & Machine Learning', focus: 'AI, Deep Learning & Cloud Computing (RGUKT RK Valley)' },
+  { branch: 'M.Tech Advanced Materials Technology', focus: 'Nanomaterials & Metallurgy (RGUKT RK Valley)' },
 ];
 
 export const RESEARCH_AREAS = [

@@ -76,8 +76,8 @@ export default function AcademicRegulationsPage() {
 
           <div className="prog-hero-right">
             <img
-              src="/gallery/gallery-4.jpg"
-              alt="RGUKT Academic Regulations Council"
+              src="/gallery/academic-regulations-hero.jpg"
+              alt="Academic Governance & Regulations"
               className="prog-hero-media-img"
             />
             <div className="prog-hero-media-overlay">

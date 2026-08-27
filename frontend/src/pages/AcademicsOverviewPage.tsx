@@ -1,4 +1,4 @@
-﻿import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import AcademicsSubLayout, {
   useAcademicsTheme,
 } from "../components/AcademicsSubLayout";
@@ -719,7 +719,7 @@ export default function AcademicsOverviewPage() {
                 </p>
               </div>
             ))}
-          </div>K
+          </div>
         </section>
 
         {/* 12. STAY UPDATED */}

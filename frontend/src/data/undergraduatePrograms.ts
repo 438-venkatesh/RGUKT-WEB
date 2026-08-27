@@ -210,7 +210,7 @@ export const UG_PROGRAMS: UGProgram[] = [
     campusAvailability: {
       nuzvid: true,
       rkValley: true,
-      srikakulam: true,
+      srikakulam: false,
       ongole: true,
     },
   },
@@ -353,7 +353,7 @@ export const UG_PROGRAMS: UGProgram[] = [
     minorOptions: ['Computer Science', 'Mechanical Engineering', 'Business'],
     campusAvailability: {
       nuzvid: true,
-      rkValley: false,
+      rkValley: true,
       srikakulam: false,
       ongole: false,
     },

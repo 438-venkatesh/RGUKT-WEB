@@ -77,7 +77,7 @@ export default function AcademicCurriculumPage() {
     },
     {
       code: 'MME',
-      name: 'Materials & Metallurgical Engineering',
+      name: 'Metallurgical & Materials Engineering',
       credits: '160 Credits',
       icon: <Atom size={18} />,
       image: '/disciplines/mme.jpg',
@@ -115,8 +115,8 @@ export default function AcademicCurriculumPage() {
 
           <div className="prog-hero-right">
             <img
-              src="/gallery/gallery-10.jpg"
-              alt="RGUKT Curriculum Development and Laboratories"
+              src="/gallery/academic-curriculum-hero.jpg"
+              alt="Academic Curriculum"
               className="prog-hero-media-img"
             />
             <div className="prog-hero-media-overlay">

@@ -120,8 +120,8 @@ export default function ExaminationSchedulesPage() {
 
           <div className="prog-hero-right">
             <img
-              src="/gallery/gallery-11.jpg"
-              alt="RGUKT-AP Examination Notice Board and Central Examination Cell"
+              src="/gallery/examination-schedules-hero.jpg"
+              alt="Examination Timetables & Schedules"
               className="prog-hero-media-img"
             />
             <div className="prog-hero-media-overlay">

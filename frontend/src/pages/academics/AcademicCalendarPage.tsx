@@ -61,8 +61,8 @@ export default function AcademicCalendarPage() {
 
           <div className="prog-hero-right">
             <img
-              src="/gallery/gallery-7.jpg"
-              alt="RGUKT Academic Calendar Planning"
+              src="/gallery/academic-calendar-hero.jpg"
+              alt="Academic Calendar"
               className="prog-hero-media-img"
             />
             <div className="prog-hero-media-overlay">

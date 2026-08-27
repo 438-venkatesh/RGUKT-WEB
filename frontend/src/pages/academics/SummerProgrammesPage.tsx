@@ -99,8 +99,8 @@ export default function SummerProgrammesPage() {
 
           <div className="prog-hero-right">
             <img
-              src="/gallery/gallery-6.jpg"
-              alt="Summer Academic Workshops and Training"
+              src="/gallery/summer-programmes-hero.jpg"
+              alt="RGUKT Summer Academic Initiatives and Technical Internship Workshops"
               className="prog-hero-media-img"
             />
             <div className="prog-hero-media-overlay">
