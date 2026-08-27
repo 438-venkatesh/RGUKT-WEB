@@ -19,6 +19,19 @@ import Contact from './pages/Contact';
 import NuzvidLayout from './pages/nuzvid/NuzvidLayout';
 import NuzvidHome from './pages/nuzvid/NuzvidHome';
 import NuzvidAbout from './pages/nuzvid/NuzvidAbout';
+import NuzvidVisionMissionPage from './pages/nuzvid/about/NuzvidVisionMissionPage';
+import NuzvidAtGlancePage from './pages/nuzvid/about/NuzvidAtGlancePage';
+import NuzvidCampusLifePage from './pages/nuzvid/about/NuzvidCampusLifePage';
+import NuzvidEducationSystemPage from './pages/nuzvid/about/NuzvidEducationSystemPage';
+import NuzvidAchievementsPage from './pages/nuzvid/about/NuzvidAchievementsPage';
+import NuzvidGoverningCouncilPage from './pages/nuzvid/about/NuzvidGoverningCouncilPage';
+import NuzvidAriiaReportPage from './pages/nuzvid/about/NuzvidAriiaReportPage';
+import NuzvidRtiPage from './pages/nuzvid/about/NuzvidRtiPage';
+import NuzvidNaacPage from './pages/nuzvid/about/NuzvidNaacPage';
+import NuzvidUgc12bPage from './pages/nuzvid/about/NuzvidUgc12bPage';
+import NuzvidUgc2fPage from './pages/nuzvid/about/NuzvidUgc2fPage';
+import NuzvidOmbudspersonPage from './pages/nuzvid/about/NuzvidOmbudspersonPage';
+import NuzvidGalleryPage from './pages/nuzvid/about/NuzvidGalleryPage';
 import NuzvidAcademics from './pages/nuzvid/NuzvidAcademics';
 import NuzvidExaminations from './pages/nuzvid/NuzvidExaminations';
 import NuzvidLibrary from './pages/nuzvid/NuzvidLibrary';
@@ -204,7 +217,27 @@ function AppContent() {
           {/* ── Nuzvid campus sub-site ── */}
           <Route path="/nuzvid" element={<NuzvidLayout />}>
             <Route index                        element={<NuzvidHome />} />
+            {/* About 14 Subsections */}
             <Route path="about"                 element={<NuzvidAbout />} />
+            <Route path="about/about-rgukt"     element={<NuzvidAbout />} />
+            <Route path="about/vision-mission"  element={<NuzvidVisionMissionPage />} />
+            <Route path="about/at-a-glance"     element={<NuzvidAtGlancePage />} />
+            <Route path="about/glance"          element={<NuzvidAtGlancePage />} />
+            <Route path="about/campus-life"     element={<NuzvidCampusLifePage />} />
+            <Route path="about/education-system" element={<NuzvidEducationSystemPage />} />
+            <Route path="about/achievements"    element={<NuzvidAchievementsPage />} />
+            <Route path="about/governing-council" element={<NuzvidGoverningCouncilPage />} />
+            <Route path="about/ariia-report"    element={<NuzvidAriiaReportPage />} />
+            <Route path="about/rti"             element={<NuzvidRtiPage />} />
+            <Route path="rti"                   element={<NuzvidRtiPage />} />
+            <Route path="about/naac"            element={<NuzvidNaacPage />} />
+            <Route path="about/ugc-12b"         element={<NuzvidUgc12bPage />} />
+            <Route path="about/ugc-2f"          element={<NuzvidUgc2fPage />} />
+            <Route path="about/ombudsperson"    element={<NuzvidOmbudspersonPage />} />
+            <Route path="ombudsperson"          element={<NuzvidOmbudspersonPage />} />
+            <Route path="about/gallery"         element={<NuzvidGalleryPage />} />
+            <Route path="gallery"               element={<NuzvidGalleryPage />} />
+            {/* Campus Core Pages */}
             <Route path="academics"             element={<NuzvidAcademics />} />
             <Route path="examinations"          element={<NuzvidExaminations />} />
             <Route path="library"               element={<NuzvidLibrary />} />
