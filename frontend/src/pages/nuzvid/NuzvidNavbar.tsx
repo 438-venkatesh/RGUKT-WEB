@@ -89,6 +89,10 @@ export default function NuzvidNavbar() {
                   className={`ap-nav-item ap-nav-has-mega${openMenu === menu.key ? ' is-open' : ''}`}
                   onMouseEnter={() => setOpenMenu(menu.key)}
                   onMouseLeave={() => setOpenMenu(null)}
+                  onFocus={() => setOpenMenu(menu.key)}
+                  onBlur={(event) => {
+                    if (!event.currentTarget.contains(event.relatedTarget)) setOpenMenu(null);
+                  }}
                 >
                   <Link
                     to={menu.href}
