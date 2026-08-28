@@ -19,6 +19,13 @@ const hero = (title: string, extra?: Partial<PageHeroProps>): Omit<PageHeroConfi
   ...extra,
 });
 
+const studentHero = (title: string, extra?: Partial<PageHeroProps>): Omit<PageHeroConfig, 'match'> => ({
+  title,
+  titleImage: PAGE_HERO_IMAGE,
+  noHeroBg: true,
+  ...extra,
+});
+
 /** Core pages with custom hero copy */
 const CORE_HERO_CONFIGS: PageHeroConfig[] = [
   { ...hero('About@RGUKT-AP'), match: '/about', quote: DEFAULT_QUOTE, quoteAuthor: DEFAULT_AUTHOR },
@@ -70,18 +77,18 @@ const CORE_HERO_CONFIGS: PageHeroConfig[] = [
   { ...hero('Eligibility@RGUKT-AP'), match: '/admissions/eligibility' },
   { ...hero('ApplicationProcess@RGUKT-AP'), match: '/admissions/process' },
   { ...hero('FeeStructure@RGUKT-AP'), match: '/admissions/fees' },
-  { ...hero('Students@RGUKT-AP'), match: '/students' },
-  { ...hero('Scholarships@RGUKT-AP'), match: '/students/scholarships' },
-  { ...hero('Medal Information@RGUKT-AP'), match: '/students/medals' },
-  { ...hero('Career Growth@RGUKT-AP'), match: '/students/career-growth' },
-  { ...hero('Quantum Computing Lab@RGUKT-AP'), match: '/students/quantum-lab' },
-  { ...hero('Anti Ragging@RGUKT-AP'), match: '/students/anti-ragging' },
-  { ...hero('Internal Complaint Committee@RGUKT-AP'), match: '/students/icc' },
-  { ...hero('Women Empowerment@RGUKT-AP'), match: '/students/women-empowerment' },
-  { ...hero('Cultural Activities@RGUKT-AP'), match: '/students/cultural' },
-  { ...hero('Sports@RGUKT-AP'), match: '/students/sports' },
-  { ...hero('Community Activities@RGUKT-AP'), match: '/students/community' },
-  { ...hero('Alumni Engagement@RGUKT-AP'), match: '/students/alumni-engagement' },
+  { ...studentHero('Students@RGUKT-AP'), match: '/students' },
+  { ...studentHero('Scholarships@RGUKT-AP'), match: '/students/scholarships' },
+  { ...studentHero('Medal Information@RGUKT-AP'), match: '/students/medals' },
+  { ...studentHero('Career Growth@RGUKT-AP'), match: '/students/career-growth' },
+  { ...studentHero('Quantum Computing Lab@RGUKT-AP'), match: '/students/quantum-lab' },
+  { ...studentHero('Anti Ragging@RGUKT-AP'), match: '/students/anti-ragging' },
+  { ...studentHero('Internal Complaint Committee@RGUKT-AP'), match: '/students/icc' },
+  { ...studentHero('Women Empowerment@RGUKT-AP'), match: '/students/women-empowerment' },
+  { ...studentHero('Cultural Activities@RGUKT-AP'), match: '/students/cultural' },
+  { ...studentHero('Sports@RGUKT-AP'), match: '/students/sports' },
+  { ...studentHero('Community Activities@RGUKT-AP'), match: '/students/community' },
+  { ...studentHero('Alumni Engagement@RGUKT-AP'), match: '/students/alumni-engagement' },
   { ...hero('Research@RGUKT-AP'), match: '/research' },
   { ...hero('ResearchHead@RGUKT-AP'), match: '/research/head' },
   { ...hero('ResearchEthics@RGUKT-AP'), match: '/research/ethics' },

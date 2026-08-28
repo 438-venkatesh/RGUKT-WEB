@@ -2,24 +2,6 @@
   background: linear-gradient(135deg, rgba(10, 39, 68, 0.82) 0%, rgba(0, 128, 128, 0.45) 100%);
 }
 
-.stu-scrape-helpline {
-  padding: 18px 20px;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.stu-scrape-phone {
-  font-size: 20px;
-  font-weight: 700;
-  text-decoration: none;
-}
-
-.stu-scrape-phone:hover {
-  text-decoration: underline;
-}
-
 .stu-scrape-external {
   padding: 20px 22px;
   border-radius: 10px;
@@ -147,8 +129,51 @@
     order: 0;
   }
 
+  .stu-section-media-wrap {
+    aspect-ratio: 16 / 9;
+  }
+
   .stu-section-media-figure {
     max-width: 100%;
     margin: 12px 0 0;
   }
+}
+
+/* ── Contact for Queries ── */
+.stu-queries-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  margin-top: 14px;
+}
+
+.stu-query-card {
+  padding: 16px 18px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.stu-query-name {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+
+.stu-query-role {
+  font-size: 13.5px;
+  margin: 0;
+  line-height: 1.45;
+}
+
+.stu-query-email a,
+.stu-query-phone a,
+.stu-query-phones a {
+  text-decoration: none;
+}
+
+.stu-query-email a:hover,
+.stu-query-phone a:hover,
+.stu-query-phones a:hover {
+  text-decoration: underline;
 }
