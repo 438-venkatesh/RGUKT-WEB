@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-08-24",
+  "scrapedAt": "2026-08-28",
   "sourceSite": "https://www.rgukt.in",
   "pages": [
     {
@@ -10,7 +10,7 @@
       "title": "Student Life & Resources",
       "sections": [],
       "documents": [],
-      "images": ["/gallery/gallery-5.jpg"],
+      "images": [],
       "helpline": null
     },
     {
@@ -20,8 +20,13 @@
       "pageStatus": "ok",
       "title": "Scholarships & Financial Assistance",
       "sections": [],
-      "documents": [],
-      "images": ["/gallery/gallery-9.jpg"],
+      "documents": [
+        {
+          "title": "Jagananna Vidya Deevena and Jagananna Vasathi Deevena Guidelines",
+          "url": "https://rgukt.in/files/pdfs/76b968ffb2160dfa5132aff9df9fb984.pdf"
+        }
+      ],
+      "images": [],
       "helpline": null
     },
     {
@@ -31,8 +36,13 @@
       "pageStatus": "ok",
       "title": "Medal Information & Honours",
       "sections": [],
-      "documents": [],
-      "images": ["/hero/hero-convocation.jpg"],
+      "documents": [
+        {
+          "title": "Medal Information @ RGUKT",
+          "url": "https://rgukt.in/files/pdfs/aeaac9ea06bdfa0736cb69943e4cc7b4.pdf"
+        }
+      ],
+      "images": [],
       "helpline": null
     },
     {
@@ -43,7 +53,7 @@
       "title": "Career Growth & Development",
       "sections": [],
       "documents": [],
-      "images": ["/gallery/gallery-11.jpg"],
+      "images": [],
       "helpline": null
     },
     {
@@ -54,7 +64,7 @@
       "title": "Quantum Computing Lab",
       "sections": [],
       "documents": [],
-      "images": ["/students/quantum-workshop-1.jpg", "/students/quantum-workshop-2.jpg"],
+      "images": ["/students/quantum-workshop-1.jpg"],
       "helpline": null
     },
     {
@@ -65,10 +75,10 @@
       "title": "Anti Ragging Mechanism",
       "sections": [],
       "documents": [],
-      "images": ["/gallery/gallery-1.jpg"],
+      "images": [],
       "helpline": {
         "phones": ["1800-180-5522", "09871170303", "09818400116"],
-        "emails": ["helpline@antiragging.in", "antiragging@rgukt.ac.in"]
+        "emails": ["helpline@antiragging.in"]
       }
     },
     {
@@ -79,11 +89,8 @@
       "title": "Internal Complaints Committee (ICC)",
       "sections": [],
       "documents": [],
-      "images": ["/gallery/gallery-1.jpg"],
-      "helpline": {
-        "phones": ["+91-863-2344708", "08588-283654"],
-        "emails": ["icc@rgukt.ac.in", "icc@rguktn.ac.in"]
-      }
+      "images": [],
+      "helpline": null
     },
     {
       "slug": "women-empowerment",
@@ -93,7 +100,7 @@
       "title": "Women Empowerment & Gender Equity",
       "sections": [],
       "documents": [],
-      "images": ["/students/women-empowerment-1.jpg", "/students/women-empowerment-5.jpg"],
+      "images": ["/students/women-empowerment-1.jpg"],
       "helpline": null
     },
     {
@@ -101,15 +108,15 @@
       "rguktUrl": "https://www.rgukt.in/students/cultural-activities/",
       "localRoute": "/students/cultural",
       "pageStatus": "ok",
-      "title": "Cultural Activities & Societies",
+      "title": "Cultural Activities & Performing Arts",
       "sections": [],
-      "documents": [],
-      "images": [
-        "/students/teckzite-stage-5.jpg",
-        "/students/teckzite-stage-7.jpg",
-        "/students/cygnus-fest-1.jpg",
-        "/students/sitara-cultural-1.jpg"
+      "documents": [
+        {
+          "title": "Cultural Activities — Performing Arts Department",
+          "url": "https://rgukt.in/files/pdfs/d69db10bc7b04238ebf42b4189e727ad.pdf"
+        }
       ],
+      "images": ["/students/sitara-cultural-1.jpg"],
       "helpline": null
     },
     {
@@ -117,7 +124,7 @@
       "rguktUrl": "https://www.rgukt.in/students/sports/",
       "localRoute": "/students/sports",
       "pageStatus": "ok",
-      "title": "Student Sports & Fitness",
+      "title": "Student Sports & Sports Board",
       "sections": [],
       "documents": [],
       "images": ["/gallery/gallery-5.jpg"],
@@ -131,7 +138,7 @@
       "title": "Community Activities & NSS",
       "sections": [],
       "documents": [],
-      "images": ["/gallery/gallery-3.jpg", "/students/ncc-cadets-parade.jpg"],
+      "images": ["/gallery/gallery-3.jpg"],
       "helpline": null
     },
     {
@@ -139,9 +146,14 @@
       "rguktUrl": "https://www.rgukt.in/students/alumni-engagement/",
       "localRoute": "/students/alumni-engagement",
       "pageStatus": "ok",
-      "title": "Alumni Engagement & Mentorship",
+      "title": "Alumni Engagement",
       "sections": [],
-      "documents": [],
+      "documents": [
+        {
+          "title": "RGUKT Nuzvid Alumni Association Certificate",
+          "url": "https://www.rgukt.in/files/pdfs/1301bbc90d44896b766ceb28a122717f.pdf"
+        }
+      ],
       "images": ["/gallery/gallery-12.jpg"],
       "helpline": null
     }

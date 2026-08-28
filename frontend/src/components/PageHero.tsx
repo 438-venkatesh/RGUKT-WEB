@@ -9,6 +9,8 @@ export type PageHeroProps = {
   bgImage?: string;
   /** Image clipped inside the large title text (defaults to bgImage) */
   titleImage?: string;
+  /** If true, removes only the background photo from the hero area */
+  noHeroBg?: boolean;
 };
 
 export default function PageHero({
@@ -18,6 +20,7 @@ export default function PageHero({
   quoteAuthor,
   bgImage = '/gallery/gallery-7.jpg',
   titleImage,
+  noHeroBg = false,
 }: PageHeroProps) {
   const clipImage = titleImage ?? bgImage;
 
@@ -36,12 +39,16 @@ export default function PageHero({
 
   return (
     <section className="page-hero" aria-label={`${mainPart} page header`}>
-      <div
-        className="page-hero-bg"
-        style={{ backgroundImage: `url(${bgImage})` }}
-        aria-hidden
-      />
-      <div className="page-hero-wash" aria-hidden />
+      {!noHeroBg && (
+        <>
+          <div
+            className="page-hero-bg"
+            style={{ backgroundImage: `url(${bgImage})` }}
+            aria-hidden
+          />
+          <div className="page-hero-wash" aria-hidden />
+        </>
+      )}
 
       <div className="page-hero-content">
         <img src={logoSrc} alt="" className="page-hero-logo" aria-hidden />
