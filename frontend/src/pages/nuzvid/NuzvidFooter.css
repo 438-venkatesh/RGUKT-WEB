@@ -1,206 +1,173 @@
-/* ── Nuzvid campus footer ── */
-
-/* Approximate modernist DS neutral-900 and neutral-400 */
 .nzf {
-  background: #111827;
-  color: #9ca3af;
-  font-family: 'Inter', system-ui, sans-serif;
-  border-top: 2px solid #374151;
+  background: #0b1e3a;
+  color: #c5d3e7;
+  font-family: var(--font-body);
 }
 
-/* ── Main grid ── */
 .nzf-grid {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 56px 24px 32px;
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
-  gap: 40px;
+  width: min(1280px, calc(100% - 48px));
+  grid-template-columns: 1.45fr repeat(3, 0.75fr) 1.05fr;
+  gap: 36px;
+  margin: 0 auto;
+  padding: 70px 0 56px;
 }
 
-/* ── Brand column ── */
 .nzf-brand {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 16px;
+  gap: 11px;
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 800;
+  line-height: 1;
+  text-decoration: none;
 }
 
 .nzf-logo {
+  display: grid;
   width: 48px;
   height: 48px;
-  background: #fff;
-  border: 2px solid var(--nuzvid-accent, #1565C0);
+  place-items: center;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  overflow: hidden;
+  background: #fff;
 }
 
 .nzf-logo .rgukt-logo {
-  width: 28px;
+  width: 29px;
   height: auto;
 }
 
-.nzf-brand-name {
-  font-size: 16px;
-  font-weight: 800;
-  color: #fff;
-  font-family: 'Playfair Display', Georgia, serif;
+.nzf-brand-col > p {
+  max-width: 31ch;
+  margin: 20px 0 17px;
+  color: #b5c5dc;
+  font-size: 0.87rem;
+  line-height: 1.7;
 }
 
-.nzf-tagline {
-  font-size: 13px;
-  line-height: 1.6;
-  max-width: 28ch;
-  margin: 0 0 16px;
-  color: #9ca3af;
-}
-
-.nzf-naac-tag {
+.nzf-act {
   display: inline-block;
-  border: 1px solid #4b5563;
-  color: #d1d5db;
-  font-size: 11px;
-  font-weight: 700;
-  padding: 3px 10px;
-  border-radius: 4px;
-  letter-spacing: 0.06em;
-  margin-bottom: 16px;
-}
-
-.nzf-socials {
-  display: flex;
-  gap: 8px;
-}
-
-.nzf-social {
-  width: 32px;
-  height: 32px;
-  border: 1px solid #374151;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  text-decoration: none;
-  transition: border-color 0.15s, background 0.15s;
-}
-
-.nzf-social:hover {
-  border-color: var(--nuzvid-accent, #1565C0);
-  background: rgba(21, 101, 192, 0.15);
-  color: var(--nuzvid-accent-soft, #BBDEFB);
-}
-
-/* ── Other columns ── */
-.nzf-col {}
-
-.nzf-kicker {
-  font-size: 11px;
-  font-weight: 700;
+  padding: 7px 9px;
+  border: 1px solid rgba(202, 223, 250, 0.25);
+  border-radius: 5px;
+  color: #dbeaff;
+  font-size: 0.65rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  line-height: 1.3;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: #6b7280;
-  margin-bottom: 14px;
+}
+
+.nzf-col h2 {
+  margin: 5px 0 20px;
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 0.77rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
 }
 
 .nzf-links {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  display: grid;
+  gap: 11px;
+}
+
+.nzf-link,
+.nzf-contact address a,
+.nzf-contact-link,
+.nzf-bottom a {
+  color: #b5c5dc;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  text-decoration: none;
+  transition: color 150ms ease;
 }
 
 .nzf-link {
-  font-size: 14px;
-  color: #9ca3af;
-  text-decoration: none;
-  line-height: 1.4;
-  transition: color 0.15s;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
 }
 
-.nzf-link:hover { color: #fff; }
+.nzf-link:hover,
+.nzf-contact address a:hover,
+.nzf-contact-link:hover,
+.nzf-bottom a:hover {
+  color: #fff;
+}
 
-/* Contact column */
-.nzf-address {
-  font-size: 14px;
-  line-height: 1.75;
+.nzf-contact address {
+  display: grid;
+  gap: 13px;
+  margin: 0;
+  color: #b5c5dc;
+  font-size: 0.85rem;
   font-style: normal;
-  color: #9ca3af;
+  line-height: 1.6;
+}
+
+.nzf-contact address span,
+.nzf-contact address a {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.nzf-contact address a {
+  width: max-content;
 }
 
 .nzf-contact-link {
-  display: inline;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 19px;
+  color: #fff;
+  font-weight: 750;
 }
 
-/* ── Divider ── */
-.nzf-divider {
-  height: 1px;
-  background: #374151;
-  margin: 0;
-}
-
-/* ── Bottom bar ── */
 .nzf-bottom {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 20px 24px;
   display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
+  width: min(1280px, calc(100% - 48px));
+  align-items: center;
   justify-content: space-between;
-  align-items: center;
-  font-size: 12px;
-  color: #6b7280;
+  gap: 18px;
+  margin: 0 auto;
+  padding: 21px 0;
+  border-top: 1px solid rgba(202, 223, 250, 0.16);
+  color: #88a0c0;
+  font-size: 0.75rem;
 }
 
-.nzf-copy { line-height: 1.5; }
-
-.nzf-bottom-links {
+.nzf-bottom > div {
   display: flex;
-  gap: 16px;
   flex-wrap: wrap;
-  align-items: center;
+  justify-content: end;
+  gap: 18px;
 }
 
-.nzf-bottom-link {
-  color: #6b7280;
-  text-decoration: none;
-  font-size: 12px;
-  transition: color 0.15s;
+.nzf-bottom a {
+  color: #9bb1ce;
+  font-size: inherit;
 }
 
-.nzf-bottom-link:hover { color: #9ca3af; }
-
-.nzf-back-link {
-  color: var(--nuzvid-accent-soft, #90CAF9);
+@media (max-width: 1100px) {
+  .nzf-grid { grid-template-columns: 1.45fr repeat(3, 0.85fr); }
+  .nzf-contact { grid-column: 1 / -1; }
 }
 
-.nzf-back-link:hover { color: var(--nuzvid-accent-l, #BBDEFB); }
-
-/* ── Responsive ── */
-@media (max-width: 900px) {
-  .nzf-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
-    padding: 40px 24px 24px;
-  }
+@media (max-width: 760px) {
+  .nzf-grid { grid-template-columns: repeat(2, 1fr); gap: 37px 25px; padding: 53px 0 43px; }
+  .nzf-brand-col { grid-column: 1 / -1; }
+  .nzf-contact { grid-column: auto; }
+  .nzf-bottom { align-items: start; flex-direction: column; }
+  .nzf-bottom > div { justify-content: start; }
 }
 
-@media (max-width: 560px) {
-  .nzf-grid {
-    grid-template-columns: 1fr;
-    padding: 32px 16px 20px;
-    gap: 28px;
-  }
-
-  .nzf-bottom {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 16px;
-    gap: 10px;
-  }
-
-  .nzf-bottom-links { gap: 12px; }
+@media (max-width: 500px) {
+  .nzf-grid, .nzf-bottom { width: min(100% - 32px, 1280px); }
+  .nzf-grid { grid-template-columns: 1fr; }
 }

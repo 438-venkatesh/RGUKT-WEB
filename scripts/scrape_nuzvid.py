@@ -112,6 +112,7 @@ def abs_url(base_url: str, href: str) -> str:
 
 
 def parse_page(local_path: str, source_path: str) -> dict:
+    # pyrefly: ignore [missing-import]
     from bs4 import BeautifulSoup
 
     html, used_url = fetch(source_path)
