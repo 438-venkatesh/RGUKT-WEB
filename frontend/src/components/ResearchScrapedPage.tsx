@@ -8,11 +8,68 @@ import {
 } from '../data/researchScrapedData';
 import { RESEARCH_NAV } from '../data/researchContent';
 import './AcademicsScrapedPage.css';
+import './AdministrationScrapedPage.css';
 import './ResearchScrapedPage.css';
 import '../pages/Research.css';
 import '../pages/ResearchPages.css';
 
 type Props = { pageKey: string };
+
+function formatLineWithLinks(line: string, c: ReturnType<typeof useSectionTheme>) {
+  const colonIdx = line.indexOf(':');
+  let prefix = '';
+  let rest = line;
+
+  if (colonIdx > 0 && colonIdx < 40 && !line.slice(0, colonIdx).includes('http')) {
+    prefix = line.slice(0, colonIdx + 1);
+    rest = line.slice(colonIdx + 1);
+  }
+
+  const emailRegex = /([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/gi;
+  const urlRegex = /(https?:\/\/[^\s]+)/gi;
+
+  const renderTextWithLinks = (text: string) => {
+    const parts = text.split(/(https?:\/\/[^\s]+|[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/gi);
+    return parts.map((part, i) => {
+      if (part.match(emailRegex)) {
+        return (
+          <a
+            key={i}
+            href={`mailto:${part}`}
+            style={{ color: c.accent, textDecoration: 'underline', fontWeight: 600 }}
+          >
+            {part}
+          </a>
+        );
+      }
+      if (part.match(urlRegex)) {
+        return (
+          <a
+            key={i}
+            href={part}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: c.accent, textDecoration: 'underline', fontWeight: 600 }}
+          >
+            {part}
+          </a>
+        );
+      }
+      return part;
+    });
+  };
+
+  return (
+    <>
+      {prefix && (
+        <strong style={{ color: c.text, fontWeight: 700 }}>
+          {prefix}{' '}
+        </strong>
+      )}
+      {renderTextWithLinks(rest)}
+    </>
+  );
+}
 
 function DocCard({
   doc,
@@ -44,21 +101,67 @@ function DocCard({
   );
 }
 
-function SectionBlock({ section, c }: { section: ResearchSection; c: ReturnType<typeof useSectionTheme> }) {
+function SectionBlock({
+  section,
+  index,
+  c,
+}: {
+  section: ResearchSection;
+  index: number;
+  c: ReturnType<typeof useSectionTheme>;
+}) {
   const skipEmpty = !section.content?.length && !section.items?.length;
   if (skipEmpty) return null;
 
+  const hasImage = !!section.image?.src;
+  const isImageLeft = index % 2 === 1;
+
   return (
-    <section className="acad-scraped-section">
+    <section className={`acad-scraped-section ${hasImage ? 'res-section-with-media' : ''}`}>
       <h2 className="acad-page-h2">{section.heading}</h2>
-      {section.content?.map((para, i) => (
-        <p key={i} className="acad-scraped-para" style={{ color: c.textMuted }}>{para}</p>
-      ))}
-      {section.items && section.items.length > 0 && (
-        <ul className="acad-scraped-list" style={{ color: c.textMuted }}>
-          {section.items.map((item, i) => <li key={i}>{item}</li>)}
-        </ul>
-      )}
+
+      <div className={`${hasImage ? 'res-section-media-layout' : ''} ${hasImage && isImageLeft ? 'media-left' : ''}`}>
+        <div className="res-section-text-col">
+          {section.content?.map((para, i) => (
+            <p key={i} className="acad-scraped-para" style={{ color: c.textMuted }}>
+              {formatLineWithLinks(para, c)}
+            </p>
+          ))}
+          {section.items && section.items.length > 0 && (
+            <ul className="acad-scraped-list" style={{ color: c.textMuted }}>
+              {section.items.map((item, i) => (
+                <li key={i}>{formatLineWithLinks(item, c)}</li>
+              ))}
+            </ul>
+          )}
+        </div>
+
+        {hasImage && section.image && (
+          <figure
+            className="res-section-media-figure"
+            style={{ background: c.surface, border: `1px solid ${c.border}` }}
+          >
+            <div className="res-section-media-wrap">
+              <img
+                src={section.image.src}
+                alt={section.image.alt || section.heading}
+                className="res-section-media-img"
+                loading="lazy"
+              />
+              {section.image.tag && (
+                <span className="res-section-media-tag" style={{ background: c.accent, color: '#fff' }}>
+                  {section.image.tag}
+                </span>
+              )}
+            </div>
+            {section.image.caption && (
+              <figcaption className="res-section-media-caption" style={{ color: c.textMuted }}>
+                {section.image.caption}
+              </figcaption>
+            )}
+          </figure>
+        )}
+      </div>
     </section>
   );
 }
@@ -67,29 +170,20 @@ export default function ResearchScrapedPage({ pageKey }: Props) {
   const c = useSectionTheme();
   const page = getResearchPage(pageKey);
 
-  const contentSections = pageKey === 'head' && page.officer
-    ? page.sections
-    : page.sections.filter(s => {
-        if (pageKey !== 'head') return true;
-        return !s.heading.includes('Dr.') && !s.heading.toLowerCase().includes('office address');
-      });
-
   return (
     <SectionPageLayout>
-      <div className="acad-scraped-hero res-scrape-hero" style={{ border: `1px solid ${c.border}` }}>
-        <img src={page.heroImage} alt="" className="acad-scraped-hero-img" />
+      <div className={`acad-scraped-hero res-scrape-hero res-hero-${pageKey}`} style={{ border: `1px solid ${c.border}` }}>
+        <img
+          src={page.heroImage}
+          alt=""
+          className={`acad-scraped-hero-img res-hero-img res-hero-img-${pageKey}`}
+        />
         <div className="acad-scraped-hero-overlay res-scrape-hero-overlay" />
         <div className="acad-scraped-hero-text">
-          <span className="acad-scraped-eyebrow">Research</span>
-          <h1 className="acad-scraped-title">{page.displayTitle}</h1>
+          <span className="acad-scraped-eyebrow">{page.displayTitle}</span>
+          <h1 className="acad-scraped-title">@RGUKT-AP</h1>
         </div>
       </div>
-
-      {page.pageStatus === 'fallback' && page.sourceNote && (
-        <p className="acad-scraped-note" style={{ background: c.surface2, color: c.textMuted, border: `1px solid ${c.border}` }}>
-          {page.sourceNote}
-        </p>
-      )}
 
       {page.officer && pageKey === 'head' && (
         <div className="res-scrape-officer" style={{ background: c.surface, border: `1px solid ${c.border}` }}>
@@ -102,23 +196,41 @@ export default function ResearchScrapedPage({ pageKey }: Props) {
               <p className="res-scrape-officer-role" style={{ color: c.accent }}>{page.officer.role}</p>
             )}
             {page.officer.bio.map((para, i) => (
-              <p key={i} className="acad-scraped-para" style={{ color: c.textMuted, marginTop: i === 0 ? 12 : 8 }}>{para}</p>
+              <p key={i} className="acad-scraped-para" style={{ color: c.textMuted, marginTop: i === 0 ? 12 : 8 }}>
+                {formatLineWithLinks(para, c)}
+              </p>
             ))}
             {page.officer.officeAddress && (
               <p style={{ color: c.textMuted, marginTop: 12, fontSize: 14 }}>
-                <strong style={{ color: c.text }}>Office:</strong> {page.officer.officeAddress}
+                <strong style={{ color: c.text }}>Office Location:</strong> {page.officer.officeAddress}
               </p>
             )}
-            {page.officer.emails.map(email => (
-              <p key={email} style={{ color: c.textMuted, marginTop: 8, fontSize: 14 }}>
-                <a href={`mailto:${email}`} style={{ color: c.accent }}>{email}</a>
-              </p>
-            ))}
+            <div className="res-scrape-actions">
+              {page.officer.emails.map(email => (
+                <a
+                  key={email}
+                  href={`mailto:${email}`}
+                  className="res-scrape-btn"
+                  style={{ background: c.accent, color: '#fff' }}
+                >
+                  ✉ Email: {email}
+                </a>
+              ))}
+              {page.officer.phone && (
+                <a
+                  href={`tel:${page.officer.phone.split('/')[0].trim()}`}
+                  className="res-scrape-btn"
+                  style={{ background: c.surface2, color: c.text, border: `1px solid ${c.border}` }}
+                >
+                  ☎ Phone: {page.officer.phone}
+                </a>
+              )}
+            </div>
           </div>
         </div>
       )}
 
-      {page.intro && pageKey !== 'head' && (
+      {page.intro && (
         <p className="section-page-intro acad-scraped-intro" style={{ color: c.textMuted }}>{page.intro}</p>
       )}
 
@@ -133,46 +245,13 @@ export default function ResearchScrapedPage({ pageKey }: Props) {
         </div>
       )}
 
-      {page.featureCards.length > 0 && (
-        <section className="research-section">
-          <h2 className="acad-page-h2">Featured Highlights</h2>
-          <div className="research-highlights-grid">
-            {page.featureCards.map(h => (
-              <div
-                key={h.title}
-                className="research-highlight-card"
-                style={{ background: c.surface, border: `1px solid ${c.border}` }}
-              >
-                <div className="research-kicker" style={{ color: c.accent }}>{h.kicker}</div>
-                <div className="research-card-title" style={{ color: c.text }}>{h.title}</div>
-                <p className="research-card-desc" style={{ color: c.textMuted }}>{h.desc}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-      )}
-
-      {contentSections.map(section => (
-        <SectionBlock key={section.heading} section={section} c={c} />
+      {page.sections.map((section, index) => (
+        <SectionBlock key={section.heading} section={section} index={index} c={c} />
       ))}
-
-      {page.tagGroups.length > 0 && (
-        <section className="acad-scraped-section">
-          <h2 className="acad-page-h2">Cross-Campus Research Groups</h2>
-          <div className="res-tag-grid">
-            {page.tagGroups.map(g => (
-              <div key={g.tag} className="res-tag-row" style={{ borderColor: c.border }}>
-                <span className="res-tag" style={{ background: c.surface2, color: c.accent }}>{g.tag}</span>
-                <span className="res-tag-desc" style={{ color: c.textMuted }}>{g.desc}</span>
-              </div>
-            ))}
-          </div>
-        </section>
-      )}
 
       {page.documents.length > 0 && (
         <section className="acad-scraped-section">
-          <h2 className="acad-page-h2">Documents & Downloads</h2>
+          <h2 className="acad-page-h2">Documents & Regulatory Guidelines</h2>
           <div className="acad-doc-grid">
             {page.documents.map(doc => (
               <DocCard key={doc.url} doc={doc} surface={c.surface} border={c.border} text={c.text} accent={c.accent} />
@@ -181,9 +260,9 @@ export default function ResearchScrapedPage({ pageKey }: Props) {
         </section>
       )}
 
-      {page.rguktUrl && page.pageStatus === 'ok' && (
+      {page.rguktUrl && (
         <p className="acad-scraped-source" style={{ color: c.textMuted }}>
-          Source:{' '}
+          Official Reference:{' '}
           <a href={page.rguktUrl} target="_blank" rel="noopener noreferrer" style={{ color: c.accent }}>
             rgukt.in — {page.displayTitle}
           </a>
@@ -191,20 +270,33 @@ export default function ResearchScrapedPage({ pageKey }: Props) {
       )}
 
       {pageKey === 'overview' && (
-        <NavHubLinks items={RESEARCH_NAV.filter(i => i.href !== '/research')} title="Research Resources" />
+        <NavHubLinks items={RESEARCH_NAV.filter(i => i.href !== '/research')} title="Research Resources & Links" />
       )}
 
       {pageKey === 'head' && (
-        <Link to="/administration/dean-rd" className="res-link" style={{ color: c.accent, display: 'inline-block', marginTop: 16 }}>
-          Dean of R &amp; D Profile →
-        </Link>
+        <div style={{ marginTop: 24 }}>
+          <Link
+            to="/administration/dean-rd"
+            className="stu-scrape-cta"
+            style={{ background: c.accent }}
+          >
+            View Central Administration Dean of R&D Profile →
+          </Link>
+        </div>
       )}
 
       {pageKey === 'overview' && (
-        <Link to="/academics/research-programmes" className="res-link" style={{ color: c.accent, display: 'inline-block', marginTop: 16 }}>
-          Research Programmes (Academics) →
-        </Link>
+        <div style={{ marginTop: 24 }}>
+          <Link
+            to="/academics/research-programmes"
+            className="stu-scrape-cta"
+            style={{ background: c.accent }}
+          >
+            Explore Ph.D. Academic Curricula & Research Programmes →
+          </Link>
+        </div>
       )}
     </SectionPageLayout>
   );
 }
+

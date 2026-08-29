@@ -1,5 +1,5 @@
-import AcademicsScrapedPage from '../../components/AcademicsScrapedPage';
+import AcademicsPageView from '../../components/AcademicsPageView';
 
 export default function SummerProgrammesPage() {
-  return <AcademicsScrapedPage pageKey="summer" />;
+  return <AcademicsPageView slug="summer" />;
 }

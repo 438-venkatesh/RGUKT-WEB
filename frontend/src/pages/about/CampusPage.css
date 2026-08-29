@@ -99,62 +99,6 @@
   background: transparent;
 }
 
-.vmq-grid-about {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 16px;
-}
-
-.vmq-card-about {
-  padding: 20px;
-  border-radius: 8px;
-  position: relative;
-  overflow: hidden;
-}
-
-.vmq-bar-about {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-}
-
-.practices-about-list {
-  display: flex;
-  flex-direction: column;
-}
-
-.practice-about-item {
-  display: flex;
-  gap: 16px;
-  padding: 20px 0;
-}
-
-.practice-about-num {
-  font-size: 1.25rem;
-  font-weight: 800;
-  flex-shrink: 0;
-  width: 32px;
-}
-
-.plan-priority-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 14px;
-}
-
-.plan-priority-card {
-  padding: 18px;
-  border-radius: 8px;
-}
-
-.plan-priority-title {
-  font-size: 14px;
-  font-weight: 700;
-  margin: 0 0 8px;
-}
-
 @media (max-width: 640px) {
   .campus-stat-row {
     grid-template-columns: 1fr;

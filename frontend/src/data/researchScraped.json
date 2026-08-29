@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-08-19",
+  "scrapedAt": "2026-08-24",
   "sourceSite": "https://www.rgukt.in",
   "pages": [
     {
@@ -7,21 +7,10 @@
       "rguktUrl": "https://www.rgukt.in/research/",
       "localRoute": "/research",
       "pageStatus": "ok",
-      "title": "Vision for Research Activity and Identified Thrust Areas",
-      "sections": [
-        {
-          "heading": "Vision for Research Activity and Identified Thrust Areas",
-          "content": [
-            "Original research is the guiding force for quality of academics in a university and RGUKT adopts an academic culture that involves a mix of teaching and research towards maintaining a high order of quality of education.",
-            "In order to facilitate carrying of research which is effective, significant, useful, and cater to the needs of the society in a more meaningful way RGUKT defined some important areas of high societal relevance as those of institutional research focus and would encourage its faculty, PhD and other students to channelize their research and make significant contributions in the same. The researchers are expected to collaborate with other colleagues and carry on complimentary research towards solving problems of a large magnitude and in a meaningful way.",
-            "The thrust areas of research identified include, Nano-Technology, Green technologies, Water, Energy, Information systems, Information security, Wireless communications, Next generation internet, Computational - x, Implementation of major projects of public interest, Health Care, Intelligent manufacturing, Biomaterials, Technologies for the rural and unorganized sectors and Education science and technology, besides others.",
-            "Research contributions in these focused areas would help RGUKT in fulfilling the aspirations of the faculty and students and the contributions are expected to benefit the society around in a significant way."
-          ],
-          "items": []
-        }
-      ],
+      "title": "Research Overview",
+      "sections": [],
       "documents": [],
-      "images": [],
+      "images": ["/research/innovate_fpga.jpg", "/students/quantum-workshop-2.jpg"],
       "emails": []
     },
     {
@@ -29,34 +18,11 @@
       "rguktUrl": "https://www.rgukt.in/research/head/",
       "localRoute": "/research/head",
       "pageStatus": "ok",
-      "title": "About Research Head",
-      "sections": [
-        {
-          "heading": "Dr. Bogala Konda Reddy M.Tech, PhD",
-          "content": [
-            "Dr. Bogala Konda Reddy, M.Tech, Ph.D., is the Head of the Department of Mechanical Engineering at RGUKT RK Valley. He completed his Ph.D. in Heat Transfer from IIT Madras (2010–2013), M.Tech in Thermal Engineering from NIT Warangal (2005–2007), and B.Tech in Mechanical Engineering from JNTU Hyderabad (2000–2004). Before his Ph.D., he worked as an Edison Engineer at General Electric (GE) from 2007 to 2009, where he focused on the design and analysis of motor control centers. He joined RGUKT as a Lecturer in 2013 and became an Assistant Professor in 2016. His research interests include multi-mode and inverse heat transfer, computational methods in engineering, and energy system design and optimization.",
-            "Dr. Reddy has authored several high-impact journal articles, including publications in the International Journal of Heat and Mass Transfer and the Journal of Thermal Sciences. He has presented papers at international conferences, including the ISHMT-ASME and the European Thermal Sciences Conference. His research includes projects like the \"Design and development of biomass-fired wood gas stoves for rural applications,\" sponsored by the MHRD, Government of India. Dr. Reddy teaches courses on fluid mechanics, thermodynamics, heat transfer, and power plant engineering. He has held various administrative roles at RGUKT, including Dean of Academics (2016–2018), Associate Dean (2015–2016), and Placement Coordinator (2014–2015). He also assisted Prof. C. Balaji in authoring books and NPTEL lectures on thermal system design and optimization."
-          ],
-          "items": []
-        },
-        {
-          "heading": "Contact Details:",
-          "content": [],
-          "items": []
-        },
-        {
-          "heading": "Office Address:",
-          "content": [
-            "I3 BlockRGUKT Nuzvid"
-          ],
-          "items": []
-        }
-      ],
+      "title": "Dean of Research & Development",
+      "sections": [],
       "documents": [],
-      "images": [
-        "https://rgukt.in/images/1162501.jpg"
-      ],
-      "emails": []
+      "images": ["/people/dean-rd-konda-reddy.jpg"],
+      "emails": ["dean.rd@rgukt.ac.in", "kondareddy@rguktrkv.ac.in"]
     },
     {
       "slug": "ethics",
@@ -64,35 +30,7 @@
       "localRoute": "/research/ethics",
       "pageStatus": "ok",
       "title": "Ethics for Research",
-      "sections": [
-        {
-          "heading": "Ethics for Research",
-          "content": [
-            "It is envisaged that all HEIs will have a well-defined policy and establish a well-laid procedure for handling allegations of misconduct in research. For this, there must be a clear definition of misconduct with a sufficient legal foundation that defines the circumstances constituting misconduct and prescribe procedural rules, along with measures to be taken if such allegations are upheld after following due process. The regulations which are enacted by HEIs shall clearly define the responsibility at each step of the procedure, the process for consideration of the available evidence, will define the provision for constitution/ selection of investigation committees members, provisions to rule out conflicts of interest, the procedural principles of the rule of law and Ombudspersons for resolving any disagreement. It is important that the complainant and respondent, both are allowed to be heard at every stage of the process. It should be ensured that information relating to the persons involved in the ongoing process and the findings of the investigation are treated in confidence until it is demonstrated that misconduct has occurred. If the occurrence of misconduct is established and the appropriate disciplinary proceeding is considered, the responsible bodies should also be included in deliberations. HEIs should also ensure the completion of the entire process as fast as possible and the necessary steps should be promptly taken to complete every stage of the procedure within a given appropriate time frame."
-          ],
-          "items": []
-        },
-        {
-          "heading": "Explanation",
-          "content": [
-            "It is to be emphasised that every breach of good research practice does not constitute misconduct and the same needs to be distinguished. Only when there is a deliberate or grossly negligent infringement as defined in a set of regulations should be considered scientific misconduct including fabrication or falsification of data, and plagiarism using data from other authors' work.",
-            "While this set of rules and regulations centres on all academic aspects of admission, programmes, progress, and graduation, reference must also be made to separate (but linked) institutional codes and regulations that shall affect the life of research students at HEIs, notably:",
-            "The registration to the Ph.D. programme at the Higher Educational Institution signifies that she/he has accepted the conditions and guidelines set out in the policies and that she/he commits her/himself to respect all aspects of research throughout the programme on which she/he has registered. To further inform researchers on aspects of research such as academic responsibility and integrity, the Higher Educational Institutions shall from time to time provide courses or workshops on research ethics."
-          ],
-          "items": [
-            "Code of Good Academic Research Practices",
-            "The Disciplinary Regulations",
-            "Policy on Harassment Prevention"
-          ]
-        },
-        {
-          "heading": "Authorship",
-          "content": [
-            "For academic accountability, all the authors must make a genuine, identifiable contribution to the content of a research publication in experimental planning, experimentation, collection/ analysis of data, software, and/or writing of the text. It is also important that all authors have agreed on the final version of the work to be published. Unless it has been explicitly stated otherwise, they all share responsibility for the published work."
-          ],
-          "items": []
-        }
-      ],
+      "sections": [],
       "documents": [],
       "images": [],
       "emails": []
@@ -103,31 +41,9 @@
       "localRoute": "/research/thrust-areas",
       "pageStatus": "ok",
       "title": "Thrust Areas of Research",
-      "sections": [
-        {
-          "heading": "Thrust Areas of Research",
-          "content": [
-            "RGUKT encourages carrying research that helps in protecting the environment, betters quality of life and particularly that helps in meeting the grand technological and scientific challenges facing the mankind today. Being conscious about the social responsibility, it is also appropriate that RGUKT helps in addressing problems of the vicinity. RGUKT identifies and announces the following areas of research as its thrust areas for in-house research:"
-          ],
-          "items": [
-            "Nano-Technology (Drug design, Membranes, Industrial Coatings and other Industrial Applications)",
-            "Green technologies (Computing, Communications, Infrastructure and other Technologies)",
-            "Water (Conservation, Purification, Utilization, Systems,...)",
-            "Energy (Conventional and Alternative Energy Resources - Solar PV, Wind, Fuel Cells, Nuclear, Hybrid, other Energy Sources, Energy storage,...)",
-            "Data mining, Information systems, Information Security and High Performance Computing",
-            "Wireless Communications, Sensor Networks and VLSI (Cellular, Next Generation Internet, VLSI Design, Sensor and Ad-hoc Networks,...)",
-            "Computational - x (Eg: Computational Physics, Computational Fluid Dynamics, Computational Electromagnetics,...)",
-            "Implementation, Policy, Economical and Social Issues of Major Projects of public interest (Cases of Jalayagnam, E-Seva, ICT based education, River Networking,...)",
-            "Health Care (Telemedicine, Medical Informatics, Drug Design, Public Health,...)",
-            "Robotics and Intelligent Manufacturing (Robotics, Rapid Prototyping, Intelligent Manufacturing,...)",
-            "Bioinformatics, Biomaterials and Biopharmaceuticals",
-            "Technologies for the rural and Unorganized Sectors",
-            "Education Science and Technology"
-          ]
-        }
-      ],
+      "sections": [],
       "documents": [],
-      "images": [],
+      "images": ["/students/quantum-workshop-2.jpg", "/research/che_workshop.jpg"],
       "emails": []
     },
     {
@@ -135,12 +51,12 @@
       "rguktUrl": "https://www.rgukt.in/research/guidelines/",
       "localRoute": "/research/guidelines",
       "pageStatus": "ok",
-      "title": "",
+      "title": "Research Guidelines",
       "sections": [],
       "documents": [
         {
-          "title": "Guidelines",
-          "url": "https://rgukt.in/files/pdfs/dee97cf737a3e4671c29c511b1582a81.pdf"
+          "title": "Guidelines for Promotion of Research and Consultancy Activities at RGUKT (PDF)",
+          "url": "https://www.rgukt.in/pdfdoc/ResearchDocument0604.pdf"
         }
       ],
       "images": [],
@@ -151,28 +67,10 @@
       "rguktUrl": "https://www.rgukt.in/research/collaboration-mous/",
       "localRoute": "/research/mous",
       "pageStatus": "ok",
-      "title": "Collaboration MoU's",
-      "sections": [
-        {
-          "heading": "Collaboration MoU's",
-          "content": [],
-          "items": [
-            "Memorandum of Understanding (MoU) with Bureau of Indian Standards",
-            "Memorandum of Understanding Between RGUKT and Indian School of Business",
-            "Memorandum of Understanding Between RGUKT and M/s Efftronics Systems Pvt. Ltd, Vijayawada",
-            "Memorandum of Understanding Between RGUKT and National Institute of Technology Warangal",
-            "Memorandum of Understanding Between RGUKT and Andhra Pradesh State Skill Development Corporation (APSSDC)",
-            "Memorandum of Understanding Between RGUKT and Indian Institute of Technology Hyderabad",
-            "Memorandum of Understanding Between RGUKT and Indian Institute of Technology Tirupati",
-            "Memorandum of Understanding Between RGUKT Srikakulam and Telecommunications Consultants India Limited (TCIL)",
-            "Memorandum of Understanding Between RGUKT and the Korean Cultural & Technological Center",
-            "Memorandum of Understanding Between RGUKT Srikakulam and the RAILTEL Corporation of India Ltd.",
-            "RGUKT Signing of MoU with Aalborg University Denmark for Collaborative Research and Academic Activities on 27.2.2011 at RGUKT Campus, Gachibowli, Hyderabad."
-          ]
-        }
-      ],
+      "title": "Collaboration MoUs",
+      "sections": [],
       "documents": [],
-      "images": [],
+      "images": ["/research/mou_iith.jpg"],
       "emails": []
     },
     {
@@ -180,11 +78,11 @@
       "rguktUrl": "https://www.rgukt.in/research/advisory-committee/",
       "localRoute": "/research/advisory-committee",
       "pageStatus": "ok",
-      "title": "",
+      "title": "Research Advisory Committee",
       "sections": [],
       "documents": [
         {
-          "title": "Advisory Committee",
+          "title": "Official Proceedings — Constitution of Research Advisory Committee (PDF)",
           "url": "https://rgukt.in/files/pdfs/377d7e3b0a58b279f5aec7644b8b6fdb.pdf"
         }
       ],

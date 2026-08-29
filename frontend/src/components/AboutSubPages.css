@@ -1,0 +1,68 @@
+.vmq-grid-about {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.vmq-card-about {
+  padding: 20px;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.vmq-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.vmq-bar-about {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+}
+
+.practices-about-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.practice-about-item {
+  display: flex;
+  gap: 16px;
+  padding: 20px 0;
+}
+
+.practice-about-num {
+  font-size: 1.25rem;
+  font-weight: 800;
+  flex-shrink: 0;
+  width: 32px;
+}
+
+.about-bullet-list {
+  margin: 0;
+  padding-left: 1.25rem;
+  line-height: 1.75;
+  font-size: 15px;
+}
+
+.about-bullet-list li + li {
+  margin-top: 6px;
+}
+
+.about-doc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}

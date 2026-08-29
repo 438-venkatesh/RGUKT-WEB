@@ -22,7 +22,11 @@ export default function NavHubLinks({
             key={item.href}
             to={item.href}
             className="nav-hub-link"
-            style={{ background: c.surface, border: `1px solid ${c.border}`, color: c.text }}
+            style={{
+              background: c.surface,
+              border: `1px solid ${c.border}`,
+              color: c.text
+            }}
           >
             {item.label}
             <span aria-hidden style={{ color: c.accent }}>→</span>

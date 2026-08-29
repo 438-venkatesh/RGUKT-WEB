@@ -1,5 +1,5 @@
-import AdmissionsScrapedPage from '../../components/AdmissionsScrapedPage';
+import AdmissionsPageView from '../../components/AdmissionsPageView';
 
 export default function PostgraduateAdmissionsPage() {
-  return <AdmissionsScrapedPage pageKey="postgraduate" />;
+  return <AdmissionsPageView slug="pg" />;
 }

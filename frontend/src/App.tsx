@@ -47,7 +47,6 @@ import Gallery from './pages/Gallery';
 import IQAC from './pages/IQAC';
 import ContentPage from './pages/ContentPage';
 import OfficerProfilePage from './pages/OfficerProfilePage';
-import Admissions2026Page from './pages/Admissions2026Page';
 import UndergraduateProgrammesPage from './pages/academics/UndergraduateProgrammesPage';
 import AcademicCalendarPage from './pages/academics/AcademicCalendarPage';
 import CentralLibraryPage from './pages/academics/CentralLibraryPage';
@@ -65,14 +64,17 @@ import OrientationPage from './pages/academics/OrientationPage';
 import CouncilMinutesPage from './pages/academics/CouncilMinutesPage';
 import GoverningCouncilPage from './pages/administration/GoverningCouncilPage';
 import AcademicCouncilPage from './pages/administration/AcademicCouncilPage';
+import ChancellorPage from './pages/administration/ChancellorPage';
+import ViceChancellorPage from './pages/administration/ViceChancellorPage';
+import RegistrarPage from './pages/administration/RegistrarPage';
+import DeanEvaluationPage from './pages/administration/DeanEvaluationPage';
+import DeanEitpPage from './pages/administration/DeanEitpPage';
 import DirectorsPage from './pages/administration/DirectorsPage';
 import CaoPage from './pages/administration/CaoPage';
 import FinanceOfficerPage from './pages/administration/FinanceOfficerPage';
 import SportsBoardPage from './pages/administration/SportsBoardPage';
-import EligibilityPage from './pages/admissions/EligibilityPage';
-import ApplicationProcessPage from './pages/admissions/ApplicationProcessPage';
-import FeeStructurePage from './pages/admissions/FeeStructurePage';
 import Admissions2025Page from './pages/admissions/Admissions2025Page';
+import Admissions2026Page from './pages/admissions/Admissions2026Page';
 import PostgraduateAdmissionsPage from './pages/admissions/PostgraduateAdmissionsPage';
 import DoctoralAdmissionsPage from './pages/admissions/DoctoralAdmissionsPage';
 import Students from './pages/Students';
@@ -167,18 +169,21 @@ function AppContent() {
           <Route path="/administration"                  element={<Administration />} />
           <Route path="/administration/governing-council" element={<GoverningCouncilPage />} />
           <Route path="/administration/academic-council"  element={<AcademicCouncilPage />} />
+          <Route path="/administration/chancellor"         element={<ChancellorPage />} />
+          <Route path="/administration/vice-chancellor"   element={<ViceChancellorPage />} />
+          <Route path="/administration/registrar"         element={<RegistrarPage />} />
+          <Route path="/administration/dean-evaluation"   element={<DeanEvaluationPage />} />
+          <Route path="/administration/dean-eitp"         element={<DeanEitpPage />} />
           <Route path="/administration/directors"         element={<DirectorsPage />} />
           <Route path="/administration/cao"               element={<CaoPage />} />
           <Route path="/administration/finance-officer"   element={<FinanceOfficerPage />} />
+          <Route path="/administration/iqac"              element={<IQAC />} />
           <Route path="/administration/sports-board"      element={<SportsBoardPage />} />
           <Route path="/admissions"              element={<Admissions />} />
           <Route path="/admissions/2025"         element={<Admissions2025Page />} />
           <Route path="/admissions/2026"         element={<Admissions2026Page />} />
           <Route path="/admissions/postgraduate" element={<PostgraduateAdmissionsPage />} />
           <Route path="/admissions/doctoral"     element={<DoctoralAdmissionsPage />} />
-          <Route path="/admissions/eligibility"  element={<EligibilityPage />} />
-          <Route path="/admissions/process"      element={<ApplicationProcessPage />} />
-          <Route path="/admissions/fees"         element={<FeeStructurePage />} />
           <Route path="/students"                        element={<Students />} />
           <Route path="/students/scholarships"           element={<StudentScholarshipsPage />} />
           <Route path="/students/medals"                element={<MedalsPage />} />

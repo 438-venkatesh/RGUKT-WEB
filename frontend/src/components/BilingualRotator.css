@@ -1,0 +1,77 @@
+.bilingual-rotator {
+  display: grid;
+  overflow: hidden;
+}
+
+.bilingual-line {
+  grid-area: 1 / 1;
+  opacity: 0;
+  transform: translateY(-22px);
+  animation-duration: 24s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.bilingual-en {
+  animation-name: bilingual-en;
+}
+
+.bilingual-te {
+  font-family: 'Noto Sans Telugu', 'Gautami', 'Nirmala UI', system-ui, sans-serif;
+  animation-name: bilingual-te;
+}
+
+@keyframes bilingual-en {
+  0%, 38% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  42%, 46% {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  50%, 88% {
+    opacity: 0;
+    transform: translateY(-22px);
+  }
+  92%, 100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bilingual-te {
+  0%, 38% {
+    opacity: 0;
+    transform: translateY(-22px);
+  }
+  42%, 46% {
+    opacity: 0;
+    transform: translateY(-22px);
+  }
+  50%, 84% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  88%, 92% {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  96%, 100% {
+    opacity: 0;
+    transform: translateY(-22px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bilingual-line {
+    animation: none;
+    opacity: 1;
+    transform: none;
+    position: static;
+  }
+
+  .bilingual-te {
+    display: none;
+  }
+}

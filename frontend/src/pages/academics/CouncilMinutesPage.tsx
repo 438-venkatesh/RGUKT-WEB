@@ -1,5 +1,5 @@
-import AcademicsScrapedPage from '../../components/AcademicsScrapedPage';
+import AcademicsPageView from '../../components/AcademicsPageView';
 
 export default function CouncilMinutesPage() {
-  return <AcademicsScrapedPage pageKey="council-minutes" />;
+  return <AcademicsPageView slug="council-minutes" />;
 }

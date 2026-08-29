@@ -3,7 +3,6 @@ import {
   ACADEMICS_DOCUMENTS,
   ACADEMICS_OVERVIEW_STATS,
   CALENDAR_DATES,
-  EXAM_SCHEDULES,
   LIBRARY_SERVICES,
   LIBRARY_STATS,
   LMS_FEATURES,
@@ -199,19 +198,11 @@ function buildFallback(slug: string): Partial<AcademicsPageData> {
     case 'examination-schedules':
       return {
         intro: 'Campus-wise end-semester examination schedules published each semester.',
-        sections: [{
-          heading: 'Examination Schedules',
-          documents: EXAM_SCHEDULES.slice(0, 12).map(e => ({
-            title: e.title,
-            url: e.file,
-            size: e.size,
-          })),
-        }],
-        documents: EXAM_SCHEDULES.slice(0, 12).map(e => ({
-          title: e.title,
-          url: e.file,
-          size: e.size,
-        })),
+        pageStatus: 'fallback',
+      };
+    case 'timetables':
+      return {
+        intro: 'Class timetables for each campus, published at the start of every semester.',
         pageStatus: 'fallback',
       };
     case 'central-library':

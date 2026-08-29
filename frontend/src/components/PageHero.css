@@ -29,9 +29,14 @@
 .page-hero-content {
   position: relative;
   z-index: 1;
-  max-width: 920px;
+  max-width: 1140px;
+  width: 100%;
   margin: 0 auto;
   padding-top: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .page-hero-logo {
@@ -54,10 +59,8 @@
 .page-hero-title {
   margin: 0;
   font-family: var(--font-heading), 'Arial Black', 'Helvetica Neue', sans-serif;
-  font-size: clamp(2.5rem, 8.5vw, 6rem);
   font-weight: 900;
-  line-height: 0.95;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.035em;
   text-transform: uppercase;
   background-size: 120%;
   background-position: center 35%;
@@ -68,7 +71,83 @@
   paint-order: stroke fill;
   -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.08);
   filter: drop-shadow(4px 6px 10px rgba(0, 0, 0, 0.32));
+  width: 100%;
+}
+
+/* Default / Unsplit Titles */
+.page-hero-title:not(.has-tag-split) {
+  font-size: clamp(2.5rem, 8.5vw, 6rem);
+  line-height: 0.95;
   word-break: break-word;
+}
+
+/* ── Split 2-Line Hero Titles (Module Name on Line 1, @RGUKT-AP on Line 2) ── */
+.page-hero-title.has-tag-split {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  line-height: 1.05;
+}
+
+.page-hero-title-main {
+  display: block;
+  white-space: nowrap;
+  text-wrap: nowrap;
+  word-break: keep-all;
+  overflow-wrap: normal;
+  background-image: inherit;
+  background-size: inherit;
+  background-position: inherit;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 0.03em;
+  line-height: 1.05;
+}
+
+.page-hero-title-tag {
+  display: block;
+  white-space: nowrap;
+  text-wrap: nowrap;
+  word-break: keep-all;
+  overflow-wrap: normal;
+  background-image: inherit;
+  background-size: inherit;
+  background-position: inherit;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+  opacity: 0.96;
+}
+
+/* ── Tier 1: Short Titles (e.g. DIRECTORS, REGISTRAR, CHANCELLOR, SPORTS BOARD, DEAN OF EITP, DEAN OF R&D) ── */
+.title-size-short .page-hero-title-main {
+  font-size: clamp(2.4rem, 6.0vw, 4.6rem);
+}
+.title-size-short .page-hero-title-tag {
+  font-size: clamp(1.7rem, 4.0vw, 3.0rem);
+}
+
+/* ── Tier 2: Medium Titles (e.g. GOVERNING COUNCIL, ACADEMIC COUNCIL, VICE CHANCELLOR, DEAN OF EVALUATION, DEAN OF ACADEMICS, FINANCE OFFICER, ADMINISTRATION) ── */
+.title-size-medium .page-hero-title-main {
+  font-size: clamp(1.75rem, 4.2vw, 3.35rem);
+}
+.title-size-medium .page-hero-title-tag {
+  font-size: clamp(1.35rem, 3.0vw, 2.3rem);
+}
+
+/* ── Tier 3: Long Titles (e.g. CHIEF ADMINISTRATIVE OFFICER, DEAN OF STUDENT AFFAIRS) ── */
+.title-size-long .page-hero-title-main {
+  font-size: clamp(1.22rem, 3.0vw, 2.45rem);
+}
+.title-size-long .page-hero-title-tag {
+  font-size: clamp(1.1rem, 2.4vw, 1.9rem);
 }
 
 .page-hero-quote {
@@ -99,9 +178,42 @@
   font-style: normal;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .page-hero {
-    min-height: 280px;
-    padding: 44px 16px 40px;
+    min-height: 300px;
+    padding: 48px 18px 44px;
+  }
+  .page-hero-title.has-tag-split {
+    gap: 4px;
   }
 }
+
+@media (max-width: 480px) {
+  .page-hero {
+    min-height: 250px;
+    padding: 38px 12px 34px;
+  }
+  .page-hero-uni {
+    margin-bottom: 14px;
+  }
+  .title-size-short .page-hero-title-main {
+    font-size: clamp(1.75rem, 8.5vw, 2.35rem);
+  }
+  .title-size-short .page-hero-title-tag {
+    font-size: clamp(1.25rem, 6.0vw, 1.65rem);
+  }
+  .title-size-medium .page-hero-title-main {
+    font-size: clamp(1.18rem, 5.6vw, 1.7rem);
+  }
+  .title-size-medium .page-hero-title-tag {
+    font-size: clamp(0.98rem, 4.4vw, 1.3rem);
+  }
+  .title-size-long .page-hero-title-main {
+    font-size: clamp(0.92rem, 4.3vw, 1.22rem);
+  }
+  .title-size-long .page-hero-title-tag {
+    font-size: clamp(0.85rem, 3.8vw, 1.12rem);
+  }
+}
+
+

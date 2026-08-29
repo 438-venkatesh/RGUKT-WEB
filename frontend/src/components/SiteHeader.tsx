@@ -1,5 +1,7 @@
 import { useLocation } from 'react-router-dom';
 import { useHeaderScroll } from '../hooks/useHeaderScroll';
+import { SITE_BRAND_ESTAB, SITE_BRAND_NAME, SITE_BRAND_TAGLINE } from '../data/siteBranding';
+import BilingualRotator from './BilingualRotator';
 import RGUKTLogo from './RGUKTLogo';
 import './SiteHeader.css';
 
@@ -23,15 +25,21 @@ export default function SiteHeader() {
               <RGUKTLogo variant={isHome && !scrolled ? 'white' : 'default'} />
             </div>
             <div className="sh-brand-text">
-              <div className="sh-brand-name">
-                Rajiv Gandhi University of Knowledge Technologies - Andhra Pradesh
-              </div>
-              <div className="sh-brand-tagline">
-                Catering to the Educational Needs of Gifted Rural Youth of Andhra Pradesh
-              </div>
-              <div className="sh-brand-estab">
-                (Established by the Govt. of Andhra Pradesh and recognized as per Section 2(f), 12(B) of UGC Act, 1956)
-              </div>
+              <BilingualRotator
+                className="sh-brand-name"
+                en={SITE_BRAND_NAME.en}
+                te={SITE_BRAND_NAME.te}
+              />
+              <BilingualRotator
+                className="sh-brand-tagline"
+                en={SITE_BRAND_TAGLINE.en}
+                te={SITE_BRAND_TAGLINE.te}
+              />
+              <BilingualRotator
+                className="sh-brand-estab"
+                en={SITE_BRAND_ESTAB.en}
+                te={SITE_BRAND_ESTAB.te}
+              />
             </div>
           </div>
 

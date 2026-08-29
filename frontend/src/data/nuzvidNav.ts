@@ -5,11 +5,11 @@ import { isNavLinkActive } from './siteNav';
 
 export { isNavLinkActive };
 
-const R = 'https://rguktn.ac.in';
-const ADMISSIONS = 'https://admissions.rgukt.in/';
-const ALUMNI = 'https://alumni.rguktn.ac.in/';
-const EXAMCELL = 'https://examcell.rguktn.ac.in/';
-const CDPC = 'https://cdpc.rguktn.ac.in/';
+const R = '/nuzvid';
+const ADMISSIONS = '/nuzvid/admissions';
+const ALUMNI = '/nuzvid/alumni';
+const EXAMCELL = '/nuzvid/examinations';
+const CDPC = '/nuzvid/students/career-development';
 const FEE_PAY = 'https://www.onlinesbi.sbi/sbicollect/icollecthome.htm';
 
 /** Campus switcher (left utility bar) */
@@ -23,15 +23,15 @@ export const NUZVID_UTILITY_LEFT: NavLink[] = [
 
 /** Quick links from rguktn.ac.in header (right utility bar) */
 export const NUZVID_UTILITY_RIGHT: NavLink[] = [
-  { label: 'Admissions', href: ADMISSIONS, external: true },
-  { label: 'Alumni', href: ALUMNI, external: true },
+  { label: 'Admissions', href: ADMISSIONS },
+  { label: 'Alumni', href: ALUMNI },
   { label: 'Careers', href: '/nuzvid/careers' },
   { label: 'Tenders', href: '/nuzvid/tenders' },
   { label: 'Fee Payment', href: FEE_PAY, external: true },
-  { label: 'Intranet', href: 'http://intranet.rguktn.ac.in/', external: true },
-  { label: 'Moodle', href: 'https://lms.rguktn.ac.in/', external: true },
-  { label: 'ICC', href: `${R}/administration/internal_complaints_committee/`, external: true },
-  { label: 'NIRF', href: `${R}/nirf-report/`, external: true },
+  { label: 'Intranet', href: '/nuzvid/intranet' },
+  { label: 'Moodle', href: '/nuzvid/academics/lms' },
+  { label: 'ICC', href: '/nuzvid/students/icc' },
+  { label: 'NIRF', href: '/nuzvid/about/nirf' },
 ];
 
 export const NUZVID_ENGINEERING_DEPTS: NavLink[] = [
@@ -129,27 +129,27 @@ export const NUZVID_MENUS: NavMenu[] = [
     items: [
       { label: 'Students Overview', href: '/nuzvid/students' },
       { label: 'Education at RGUKT', href: '/nuzvid/about/education-system' },
-      { label: 'Career Development Cell', href: CDPC, external: true },
+      { label: 'Career Development Cell', href: CDPC },
       { label: 'Anti Ragging', href: '/nuzvid/students/anti-ragging' },
       { label: 'Student Welfare', href: '/nuzvid/students/student-welfare' },
       { label: 'National Cadet Corps (NCC)', href: '/nuzvid/students/ncc' },
       { label: 'National Service Scheme (NSS)', href: '/nuzvid/students/nss' },
       { label: 'Convocation', href: '/nuzvid/students/convocation' },
-      { label: 'Alumni & International Relations', href: ALUMNI, external: true },
+      { label: 'Alumni & International Relations', href: ALUMNI },
       { label: 'Student Fee Payment', href: FEE_PAY, external: true },
-      { label: 'Student Fee Challan', href: `${R}/downloads/Challan.pdf`, external: true },
+      { label: 'Student Fee Challan', href: `${R}/downloads/Challan.pdf` },
     ],
   },
 ];
 
 /** Top-level navbar links (no dropdown) — matches rguktn.ac.in */
 export const NUZVID_FLAT_LINKS: NavLink[] = [
-  { label: 'Examinations & Results', href: EXAMCELL, external: true },
+  { label: 'Examinations & Results', href: EXAMCELL },
   { label: 'Library', href: '/nuzvid/library' },
   { label: 'Placements', href: '/nuzvid/placements' },
   { label: 'Tenders', href: '/nuzvid/tenders' },
   { label: 'Careers', href: '/nuzvid/careers' },
-  { label: 'Alumni', href: ALUMNI, external: true },
+  { label: 'Alumni', href: ALUMNI },
   { label: 'Contact Us', href: '/nuzvid/contact' },
 ];
 

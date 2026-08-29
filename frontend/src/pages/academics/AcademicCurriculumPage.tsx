@@ -1,5 +1,5 @@
-import AcademicsScrapedPage from '../../components/AcademicsScrapedPage';
+import AcademicsPageView from '../../components/AcademicsPageView';
 
 export default function AcademicCurriculumPage() {
-  return <AcademicsScrapedPage pageKey="curriculum" />;
+  return <AcademicsPageView slug="curriculum" />;
 }

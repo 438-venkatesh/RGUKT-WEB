@@ -1,5 +1,5 @@
-import AcademicsScrapedPage from '../../components/AcademicsScrapedPage';
+import AcademicsPageView from '../../components/AcademicsPageView';
 
 export default function CentralLibraryPage() {
-  return <AcademicsScrapedPage pageKey="central-library" />;
+  return <AcademicsPageView slug="central-library" />;
 }
