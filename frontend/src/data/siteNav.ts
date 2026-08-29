@@ -85,10 +85,7 @@ export const NAV_MENUS: NavMenu[] = [
       { label: 'Admissions 2025', href: '/admissions/2025' },
       { label: 'Admissions 2026', href: '/admissions/2026' },
       { label: 'PG Admissions', href: '/admissions/postgraduate' },
-      { label: 'Doctoral Admissions', href: '/admissions/doctoral' },
-      { label: 'Eligibility Criteria', href: '/admissions/eligibility' },
-      { label: 'Application Process', href: '/admissions/process' },
-      { label: 'Fee Structure', href: '/admissions/fees' },
+      { label: 'Doctorial Admissions', href: '/admissions/doctoral' },
     ],
   },
   {

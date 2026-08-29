@@ -34,7 +34,6 @@ import Gallery from './pages/Gallery';
 import IQAC from './pages/IQAC';
 import ContentPage from './pages/ContentPage';
 import OfficerProfilePage from './pages/OfficerProfilePage';
-import Admissions2026Page from './pages/Admissions2026Page';
 import UndergraduateProgrammesPage from './pages/academics/UndergraduateProgrammesPage';
 import AcademicCalendarPage from './pages/academics/AcademicCalendarPage';
 import CentralLibraryPage from './pages/academics/CentralLibraryPage';
@@ -61,10 +60,8 @@ import DirectorsPage from './pages/administration/DirectorsPage';
 import CaoPage from './pages/administration/CaoPage';
 import FinanceOfficerPage from './pages/administration/FinanceOfficerPage';
 import SportsBoardPage from './pages/administration/SportsBoardPage';
-import EligibilityPage from './pages/admissions/EligibilityPage';
-import ApplicationProcessPage from './pages/admissions/ApplicationProcessPage';
-import FeeStructurePage from './pages/admissions/FeeStructurePage';
 import Admissions2025Page from './pages/admissions/Admissions2025Page';
+import Admissions2026Page from './pages/admissions/Admissions2026Page';
 import PostgraduateAdmissionsPage from './pages/admissions/PostgraduateAdmissionsPage';
 import DoctoralAdmissionsPage from './pages/admissions/DoctoralAdmissionsPage';
 import Students from './pages/Students';
@@ -174,9 +171,6 @@ function AppContent() {
           <Route path="/admissions/2026"         element={<Admissions2026Page />} />
           <Route path="/admissions/postgraduate" element={<PostgraduateAdmissionsPage />} />
           <Route path="/admissions/doctoral"     element={<DoctoralAdmissionsPage />} />
-          <Route path="/admissions/eligibility"  element={<EligibilityPage />} />
-          <Route path="/admissions/process"      element={<ApplicationProcessPage />} />
-          <Route path="/admissions/fees"         element={<FeeStructurePage />} />
           <Route path="/students"                        element={<Students />} />
           <Route path="/students/scholarships"           element={<StudentScholarshipsPage />} />
           <Route path="/students/medals"                element={<MedalsPage />} />

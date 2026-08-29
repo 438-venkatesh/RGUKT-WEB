@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import GallerySection from '../components/GallerySection';
-import AdmissionsModal from '../components/AdmissionsModal';
 import '../components/GallerySection.css';
 import {
   HERO_SLIDES, CAMPUS_QUICK_LINKS, ANNOUNCEMENTS,
@@ -62,7 +61,6 @@ export default function Home() {
 
   return (
     <div className="iit-home">
-      <AdmissionsModal />
 
       {/* ── HERO CAROUSEL ── */}
       <section aria-label="Hero" className="hero-section">

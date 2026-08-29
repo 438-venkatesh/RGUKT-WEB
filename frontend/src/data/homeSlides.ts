@@ -38,7 +38,7 @@ export const CAMPUS_QUICK_LINKS = [
 
 export const ANNOUNCEMENTS = [
   {
-    title: 'RGUKT Admissions 2026: Admissions are closed except Sports Quota. Candidates must check portal for SAAP verification.',
+    title: 'Admissions for AY2026-27 schedule is announced. Please check admissions portal for further details.',
     href: '/admissions/2026',
     badge: 'Admissions 2026',
     featured: true,
@@ -50,7 +50,7 @@ export const ANNOUNCEMENTS = [
     badge: 'Academics',
   },
   {
-    title: 'Phase-V Counselling and Certificate Verification concluded for unfilled vacancies.',
+    title: 'Registrations are Open for admissions 2026.',
     href: '/admissions/2026',
     badge: 'Notification',
   },
@@ -66,7 +66,6 @@ export const ACADEMIC_UNITS = [
 ];
 
 export const UPCOMING_EVENTS = [
-  { title: 'Sports Quota Final Merit List Publication (SAAP)', date: 'Aug 2026' },
   { title: 'Quantum Valley Technical Symposium', date: 'Sep 02, 2026' },
   { title: 'Faculty Development Programme in AI/ML', date: 'Sep 14, 2026' },
   { title: 'Annual Alumni Homecoming Meet', date: 'Oct 05, 2026' },

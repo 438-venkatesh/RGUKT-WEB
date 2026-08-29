@@ -1,5 +1,5 @@
-import AdmissionsScrapedPage from '../components/AdmissionsScrapedPage';
+import AdmissionsPageView from '../components/AdmissionsPageView';
 
 export default function Admissions() {
-  return <AdmissionsScrapedPage pageKey="overview" />;
+  return <AdmissionsPageView slug="ug" />;
 }

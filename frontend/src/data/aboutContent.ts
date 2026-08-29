@@ -26,7 +26,7 @@ export const ABOUT_DOCUMENTS = {
 };
 
 export const ABOUT_FOUNDING = [
-  'Rajiv Gandhi University of Knowledge Technologies (RGUKT) was established by the Government of Andhra Pradesh through Act No. 18 of 2008 at Nuzvid (Krishna District), RK Valley (Kadapa District), and Basara (Adilabad District). Following the bifurcation of Andhra Pradesh in 2014, Nuzvid and RK Valley remained with Andhra Pradesh. Two additional campuses were established in Ongole and Srikakulam in 2016.',
+  'Rajiv Gandhi University of Knowledge Technologies (RGUKT) was established by the Government of Andhra Pradesh through Act No. 18 of 2008. Two original campuses were set up at Nuzvid (Krishna District) and RK Valley (Kadapa District). Two additional campuses were established in Ongole and Srikakulam in 2016.',
   'RGUKT offers a six-year integrated programme (two years of pre-university course and four years of engineering) in fully residential mode — the first of its kind in the country. Admissions are based on Class 10 merit, with additional weightage for students from government schools in Andhra Pradesh. About 90% of students are gifted rural youth who may otherwise be deprived of high-quality technological education.',
   'The university is recognised under Section 2(f) and 12(B) of the UGC Act, 1956 and accredited by NAAC. RGUKT currently operates four fully residential campuses with approximately 26,000 students in the integrated PUC cum B.Tech programme, and offers M.Tech and doctoral programmes at select campuses.',
 ];

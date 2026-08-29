@@ -1,5 +1,5 @@
-import AdmissionsScrapedPage from '../../components/AdmissionsScrapedPage';
+import AdmissionsPageView from '../../components/AdmissionsPageView';
 
 export default function Admissions2026Page() {
-  return <AdmissionsScrapedPage pageKey="2026" />;
+  return <AdmissionsPageView slug="2026" />;
 }

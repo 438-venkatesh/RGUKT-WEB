@@ -128,15 +128,7 @@ export default function AcademicsScrapedPage({ pageKey }: Props) {
     <SectionPageLayout>
       <h1 className="section-page-h1">{page.displayTitle}</h1>
 
-      {page.pageStatus === 'fallback' && page.sourceNote && (
-        <p className="acad-scraped-note" style={{ background: c.surface2, color: c.textMuted, border: `1px solid ${c.border}` }}>
-          Content supplemented from university records — the corresponding page on{' '}
-          <a href={page.rguktUrl} target="_blank" rel="noopener noreferrer" style={{ color: c.accent }}>
-            rgukt.in
-          </a>{' '}
-          is currently unavailable.
-        </p>
-      )}
+
 
       {page.intro && (
         <p className="section-page-intro acad-scraped-intro" style={{ color: c.textMuted }}>{page.intro}</p>
@@ -192,14 +184,7 @@ export default function AcademicsScrapedPage({ pageKey }: Props) {
         </section>
       )}
 
-      {page.rguktUrl && page.pageStatus === 'ok' && (
-        <p className="acad-scraped-source" style={{ color: c.textMuted }}>
-          Source:{' '}
-          <a href={page.rguktUrl} target="_blank" rel="noopener noreferrer" style={{ color: c.accent }}>
-            rgukt.in — {page.displayTitle}
-          </a>
-        </p>
-      )}
+
 
       {pageKey === 'overview' && (
         <NavHubLinks
