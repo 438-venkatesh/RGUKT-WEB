@@ -54,8 +54,8 @@ export const DATA_ABOUT_NUZVID: SubsectionPageData = {
   heroSubtitle:
     'Rajiv Gandhi University of Knowledge Technologies, Nuzvid was established in 2008 by the Government of Andhra Pradesh under Act 18 of 2008 to bring world-class technical education to rural youth.',
   verifiedBadge: 'AP Act 18 of 2008 · UGC 2(f) & 12(B)',
-  heroImage: '/gallery/residential-campus-hd.jpg',
-  heroAlt: 'RGUKT Nuzvid residential campus complex and hostel blocks',
+  heroImage: '/gallery/nuzvid-c-hero.jpg',
+  heroAlt: 'RGUKT Nuzvid panoramic campus view and main academic gateway',
   heroLayoutType: 'fullscreen-overlay',
   blocks: [
     {
@@ -66,9 +66,9 @@ export const DATA_ABOUT_NUZVID: SubsectionPageData = {
         '24×7 operational 30-bed Medical Center with resident medical officers, pharmacy, and ambulance service.',
         'Self-contained township amenities including post office, banking facility, canteen, and student utility stores.',
       ],
-      image: '/gallery/nuzvid-c-hero.jpg',
-      imageAlt: 'RGUKT Nuzvid panoramic campus view and main academic gateway',
-      imageCaption: 'Main Academic Campus & Gateway — RGUKT Nuzvid',
+      image: '/gallery/residential-campus-hd.jpg',
+      imageAlt: 'RGUKT Nuzvid residential campus complex and hostel blocks',
+      imageCaption: 'Residential Township & Student Hostel Blocks — RGUKT Nuzvid Campus',
       layout: 'layout-a',
     },
     {
