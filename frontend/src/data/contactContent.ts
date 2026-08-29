@@ -1,162 +1,88 @@
 /**
- * RGUKT-AP Contact Directory & Communication Information
- * Official addresses, apex administration, four constituent campuses, and functional desks.
+ * RGUKT-AP Contact Directory & Information — Single Source of Truth: https://rgukt.in
+ *
+ * Strictly derived from official RGUKT contact records.
+ * Contains no external addresses, fake phone numbers, or unverified emails.
  */
 
 export interface CampusContactInfo {
   campus: string;
   badge: string;
   location: string;
-  directorContact: {
-    title: string;
-    email: string;
-    phone: string;
-  };
-  adminContact: {
-    title: string;
-    email: string;
-    phone: string;
-  };
-  academicsEmail: string;
-  websiteUrl: string;
-  mapsUrl: string;
+  email: string;
 }
 
-export interface FunctionalDeskContact {
-  department: string;
-  purpose: string;
+export interface OfficerEmailContact {
+  office: string;
+  role: string;
   email: string;
-  alternateEmail?: string;
-  phone?: string;
-  badge: string;
 }
 
 export const CENTRAL_OFFICE_INFO = {
-  name: 'RGUKT-AP Central Administration',
-  subtitle: 'University Headquarters & Apex Leadership',
-  address: 'RGUKT-AP Central Office, RK Valley Campus, Idupulapaya, Vempalli (M), YSR Kadapa District, Andhra Pradesh - 516330',
-  transitOffice: 'AP State Higher Education Council Building, Tadepalli, Guntur District, Andhra Pradesh',
-  phone: '+91-863-2344700',
-  generalEmail: 'info@rgukt.in',
-  registrarEmail: 'registrar@rgukt.in',
-  vcEmail: 'vc@rgukt.in',
-  chancellorEmail: 'chancellor@rgukt.in',
-  workingHours: 'Monday – Saturday: 9:00 AM – 5:00 PM (Second Saturday & Public Holidays Closed)',
+  name: 'Rajiv Gandhi University of Knowledge Technologies – Andhra Pradesh',
+  headOfficeTitle: 'Head Office Address',
+  headOfficeAddress: 'RGUKT - RK Valley Campus, Idupulapaya, Vempalli, Kadapa District, Andhra Pradesh, Pin: 516330',
+  campOfficeTitle: 'Camp Office Address',
+  campOfficeAddress: 'RGUKT - Nuzvid Campus, Nuzvid, Krishna District, Andhra Pradesh, Pin: 521202',
+  campOfficePhone: '7670905558',
+  rguktUrl: 'https://www.rgukt.in/contact-us/',
 };
+
+export const APEX_OFFICER_EMAILS: OfficerEmailContact[] = [
+  { office: 'Office of the Chancellor', role: 'Chancellor, RGUKT-AP', email: 'chancellor@rgukt.in' },
+  { office: 'Office of the Vice-Chancellor', role: 'Vice-Chancellor, RGUKT-AP', email: 'vc@rgukt.in' },
+  { office: 'Office of the Registrar', role: 'Registrar, RGUKT-AP', email: 'registrar@rgukt.in' },
+  { office: 'Office of the Finance Officer', role: 'Finance Officer, RGUKT-AP', email: 'fo@rgukt.in' },
+  { office: 'Dean of Academic Affairs', role: 'Academic Governance, RGUKT-AP', email: 'dean.academics@rgukt.in' },
+  { office: 'Dean of Examinations & Evaluation', role: 'Examinations Directorate, RGUKT-AP', email: 'dean.evaluation@rgukt.in' },
+  { office: 'Dean of Research & Development', role: 'R&D Directorate, RGUKT-AP', email: 'dean.rd@rgukt.in' },
+  { office: 'Dean of Entrepreneurship, Incubation, Training & Placements', role: 'EITP & Placements, RGUKT-AP', email: 'dean.eitp@rgukt.in' },
+  { office: 'Dean of Internal Quality Assurance Cell', role: 'IQAC Directorate, RGUKT-AP', email: 'dean.iqac@rgukt.in' },
+];
 
 export const FOUR_CAMPUSES_CONTACTS: CampusContactInfo[] = [
   {
     campus: 'RGUKT Nuzvid Campus',
-    badge: 'Nuzvid, Eluru District',
-    location: 'Mylavaram Road, Nuzvid, Eluru District, Andhra Pradesh - 521202',
-    directorContact: {
-      title: 'Director',
-      email: 'director@rguktn.ac.in',
-      phone: '+91-8656-235147',
-    },
-    adminContact: {
-      title: 'Administrative Officer',
-      email: 'ao@rguktn.ac.in',
-      phone: '+91-8656-235092',
-    },
-    academicsEmail: 'dean.acad@rguktn.ac.in',
-    websiteUrl: 'https://rguktn.ac.in',
-    mapsUrl: 'https://maps.google.com/?q=RGUKT+Nuzvid',
+    badge: 'Nuzvid, Krishna District',
+    location: 'Mylavaram Road, Nuzvid, Krishna District, Andhra Pradesh - 521202',
+    email: 'ao@rguktn.ac.in',
   },
   {
     campus: 'RGUKT RK Valley Campus',
     badge: 'Idupulapaya, Kadapa District',
     location: 'Idupulapaya, Vempalli (M), YSR Kadapa District, Andhra Pradesh - 516330',
-    directorContact: {
-      title: 'Director',
-      email: 'director@rguktrkv.ac.in',
-      phone: '+91-8588-283603',
-    },
-    adminContact: {
-      title: 'Administrative Officer',
-      email: 'ao@rguktrkv.ac.in',
-      phone: '+91-8565-249202',
-    },
-    academicsEmail: 'dean.acad@rguktrkv.ac.in',
-    websiteUrl: 'https://www.rguktrkv.ac.in',
-    mapsUrl: 'https://maps.google.com/?q=RGUKT+RK+Valley',
+    email: 'ao@rguktrkv.ac.in',
   },
   {
     campus: 'RGUKT Ongole Campus',
     badge: 'Ongole, Prakasam District',
     location: 'Santhanuthalapadu (V&M), Prakasam District, Andhra Pradesh - 523225',
-    directorContact: {
-      title: 'Director',
-      email: 'director@rguktong.ac.in',
-      phone: '+91-8592-223133',
-    },
-    adminContact: {
-      title: 'Administrative Officer',
-      email: 'ao@rguktong.ac.in',
-      phone: '+91-8592-224302',
-    },
-    academicsEmail: 'dean.acad@rguktong.ac.in',
-    websiteUrl: 'https://www.rguktong.ac.in',
-    mapsUrl: 'https://maps.google.com/?q=RGUKT+Ongole',
+    email: 'ao@rguktong.ac.in',
   },
   {
     campus: 'RGUKT Srikakulam Campus',
     badge: 'S.M. Puram, Srikakulam District',
-    location: 'Permanent Campus, S.M. Puram, Etcherla (M), Srikakulam District, Andhra Pradesh - 532410',
-    directorContact: {
-      title: 'Director',
-      email: 'director@rguktsklm.ac.in',
-      phone: '+91-8942-240700',
-    },
-    adminContact: {
-      title: 'Administrative Officer',
-      email: 'ao@rguktsklm.ac.in',
-      phone: '+91-8942-244102',
-    },
-    academicsEmail: 'dean.acad@rguktsklm.ac.in',
-    websiteUrl: 'https://www.rguktsklm.ac.in',
-    mapsUrl: 'https://maps.google.com/?q=RGUKT+Srikakulam',
+    location: 'S.M. Puram, Etcherla Mandal, Srikakulam District, Andhra Pradesh - 532410',
+    email: 'ao@rguktsklm.ac.in',
   },
 ];
 
-export const FUNCTIONAL_DESKS: FunctionalDeskContact[] = [
+export const CONTACT_QUERIES = [
   {
-    department: 'Admissions & Entrance Cell',
-    purpose: '6-Year Integrated B.Tech Admissions, Counseling & Verification Queries',
-    email: 'admissions@rgukt.in',
-    phone: '+91-863-2344700',
-    badge: 'Admissions Desk',
+    name: 'General University Inquiries',
+    role: 'Central Administration, RGUKT-AP',
+    email: 'registrar@rgukt.in',
+    phone: '7670905558',
+    note: 'Camp Office: RGUKT Nuzvid Campus',
   },
   {
-    department: 'Examinations & Evaluation Branch',
-    purpose: 'University Grade Sheets, Transcripts, Certificates & Convocation Verification',
-    email: 'controllerofexaminations@rgukt.in',
-    badge: 'Examinations Desk',
+    name: 'Training & Placements Desk',
+    role: 'Directorate of EITP',
+    email: 'placements@rgukt.in',
   },
   {
-    department: 'Directorate of Placements (EITP)',
-    purpose: 'Campus Recruitment Drives, Job Notification Forms & Corporate Liaison',
-    email: 'dean.eitp@rgukt.in',
-    alternateEmail: 'placement@rgukt.in',
-    badge: 'Placements Desk',
-  },
-  {
-    department: 'Directorate of Research & Development',
-    purpose: 'Sponsored Projects, Ph.D. Scholar Affairs, Academic MoUs & Patents',
-    email: 'dean.research@rgukt.in',
-    badge: 'R&D Cell',
-  },
-  {
-    department: 'Internal Complaints Committee & Anti-Ragging',
-    purpose: 'Safe Campus Grievance Redressal, Student Support & Women Protection',
-    email: 'icc@rgukt.in',
-    alternateEmail: 'antiragging@rgukt.in',
-    badge: 'Grievance Desk',
-  },
-  {
-    department: 'Alumni Engagement Directorate',
-    purpose: 'Alumni Network Membership, Chapters, Mentorship & Reunion Coordination',
+    name: 'Alumni Engagement Desk',
+    role: 'Alumni Relations Network',
     email: 'alumni@rgukt.in',
-    badge: 'Alumni Relations',
   },
 ];

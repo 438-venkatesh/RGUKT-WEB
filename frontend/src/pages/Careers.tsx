@@ -1,49 +1,17 @@
-import { useState, useMemo } from 'react';
+import { useState } from 'react';
 import { useDarkMode } from '../context/DarkModeContext';
 import {
   CAREERS_INTRO,
   EMPLOYMENT_VERTICALS,
   SELECTION_LIFECYCLE,
   OFFICIAL_CAREERS_LIST,
-  CAMPUS_CAREERS_CONTACTS,
+  CAREERS_CONTACTS,
 } from '../data/careersContent';
-import type { CareerOpening } from '../data/careersContent';
 import './Careers.css';
-
-type CampusFilter = 'All' | 'Central Admin' | 'Nuzvid' | 'RK Valley' | 'Ongole' | 'Srikakulam';
-type CategoryFilter =
-  | 'All'
-  | 'Faculty (Regular)'
-  | 'Guest & Contract Faculty'
-  | 'Technical & Lab Staff'
-  | 'Medical & Admin';
-type StatusFilter = 'All' | 'Open' | 'In Progress' | 'Archived';
-
-const CAMPUS_FILTERS: CampusFilter[] = [
-  'All',
-  'Central Admin',
-  'Nuzvid',
-  'RK Valley',
-  'Ongole',
-  'Srikakulam',
-];
-
-const CATEGORY_FILTERS: CategoryFilter[] = [
-  'All',
-  'Faculty (Regular)',
-  'Guest & Contract Faculty',
-  'Technical & Lab Staff',
-  'Medical & Admin',
-];
-
-const STATUS_FILTERS: StatusFilter[] = ['All', 'Open', 'In Progress', 'Archived'];
 
 export default function Careers() {
   const { dark } = useDarkMode();
-  const [selectedCampus, setSelectedCampus] = useState<CampusFilter>('All');
-  const [selectedCategory, setSelectedCategory] = useState<CategoryFilter>('All');
-  const [selectedStatus, setSelectedStatus] = useState<StatusFilter>('All');
-  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedCampus, setSelectedCampus] = useState<string>('All');
 
   const c = dark
     ? {
@@ -59,11 +27,6 @@ export default function Careers() {
         tagColor: '#FF6B81',
         cardBadgeBg: 'rgba(30, 58, 138, 0.4)',
         cardBadgeColor: '#93C5FD',
-        bannerBg: 'rgba(30, 58, 138, 0.25)',
-        pillBg: 'rgba(255, 255, 255, 0.08)',
-        statusOpen: '#34D399',
-        statusProgress: '#FBBF24',
-        statusArchived: '#94A3B8',
       }
     : {
         primary: '#0A2744',
@@ -78,431 +41,252 @@ export default function Careers() {
         tagColor: '#C8102E',
         cardBadgeBg: '#EEF2FF',
         cardBadgeColor: '#1E40AF',
-        bannerBg: '#EEF2FF',
-        pillBg: '#F1F5F9',
-        statusOpen: '#059669',
-        statusProgress: '#D97706',
-        statusArchived: '#64748B',
       };
 
-  const filteredOpenings: CareerOpening[] = useMemo(() => {
-    return OFFICIAL_CAREERS_LIST.filter((job) => {
-      const matchCampus = selectedCampus === 'All' || job.campus === selectedCampus;
-      const matchCategory = selectedCategory === 'All' || job.category === selectedCategory;
-      const matchStatus = selectedStatus === 'All' || job.status === selectedStatus;
-      const matchSearch =
-        searchQuery.trim() === '' ||
-        job.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        job.advertisementNo.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        job.department.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        job.qualifications.toLowerCase().includes(searchQuery.toLowerCase());
-      return matchCampus && matchCategory && matchStatus && matchSearch;
-    });
-  }, [selectedCampus, selectedCategory, selectedStatus, searchQuery]);
+  const campuses = ['All', 'Central Office', 'Nuzvid', 'RK Valley', 'Ongole', 'Srikakulam'];
 
-  const getStatusColor = (status: CareerOpening['status']) => {
-    switch (status) {
-      case 'Open':
-        return c.statusOpen;
-      case 'In Progress':
-        return c.statusProgress;
-      case 'Archived':
-        return c.statusArchived;
-    }
-  };
+  const filteredCareers =
+    selectedCampus === 'All'
+      ? OFFICIAL_CAREERS_LIST
+      : OFFICIAL_CAREERS_LIST.filter((t) => t.campus === selectedCampus);
 
   return (
     <main className="careers-page" style={{ background: c.bg, color: c.text }}>
       <div className="careers-wrap">
-        {/* ── 1. Two-Line Hero Banner ── */}
-        <div className="careers-hero" style={{ border: `1px solid ${c.border}` }}>
-          <img
-            src="/research/che_workshop.jpg"
-            alt="RGUKT Faculty & Academic Recruitment"
-            className="careers-hero-img"
-          />
-          <div className="careers-hero-overlay" />
-          <div className="careers-hero-text">
-            <span className="careers-hero-eyebrow">Academic & Staff Opportunities</span>
-            <h1 className="careers-hero-title">
-              Careers
-              <br />
-              @RGUKT-AP
-            </h1>
-          </div>
-        </div>
-
-        {/* ── 2. Introduction & Academic Culture ── */}
+        {/* ── 1. Introduction & Statutory Note ── */}
         <section
           className="careers-intro-card"
           style={{ background: c.surface, border: `1px solid ${c.border}` }}
         >
+          <span className="careers-section-kicker" style={{ color: c.accent }}>
+            Faculty & Staff Opportunities
+          </span>
+          <h2 className="careers-intro-title" style={{ color: c.text }}>
+            Recruitment & Employment at RGUKT
+          </h2>
           <p className="careers-intro-lead" style={{ color: c.text }}>
             {CAREERS_INTRO.lead}
           </p>
-          <div
-            className="careers-perks-banner"
-            style={{
-              background: c.bannerBg,
-              borderColor: c.accent,
-              color: c.text,
-            }}
-          >
-            <strong>Academic Growth & Research Ecosystem:</strong> {CAREERS_INTRO.academicPerksNote}
-          </div>
+          <p className="careers-intro-lead" style={{ color: c.textMuted }}>
+            {CAREERS_INTRO.statutoryNote}
+          </p>
         </section>
 
-        {/* ── 3. Core Employment Verticals (Pillars) ── */}
+        {/* ── 2. Employment Verticals ── */}
         <section className="careers-section">
           <div className="careers-section-header">
+            <span className="careers-section-kicker" style={{ color: c.accent }}>
+              Cadres & Roles
+            </span>
             <h2 className="careers-h2" style={{ color: c.text }}>
-              Employment Verticals & Cadres
+              Employment Verticals
             </h2>
             <p className="careers-section-sub" style={{ color: c.textMuted }}>
-              Structured career tracks spanning regular faculty, guest academicians, technical engineers, and campus residential officers.
+              Academic, technical, and residential administrative career positions across RGUKT.
             </p>
           </div>
 
           <div className="careers-verticals-grid">
-            {EMPLOYMENT_VERTICALS.map((v, idx) => (
-              <div
-                key={idx}
+            {EMPLOYMENT_VERTICALS.map((vertical) => (
+              <article
+                key={vertical.title}
                 className="careers-vertical-card"
                 style={{ background: c.surface, border: `1px solid ${c.border}` }}
               >
-                <span className="careers-vertical-tagline" style={{ color: c.accent }}>
-                  {v.tagline}
+                <span
+                  className="careers-card-badge"
+                  style={{ background: c.cardBadgeBg, color: c.cardBadgeColor }}
+                >
+                  {vertical.tagline}
                 </span>
-                <h3 className="careers-vertical-title" style={{ color: c.text }}>
-                  {v.title}
+                <h3 className="careers-card-title" style={{ color: c.text }}>
+                  {vertical.title}
                 </h3>
-                <p className="careers-vertical-desc" style={{ color: c.textMuted }}>
-                  {v.description}
+                <p className="careers-card-desc" style={{ color: c.textMuted }}>
+                  {vertical.description}
                 </p>
-
-                <div className="careers-vertical-meta" style={{ borderColor: c.border }}>
-                  <p style={{ color: c.text }}>
-                    <strong>Eligibility:</strong> {v.eligibilitySummary}
-                  </p>
-                  <p style={{ color: c.textMuted }}>
-                    <strong>Pay/Remuneration:</strong> {v.payScaleOrCompensation}
+                <div className="careers-eligibility-box" style={{ background: c.surface2, border: `1px solid ${c.border}` }}>
+                  <strong style={{ color: c.text, fontSize: 12 }}>Eligibility Overview:</strong>
+                  <p style={{ color: c.textMuted, fontSize: 13, margin: '2px 0 0' }}>
+                    {vertical.eligibilitySummary}
                   </p>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
         </section>
 
-        {/* ── 4. Step-by-Step Application & Selection Lifecycle ── */}
+        {/* ── 3. Selection Lifecycle ── */}
         <section className="careers-section">
           <div className="careers-section-header">
+            <span className="careers-section-kicker" style={{ color: c.accent }}>
+              Merit-Based Selection
+            </span>
             <h2 className="careers-h2" style={{ color: c.text }}>
-              5-Step Recruitment & Selection Lifecycle
+              Selection & Recruitment Process
             </h2>
             <p className="careers-section-sub" style={{ color: c.textMuted }}>
-              A transparent, merit-based selection process strictly compliant with UGC, AICTE, and State Government statutory norms.
+              Transparent multi-tier recruitment lifecycle governing university appointments.
             </p>
           </div>
 
-          <div className="careers-process-flow">
+          <div className="careers-timeline">
             {SELECTION_LIFECYCLE.map((step) => (
               <div
                 key={step.stepNumber}
-                className="careers-step-card"
+                className="careers-timeline-step"
                 style={{ background: c.surface, border: `1px solid ${c.border}` }}
               >
                 <div
-                  className="careers-step-badge"
-                  style={{ background: c.accent, color: '#ffffff' }}
+                  className="careers-step-num"
+                  style={{ background: c.accent, color: '#FFFFFF' }}
                 >
                   {step.stepNumber}
                 </div>
-                <h3 className="careers-step-title" style={{ color: c.text }}>
-                  {step.title}
-                </h3>
-                <span className="careers-step-tagline" style={{ color: c.accent }}>
-                  {step.tagline}
-                </span>
-                <p className="careers-step-desc" style={{ color: c.textMuted }}>
-                  {step.description}
-                </p>
+                <div className="careers-step-content">
+                  <span className="careers-step-tagline" style={{ color: c.accent }}>
+                    {step.tagline}
+                  </span>
+                  <h3 className="careers-step-title" style={{ color: c.text }}>
+                    {step.title}
+                  </h3>
+                  <p className="careers-step-desc" style={{ color: c.textMuted }}>
+                    {step.description}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
         </section>
 
-        {/* ── 5. Interactive Recruitment Notifications Database ── */}
+        {/* ── 4. Recruitment Notifications & Archive Table ── */}
         <section className="careers-section">
           <div className="careers-section-header">
+            <span className="careers-section-kicker" style={{ color: c.accent }}>
+              Notifications & Records
+            </span>
             <h2 className="careers-h2" style={{ color: c.text }}>
-              Active & Recent Recruitment Notifications
+              Recruitment Notifications & Archive
             </h2>
             <p className="careers-section-sub" style={{ color: c.textMuted }}>
-              Explore employment opportunities across Central Administration, Nuzvid, RK Valley, Ongole, and Srikakulam campuses.
+              Official recruitment advertisements and notification archive across RGUKT campuses.
             </p>
           </div>
 
-          {/* Filter Controls & Search */}
-          <div className="careers-controls">
-            {/* Campus Filter */}
-            <div className="careers-filter-row">
-              <span className="careers-filter-label" style={{ color: c.textMuted }}>
-                Campus:
-              </span>
-              <div className="careers-filter-chips">
-                {CAMPUS_FILTERS.map((camp) => {
-                  const isActive = selectedCampus === camp;
-                  return (
-                    <button
-                      key={camp}
-                      className="careers-chip"
-                      onClick={() => setSelectedCampus(camp)}
-                      style={{
-                        border: `1px solid ${isActive ? c.accent : c.border}`,
-                        background: isActive ? c.primary : c.surface,
-                        color: isActive ? '#ffffff' : c.text,
-                      }}
-                    >
-                      {camp === 'All' ? 'All Campuses' : camp}
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Category Filter */}
-            <div className="careers-filter-row">
-              <span className="careers-filter-label" style={{ color: c.textMuted }}>
-                Category:
-              </span>
-              <div className="careers-filter-chips">
-                {CATEGORY_FILTERS.map((cat) => {
-                  const isActive = selectedCategory === cat;
-                  return (
-                    <button
-                      key={cat}
-                      className="careers-chip"
-                      onClick={() => setSelectedCategory(cat)}
-                      style={{
-                        border: `1px solid ${isActive ? c.accent : c.border}`,
-                        background: isActive ? c.primary : c.surface,
-                        color: isActive ? '#ffffff' : c.text,
-                      }}
-                    >
-                      {cat === 'All' ? 'All Categories' : cat}
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Status Filter */}
-            <div className="careers-filter-row">
-              <span className="careers-filter-label" style={{ color: c.textMuted }}>
-                Status:
-              </span>
-              <div className="careers-filter-chips">
-                {STATUS_FILTERS.map((stat) => {
-                  const isActive = selectedStatus === stat;
-                  return (
-                    <button
-                      key={stat}
-                      className="careers-chip"
-                      onClick={() => setSelectedStatus(stat)}
-                      style={{
-                        border: `1px solid ${isActive ? c.accent : c.border}`,
-                        background: isActive ? c.primary : c.surface,
-                        color: isActive ? '#ffffff' : c.text,
-                      }}
-                    >
-                      {stat === 'All' ? 'All Statuses' : stat}
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Search Bar */}
-            <div className="careers-search-wrap">
-              <span className="careers-search-icon" style={{ color: c.textMuted }}>
-                🔍
-              </span>
-              <input
-                type="text"
-                placeholder="Search by job title, department, advertisement no., or qualification..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="careers-search-input"
+          {/* Campus Filter Tabs */}
+          <div className="careers-category-tabs">
+            {campuses.map((campus) => (
+              <button
+                key={campus}
+                onClick={() => setSelectedCampus(campus)}
+                className={`careers-tab-btn ${selectedCampus === campus ? 'active' : ''}`}
                 style={{
+                  background: selectedCampus === campus ? c.accent : c.surface,
+                  color: selectedCampus === campus ? '#FFFFFF' : c.text,
                   border: `1px solid ${c.border}`,
-                  background: c.surface,
-                  color: c.text,
                 }}
-              />
-            </div>
+              >
+                {campus}
+              </button>
+            ))}
           </div>
 
-          {/* Openings Grid */}
-          <div className="careers-openings-grid">
-            {filteredOpenings.map((job) => {
-              const statColor = getStatusColor(job.status);
-              return (
-                <div
-                  key={job.id}
-                  className="careers-opening-card"
-                  style={{ background: c.surface, border: `1px solid ${c.border}` }}
-                >
-                  <div className="careers-card-top">
-                    <span className="careers-advt-no" style={{ color: c.accent }}>
-                      {job.advertisementNo}
-                    </span>
-                    <span
-                      className="careers-status-badge"
-                      style={{
-                        color: statColor,
-                        border: `1px solid ${statColor}`,
-                        background: dark ? 'rgba(0,0,0,0.2)' : 'rgba(255,255,255,0.7)',
-                      }}
-                    >
-                      {job.status}
-                    </span>
-                  </div>
-
-                  <h3 className="careers-card-title" style={{ color: c.text }}>
-                    {job.title}
-                  </h3>
-
-                  <div className="careers-card-pills">
-                    <span
-                      className="careers-card-pill"
-                      style={{ background: c.cardBadgeBg, color: c.cardBadgeColor }}
-                    >
-                      {job.campus} Campus
-                    </span>
-                    <span
-                      className="careers-card-pill"
-                      style={{ background: c.pillBg, color: c.text }}
-                    >
-                      {job.department}
-                    </span>
-                    <span
-                      className="careers-card-pill"
-                      style={{ background: c.tagBg, color: c.tagColor }}
-                    >
-                      {job.category}
-                    </span>
-                  </div>
-
-                  <p className="careers-card-qual" style={{ color: c.textMuted }}>
-                    <strong>Qualifications:</strong> {job.qualifications}
-                  </p>
-
-                  <div className="careers-card-footer" style={{ borderColor: c.border }}>
-                    <div className="careers-dates-row">
-                      <span style={{ color: c.textMuted }}>
-                        <strong>Posted:</strong> {job.postedDate}
+          <div className="careers-table-wrap" style={{ background: c.surface, border: `1px solid ${c.border}` }}>
+            <table className="careers-table">
+              <thead>
+                <tr style={{ borderBottom: `2px solid ${c.border}` }}>
+                  <th style={{ color: c.text }}>Advt / Ref No</th>
+                  <th style={{ color: c.text }}>Description</th>
+                  <th style={{ color: c.text }}>Department & Campus</th>
+                  <th style={{ color: c.text }}>Qualifications Summary</th>
+                  <th style={{ color: c.text }}>Posted Date</th>
+                  <th style={{ color: c.text }}>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                {filteredCareers.map((career) => (
+                  <tr key={career.id} style={{ borderBottom: `1px solid ${c.border}` }}>
+                    <td style={{ color: c.accent, fontWeight: 600 }}>{career.advertisementNo}</td>
+                    <td style={{ color: c.text }}>
+                      <strong>{career.title}</strong>
+                      <span className="careers-table-category" style={{ color: c.textMuted }}>
+                        {career.category}
                       </span>
-                      <span style={{ color: c.text }}>
-                        <strong>Last Date:</strong> {job.lastDate}
-                      </span>
-                    </div>
-
-                    <div className="careers-actions">
-                      {job.detailedPdfUrl && (
-                        <a
-                          href={job.detailedPdfUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="careers-action-btn"
-                          style={{ background: c.primary, color: '#ffffff' }}
-                        >
-                          Detailed Advt. ↗
-                        </a>
-                      )}
-                      {job.applicationFormUrl && (
-                        <a
-                          href={job.applicationFormUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="careers-action-btn"
-                          style={{ background: c.accent, color: '#ffffff' }}
-                        >
-                          Application Form 📄
-                        </a>
-                      )}
+                    </td>
+                    <td style={{ color: c.textMuted }}>
+                      {career.department}
+                      <br />
+                      <span style={{ fontSize: 12 }}>({career.campus})</span>
+                    </td>
+                    <td style={{ color: c.textMuted }}>{career.qualifications}</td>
+                    <td style={{ color: c.textMuted }}>{career.postedDate}</td>
+                    <td>
                       <span
-                        style={{
-                          fontSize: 11,
-                          color: c.textMuted,
-                          alignSelf: 'center',
-                          marginLeft: 'auto',
-                        }}
+                        className="careers-status-badge"
+                        style={{ background: c.surface2, color: c.textMuted, border: `1px solid ${c.border}` }}
                       >
-                        Mode: {job.submissionMode}
+                        {career.status}
                       </span>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-
-            {filteredOpenings.length === 0 && (
-              <div
-                className="careers-empty-state"
-                style={{ background: c.surface, border: `1px solid ${c.border}`, color: c.textMuted }}
-              >
-                No recruitment openings match your selected campus, category, status, or search query.
-              </div>
-            )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </section>
 
-        {/* ── 6. Multi-Campus Recruitment Desks & Submission Addresses ── */}
+        {/* ── 5. Contact for Queries ── */}
         <section className="careers-section">
           <div className="careers-section-header">
             <h2 className="careers-h2" style={{ color: c.text }}>
-              Recruitment & Establishment Desks Across Campuses
+              Contact for Queries
             </h2>
-            <p className="careers-section-sub" style={{ color: c.textMuted }}>
-              Official postal addresses and communication desks for application dispatch and candidate queries.
-            </p>
           </div>
-
-          <div className="careers-contacts-grid">
-            {CAMPUS_CAREERS_CONTACTS.map((desk, idx) => (
+          <div className="careers-queries-grid">
+            {CAREERS_CONTACTS.map((contact, i) => (
               <div
-                key={idx}
-                className="careers-contact-card"
+                key={i}
+                className="careers-query-card"
                 style={{ background: c.surface, border: `1px solid ${c.border}` }}
               >
-                <span
-                  className="careers-contact-badge"
-                  style={{ background: c.cardBadgeBg, color: c.cardBadgeColor }}
-                >
-                  {desk.deskType}
-                </span>
-                <h3 className="careers-contact-title" style={{ color: c.text }}>
-                  {desk.campus}
-                </h3>
-                <p className="careers-contact-office" style={{ color: c.text }}>
-                  {desk.office}
-                </p>
-                <p className="careers-contact-postal" style={{ color: c.textMuted }}>
-                  <strong>Postal Address:</strong> {desk.postalAddress}
-                </p>
-                <a
-                  href={`mailto:${desk.email}`}
-                  className="careers-contact-email"
-                  style={{ color: c.accent }}
-                >
-                  Email: {desk.email}
-                </a>
+                <strong className="careers-query-name" style={{ color: c.text }}>
+                  {contact.name}
+                </strong>
+                {contact.role && (
+                  <p className="careers-query-role" style={{ color: c.textMuted }}>
+                    {contact.role}
+                  </p>
+                )}
+                {contact.email && (
+                  <p className="careers-query-email" style={{ margin: '6px 0 0' }}>
+                    <a href={`mailto:${contact.email}`} style={{ color: c.accent, fontWeight: 600 }}>
+                      {contact.email}
+                    </a>
+                  </p>
+                )}
+                {contact.note && (
+                  <p className="careers-query-note" style={{ color: c.textMuted, margin: '4px 0 0', fontSize: 13 }}>
+                    {contact.note}
+                  </p>
+                )}
               </div>
             ))}
           </div>
         </section>
+
+        {/* ── 6. Source Reference ── */}
+        <p className="careers-source-ref" style={{ color: c.textMuted }}>
+          Official Reference:{' '}
+          <a
+            href={CAREERS_INTRO.rguktUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: c.accent }}
+          >
+            rgukt.in — Careers
+          </a>
+        </p>
       </div>
     </main>
   );
 }
-

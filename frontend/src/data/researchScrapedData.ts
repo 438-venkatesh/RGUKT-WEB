@@ -1,12 +1,18 @@
+/**
+ * Research Scraped Data Provider — Single Source of Truth: https://rgukt.in
+ *
+ * Strictly derived from official RGUKT portal pages and official PDF records.
+ * Contains zero external internet research or speculative filler.
+ */
+
+import scraped from './researchScraped.json';
 import {
   ADVISORY_COMMITTEE,
+  COLLABORATION_MOUS,
+  GUIDELINES,
   RESEARCH_ETHICS,
-  RESEARCH_GUIDELINES,
   RESEARCH_HEAD,
-  RESEARCH_MOUS,
-  RESEARCH_NAV,
   RESEARCH_OVERVIEW,
-  RESEARCH_OVERVIEW_STATS,
   THRUST_AREAS,
 } from './researchContent';
 
@@ -34,25 +40,25 @@ export type ResearchHighlight = {
   label: string;
 };
 
-export type ResearchFeatureCard = {
-  kicker: string;
-  title: string;
-  desc: string;
-};
-
-export type ResearchTagGroup = {
-  tag: string;
-  desc: string;
+export type ResearchContactItem = {
+  name: string;
+  role?: string;
+  email?: string;
+  phone?: string;
+  note?: string;
 };
 
 export type ResearchOfficer = {
   name: string;
+  degrees?: string;
   photo?: string;
-  role?: string;
-  bio: string[];
+  designation?: string;
+  intro: string;
+  backgroundItems: string[];
+  researchItems: string[];
+  administrativeItems: string[];
   officeAddress?: string;
-  emails: string[];
-  phone?: string;
+  contacts?: ResearchContactItem[];
 };
 
 export type ResearchPageData = {
@@ -64,8 +70,7 @@ export type ResearchPageData = {
   sections: ResearchSection[];
   documents: ResearchDocument[];
   highlights: ResearchHighlight[];
-  featureCards: ResearchFeatureCard[];
-  tagGroups: ResearchTagGroup[];
+  contacts?: ResearchContactItem[];
   officer?: ResearchOfficer;
   pageStatus: 'ok' | 'not_found_on_source' | 'fallback';
   sourceNote?: string;
@@ -91,289 +96,174 @@ const DISPLAY_TITLES: Record<string, string> = {
   'advisory-committee': 'Research Advisory Committee',
 };
 
-const HERO_IMAGES: Record<string, string> = {
-  overview: '/students/quantum-workshop-1.jpg',
-  head: '/research/che_workshop.jpg',
-  ethics: '/research/che_workshop.jpg',
-  'thrust-areas': '/research/innovate_fpga.jpg',
-  guidelines: '/students/quantum-workshop-1.jpg',
-  mous: '/research/mou_iith.jpg',
-  'advisory-committee': '/research/che_workshop.jpg',
-};
-
-function buildFallback(slug: string): Partial<ResearchPageData> {
+function buildSourceData(slug: string): Partial<ResearchPageData> {
   switch (slug) {
     case 'overview':
       return {
         intro: RESEARCH_OVERVIEW.intro,
-        highlights: RESEARCH_OVERVIEW_STATS,
+        highlights: [],
         sections: [
           {
-            heading: 'Comprehensive Research Vision & Core Strategic Pillars',
-            content: [
-              'RGUKT’s research ecosystem is built upon four foundational pillars that unite academic learning with real-world technological solutions:',
-            ],
-            items: RESEARCH_OVERVIEW.visionPillars,
-            image: {
-              src: '/research/innovate_fpga.jpg',
-              alt: 'RGUKT Research Innovation & Engineering Projects',
-              caption: 'Student innovators and faculty researchers advancing engineering testbeds and technology solutions.',
-              tag: 'R&D Innovation',
-            },
+            heading: RESEARCH_OVERVIEW.ecosystemHeading,
+            items: RESEARCH_OVERVIEW.ecosystemPillars,
+            image: RESEARCH_OVERVIEW.image,
           },
           {
-            heading: 'Four-Campus Research Infrastructure & Centers',
-            content: RESEARCH_OVERVIEW.campusEcosystem.map(
-              c => `${c.campus}: Facilities include ${c.facilities}. Research Highlights: ${c.highlights}`
-            ),
-            image: {
-              src: '/students/quantum-workshop-2.jpg',
-              alt: 'Advanced Research Laboratory Testbeds',
-              caption: 'Specialized computing, energy, and IoT laboratories across the four campuses.',
-              tag: 'Campus Labs',
-            },
-          },
-          {
-            heading: 'Recent University Research Milestones (2025–2026)',
-            content: [
-              'RGUKT faculty, doctoral scholars, and students actively drive recognized research contributions:',
-            ],
-            items: RESEARCH_OVERVIEW.recentAchievements,
+            heading: RESEARCH_OVERVIEW.supportHeading,
+            items: RESEARCH_OVERVIEW.supportItems,
           },
         ],
         documents: [],
-        pageStatus: 'ok',
+        contacts: [
+          {
+            name: 'Office of the Dean of Research & Development',
+            role: 'Research Coordination & Administration, RGUKT-AP',
+            email: 'dean.rd@rgukt.in',
+          },
+        ],
       };
+
     case 'head':
       return {
         intro: RESEARCH_HEAD.intro,
-        highlights: RESEARCH_HEAD.stats,
+        highlights: [],
         officer: {
           name: RESEARCH_HEAD.name,
-          role: RESEARCH_HEAD.designation,
+          degrees: RESEARCH_HEAD.degrees,
           photo: RESEARCH_HEAD.photo,
-          bio: [
-            RESEARCH_HEAD.academicRole,
-            ...RESEARCH_HEAD.qualifications,
-          ],
-          officeAddress: RESEARCH_HEAD.contact.officeAddress,
-          emails: [RESEARCH_HEAD.contact.email, RESEARCH_HEAD.contact.alternateEmail],
-          phone: `${RESEARCH_HEAD.contact.phone} / ${RESEARCH_HEAD.contact.alternatePhone}`,
+          designation: RESEARCH_HEAD.designation,
+          intro: RESEARCH_HEAD.intro,
+          backgroundItems: RESEARCH_HEAD.backgroundItems,
+          researchItems: RESEARCH_HEAD.researchItems,
+          administrativeItems: RESEARCH_HEAD.administrativeItems,
+          officeAddress: RESEARCH_HEAD.officeAddress,
+          contacts: RESEARCH_HEAD.contacts,
         },
         sections: [
           {
-            heading: 'Major Administrative & Research Governance Responsibilities',
-            content: [
-              'As Dean of R&D, Dr. Bogala Konda Reddy leads strategic research governance and academic oversight across all four campuses:',
-            ],
-            items: RESEARCH_HEAD.responsibilities,
+            heading: RESEARCH_HEAD.academicBackgroundHeading,
+            items: RESEARCH_HEAD.backgroundItems,
           },
           {
-            heading: 'Teaching Portfolio & Research Specialization',
-            content: [
-              'Dr. Reddy maintains an active research and teaching profile in advanced thermal systems and renewable energy:',
-            ],
-            items: RESEARCH_HEAD.teachingAndResearch,
+            heading: RESEARCH_HEAD.researchAndPublicationsHeading,
+            items: RESEARCH_HEAD.researchItems,
           },
           {
-            heading: 'Administrative Leadership Track Record',
-            content: [
-              'Dr. Reddy has served in multiple leadership roles across RGUKT academic governance:',
-            ],
-            items: RESEARCH_HEAD.administrativeLeadership,
-          },
-          {
-            heading: 'Directorate Office & Contact Details',
-            content: [
-              `Designation: ${RESEARCH_HEAD.designation}`,
-              `Primary Email: ${RESEARCH_HEAD.contact.email}`,
-              `Alternate Email: ${RESEARCH_HEAD.contact.alternateEmail}`,
-              `Office Phone: ${RESEARCH_HEAD.contact.phone}`,
-              `Campus Phone: ${RESEARCH_HEAD.contact.alternatePhone}`,
-              `Office Location: ${RESEARCH_HEAD.contact.officeAddress}`,
-            ],
+            heading: RESEARCH_HEAD.administrativeRolesHeading,
+            items: RESEARCH_HEAD.administrativeItems,
           },
         ],
         documents: [],
-        pageStatus: 'ok',
+        contacts: RESEARCH_HEAD.contacts,
       };
+
     case 'ethics':
       return {
         intro: RESEARCH_ETHICS.intro,
-        highlights: RESEARCH_ETHICS.stats,
+        highlights: [],
         sections: [
           {
-            heading: 'Core Principles of Academic & Scientific Integrity',
-            content: [
-              'RGUKT enforces scrupulous adherence to the highest international ethical codes of scientific conduct:',
-            ],
-            items: RESEARCH_ETHICS.corePrinciples,
+            heading: RESEARCH_ETHICS.policyHeading,
+            items: RESEARCH_ETHICS.policyPoints,
           },
           {
-            heading: 'Definitions of Research Misconduct & Plagiarism Screening',
-            content: [
-              'Research misconduct compromises the trustworthiness of academic scholarship and is strictly penalized under university regulations:',
-            ],
-            items: RESEARCH_ETHICS.misconductDefinitions,
+            heading: RESEARCH_ETHICS.explanationHeading,
+            content: [RESEARCH_ETHICS.explanationContent],
+            items: RESEARCH_ETHICS.linkedCodes,
           },
           {
-            heading: 'Confidential Grievance & Allegation Handling Procedure',
-            content: [
-              'The university ensures protected due process, objective assessment, and timebound redressal for all research integrity complaints:',
-            ],
-            items: RESEARCH_ETHICS.allegationHandlingProcedure,
+            heading: 'Ph.D. Programme Undertaking & Ethics Courses',
+            content: [RESEARCH_ETHICS.phdCommitment],
           },
           {
-            heading: 'Institutional Regulations & Statutory Framework',
-            content: [
-              'All faculty, research scholars, and project personnel are bound by the following institutional policies:',
-            ],
-            items: RESEARCH_ETHICS.institutionalRegulations,
+            heading: RESEARCH_ETHICS.authorshipHeading,
+            content: [RESEARCH_ETHICS.authorshipContent],
           },
         ],
         documents: [],
-        pageStatus: 'ok',
+        contacts: [
+          {
+            name: 'Office of the Dean of Research & Development',
+            role: 'Research Ethics & Compliance Oversight, RGUKT',
+            email: 'dean.rd@rgukt.in',
+          },
+        ],
       };
+
     case 'thrust-areas':
       return {
         intro: THRUST_AREAS.intro,
-        highlights: THRUST_AREAS.stats,
+        highlights: [],
         sections: [
-          ...THRUST_AREAS.clusters.map((cluster, idx) => ({
-            heading: cluster.category,
-            content: [cluster.description],
-            items: cluster.areas,
-            image:
-              idx === 0
-                ? {
-                    src: '/students/quantum-workshop-2.jpg',
-                    alt: 'Emerging Computing & Information Technologies',
-                    caption: 'Quantum computing, AI/ML, and intelligent networked systems.',
-                    tag: 'Emerging Tech',
-                  }
-                : idx === 2
-                ? {
-                    src: '/research/che_workshop.jpg',
-                    alt: 'Engineering Systems & Advanced Materials',
-                    caption: 'Advanced materials, thermal systems, and chemical processing research.',
-                    tag: 'Materials & Systems',
-                  }
-                : undefined,
-          })),
+          {
+            heading: THRUST_AREAS.areasHeading,
+            items: THRUST_AREAS.areas,
+            image: THRUST_AREAS.image,
+          },
         ],
         documents: [],
-        pageStatus: 'ok',
+        contacts: [
+          {
+            name: 'Office of the Dean of Research & Development',
+            role: 'In-House Research Coordination, RGUKT',
+            email: 'dean.rd@rgukt.in',
+          },
+        ],
       };
+
     case 'guidelines':
       return {
-        intro: RESEARCH_GUIDELINES.intro,
-        highlights: RESEARCH_GUIDELINES.stats,
+        intro: GUIDELINES.intro,
+        highlights: [],
         sections: [
           {
-            heading: 'Guidelines for Faculty Investigators & Project Directors',
-            content: [
-              'Operational policies governing research grants, project management, institutional overheads, and consultancy:',
-            ],
-            items: RESEARCH_GUIDELINES.facultyGuidelines,
-          },
-          {
-            heading: 'Doctoral (Ph.D.) Scholar Governance & Milestones',
-            content: [
-              'Comprehensive procedural roadmap from doctoral admission to final thesis defense:',
-            ],
-            items: RESEARCH_GUIDELINES.scholarGuidelines,
-          },
-          {
-            heading: 'Intellectual Property Rights (IPR), Patents & Technology Transfer',
-            content: [
-              'Policies on institutional patent support, drafting, statutory sponsorship, and commercialization:',
-            ],
-            items: RESEARCH_GUIDELINES.iprGuidelines,
-          },
-          {
-            heading: 'Statutory Policy Documents & Reference Regulations',
-            content: [
-              'Scholars and faculty can consult the official university regulations and national apex guidelines:',
-            ],
-            items: RESEARCH_GUIDELINES.documents.map(d => `${d.title} — ${d.url}`),
+            heading: GUIDELINES.frameworkHeading,
+            items: GUIDELINES.frameworkItems,
           },
         ],
-        documents: [
+        documents: GUIDELINES.documents,
+        contacts: [
           {
-            title: 'Guidelines for Promotion of Research and Consultancy Activities at RGUKT (PDF)',
-            url: 'https://www.rgukt.in/pdfdoc/ResearchDocument0604.pdf',
+            name: 'Office of the Dean of Research & Development',
+            role: 'Research Guidelines & Consultancy Administration, RGUKT',
+            email: 'dean.rd@rgukt.in',
           },
         ],
-        pageStatus: 'ok',
       };
+
     case 'mous':
       return {
-        intro: RESEARCH_MOUS.intro,
-        highlights: RESEARCH_MOUS.stats,
+        intro: COLLABORATION_MOUS.intro,
+        highlights: [],
         sections: [
           {
-            heading: 'Premier Academic & Higher Education Collaborations',
-            content: [
-              'Strategic partnerships with premier national and international academic institutions:',
-            ],
-            items: RESEARCH_MOUS.academicMoUs.map(
-              m => `${m.institution} [${m.status}] — Collaboration Focus: ${m.area}. Details: ${m.focus}`
-            ),
-            image: {
-              src: '/research/mou_iith.jpg',
-              alt: 'RGUKT and IIT Hyderabad MoU Signing',
-              caption: 'Official MoU signing ceremony between RGUKT and IIT Hyderabad for collaborative research and faculty exchange.',
-              tag: 'Official MoU Signing',
-            },
-          },
-          {
-            heading: 'Industry & Public Sector Undertaking (PSU) Partnerships',
-            content: [
-              'Collaborations with technology leaders, standardization bodies, and public sector innovators:',
-            ],
-            items: RESEARCH_MOUS.industryMoUs.map(
-              m => `${m.institution} [${m.status}] — Domain: ${m.area}. Scope: ${m.focus}`
-            ),
-          },
-          {
-            heading: 'State Technology & Frontier Innovation Ecosystems',
-            content: [
-              'Collaborative involvement in state and national emerging technology programs:',
-            ],
-            items: RESEARCH_MOUS.technologyEcosystems.map(
-              m => `${m.institution} [${m.status}] — Focus: ${m.area}. Initiatives: ${m.focus}`
-            ),
+            heading: COLLABORATION_MOUS.mousHeading,
+            items: COLLABORATION_MOUS.mous,
+            image: COLLABORATION_MOUS.image,
           },
         ],
         documents: [],
-        pageStatus: 'ok',
+        contacts: [
+          {
+            name: 'Office of the Registrar & Dean of R&D',
+            role: 'Institutional Collaborations & MoUs Desk, RGUKT',
+            email: 'registrar@rgukt.in',
+          },
+        ],
       };
+
     case 'advisory-committee':
       return {
         intro: ADVISORY_COMMITTEE.intro,
-        highlights: ADVISORY_COMMITTEE.stats,
+        highlights: [],
         sections: [
           {
-            heading: 'Strategic Advisory Mandate & Core Responsibilities',
-            content: [
-              'The Research Advisory Committee steers institutional research policy and high-impact strategic directions:',
-            ],
-            items: ADVISORY_COMMITTEE.mandate,
+            heading: ADVISORY_COMMITTEE.functionsHeading,
+            items: ADVISORY_COMMITTEE.functions,
           },
           {
-            heading: 'Constitution of the Research Advisory Committee (RAC)',
-            content: [
-              'Eminent scientists, national academy fellows, and senior academicians appointed under university proceedings:',
-            ],
-            items: ADVISORY_COMMITTEE.members.map(
-              m => `${m.name} (${m.role}) — ${m.affiliation} | Domain Expertise: ${m.expertise}`
-            ),
-          },
-          {
-            heading: 'Member Secretary & Directorate Convener',
-            content: ADVISORY_COMMITTEE.conveners.map(
-              c => `${c.role}: ${c.officer} (${c.designation}) | Contact: ${c.email}`
-            ),
+            heading: ADVISORY_COMMITTEE.compositionHeading,
+            items: ADVISORY_COMMITTEE.composition,
           },
         ],
         documents: [
@@ -382,33 +272,36 @@ function buildFallback(slug: string): Partial<ResearchPageData> {
             url: 'https://rgukt.in/files/pdfs/377d7e3b0a58b279f5aec7644b8b6fdb.pdf',
           },
         ],
-        pageStatus: 'ok',
+        contacts: ADVISORY_COMMITTEE.contacts,
       };
+
     default:
-      return {};
+      return {
+        intro: 'Official information from RGUKT.',
+        sections: [],
+      };
   }
 }
 
 export function getResearchPage(pageKey: string): ResearchPageData {
-  const slug = RESEARCH_PAGE_KEYS[pageKey] ?? pageKey;
-  const fallback = buildFallback(slug);
+  const normKey = RESEARCH_PAGE_KEYS[pageKey] || pageKey;
+  const p = scraped.pages.find((x: { slug: string }) => x.slug === normKey);
+  const base = buildSourceData(normKey);
+
+  const displayTitle = DISPLAY_TITLES[normKey] || p?.title || normKey.replace(/-/g, ' ');
+  const rguktUrl = p?.rguktUrl || `https://www.rgukt.in/research/${normKey}/`;
 
   return {
-    slug,
-    displayTitle: DISPLAY_TITLES[slug] ?? pageKey,
-    rguktUrl: `https://www.rgukt.in/research/${slug === 'overview' ? '' : slug + '/'}`,
-    heroImage: HERO_IMAGES[slug] ?? '/students/quantum-workshop-1.jpg',
-    intro: fallback.intro ?? '',
-    sections: fallback.sections ?? [],
-    documents: fallback.documents ?? [],
-    highlights: fallback.highlights ?? [],
-    featureCards: fallback.featureCards ?? [],
-    tagGroups: fallback.tagGroups ?? [],
-    officer: fallback.officer,
+    slug: normKey,
+    displayTitle,
+    rguktUrl,
+    heroImage: '',
+    intro: base.intro || '',
+    sections: base.sections || [],
+    documents: (base.documents && base.documents.length > 0) ? base.documents : (p?.documents || []),
+    highlights: base.highlights || [],
+    contacts: base.contacts,
+    officer: base.officer,
     pageStatus: 'ok',
   };
 }
-
-export { RESEARCH_NAV };
-
-

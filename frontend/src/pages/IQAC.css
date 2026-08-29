@@ -1,550 +1,288 @@
-/* ── RGUKT-AP IQAC Page Styles ── */
-
-.apiq-root {
-  min-height: calc(100vh - 98px);
-  padding: 40px 24px 80px;
+/* ── Page Shell ── */
+.iqac-page {
+  min-height: 100vh;
+  padding-bottom: 80px;
 }
 
-.apiq-inner {
-  max-width: 1040px;
+.iqac-wrap {
+  max-width: 1120px;
   margin: 0 auto;
+  padding: 0 24px;
 }
 
-/* ── Hero / Intro Section ── */
-.apiq-hero-intro {
-  margin-bottom: 48px;
-  padding-bottom: 32px;
-  border-bottom: 1px solid var(--ap-border, rgba(197, 211, 232, 0.5));
-}
-
-.apiq-eyebrow {
-  display: inline-block;
-  font-size: 13px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1.2px;
-  margin-bottom: 10px;
-}
-
-.apiq-main-title {
-  font-family: var(--font-heading, 'Playfair Display', Georgia, serif);
-  font-size: clamp(2rem, 3.5vw, 2.6rem);
-  font-weight: 800;
-  line-height: 1.2;
-  margin: 0 0 18px;
-  color: inherit;
-}
-
-.apiq-lead-paragraphs {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.apiq-lead {
-  font-size: 1.08rem;
-  line-height: 1.7;
-  margin: 0;
-}
-
-.apiq-sublead {
-  font-size: 0.96rem;
-  line-height: 1.7;
-  margin: 0;
-}
-
-/* ── Section Structure ── */
-.apiq-section {
-  margin-bottom: 56px;
-}
-
-.apiq-section-header {
-  margin-bottom: 24px;
-  position: relative;
-}
-
-.apiq-h2 {
-  font-family: var(--font-heading, 'Playfair Display', Georgia, serif);
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin: 0 0 8px;
-  color: inherit;
-}
-
-.apiq-section-sub {
-  font-size: 0.92rem;
-  margin: 0 0 12px;
-}
-
-.apiq-line-accent {
-  width: 44px;
-  height: 3px;
-  border-radius: 2px;
-  margin-top: 6px;
-}
-
-/* ── Purpose Grid ── */
-.apiq-purpose-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
-}
-
-.apiq-purpose-card {
+/* ── Officer Profile Card ── */
+.iqac-officer-card {
   border-radius: 12px;
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+  padding: 28px 32px;
+  margin-bottom: 32px;
+  box-shadow: 0 4px 16px rgba(10, 39, 68, 0.05);
 }
 
-.apiq-purpose-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
-}
-
-.apiq-card-badge {
-  align-self: flex-start;
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-  padding: 4px 10px;
-  border-radius: 6px;
-  margin-bottom: 14px;
-}
-
-.apiq-h3 {
-  font-family: var(--font-heading, 'Playfair Display', Georgia, serif);
-  font-size: 1.15rem;
-  font-weight: 700;
-  margin: 0 0 10px;
-  color: inherit;
-}
-
-.apiq-purpose-card p {
-  font-size: 0.9rem;
-  line-height: 1.6;
-  margin: 0;
-  flex: 1;
-}
-
-/* ── Central Leader Card ── */
-.apiq-leader-card {
+.iqac-officer-grid {
   display: grid;
-  grid-template-columns: 80px 1fr;
-  gap: 24px;
-  border-radius: 14px;
-  padding: 28px;
+  grid-template-columns: 160px 1fr;
+  gap: 28px;
   align-items: start;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
 }
 
-.apiq-leader-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.09);
+.iqac-officer-photo {
+  width: 160px;
+  height: 200px;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 10px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
 }
 
-.apiq-leader-avatar {
-  width: 72px;
-  height: 72px;
-  border-radius: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.apiq-leader-info {
+.iqac-officer-body {
   display: flex;
   flex-direction: column;
-  gap: 6px;
 }
 
-.apiq-leader-badge {
-  align-self: flex-start;
-  font-size: 11px;
+.iqac-officer-name {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-  padding: 4px 10px;
-  border-radius: 6px;
-  margin-bottom: 4px;
-}
-
-.apiq-leader-name {
-  font-family: var(--font-heading, 'Playfair Display', Georgia, serif);
-  font-size: 1.35rem;
-  font-weight: 700;
-  margin: 0;
+  margin: 4px 0 2px;
   line-height: 1.25;
 }
 
-.apiq-leader-role {
-  font-size: 0.92rem;
+.iqac-officer-role {
+  font-size: 13.5px;
   font-weight: 700;
-  margin: 0;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  margin: 0 0 2px;
 }
 
-.apiq-leader-sub {
-  font-size: 0.88rem;
-  line-height: 1.5;
-  margin: 2px 0 6px;
+.iqac-officer-sub {
+  font-size: 13.5px;
+  margin: 0 0 12px;
 }
 
-.apiq-leader-desc {
-  font-size: 0.92rem;
-  line-height: 1.65;
-  margin: 4px 0 14px;
+.iqac-officer-para {
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0 0 8px;
 }
 
-.apiq-contact-row {
+.iqac-officer-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 4px;
+  margin-top: 14px;
 }
 
-.apiq-contact-btn {
+.iqac-btn-primary,
+.iqac-btn-secondary {
   display: inline-flex;
   align-items: center;
   gap: 6px;
   padding: 8px 16px;
-  border-radius: 8px;
-  font-size: 0.88rem;
+  border-radius: 6px;
+  font-size: 13px;
   font-weight: 600;
   text-decoration: none;
-  transition: opacity 0.2s, transform 0.2s;
+  transition: all 0.2s ease;
 }
 
-.apiq-contact-btn:hover {
-  opacity: 0.9;
+.iqac-btn-primary:hover,
+.iqac-btn-secondary:hover {
+  filter: brightness(1.08);
   transform: translateY(-1px);
 }
 
-.apiq-btn-outline:hover {
-  background: rgba(125, 125, 125, 0.08);
+/* ── Intro Block ── */
+.iqac-intro-card {
+  border-radius: 12px;
+  padding: 28px 32px;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 16px rgba(10, 39, 68, 0.05);
 }
 
-/* ── Campus Coordinators Grid ── */
-.apiq-coordinators-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 24px;
-}
-
-.apiq-coord-card {
-  border-radius: 14px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
-}
-
-.apiq-coord-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.09);
-}
-
-.apiq-coord-header {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 20px 22px 14px;
-}
-
-.apiq-coord-num {
-  font-family: var(--font-heading, 'Playfair Display', Georgia, serif);
-  font-size: 1.15rem;
-  font-weight: 800;
-  width: 44px;
-  height: 44px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.apiq-coord-campus {
-  font-size: 1.05rem;
+.iqac-intro-title {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
   font-weight: 700;
-  margin: 0 0 2px;
+  margin: 4px 0 10px;
+  line-height: 1.25;
 }
 
-.apiq-coord-role {
-  font-size: 0.82rem;
-  font-weight: 600;
+.iqac-intro-lead {
+  font-size: 15px;
+  line-height: 1.7;
+  margin: 0 0 12px;
+  font-weight: 500;
 }
 
-.apiq-coord-body {
-  padding: 0 22px 18px;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+/* ── Section Structure ── */
+.iqac-section {
+  margin-bottom: 48px;
 }
 
-.apiq-coord-name {
-  font-size: 1.05rem;
+.iqac-section-header {
+  margin-bottom: 24px;
+}
+
+.iqac-section-kicker {
+  font-size: 12px;
   font-weight: 700;
-  margin: 0;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 4px;
 }
 
-.apiq-coord-desig {
-  font-size: 0.86rem;
-  line-height: 1.45;
+.iqac-h2 {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  font-weight: 700;
   margin: 0 0 6px;
+  line-height: 1.25;
 }
 
-.apiq-associates-box {
-  border-radius: 8px;
-  padding: 10px 14px;
-  margin-bottom: 6px;
-}
-
-.apiq-assoc-title {
-  font-size: 0.8rem;
-  font-weight: 700;
-  display: block;
-  margin-bottom: 4px;
-}
-
-.apiq-assoc-list {
-  margin: 0;
-  padding-left: 18px;
-  font-size: 0.82rem;
-  line-height: 1.45;
-}
-
-.apiq-resp-title {
-  font-size: 0.82rem;
-  font-weight: 700;
-  display: block;
-  margin-bottom: 4px;
-}
-
-.apiq-resp-list {
-  margin: 0;
-  padding-left: 18px;
-  font-size: 0.84rem;
+.iqac-section-sub {
+  font-size: 14px;
   line-height: 1.5;
+  margin: 0;
 }
 
-.apiq-coord-footer {
-  padding: 14px 22px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.apiq-email-pill {
-  font-size: 0.86rem;
-  font-weight: 600;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-}
-
-.apiq-email-pill:hover {
-  text-decoration: underline;
-}
-
-.apiq-coord-loc {
-  font-size: 0.78rem;
-}
-
-/* ── Functions Grid ── */
-.apiq-functions-grid {
+/* ── Objectives Grid ── */
+.iqac-objectives-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
 }
 
-.apiq-fn-card {
-  border-radius: 12px;
-  padding: 22px;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.apiq-fn-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
-}
-
-.apiq-fn-idx {
-  font-family: var(--font-heading, 'Playfair Display', Georgia, serif);
-  font-size: 1.25rem;
-  font-weight: 800;
-  margin-bottom: 8px;
-}
-
-.apiq-fn-title {
-  font-size: 0.98rem;
-  font-weight: 700;
-  margin: 0 0 6px;
-}
-
-.apiq-fn-desc {
-  font-size: 0.88rem;
-  line-height: 1.55;
-  margin: 0;
-}
-
-/* ── Stakeholder Pillars ── */
-.apiq-pillars-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 22px;
-}
-
-.apiq-pillar-card {
+.iqac-objective-card {
   border-radius: 12px;
   padding: 24px;
   display: flex;
   flex-direction: column;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
+  box-shadow: 0 4px 16px rgba(10, 39, 68, 0.06);
 }
 
-.apiq-pillar-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
-}
-
-.apiq-pillar-tag {
-  align-self: flex-start;
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-  padding: 4px 10px;
-  border-radius: 6px;
-  margin-bottom: 12px;
-}
-
-.apiq-pillar-title {
-  font-size: 1.05rem;
-  font-weight: 700;
-  margin: 0 0 12px;
-}
-
-.apiq-pillar-list {
-  margin: 0;
-  padding-left: 18px;
-  font-size: 0.88rem;
-  line-height: 1.55;
-}
-
-.apiq-pillar-list li {
-  margin-bottom: 6px;
-}
-
-/* ── Quality Initiatives Grid ── */
-.apiq-initiatives-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 18px;
-}
-
-.apiq-init-card {
-  border-radius: 12px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.apiq-init-card:hover {
+.iqac-objective-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+  box-shadow: 0 8px 24px rgba(10, 39, 68, 0.12);
 }
 
-.apiq-init-tag {
+[data-theme="dark"] .iqac-objective-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.iqac-card-badge {
+  display: inline-block;
   align-self: flex-start;
-  font-size: 10px;
+  font-size: 11.5px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.8px;
+  letter-spacing: 0.04em;
   padding: 3px 8px;
   border-radius: 4px;
   margin-bottom: 10px;
 }
 
-.apiq-init-title {
-  font-size: 0.95rem;
+.iqac-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
   font-weight: 700;
-  margin: 0 0 6px;
-}
-
-.apiq-init-desc {
-  font-size: 0.86rem;
-  line-height: 1.5;
-  margin: 0;
-}
-
-/* ── Directory Card ── */
-.apiq-directory-card {
-  border-radius: 14px;
-  padding: 28px;
-}
-
-.apiq-dir-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
-}
-
-.apiq-dir-col h4 {
-  font-size: 1.05rem;
-  font-weight: 700;
-  margin: 0 0 10px;
-}
-
-.apiq-dir-col p {
-  font-size: 0.9rem;
-  line-height: 1.6;
   margin: 0 0 8px;
+  line-height: 1.3;
 }
 
-.apiq-dir-campus-links {
-  list-style: none;
-  padding: 0;
+.iqac-card-desc {
+  font-size: 13.5px;
+  line-height: 1.6;
   margin: 0;
+}
+
+/* ── Table Layout ── */
+.iqac-table-wrap {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(10, 39, 68, 0.05);
+}
+
+.iqac-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.iqac-table th {
+  padding: 14px 20px;
+  font-size: 13.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.iqac-table td {
+  padding: 14px 20px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ── Contact for Queries ── */
+.iqac-queries-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-top: 14px;
+}
+
+.iqac-query-card {
+  padding: 18px 20px;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  font-size: 0.9rem;
 }
 
-.apiq-dir-campus-links a {
+.iqac-query-name {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+
+.iqac-query-role {
+  font-size: 13.5px;
+  margin: 0;
+  line-height: 1.45;
+}
+
+.iqac-query-email a {
   text-decoration: none;
 }
 
-.apiq-dir-campus-links a:hover {
+.iqac-query-email a:hover {
   text-decoration: underline;
 }
 
-/* ── Responsive Queries ── */
-@media (max-width: 768px) {
-  .apiq-root {
-    padding: 28px 16px 60px;
-  }
-
-  .apiq-leader-card {
-    grid-template-columns: 1fr;
-    text-align: left;
-  }
-
-  .apiq-dir-row {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-
-  .apiq-dir-col:nth-child(2) {
-    border-left: none !important;
-    border-top: 1px solid var(--ap-border, rgba(197, 211, 232, 0.5));
-    padding-top: 20px;
-  }
+.iqac-source-ref {
+  margin-top: 36px;
+  font-size: 13.5px;
+  text-align: center;
 }
 
+.iqac-source-ref a {
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.iqac-source-ref a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .iqac-officer-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .iqac-officer-photo {
+    width: 140px;
+    height: 175px;
+  }
+}

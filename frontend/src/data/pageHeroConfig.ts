@@ -26,6 +26,13 @@ const studentHero = (title: string, extra?: Partial<PageHeroProps>): Omit<PageHe
   ...extra,
 });
 
+const researchHero = (title: string, extra?: Partial<PageHeroProps>): Omit<PageHeroConfig, 'match'> => ({
+  title,
+  titleImage: PAGE_HERO_IMAGE,
+  noHeroBg: true,
+  ...extra,
+});
+
 /** Core pages with custom hero copy */
 const CORE_HERO_CONFIGS: PageHeroConfig[] = [
   { ...hero('About@RGUKT-AP'), match: '/about', quote: DEFAULT_QUOTE, quoteAuthor: DEFAULT_AUTHOR },
@@ -89,22 +96,22 @@ const CORE_HERO_CONFIGS: PageHeroConfig[] = [
   { ...studentHero('Sports@RGUKT-AP'), match: '/students/sports' },
   { ...studentHero('Community Activities@RGUKT-AP'), match: '/students/community' },
   { ...studentHero('Alumni Engagement@RGUKT-AP'), match: '/students/alumni-engagement' },
-  { ...hero('Research@RGUKT-AP'), match: '/research' },
-  { ...hero('ResearchHead@RGUKT-AP'), match: '/research/head' },
-  { ...hero('ResearchEthics@RGUKT-AP'), match: '/research/ethics' },
-  { ...hero('ThrustAreas@RGUKT-AP'), match: '/research/thrust-areas' },
-  { ...hero('ResearchGuidelines@RGUKT-AP'), match: '/research/guidelines' },
-  { ...hero('CollaborationMoUs@RGUKT-AP'), match: '/research/mous' },
-  { ...hero('AdvisoryCommittee@RGUKT-AP'), match: '/research/advisory-committee' },
-  { ...hero('Placements@RGUKT-AP'), match: '/placements' },
-  { ...hero('Alumni@RGUKT-AP'), match: '/alumni' },
-  { ...hero('Contact@RGUKT-AP'), match: '/contact' },
-  { ...hero('Careers@RGUKT-AP'), match: '/careers', quote: DEFAULT_QUOTE, quoteAuthor: DEFAULT_AUTHOR },
-  { ...hero('Tenders@RGUKT-AP'), match: '/tenders' },
+  { ...researchHero('Research@RGUKT-AP'), match: '/research' },
+  { ...researchHero('Research Head@RGUKT-AP'), match: '/research/head' },
+  { ...researchHero('Ethics for Research@RGUKT-AP'), match: '/research/ethics' },
+  { ...researchHero('Thrust Areas@RGUKT-AP'), match: '/research/thrust-areas' },
+  { ...researchHero('Research Guidelines@RGUKT-AP'), match: '/research/guidelines' },
+  { ...researchHero('Collaboration MoUs@RGUKT-AP'), match: '/research/mous' },
+  { ...researchHero('Research Advisory Committee@RGUKT-AP'), match: '/research/advisory-committee' },
+  { ...researchHero('Training & Placements@RGUKT-AP'), match: '/placements' },
+  { ...researchHero('Alumni@RGUKT-AP'), match: '/alumni' },
+  { ...researchHero('Contact Us@RGUKT-AP'), match: '/contact' },
+  { ...researchHero('Careers@RGUKT-AP'), match: '/careers' },
+  { ...researchHero('Tenders@RGUKT-AP'), match: '/tenders' },
   { ...hero('Announcements@RGUKT-AP'), match: '/announcements' },
   { ...hero('News@RGUKT-AP'), match: '/news' },
   { ...hero('Gallery@RGUKT-AP'), match: '/gallery' },
-  { ...hero('IQAC@RGUKT-AP'), match: '/iqac' },
+  { ...researchHero('IQAC@RGUKT-AP'), match: '/iqac' },
 ];
 
 /** Campus profile pages (About nav) */

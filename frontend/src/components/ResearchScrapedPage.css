@@ -1,80 +1,4 @@
-/* ── Hero Container & Intelligent Image Positioning ── */
-.res-scrape-hero {
-  position: relative;
-  min-height: 240px;
-  height: clamp(240px, 28vw, 300px);
-  border-radius: 12px;
-  overflow: hidden;
-  margin-bottom: 28px;
-  box-shadow: 0 4px 18px rgba(10, 39, 68, 0.12);
-}
-
-.res-scrape-hero .res-hero-img,
-.res-scrape-hero .acad-scraped-hero-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* Individual Module Hero Image Positioning — Preserving Heads, Faces & Subjects */
-.res-hero-img-overview,
-.res-hero-img-guidelines {
-  object-position: center 18%;
-}
-
-.res-hero-img-head,
-.res-hero-img-ethics,
-.res-hero-img-advisory-committee {
-  object-position: center 20%;
-}
-
-.res-hero-img-thrust-areas {
-  object-position: center 22%;
-}
-
-.res-hero-img-mous {
-  object-position: center 16%;
-}
-
-.res-scrape-hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(10, 39, 68, 0.15) 0%,
-    rgba(10, 39, 68, 0.50) 48%,
-    rgba(10, 39, 68, 0.88) 100%
-  );
-}
-
-@media (max-width: 768px) {
-  .res-scrape-hero {
-    min-height: 210px;
-    height: 225px;
-  }
-
-  .res-hero-img-mous {
-    object-position: center 12%;
-  }
-
-  .res-hero-img-overview,
-  .res-hero-img-head,
-  .res-hero-img-ethics,
-  .res-hero-img-advisory-committee,
-  .res-hero-img-thrust-areas,
-  .res-hero-img-guidelines {
-    object-position: center 16%;
-  }
-}
-
-@media (max-width: 480px) {
-  .res-scrape-hero {
-    min-height: 195px;
-    height: 200px;
-  }
-}
-
+/* ── Research Officer Layout ── */
 .res-scrape-officer {
   display: grid;
   grid-template-columns: 170px 1fr;
@@ -105,7 +29,7 @@
 .res-scrape-officer-role {
   font-size: 13.5px;
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
   text-transform: uppercase;
   margin: 6px 0 0;
 }
@@ -257,4 +181,41 @@
     width: 140px;
     height: 175px;
   }
+}
+
+/* ── Contact for Queries ── */
+.res-queries-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  margin-top: 14px;
+}
+
+.res-query-card {
+  padding: 16px 18px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.res-query-name {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+
+.res-query-role {
+  font-size: 13.5px;
+  margin: 0;
+  line-height: 1.45;
+}
+
+.res-query-email a,
+.res-query-phone a {
+  text-decoration: none;
+}
+
+.res-query-email a:hover,
+.res-query-phone a:hover {
+  text-decoration: underline;
 }
