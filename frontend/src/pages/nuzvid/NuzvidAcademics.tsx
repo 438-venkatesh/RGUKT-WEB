@@ -1,212 +1,254 @@
-import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import {
+  ArrowRight,
+  BookOpen,
+  ChevronRight,
+  FlaskConical,
+  GraduationCap,
+  Landmark,
+  Library,
+  Microscope,
+  Monitor,
+  Trophy,
+  Users,
+} from 'lucide-react';
 import './NuzvidAcademics.css';
 
-/* ─────────── types & data ─────────── */
-type AcadTab = 'programs' | 'curriculum' | 'calendar' | 'research';
-type Branch  = 'CSE' | 'ECE' | 'EEE' | 'Mechanical' | 'Civil' | 'Chemical' | 'MME';
-
-const BRANCHES: Branch[] = ['CSE', 'ECE', 'EEE', 'Mechanical', 'Civil', 'Chemical', 'MME'];
-
-const BTECH = BRANCHES.map(b => ({ name: `B.Tech ${b}`, seats: 60 }));
-const MTECH = [
-  { name: 'M.Tech VLSI Design',           seats: 18 },
-  { name: 'M.Tech Structural Engineering', seats: 18 },
-  { name: 'M.Tech Computer Science',       seats: 18 },
+const DEPARTMENTS = [
+  { name: 'Computer Science & Engineering', href: '/nuzvid/departments', icon: Monitor },
+  { name: 'Electronics & Communication Engineering', href: '/nuzvid/departments', icon: Monitor },
+  { name: 'Electrical & Electronics Engineering', href: '/nuzvid/departments', icon: Landmark },
+  { name: 'Mechanical Engineering', href: '/nuzvid/departments', icon: FlaskConical },
+  { name: 'Civil Engineering', href: '/nuzvid/departments', icon: Landmark },
+  { name: 'Chemical Engineering', href: '/nuzvid/departments', icon: FlaskConical },
+  { name: 'Metallurgical & Materials Engineering', href: '/nuzvid/departments', icon: Trophy },
 ];
 
-function buildSemesters(branch: Branch) {
-  const pfx = branch.slice(0, 2).toUpperCase();
-  return Array.from({ length: 8 }, (_, i) => {
-    const n = i + 1;
-    return {
-      num: n, label: `Semester ${n}`,
-      courses: [
-        { code: `${pfx}${100 + n * 10}`, name: `Core Subject ${n}.1`, credits: 4, type: 'Core' },
-        { code: `${pfx}${101 + n * 10}`, name: `Core Subject ${n}.2`, credits: 3, type: 'Core' },
-        { code: `${pfx}${102 + n * 10}`, name: `Elective ${n}`,       credits: 3, type: 'Elective' },
-      ],
-    };
-  });
+const MTECH_PROGRAMS = [
+  {
+    name: 'M.Tech in Transportation Engineering',
+    desc: 'Specialization under Civil Engineering — focuses on the planning, design, operation and management of transportation systems.',
+  },
+  {
+    name: 'M.Tech in Engineering Analysis and Design',
+    desc: 'Specialization under Mechanical Engineering — advanced engineering analysis, simulation, and design methodologies.',
+  },
+];
+
+function SectionHeading({ eyebrow, title, copy, centered = false, id }: { eyebrow: string; title: string; copy?: string; centered?: boolean; id?: string }) {
+  return (
+    <div className={`nzac-section-heading${centered ? ' nzac-section-heading--centered' : ''}`}>
+      <span className="nzac-eyebrow">{eyebrow}</span>
+      <h2 id={id}>{title}</h2>
+      {copy && <p>{copy}</p>}
+    </div>
+  );
 }
 
-const CALENDAR = [
-  { date: 'Aug 21', title: 'Mid-term exams begin',     color: '#C0392B' },
-  { date: 'Sep 05', title: "Teacher's Day holiday",    color: '#1A4A8A' },
-  { date: 'Sep 22', title: 'Sitara Cultural Fest',     color: '#1565C0' },
-  { date: 'Oct 15', title: 'Semester end exams',       color: '#C0392B' },
-  { date: 'Nov 01', title: 'AP Formation Day holiday', color: '#1A4A8A' },
-  { date: 'Dec 10', title: 'Google Dev Fest',          color: '#1565C0' },
-  { date: 'Jan 26', title: 'Republic Day holiday',     color: '#1A4A8A' },
-  { date: 'Feb 10', title: 'End-sem practicals',       color: '#C0392B' },
-];
-
-const RESEARCH = [
-  { kicker: 'Research Groups', title: '12 active research groups',   desc: 'Spanning AI, materials science, power systems and structural engineering.' },
-  { kicker: 'MoUs',            title: '20+ institutional MoUs',      desc: 'Partnerships with industry and academia for joint research and internships.' },
-  { kicker: 'Funded Projects', title: '15 ongoing funded projects',  desc: 'Supported by DST, AICTE and state government research grants.' },
-];
-
-const TABS: { id: AcadTab; label: string }[] = [
-  { id: 'programs',   label: 'Programs' },
-  { id: 'curriculum', label: 'Curriculum' },
-  { id: 'calendar',   label: 'Academic Calendar' },
-  { id: 'research',   label: 'Research' },
-];
-
-/* ─────────── component ─────────── */
 export default function NuzvidAcademics() {
-  const [tab,     setTab]     = useState<AcadTab>('programs');
-  const [branch,  setBranch]  = useState<Branch>('CSE');
-  const [openSem, setOpenSem] = useState<number | null>(1);
-
-  /* Honour URL hash: /nuzvid/academics#curriculum etc. */
-  useEffect(() => {
-    const hash = window.location.hash.replace('#', '') as AcadTab;
-    if (TABS.some(t => t.id === hash)) setTab(hash);
-  }, []);
-
-  const semesters = buildSemesters(branch);
-
   return (
-    <div className="nzac-root">
-      <div className="nzac-inner">
-        <h1 className="nzac-h1">Academics</h1>
-
-        {/* ── Tab bar ── */}
-        <div className="nzac-tabbar" role="tablist">
-          {TABS.map(t => (
-            <button
-              key={t.id}
-              role="tab"
-              aria-selected={tab === t.id}
-              className={`nzac-tab${tab === t.id ? ' nzac-tab--on' : ''}`}
-              onClick={() => setTab(t.id)}
-            >
-              {t.label}
-            </button>
-          ))}
+    <div className="nzac">
+      {/* ── Hero ── */}
+      <section className="nzac-hero" aria-labelledby="academics-hero-title">
+        <img
+          className="nzac-hero-image"
+          src="/campuses/academic-complex-nuzvid.jpg"
+          alt="RGUKT Nuzvid academic complex"
+          fetchPriority="high"
+          decoding="async"
+        />
+        <div className="nzac-hero-glow" aria-hidden="true" />
+        <div className="nzac-container nzac-hero-content">
+          <div className="nzac-breadcrumb">
+            <Link to="/nuzvid">Home</Link>
+            <span>/</span>
+            <span>Academics</span>
+          </div>
+          <h1 id="academics-hero-title">Excellence in Engineering Education.</h1>
+          <p className="nzac-hero-copy">
+            RGUKT Nuzvid provides a unique six-year integrated B.Tech program, focused on holistic, technology-driven education for the rural youth.
+          </p>
         </div>
+      </section>
 
-        {/* ══ Programs ══ */}
-        {tab === 'programs' && (
+      {/* ── Overview ── */}
+      <section className="nzac-overview" aria-labelledby="overview-title">
+        <div className="nzac-container nzac-overview-grid">
           <div>
-            <h2 className="nzac-h2">B.Tech Programs</h2>
-            <div className="nzac-prog-grid">
-              {BTECH.map(p => (
-                <div key={p.name} className="nzac-card">
-                  <div className="nzac-card-name">{p.name}</div>
-                  <div className="nzac-card-meta">
-                    <span>Duration: 4 years</span>
-                    <span>Total seats: {p.seats}</span>
-                    <span>Eligibility: 10th pass + RGUKT entrance</span>
-                  </div>
+            <SectionHeading
+              eyebrow="Academic Philosophy"
+              id="overview-title"
+              title="A unique integrated approach."
+              copy="Our learner-centric educational model integrates modern computer-assisted learning with rigorous academic instruction. The six-year integrated program is designed to transform talented students into capable engineers and global innovators."
+            />
+            <div className="nzac-value-list">
+              <div>
+                <span className="nzac-icon-wrap"><Monitor size={22} aria-hidden="true" /></span>
+                <div>
+                  <h3>Technology-driven Learning</h3>
+                  <p>Every student is provided with a laptop, integrating digital learning into the core curriculum.</p>
                 </div>
-              ))}
-            </div>
-
-            <h2 className="nzac-h2 nzac-mt40">M.Tech Programs</h2>
-            <div className="nzac-prog-grid">
-              {MTECH.map(p => (
-                <div key={p.name} className="nzac-card">
-                  <div className="nzac-card-name">{p.name}</div>
-                  <div className="nzac-card-meta">
-                    <span>Duration: 2 years · Seats: {p.seats}</span>
-                  </div>
+              </div>
+              <div>
+                <span className="nzac-icon-wrap"><Users size={22} aria-hidden="true" /></span>
+                <div>
+                  <h3>Learner-Centric Environment</h3>
+                  <p>Moving away from traditional teaching to a highly interactive, problem-solving approach.</p>
                 </div>
-              ))}
+              </div>
             </div>
           </div>
-        )}
+          <div className="nzac-overview-media">
+            <img src="/campuses/nuzvid-campus-wide.jpg" alt="Students on campus" loading="lazy" decoding="async" />
+          </div>
+        </div>
+      </section>
 
-        {/* ══ Curriculum ══ */}
-        {tab === 'curriculum' && (
-          <div>
-            <div className="nzac-branch-row">
-              <label htmlFor="nzac-branch" className="nzac-branch-lbl">Select branch:</label>
-              <select
-                id="nzac-branch"
-                className="nzac-branch-sel"
-                value={branch}
-                onChange={e => setBranch(e.target.value as Branch)}
-              >
-                {BRANCHES.map(b => <option key={b} value={b}>{b}</option>)}
-              </select>
-            </div>
-
-            <div className="nzac-accord">
-              {semesters.map(s => (
-                <div key={s.num} className="nzac-sem">
-                  <button
-                    className="nzac-sem-hd"
-                    aria-expanded={openSem === s.num}
-                    onClick={() => setOpenSem(o => o === s.num ? null : s.num)}
-                  >
-                    <span>{s.label}</span>
-                    <span className="nzac-chevron">{openSem === s.num ? '−' : '+'}</span>
-                  </button>
-
-                  {openSem === s.num && (
-                    <table className="nzac-ctable">
-                      <thead>
-                        <tr className="nzac-chead">
-                          <th>Code</th>
-                          <th>Course Name</th>
-                          <th>Credits</th>
-                          <th>Type</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {s.courses.map(c => (
-                          <tr key={c.code} className="nzac-crow">
-                            <td className="nzac-code">{c.code}</td>
-                            <td>{c.name}</td>
-                            <td>{c.credits}</td>
-                            <td>
-                              <span className={`nzac-type nzac-type--${c.type.toLowerCase()}`}>{c.type}</span>
-                            </td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  )}
+      {/* ── Structure / Journey ── */}
+      <section className="nzac-structure" aria-labelledby="journey-title">
+        <div className="nzac-container">
+          <SectionHeading
+            eyebrow="The Academic Journey"
+            id="journey-title"
+            title="The Six-Year Integrated B.Tech"
+            copy="Admitted after Class X, students undergo a continuous six-year academic pathway at RGUKT Nuzvid."
+            centered
+          />
+          <div className="nzac-journey">
+            <div className="nzac-journey-card">
+              <h3>Phase 1: Pre-University Course (PUC)</h3>
+              <p>A rigorous two-year foundation program equivalent to Intermediate education. Focuses heavily on Mathematics, Physics, Chemistry, and Information Technology.</p>
+              <div className="nzac-journey-stats">
+                <div>
+                  <strong>2 Years</strong>
+                  <span>Duration</span>
                 </div>
-              ))}
+                <div>
+                  <strong>4+</strong>
+                  <span>Core Subjects</span>
+                </div>
+              </div>
+            </div>
+            <div className="nzac-journey-card secondary">
+              <h3>Phase 2: Bachelor of Technology (B.Tech)</h3>
+              <p>Following successful completion of the PUC, students automatically transition into the four-year B.Tech program in their allotted engineering discipline.</p>
+              <div className="nzac-journey-stats">
+                <div>
+                  <strong>4 Years</strong>
+                  <span>Duration</span>
+                </div>
+                <div>
+                  <strong>7</strong>
+                  <span>Engineering Branches</span>
+                </div>
+              </div>
             </div>
           </div>
-        )}
+        </div>
+      </section>
 
-        {/* ══ Academic Calendar ══ */}
-        {tab === 'calendar' && (
-          <div>
-            <div className="nzac-legend">
-              <span className="nzac-leg"><span className="nzac-leg-dot" style={{ background: '#C0392B' }} />Exams</span>
-              <span className="nzac-leg"><span className="nzac-leg-dot" style={{ background: '#1A4A8A' }} />Holidays</span>
-              <span className="nzac-leg"><span className="nzac-leg-dot" style={{ background: '#1565C0' }} />Events</span>
-            </div>
-            <div className="nzac-cal-grid">
-              {CALENDAR.map(ev => (
-                <div key={ev.title} className="nzac-ev" style={{ borderLeftColor: ev.color }}>
-                  <div className="nzac-ev-date">{ev.date}</div>
-                  <div className="nzac-ev-title">{ev.title}</div>
-                </div>
-              ))}
-            </div>
+      {/* ── Departments ── */}
+      <section className="nzac-departments" aria-labelledby="depts-title">
+        <div className="nzac-container">
+          <SectionHeading
+            eyebrow="Schools & Departments"
+            id="depts-title"
+            title="Engineering Disciplines"
+            copy="RGUKT Nuzvid offers specialized B.Tech programs across seven core engineering departments."
+          />
+          <div className="nzac-dept-grid">
+            {DEPARTMENTS.map((dept) => {
+              const Icon = dept.icon;
+              return (
+                <Link key={dept.name} to={dept.href} className="nzac-dept-card">
+                  <span className="nzac-icon-wrap">
+                    <Icon size={24} aria-hidden="true" />
+                  </span>
+                  <h3>{dept.name}</h3>
+                  <span className="nzac-arrow">
+                    <ArrowRight size={16} aria-hidden="true" />
+                  </span>
+                </Link>
+              );
+            })}
           </div>
-        )}
+        </div>
+      </section>
 
-        {/* ══ Research ══ */}
-        {tab === 'research' && (
-          <div className="nzac-prog-grid">
-            {RESEARCH.map(r => (
-              <div key={r.title} className="nzac-card">
-                <div className="nzac-res-kicker">{r.kicker}</div>
-                <div className="nzac-card-name">{r.title}</div>
-                <p className="nzac-res-desc">{r.desc}</p>
+      {/* ── Additional Programs ── */}
+      <section className="nzac-programs" aria-labelledby="programs-title">
+        <div className="nzac-container">
+          <SectionHeading
+            eyebrow="Postgraduate"
+            id="programs-title"
+            title="M.Tech Programs"
+            copy="Advanced technical education for graduates looking to specialize."
+            centered
+          />
+          <div className="nzac-programs-grid">
+            {MTECH_PROGRAMS.map(prog => (
+              <div key={prog.name} className="nzac-prog-card">
+                <h3>{prog.name}</h3>
+                <p>{prog.desc}</p>
               </div>
             ))}
           </div>
-        )}
-      </div>
+        </div>
+      </section>
+
+      {/* ── Facilities ── */}
+      <section className="nzac-facilities" aria-labelledby="facilities-title">
+        <div className="nzac-container">
+          <SectionHeading
+            eyebrow="Academic Resources"
+            id="facilities-title"
+            title="Learning Beyond the Classroom"
+            copy="State-of-the-art facilities designed to support practical learning and research."
+            centered
+          />
+          <div className="nzac-facilities-grid">
+            <div className="nzac-fac-card">
+              <Library size={32} aria-hidden="true" />
+              <h3>Central Library</h3>
+              <p>Over 20,000 volumes, digital archives, and national/international journals.</p>
+            </div>
+            <div className="nzac-fac-card">
+              <FlaskConical size={32} aria-hidden="true" />
+              <h3>Departmental Labs</h3>
+              <p>Well-equipped engineering and science laboratories for hands-on experimentation.</p>
+            </div>
+            <div className="nzac-fac-card">
+              <Microscope size={32} aria-hidden="true" />
+              <h3>Research Centers</h3>
+              <p>Dedicated facilities for ongoing faculty and student research projects.</p>
+            </div>
+            <div className="nzac-fac-card">
+              <Monitor size={32} aria-hidden="true" />
+              <h3>Computing Facilities</h3>
+              <p>High-speed campus network and advanced software tools available 24/7.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Final CTA ── */}
+      <section className="nzac-final-cta" aria-labelledby="cta-title">
+        <div className="nzac-container nzac-final-cta-inner">
+          <div>
+            <span className="nzac-eyebrow">Join RGUKT</span>
+            <h2 id="cta-title">Begin your academic journey today.</h2>
+            <p>Find out more about our admission process and eligibility.</p>
+          </div>
+          <div className="nzac-final-actions">
+            <Link to="/nuzvid/admissions" className="nzac-button nzac-button--light">
+              View Admissions <ArrowRight size={17} aria-hidden="true" />
+            </Link>
+            <Link to="/nuzvid/departments" className="nzac-button nzac-button--quiet">
+              Explore Departments <ChevronRight size={17} aria-hidden="true" />
+            </Link>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

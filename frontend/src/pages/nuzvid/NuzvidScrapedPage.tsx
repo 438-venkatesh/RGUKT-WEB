@@ -155,14 +155,7 @@ export default function NuzvidScrapedPage({ pagePath }: Props) {
           </section>
         )}
 
-        {page.pageStatus === 'ok' && (
-          <p className="nzs-source">
-            Source:{' '}
-            <a href={page.sourceUrl} target="_blank" rel="noopener noreferrer">
-              rguktn.ac.in — {page.displayTitle}
-            </a>
-          </p>
-        )}
+
 
         <Link to="/nuzvid" className="nzs-back">← Back to Nuzvid Home</Link>
       </div>
