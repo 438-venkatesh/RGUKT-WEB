@@ -12,8 +12,8 @@
   padding-top: 0;
 }
 
-/* Inner pages: offset for fixed utility bar + nav */
+/* Inner pages: offset for fixed utility bar + nav (32px + 45px = 77px) */
 .nuzvid-main--inner {
   flex: 1;
-  padding-top: calc(32px + 48px + 12px);
+  padding-top: 77px;
 }
