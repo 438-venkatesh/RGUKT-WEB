@@ -1,33 +1,16 @@
-import { useState, useMemo } from 'react';
+import { useState } from 'react';
 import { useDarkMode } from '../context/DarkModeContext';
 import {
   TENDERS_INTRO,
   BIDDER_GUIDELINES,
   OFFICIAL_TENDERS_LIST,
-  CAMPUS_PROCUREMENT_CONTACTS,
+  TENDERS_CONTACTS,
 } from '../data/tendersContent';
-import type { TenderItem } from '../data/tendersContent';
 import './Tenders.css';
-
-type CampusFilter = 'All' | 'Central Admin' | 'Nuzvid' | 'RK Valley' | 'Ongole' | 'Srikakulam';
-type StatusFilter = 'All' | 'Open' | 'In Progress' | 'Archived';
-
-const CAMPUS_FILTERS: CampusFilter[] = [
-  'All',
-  'Central Admin',
-  'Nuzvid',
-  'RK Valley',
-  'Ongole',
-  'Srikakulam',
-];
-
-const STATUS_FILTERS: StatusFilter[] = ['All', 'Open', 'In Progress', 'Archived'];
 
 export default function Tenders() {
   const { dark } = useDarkMode();
-  const [selectedCampus, setSelectedCampus] = useState<CampusFilter>('All');
-  const [selectedStatus, setSelectedStatus] = useState<StatusFilter>('All');
-  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedCampus, setSelectedCampus] = useState<string>('All');
 
   const c = dark
     ? {
@@ -43,10 +26,6 @@ export default function Tenders() {
         tagColor: '#FF6B81',
         cardBadgeBg: 'rgba(30, 58, 138, 0.4)',
         cardBadgeColor: '#93C5FD',
-        bannerBg: 'rgba(30, 58, 138, 0.25)',
-        statusOpen: '#34D399',
-        statusProgress: '#FBBF24',
-        statusArchived: '#94A3B8',
       }
     : {
         primary: '#0A2744',
@@ -61,376 +40,199 @@ export default function Tenders() {
         tagColor: '#C8102E',
         cardBadgeBg: '#EEF2FF',
         cardBadgeColor: '#1E40AF',
-        bannerBg: '#EEF2FF',
-        statusOpen: '#059669',
-        statusProgress: '#D97706',
-        statusArchived: '#64748B',
       };
 
-  const filteredTenders: TenderItem[] = useMemo(() => {
-    return OFFICIAL_TENDERS_LIST.filter((t) => {
-      const matchCampus = selectedCampus === 'All' || t.campus === selectedCampus;
-      const matchStatus = selectedStatus === 'All' || t.status === selectedStatus;
-      const matchSearch =
-        searchQuery.trim() === '' ||
-        t.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        t.referenceNo.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        t.category.toLowerCase().includes(searchQuery.toLowerCase());
-      return matchCampus && matchStatus && matchSearch;
-    });
-  }, [selectedCampus, selectedStatus, searchQuery]);
+  const campuses = ['All', 'Central Office', 'Nuzvid', 'RK Valley', 'Ongole', 'Srikakulam'];
 
-  const getStatusColor = (status: TenderItem['status']) => {
-    switch (status) {
-      case 'Open':
-        return c.statusOpen;
-      case 'In Progress':
-        return c.statusProgress;
-      case 'Archived':
-        return c.statusArchived;
-    }
-  };
+  const filteredTenders =
+    selectedCampus === 'All'
+      ? OFFICIAL_TENDERS_LIST
+      : OFFICIAL_TENDERS_LIST.filter((t) => t.campus === selectedCampus);
 
   return (
     <main className="tenders-page" style={{ background: c.bg, color: c.text }}>
       <div className="tenders-wrap">
-        {/* ── 1. Two-Line Hero Banner ── */}
-        <div className="tenders-hero" style={{ border: `1px solid ${c.border}` }}>
-          <img
-            src="/gallery/gallery-2.jpg"
-            alt="RGUKT Institutional Procurement & Tenders"
-            className="tenders-hero-img"
-          />
-          <div className="tenders-hero-overlay" />
-          <div className="tenders-hero-text">
-            <span className="tenders-hero-eyebrow">Procurement, Contracts & Notices</span>
-            <h1 className="tenders-hero-title">
-              Tenders
-              <br />
-              @RGUKT-AP
-            </h1>
-          </div>
-        </div>
-
-        {/* ── 2. Introduction & e-Procurement Portal Gateway ── */}
+        {/* ── 1. Introduction & Guidelines Note ── */}
         <section
           className="tenders-intro-card"
           style={{ background: c.surface, border: `1px solid ${c.border}` }}
         >
+          <span className="tenders-section-kicker" style={{ color: c.accent }}>
+            Institutional Procurement
+          </span>
+          <h2 className="tenders-intro-title" style={{ color: c.text }}>
+            Tenders & Notice Inviting Quotations (NIQ)
+          </h2>
           <p className="tenders-intro-lead" style={{ color: c.text }}>
             {TENDERS_INTRO.lead}
           </p>
-          <div
-            className="tenders-eproc-banner"
-            style={{
-              background: c.bannerBg,
-              borderColor: c.accent,
-              color: c.text,
-            }}
-          >
-            <strong>e-Procurement & Statutory Compliance:</strong> {TENDERS_INTRO.eprocurementNote}
-            <div className="tenders-eproc-links">
-              <a
-                href="https://tender.apeprocurement.gov.in"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="tenders-eproc-btn"
-                style={{ background: c.primary, color: '#ffffff' }}
-              >
-                AP e-Procurement Portal ↗
-              </a>
-              <a
-                href="https://gem.gov.in"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="tenders-eproc-btn"
-                style={{ background: c.accent, color: '#ffffff' }}
-              >
-                Government e-Marketplace (GeM) ↗
-              </a>
-            </div>
-          </div>
+          <p className="tenders-intro-lead" style={{ color: c.textMuted }}>
+            {TENDERS_INTRO.eprocurementNote}
+          </p>
         </section>
 
-        {/* ── 3. Bidder Guidelines & Submission Compliance ── */}
+        {/* ── 2. Bidder Guidelines ── */}
         <section className="tenders-section">
           <div className="tenders-section-header">
+            <span className="tenders-section-kicker" style={{ color: c.accent }}>
+              Procurement Process
+            </span>
             <h2 className="tenders-h2" style={{ color: c.text }}>
-              Bidder Guidelines & Procurement Compliance
+              Bidding Guidelines & Terms
             </h2>
             <p className="tenders-section-sub" style={{ color: c.textMuted }}>
-              Key instructions regarding digital certificates, two-cover evaluations, EMD payment rules, and corrigenda.
+              Key statutory procedures and compliance requirements for tender submissions.
             </p>
           </div>
 
           <div className="tenders-guidelines-grid">
-            {BIDDER_GUIDELINES.map((g, idx) => (
-              <div
-                key={idx}
-                className="tenders-guideline-card"
+            {BIDDER_GUIDELINES.map((guide) => (
+              <article
+                key={guide.title}
+                className="tenders-guide-card"
                 style={{ background: c.surface, border: `1px solid ${c.border}` }}
               >
-                <span className="tenders-guideline-tagline" style={{ color: c.accent }}>
-                  {g.tagline}
+                <span
+                  className="tenders-card-badge"
+                  style={{ background: c.cardBadgeBg, color: c.cardBadgeColor }}
+                >
+                  {guide.tagline}
                 </span>
-                <h3 className="tenders-guideline-title" style={{ color: c.text }}>
-                  {g.title}
+                <h3 className="tenders-card-title" style={{ color: c.text }}>
+                  {guide.title}
                 </h3>
-                <p className="tenders-guideline-desc" style={{ color: c.textMuted }}>
-                  {g.description}
+                <p className="tenders-card-desc" style={{ color: c.textMuted }}>
+                  {guide.description}
                 </p>
-              </div>
+              </article>
             ))}
           </div>
         </section>
 
-        {/* ── 4. Interactive Tender & NIQ Database ── */}
+        {/* ── 3. Tender Notifications Archive Table ── */}
         <section className="tenders-section">
           <div className="tenders-section-header">
+            <span className="tenders-section-kicker" style={{ color: c.accent }}>
+              Notifications & Records
+            </span>
             <h2 className="tenders-h2" style={{ color: c.text }}>
-              Active Tenders & Notices Inviting Quotations (NIQ)
+              Tender Notifications & Archive
             </h2>
             <p className="tenders-section-sub" style={{ color: c.textMuted }}>
-              Browse and filter tenders across Central Administration and all constituent campuses.
+              Official procurement and quotation notices issued across RGUKT campuses.
             </p>
           </div>
 
-          {/* Filter Controls & Search */}
-          <div className="tenders-controls">
-            {/* Campus Filter */}
-            <div className="tenders-filter-row">
-              <span className="tenders-filter-label" style={{ color: c.textMuted }}>
-                Campus:
-              </span>
-              <div className="tenders-filter-chips">
-                {CAMPUS_FILTERS.map((camp) => {
-                  const isActive = selectedCampus === camp;
-                  return (
-                    <button
-                      key={camp}
-                      className="tenders-chip"
-                      onClick={() => setSelectedCampus(camp)}
-                      style={{
-                        border: `1px solid ${isActive ? c.accent : c.border}`,
-                        background: isActive ? c.primary : c.surface,
-                        color: isActive ? '#ffffff' : c.text,
-                      }}
-                    >
-                      {camp === 'All' ? 'All Campuses' : camp}
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Status Filter */}
-            <div className="tenders-filter-row">
-              <span className="tenders-filter-label" style={{ color: c.textMuted }}>
-                Status:
-              </span>
-              <div className="tenders-filter-chips">
-                {STATUS_FILTERS.map((stat) => {
-                  const isActive = selectedStatus === stat;
-                  return (
-                    <button
-                      key={stat}
-                      className="tenders-chip"
-                      onClick={() => setSelectedStatus(stat)}
-                      style={{
-                        border: `1px solid ${isActive ? c.accent : c.border}`,
-                        background: isActive ? c.primary : c.surface,
-                        color: isActive ? '#ffffff' : c.text,
-                      }}
-                    >
-                      {stat === 'All' ? 'All Statuses' : stat}
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Search Input */}
-            <div className="tenders-search-wrap">
-              <span className="tenders-search-icon" style={{ color: c.textMuted }}>
-                🔍
-              </span>
-              <input
-                type="text"
-                placeholder="Search by tender title, reference no. or category..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="tenders-search-input"
+          {/* Campus Filter Tabs */}
+          <div className="tenders-category-tabs">
+            {campuses.map((campus) => (
+              <button
+                key={campus}
+                onClick={() => setSelectedCampus(campus)}
+                className={`tenders-tab-btn ${selectedCampus === campus ? 'active' : ''}`}
                 style={{
+                  background: selectedCampus === campus ? c.accent : c.surface,
+                  color: selectedCampus === campus ? '#FFFFFF' : c.text,
                   border: `1px solid ${c.border}`,
-                  background: c.surface,
-                  color: c.text,
                 }}
-              />
-            </div>
+              >
+                {campus}
+              </button>
+            ))}
           </div>
 
-          {/* Tenders Table */}
-          <div className="tenders-table-wrap" style={{ border: `1px solid ${c.border}` }}>
+          <div className="tenders-table-wrap" style={{ background: c.surface, border: `1px solid ${c.border}` }}>
             <table className="tenders-table">
               <thead>
-                <tr style={{ background: c.surface2 }}>
-                  <th className="tenders-th" style={{ color: c.text }}>
-                    Ref. No.
-                  </th>
-                  <th className="tenders-th" style={{ color: c.text }}>
-                    Tender Description
-                  </th>
-                  <th className="tenders-th" style={{ color: c.text }}>
-                    Campus
-                  </th>
-                  <th className="tenders-th" style={{ color: c.text }}>
-                    Posted Date
-                  </th>
-                  <th className="tenders-th" style={{ color: c.text }}>
-                    Closing Date
-                  </th>
-                  <th className="tenders-th" style={{ color: c.text }}>
-                    Status
-                  </th>
-                  <th className="tenders-th" style={{ color: c.text, textAlign: 'right' }}>
-                    Document
-                  </th>
+                <tr style={{ borderBottom: `2px solid ${c.border}` }}>
+                  <th style={{ color: c.text }}>Reference / Tender No</th>
+                  <th style={{ color: c.text }}>Description</th>
+                  <th style={{ color: c.text }}>Campus</th>
+                  <th style={{ color: c.text }}>Posted Date</th>
+                  <th style={{ color: c.text }}>Closing Date</th>
+                  <th style={{ color: c.text }}>Status</th>
                 </tr>
               </thead>
               <tbody>
-                {filteredTenders.map((t, idx) => {
-                  const rowBg = idx % 2 === 0 ? c.surface : c.bg;
-                  const statColor = getStatusColor(t.status);
-                  return (
-                    <tr
-                      key={t.id}
-                      style={{
-                        borderTop: `1px solid ${c.border}`,
-                        background: rowBg,
-                      }}
-                    >
-                      <td className="tenders-td tenders-ref-no" style={{ color: c.accent }}>
-                        {t.referenceNo}
-                      </td>
-                      <td className="tenders-td">
-                        <div className="tenders-item-title" style={{ color: c.text }}>
-                          {t.title}
-                        </div>
-                        <div className="tenders-item-meta">
-                          <span
-                            className="tenders-cat-badge"
-                            style={{ background: c.cardBadgeBg, color: c.cardBadgeColor }}
-                          >
-                            {t.category}
-                          </span>
-                          {t.isEProcurement && (
-                            <span className="tenders-eproc-tag" style={{ color: c.accent }}>
-                              ⚡ e-Procurement
-                            </span>
-                          )}
-                        </div>
-                      </td>
-                      <td className="tenders-td tenders-campus-cell" style={{ color: c.text }}>
-                        {t.campus}
-                      </td>
-                      <td
-                        className="tenders-td tenders-date-cell"
-                        style={{ color: c.textMuted }}
+                {filteredTenders.map((tender) => (
+                  <tr key={tender.id} style={{ borderBottom: `1px solid ${c.border}` }}>
+                    <td style={{ color: c.accent, fontWeight: 600 }}>{tender.referenceNo}</td>
+                    <td style={{ color: c.text }}>
+                      <strong>{tender.title}</strong>
+                      <span className="tenders-table-category" style={{ color: c.textMuted }}>
+                        {tender.category}
+                      </span>
+                    </td>
+                    <td style={{ color: c.textMuted }}>{tender.campus}</td>
+                    <td style={{ color: c.textMuted }}>{tender.postedDate}</td>
+                    <td style={{ color: c.textMuted }}>{tender.closingDate}</td>
+                    <td>
+                      <span
+                        className="tenders-status-badge"
+                        style={{ background: c.surface2, color: c.textMuted, border: `1px solid ${c.border}` }}
                       >
-                        {t.postedDate}
-                      </td>
-                      <td
-                        className="tenders-td tenders-date-cell"
-                        style={{ color: c.text, fontWeight: 600 }}
-                      >
-                        {t.closingDate}
-                      </td>
-                      <td className="tenders-td">
-                        <span
-                          className="tenders-status-badge"
-                          style={{
-                            color: statColor,
-                            border: `1px solid ${statColor}`,
-                            background: dark ? 'rgba(0,0,0,0.2)' : 'rgba(255,255,255,0.7)',
-                          }}
-                        >
-                          {t.status}
-                        </span>
-                      </td>
-                      <td className="tenders-td tenders-action-cell">
-                        {t.documentUrl ? (
-                          <a
-                            href={t.documentUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="tenders-doc-btn"
-                            style={{ background: c.primary, color: '#ffffff' }}
-                          >
-                            {t.isEProcurement ? 'Portal ↗' : 'PDF ↗'}
-                          </a>
-                        ) : (
-                          <span style={{ color: c.textMuted, fontSize: 12 }}>At Office</span>
-                        )}
-                      </td>
-                    </tr>
-                  );
-                })}
-
-                {filteredTenders.length === 0 && (
-                  <tr>
-                    <td colSpan={7} className="tenders-empty-row" style={{ color: c.textMuted }}>
-                      No tenders or quotations match your selected campus, status, or search query.
+                        {tender.status}
+                      </span>
                     </td>
                   </tr>
-                )}
+                ))}
               </tbody>
             </table>
           </div>
         </section>
 
-        {/* ── 5. Multi-Campus Procurement Contacts ── */}
+        {/* ── 4. Contact for Queries ── */}
         <section className="tenders-section">
           <div className="tenders-section-header">
             <h2 className="tenders-h2" style={{ color: c.text }}>
-              Procurement & Purchase Desks Across Campuses
+              Contact for Queries
             </h2>
-            <p className="tenders-section-sub" style={{ color: c.textMuted }}>
-              Official contact information for vendor queries, submission verification, and departmental purchase inquiries.
-            </p>
           </div>
-
-          <div className="tenders-contacts-grid">
-            {CAMPUS_PROCUREMENT_CONTACTS.map((desk, idx) => (
+          <div className="tenders-queries-grid">
+            {TENDERS_CONTACTS.map((contact, i) => (
               <div
-                key={idx}
-                className="tenders-contact-card"
+                key={i}
+                className="tenders-query-card"
                 style={{ background: c.surface, border: `1px solid ${c.border}` }}
               >
-                <span
-                  className="tenders-contact-badge"
-                  style={{ background: c.cardBadgeBg, color: c.cardBadgeColor }}
-                >
-                  {desk.deskType}
-                </span>
-                <h3 className="tenders-contact-title" style={{ color: c.text }}>
-                  {desk.campus}
-                </h3>
-                <p className="tenders-contact-office" style={{ color: c.textMuted }}>
-                  {desk.office}
-                </p>
-                <a
-                  href={`mailto:${desk.email}`}
-                  className="tenders-contact-email"
-                  style={{ color: c.accent }}
-                >
-                  Email: {desk.email}
-                </a>
+                <strong className="tenders-query-name" style={{ color: c.text }}>
+                  {contact.name}
+                </strong>
+                {contact.role && (
+                  <p className="tenders-query-role" style={{ color: c.textMuted }}>
+                    {contact.role}
+                  </p>
+                )}
+                {contact.email && (
+                  <p className="tenders-query-email" style={{ margin: '6px 0 0' }}>
+                    <a href={`mailto:${contact.email}`} style={{ color: c.accent, fontWeight: 600 }}>
+                      {contact.email}
+                    </a>
+                  </p>
+                )}
+                {contact.note && (
+                  <p className="tenders-query-note" style={{ color: c.textMuted, margin: '4px 0 0', fontSize: 13 }}>
+                    {contact.note}
+                  </p>
+                )}
               </div>
             ))}
           </div>
         </section>
+
+        {/* ── 5. Source Reference ── */}
+        <p className="tenders-source-ref" style={{ color: c.textMuted }}>
+          Official Reference:{' '}
+          <a
+            href={TENDERS_INTRO.rguktUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: c.accent }}
+          >
+            rgukt.in — Tenders
+          </a>
+        </p>
       </div>
     </main>
   );
 }
-

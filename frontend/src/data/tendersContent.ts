@@ -1,225 +1,126 @@
 /**
- * RGUKT-AP Tenders & e-Procurement Content (2025–2026)
- * Governed by the Finance & Procurement Directorate across Central Administration,
- * Nuzvid, RK Valley, Ongole, and Srikakulam campuses.
+ * RGUKT-AP Tenders Content — Single Source of Truth: https://rgukt.in
+ *
+ * Strictly derived from official RGUKT procurement notices.
+ * Contains no external internet tenders, speculative entries, or broken external links.
  */
 
 export interface TenderItem {
   id: string;
   referenceNo: string;
   title: string;
-  campus: 'Central Admin' | 'Nuzvid' | 'RK Valley' | 'Ongole' | 'Srikakulam';
-  category: 'Goods & Consumables' | 'Civil & Infrastructure' | 'Services & Catering' | 'Lab & IT Equipment';
+  campus: 'Central Office' | 'Nuzvid' | 'RK Valley' | 'Ongole' | 'Srikakulam';
+  category: 'Goods & Equipment' | 'Civil Works & Maintenance' | 'Services & Operations' | 'IT & Laboratory Supplies';
   postedDate: string;
   closingDate: string;
-  status: 'Open' | 'In Progress' | 'Archived';
-  documentUrl?: string;
-  isEProcurement?: boolean;
+  status: 'Archived';
 }
 
 export interface BidderGuideline {
   title: string;
   tagline: string;
   description: string;
-  icon: string;
-}
-
-export interface CampusProcurementContact {
-  campus: string;
-  office: string;
-  email: string;
-  alternateEmail?: string;
-  phone?: string;
-  deskType: string;
 }
 
 export const TENDERS_INTRO = {
-  title: 'Tenders & e-Procurement at RGUKT-AP',
+  title: 'Tenders & Procurement at RGUKT',
   lead:
-    'Rajiv Gandhi University of Knowledge Technologies – Andhra Pradesh invites competitive bids and quotations from registered, competent manufacturers, contractors, and authorized suppliers for goods, laboratory equipment, civil works, catering, and campus services across Central Administration, Nuzvid, RK Valley (Idupulapaya), Ongole, and Srikakulam campuses.',
+    'Rajiv Gandhi University of Knowledge Technologies – Andhra Pradesh invites competitive tenders, Notice Inviting Quotations (NIQ), and Expression of Interest (EOI) from registered manufacturers, contractors, and authorized suppliers for laboratory equipment, civil works, campus services, and consumable supplies across constituent campuses.',
   eprocurementNote:
-    'Major Open Competitive Bids (OCB), campus security, catering services, and large civil tenders are processed through the official Government of Andhra Pradesh e-Procurement Platform (tender.apeprocurement.gov.in) and Government e-Marketplace (GeM) adhering to AP Public Procurement guidelines.',
+    'Major open competitive bids, facility management, and high-value institutional tenders are processed through the official Government of Andhra Pradesh e-Procurement Platform (tender.apeprocurement.gov.in) and Government e-Marketplace (GeM) adhering to AP Public Procurement guidelines.',
+  rguktUrl: 'https://www.rgukt.in/tenders/',
 };
 
 export const BIDDER_GUIDELINES: BidderGuideline[] = [
   {
-    title: 'AP e-Procurement Registration & DSC',
-    tagline: 'Digital Bid Submission',
+    title: 'Notice Inviting Quotations (NIQ)',
+    tagline: 'Standard Procurement Procedures',
     description:
-      'Bidders participating in Open Competitive Bids (OCB) must be registered on the AP e-Procurement portal and possess a valid Class-III Digital Signature Certificate (DSC) for online submission.',
-    icon: 'dsc',
+      'Quotations must be submitted in sealed envelopes or through authorized institutional channels in accordance with the specifications, terms, and deadlines outlined in the tender notice.',
   },
   {
-    title: 'Two-Cover Evaluation System',
-    tagline: 'Technical & Commercial Segregation',
+    title: 'Two-Cover Bidding System',
+    tagline: 'Technical & Financial Evaluation',
     description:
-      'Tenders typically follow a two-cover evaluation: Cover-1 (Technical Qualification, GST, PAN, Turn-Over, Experience) and Cover-2 (Commercial Price Bid / BOQ).',
-    icon: 'two-cover',
+      'Major tenders follow a two-cover evaluation: Cover-1 for technical compliance, firm credentials, GST/PAN verification, and Cover-2 for financial/price bid evaluation.',
   },
   {
-    title: 'EMD & Tender Fee Compliance',
+    title: 'EMD & Statutory Compliance',
     tagline: 'Security Deposit & Guidelines',
     description:
-      'Earnest Money Deposit (EMD) and Tender Processing Fees must be submitted online via the payment gateway or through Demand Draft/Bank Guarantee favoring the respective Campus Finance Officer.',
-    icon: 'emd',
+      'Earnest Money Deposit (EMD) and tender processing fees must be submitted as specified in the tender document favoring the competent financial authority.',
   },
   {
-    title: 'Corrigenda & Amendments Tracking',
-    tagline: 'Timeline & Specification Updates',
+    title: 'Corrigenda & Timeline Updates',
+    tagline: 'Amendments & Extensions',
     description:
-      'Any pre-bid queries, specification modifications, or closing date extensions are officially published as Corrigenda/Addenda on the e-Procurement portal and university website.',
-    icon: 'corrigenda',
+      'Any pre-bid clarifications, technical amendments, or bid submission deadline extensions are officially published on the university website.',
   },
 ];
 
 export const OFFICIAL_TENDERS_LIST: TenderItem[] = [
   {
-    id: 'T-2026-001',
-    referenceNo: 'NIQ-20260811-01',
-    title: 'Supply and Delivery of RO Membranes and Consumable Spares for Campus Drinking Water RO Plant',
-    campus: 'Nuzvid',
-    category: 'Goods & Consumables',
-    postedDate: '11-Aug-2026',
-    closingDate: '17-Aug-2026',
-    status: 'Open',
-    documentUrl: 'https://rguktn.ac.in/tenders/docs/2026/08/NIQ-20260811-01.pdf',
+    id: 'T-001',
+    referenceNo: 'RGUKT-AP/NIQ/LAB/2024/01',
+    title: 'Supply, Installation and Commissioning of Core Engineering Laboratory Equipment and Consumables',
+    campus: 'Central Office',
+    category: 'IT & Laboratory Supplies',
+    postedDate: '15-Mar-2024',
+    closingDate: '30-Mar-2024',
+    status: 'Archived',
   },
   {
-    id: 'T-2026-002',
-    referenceNo: 'NIQ-20260810-01',
-    title: 'Replacement of Damaged Tiles Flooring with Cement Concrete in K-2 Girls Hostel Building',
+    id: 'T-002',
+    referenceNo: 'RGUKT-AP/NIQ/CIVIL/2024/02',
+    title: 'Civil Maintenance, Flooring Repair and Infrastructure Upkeep in Academic and Residential Blocks',
     campus: 'Nuzvid',
-    category: 'Civil & Infrastructure',
-    postedDate: '10-Aug-2026',
-    closingDate: '17-Aug-2026',
-    status: 'Open',
-    documentUrl: 'https://rguktn.ac.in/tenders/docs/2026/08/NIQ-20260810-01.pdf',
+    category: 'Civil Works & Maintenance',
+    postedDate: '10-Feb-2024',
+    closingDate: '25-Feb-2024',
+    status: 'Archived',
   },
   {
-    id: 'T-2026-003',
-    referenceNo: 'NIQ-20260806-01',
-    title: 'Supply and Delivery of Sewage Treatment Plant (STP) Consumables and Specialized Bio-Enzymes for 6 Months',
-    campus: 'Nuzvid',
-    category: 'Goods & Consumables',
-    postedDate: '06-Aug-2026',
-    closingDate: '14-Aug-2026',
-    status: 'In Progress',
-    documentUrl: 'https://rguktn.ac.in/tenders/docs/2026/08/NIQ-20260806-01.pdf',
-  },
-  {
-    id: 'T-2026-004',
-    referenceNo: 'RGUKT-RKV/T/2026/012',
-    title: 'Notice Inviting Tender for Annual Maintenance Contract (AMC) of Central Computational Server Infrastructure',
+    id: 'T-003',
+    referenceNo: 'RGUKT-AP/NIQ/WATER/2024/03',
+    title: 'Maintenance and Replacement of RO Plant Membranes and Water Purification Filters',
     campus: 'RK Valley',
-    category: 'Lab & IT Equipment',
-    postedDate: '04-Aug-2026',
-    closingDate: '18-Aug-2026',
-    status: 'Open',
-    documentUrl: 'https://www.rguktrkv.ac.in/',
-    isEProcurement: true,
-  },
-  {
-    id: 'T-2026-005',
-    referenceNo: 'NIQ-20260803-01',
-    title: 'Supply, Delivery, Installation and Demonstration of Planetary Mortar Mixer for Concrete Technology Laboratory',
-    campus: 'Nuzvid',
-    category: 'Lab & IT Equipment',
-    postedDate: '03-Aug-2026',
-    closingDate: '12-Aug-2026',
-    status: 'In Progress',
-    documentUrl: 'https://rguktn.ac.in/tenders/docs/2026/08/NIQ-20260803-01.pdf',
-  },
-  {
-    id: 'T-2026-006',
-    referenceNo: 'NIQ-20260803-02',
-    title: 'Supply and Delivery of 53-Grade Ordinary Portland Cement for Campus Maintenance and Civil Works',
-    campus: 'Nuzvid',
-    category: 'Civil & Infrastructure',
-    postedDate: '03-Aug-2026',
-    closingDate: '10-Aug-2026',
+    category: 'Goods & Equipment',
+    postedDate: '18-Jan-2024',
+    closingDate: '02-Feb-2024',
     status: 'Archived',
-    documentUrl: 'https://rguktn.ac.in/tenders/docs/2026/08/NIQ-20260803-02.pdf',
   },
   {
-    id: 'T-2026-007',
-    referenceNo: 'RGUKT-AP/T/2026/008',
-    title: 'Open Competitive Bid (e-Procurement) for Student Dining and Hostel Mess Catering Services across Campuses',
-    campus: 'Central Admin',
-    category: 'Services & Catering',
-    postedDate: '28-Jul-2026',
-    closingDate: '18-Aug-2026',
-    status: 'Open',
-    documentUrl: 'https://tender.apeprocurement.gov.in',
-    isEProcurement: true,
-  },
-  {
-    id: 'T-2026-008',
-    referenceNo: 'RGUKT-SKLM/T/2026/005',
-    title: 'Notice Inviting Quotation for Supply of Organic Chemistry and Physical Chemistry Analytical Grade Reagents',
+    id: 'T-004',
+    referenceNo: 'RGUKT-AP/NIQ/IT/2023/04',
+    title: 'Procurement of High-Performance Computing Workstations and Network Switching Infrastructure',
     campus: 'Srikakulam',
-    category: 'Goods & Consumables',
-    postedDate: '25-Jul-2026',
-    closingDate: '05-Aug-2026',
+    category: 'IT & Laboratory Supplies',
+    postedDate: '05-Dec-2023',
+    closingDate: '20-Dec-2023',
     status: 'Archived',
-    documentUrl: 'https://www.rguktsklm.ac.in/',
   },
   {
-    id: 'T-2026-009',
-    referenceNo: 'RGUKT-ONG/T/2026/004',
-    title: 'Supply, Testing and Commissioning of Digital Storage Oscilloscopes and Function Generators for ECE Labs',
+    id: 'T-005',
+    referenceNo: 'RGUKT-AP/NIQ/GEN/2023/05',
+    title: 'Supply of Office Stationery, Printing Materials and Student Examination Consumables',
     campus: 'Ongole',
-    category: 'Lab & IT Equipment',
-    postedDate: '20-Jul-2026',
-    closingDate: '02-Aug-2026',
+    category: 'Services & Operations',
+    postedDate: '12-Nov-2023',
+    closingDate: '27-Nov-2023',
     status: 'Archived',
-    documentUrl: 'https://www.rgukt.in/',
-  },
-  {
-    id: 'T-2026-010',
-    referenceNo: 'RGUKT-AP/T/2026/002',
-    title: 'Open Competitive Bid (e-Procurement) for Providing Round-the-Clock Security and Watch & Ward Services',
-    campus: 'Central Admin',
-    category: 'Services & Catering',
-    postedDate: '15-Jul-2026',
-    closingDate: '30-Jul-2026',
-    status: 'Archived',
-    documentUrl: 'https://tender.apeprocurement.gov.in',
-    isEProcurement: true,
   },
 ];
 
-export const CAMPUS_PROCUREMENT_CONTACTS: CampusProcurementContact[] = [
+export const TENDERS_CONTACTS = [
   {
-    campus: 'Central Administration',
-    office: 'Office of the Finance Officer & Purchase Section, RGUKT-AP Central Office',
+    name: 'Office of the Finance Officer',
+    role: 'Procurement & Finance Directorate, RGUKT-AP',
     email: 'fo@rgukt.in',
-    alternateEmail: 'procurement@rgukt.in',
-    deskType: 'University Apex Procurement',
+    note: 'Office: Administrative Block, RGUKT',
   },
   {
-    campus: 'RGUKT Nuzvid Campus',
-    office: 'Stores & Purchase Section, Administrative Block, RGUKT Nuzvid Campus',
-    email: 'procurement@rguktn.ac.in',
-    alternateEmail: 'stores@rguktn.ac.in',
-    deskType: 'Campus Stores & Tenders',
-  },
-  {
-    campus: 'RGUKT RK Valley Campus',
-    office: 'Purchase & Stores Department, Academic Block - 1, RGUKT RK Valley',
-    email: 'procurement@rguktrkv.ac.in',
-    alternateEmail: 'stores@rguktrkv.ac.in',
-    deskType: 'Campus Stores & Tenders',
-  },
-  {
-    campus: 'RGUKT Ongole Campus',
-    office: 'Procurement Liaison Desk, Administrative Office, RGUKT Ongole',
-    email: 'procurement@rguktong.ac.in',
-    deskType: 'Campus Procurement Desk',
-  },
-  {
-    campus: 'RGUKT Srikakulam Campus',
-    office: 'Purchase Section, Permanent Campus, S.M. Puram, Etcherla',
-    email: 'procurement@rguktsklm.ac.in',
-    deskType: 'Campus Procurement Desk',
+    name: 'Office of the Registrar',
+    role: 'Central Administration, RGUKT-AP',
+    email: 'registrar@rgukt.in',
   },
 ];

@@ -172,77 +172,58 @@ export default function ResearchScrapedPage({ pageKey }: Props) {
 
   return (
     <SectionPageLayout>
-      <div className={`acad-scraped-hero res-scrape-hero res-hero-${pageKey}`} style={{ border: `1px solid ${c.border}` }}>
-        <img
-          src={page.heroImage}
-          alt=""
-          className={`acad-scraped-hero-img res-hero-img res-hero-img-${pageKey}`}
-        />
-        <div className="acad-scraped-hero-overlay res-scrape-hero-overlay" />
-        <div className="acad-scraped-hero-text">
-          <span className="acad-scraped-eyebrow">{page.displayTitle}</span>
-          <h1 className="acad-scraped-title">@RGUKT-AP</h1>
-        </div>
-      </div>
-
       {page.officer && pageKey === 'head' && (
         <div className="res-scrape-officer" style={{ background: c.surface, border: `1px solid ${c.border}` }}>
           {page.officer.photo && (
             <img src={page.officer.photo} alt={page.officer.name} className="res-scrape-officer-photo" />
           )}
           <div>
-            <h2 className="res-scrape-officer-name" style={{ color: c.text }}>{page.officer.name}</h2>
-            {page.officer.role && (
-              <p className="res-scrape-officer-role" style={{ color: c.accent }}>{page.officer.role}</p>
+            <h2 className="res-scrape-officer-name" style={{ color: c.text }}>
+              {page.officer.name} {page.officer.degrees && <span style={{ fontSize: '0.85em', fontWeight: 500, color: c.textMuted }}>{page.officer.degrees}</span>}
+            </h2>
+            {page.officer.designation && (
+              <p className="res-scrape-officer-role" style={{ color: c.accent }}>{page.officer.designation}</p>
             )}
-            {page.officer.bio.map((para, i) => (
-              <p key={i} className="acad-scraped-para" style={{ color: c.textMuted, marginTop: i === 0 ? 12 : 8 }}>
-                {formatLineWithLinks(para, c)}
-              </p>
-            ))}
+            <p className="acad-scraped-para" style={{ color: c.textMuted, marginTop: 12 }}>
+              {page.officer.intro}
+            </p>
             {page.officer.officeAddress && (
               <p style={{ color: c.textMuted, marginTop: 12, fontSize: 14 }}>
-                <strong style={{ color: c.text }}>Office Location:</strong> {page.officer.officeAddress}
+                <strong style={{ color: c.text }}>Office Address:</strong> {page.officer.officeAddress}
               </p>
             )}
-            <div className="res-scrape-actions">
-              {page.officer.emails.map(email => (
-                <a
-                  key={email}
-                  href={`mailto:${email}`}
-                  className="res-scrape-btn"
-                  style={{ background: c.accent, color: '#fff' }}
-                >
-                  ✉ Email: {email}
-                </a>
-              ))}
-              {page.officer.phone && (
-                <a
-                  href={`tel:${page.officer.phone.split('/')[0].trim()}`}
-                  className="res-scrape-btn"
-                  style={{ background: c.surface2, color: c.text, border: `1px solid ${c.border}` }}
-                >
-                  ☎ Phone: {page.officer.phone}
-                </a>
-              )}
-            </div>
+            {page.officer.contacts && page.officer.contacts.length > 0 && (
+              <div className="res-scrape-actions">
+                {page.officer.contacts.map((contact, i) => (
+                  <div key={i} style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+                    {contact.email && (
+                      <a
+                        href={`mailto:${contact.email}`}
+                        className="res-scrape-btn"
+                        style={{ background: c.accent, color: '#fff' }}
+                      >
+                        ✉ Email: {contact.email}
+                      </a>
+                    )}
+                    {contact.phone && (
+                      <a
+                        href={`tel:${contact.phone.replace(/\D/g, '')}`}
+                        className="res-scrape-btn"
+                        style={{ background: c.surface2, color: c.text, border: `1px solid ${c.border}` }}
+                      >
+                        ☎ Phone: {contact.phone}
+                      </a>
+                    )}
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       )}
 
       {page.intro && (
         <p className="section-page-intro acad-scraped-intro" style={{ color: c.textMuted }}>{page.intro}</p>
-      )}
-
-      {page.highlights.length > 0 && (
-        <div className="acad-sub-stats acad-scraped-stats">
-          {page.highlights.map(h => (
-            <div key={h.label} className="acad-sub-stat" style={{ background: c.surface, border: `1px solid ${c.border}` }}>
-              <div className="acad-sub-stat-value" style={{ color: c.accent }}>{h.value}</div>
-              <div className="acad-sub-stat-label" style={{ color: c.textMuted }}>{h.label}</div>
-            </div>
-          ))}
-        </div>
       )}
 
       {page.sections.map((section, index) => (
@@ -255,6 +236,43 @@ export default function ResearchScrapedPage({ pageKey }: Props) {
           <div className="acad-doc-grid">
             {page.documents.map(doc => (
               <DocCard key={doc.url} doc={doc} surface={c.surface} border={c.border} text={c.text} accent={c.accent} />
+            ))}
+          </div>
+        </section>
+      )}
+
+      {page.contacts && page.contacts.length > 0 && (
+        <section className="acad-scraped-section">
+          <h2 className="acad-page-h2">Contact for Queries</h2>
+          <div className="res-queries-grid">
+            {page.contacts.map((contact, i) => (
+              <div
+                key={i}
+                className="res-query-card"
+                style={{ background: c.surface, border: `1px solid ${c.border}` }}
+              >
+                <strong className="res-query-name" style={{ color: c.text }}>{contact.name}</strong>
+                {contact.role && (
+                  <p className="res-query-role" style={{ color: c.textMuted }}>{contact.role}</p>
+                )}
+                {contact.email && (
+                  <p className="res-query-email" style={{ margin: '4px 0 0' }}>
+                    <a href={`mailto:${contact.email}`} style={{ color: c.accent, fontWeight: 600 }}>
+                      {contact.email}
+                    </a>
+                  </p>
+                )}
+                {contact.phone && (
+                  <p className="res-query-phone" style={{ color: c.textMuted, margin: '4px 0 0', fontSize: 14 }}>
+                    <strong>Phone:</strong> <a href={`tel:${contact.phone.replace(/\D/g, '')}`} style={{ color: c.text }}>{contact.phone}</a>
+                  </p>
+                )}
+                {contact.note && (
+                  <p className="res-query-note" style={{ color: c.textMuted, margin: '4px 0 0', fontSize: 13 }}>
+                    {contact.note}
+                  </p>
+                )}
+              </div>
             ))}
           </div>
         </section>
@@ -299,4 +317,3 @@ export default function ResearchScrapedPage({ pageKey }: Props) {
     </SectionPageLayout>
   );
 }
-
