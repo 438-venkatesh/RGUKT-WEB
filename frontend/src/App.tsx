@@ -245,6 +245,8 @@ function AppContent() {
             {/* Campus Core Pages */}
             <Route path="academics"             element={<NuzvidAcademics />} />
             <Route path="examinations"          element={<NuzvidExaminations />} />
+            <Route path="results"               element={<NuzvidExaminations />} />
+            <Route path="examination-results"   element={<NuzvidExaminations />} />
             <Route path="library"               element={<NuzvidLibrary />} />
             <Route path="placements"            element={<NuzvidPlacements />} />
             <Route path="contact"               element={<NuzvidContact />} />
