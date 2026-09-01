@@ -111,19 +111,19 @@ export const EXAM_SCHEDULES = CAMPUSES.flatMap(campus =>
 );
 
 export const LIBRARY_STATS = [
-  { value: '3,40,000+', label: 'Books & volumes' },
-  { value: '1,600+', label: 'e-Journals' },
-  { value: '60', label: 'Online databases' },
-  { value: '2,000', label: 'Reading seats' },
+  { value: '85,289', label: 'Sq. Ft. Plinth Area' },
+  { value: '3 Floors', label: '31 Dedicated Rooms' },
+  { value: '8 Platforms', label: 'Digital E-Resources' },
+  { value: '100%', label: 'Open Access System' },
 ];
 
 export const LIBRARY_SERVICES = [
-  'Book lending and reference services',
-  'Digital library and e-resource access',
-  'Inter-library loan across campuses',
-  'Reading room and study carrels',
-  'Thesis and dissertation repository',
-  'Newspaper and periodicals section',
+  'Open access book lending & Koha OPAC search',
+  'Digital library & international e-journal access',
+  'Reprography & scanning services',
+  'Reading rooms, discussion rooms & study carrels',
+  'Previous years question paper archives',
+  'Career, competitive exam cell & newspaper clippings',
 ];
 
 export const LMS_FEATURES = [
