@@ -243,11 +243,36 @@ function AppContent() {
             <Route path="about/gallery"         element={<NuzvidGalleryPage />} />
             <Route path="gallery"               element={<NuzvidGalleryPage />} />
             {/* Campus Core Pages */}
-            <Route path="academics"             element={<NuzvidAcademics />} />
-            <Route path="examinations"          element={<NuzvidExaminations />} />
-            <Route path="results"               element={<NuzvidExaminations />} />
-            <Route path="examination-results"   element={<NuzvidExaminations />} />
-            <Route path="library"               element={<NuzvidLibrary />} />
+            <Route path="academics"                     element={<NuzvidAcademics />} />
+            {/* Examinations Official Subsections */}
+            <Route path="examinations"                  element={<NuzvidExaminations section="overview" />} />
+            <Route path="examinations/overview"         element={<NuzvidExaminations section="overview" />} />
+            <Route path="examinations/notifications"    element={<NuzvidExaminations section="notifications" />} />
+            <Route path="examinations/timetables"       element={<NuzvidExaminations section="timetables" />} />
+            <Route path="examinations/procedures"       element={<NuzvidExaminations section="procedures" />} />
+            <Route path="examinations/results"          element={<NuzvidExaminations section="results" />} />
+            <Route path="examinations/regulations"      element={<NuzvidExaminations section="regulations" />} />
+            <Route path="examinations/downloads"        element={<NuzvidExaminations section="regulations" />} />
+            <Route path="examinations/certificates"     element={<NuzvidExaminations section="certificates" />} />
+            <Route path="examinations/contact"          element={<NuzvidExaminations section="contact" />} />
+            <Route path="results"                       element={<NuzvidExaminations section="results" />} />
+            <Route path="examination-results"           element={<NuzvidExaminations section="results" />} />
+            {/* Library Official Subsections */}
+            <Route path="library"               element={<NuzvidLibrary section="home" />} />
+            <Route path="library/home"          element={<NuzvidLibrary section="home" />} />
+            <Route path="library/circulation"   element={<NuzvidLibrary section="circulation" />} />
+            <Route path="library/opac"          element={<NuzvidLibrary section="opac" />} />
+            <Route path="library/facilities"    element={<NuzvidLibrary section="facilities" />} />
+            <Route path="library/floorwise-plan" element={<NuzvidLibrary section="floorwise-plan" />} />
+            <Route path="library/floorwise_plan.php" element={<NuzvidLibrary section="floorwise-plan" />} />
+            <Route path="library/general-rules" element={<NuzvidLibrary section="general-rules" />} />
+            <Route path="library/general-rules.php" element={<NuzvidLibrary section="general-rules" />} />
+            <Route path="library/staff-details" element={<NuzvidLibrary section="staff-details" />} />
+            <Route path="library/staff-details.php" element={<NuzvidLibrary section="staff-details" />} />
+            <Route path="library/contact-us"    element={<NuzvidLibrary section="contact-us" />} />
+            <Route path="library/contact-us.php" element={<NuzvidLibrary section="contact-us" />} />
+            <Route path="library/rgukt-content" element={<NuzvidLibrary section="rgukt-content" />} />
+            <Route path="library/rgukt-content.php" element={<NuzvidLibrary section="rgukt-content" />} />
             <Route path="placements"            element={<NuzvidPlacements />} />
             <Route path="contact"               element={<NuzvidContact />} />
             {NUZVID_CONTENT_ROUTES.map(({ path }) => (

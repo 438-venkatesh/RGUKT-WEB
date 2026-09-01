@@ -1,5 +1,5 @@
 /**
- * Official Examination Results Data for RGUKT Nuzvid Examination Cell
+ * Official Examination Results & Examination Cell Data for RGUKT Nuzvid
  * Verified strictly against:
  * - https://rguktn.ac.in/examcell/
  * - https://examcell.rguktn.ac.in/
@@ -21,20 +21,33 @@ export interface ExamResultItem {
   link: string;
   isExternalDoc: boolean;
   isNew?: boolean;
+  isArchived?: boolean;
   notes?: string;
 }
 
-export interface QuickAccessCard {
+export interface TimetableItem {
   id: string;
   title: string;
-  shortDesc: string;
-  iconType: 'regular' | 'remedial' | 'recounting' | 'revaluation' | 'freshmode' | 'puc' | 'engineering' | 'mtech';
-  badge: string;
-  actionText: string;
-  filterProgramme?: Programme;
-  filterResultType?: ResultType;
-  externalLink?: string;
-  gradientType: 'cyan' | 'blue' | 'purple' | 'pink' | 'green';
+  programme: 'PUC' | 'Engineering' | 'M.Tech' | 'Integrated';
+  session: string;
+  academicYear: string;
+  date: string;
+  fileUrl: string;
+  isCurrent?: boolean;
+  isArchived?: boolean;
+  tag: string;
+}
+
+export interface ExamProcedureStep {
+  stepNumber: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  points: string[];
+  actionLink?: {
+    label: string;
+    url: string;
+  };
 }
 
 export interface OfficialDownloadItem {
@@ -479,87 +492,136 @@ export const OFFICIAL_EXAM_RESULTS: ExamResultItem[] = [
   },
 ];
 
-/** Quick Access Category Cards */
-export const QUICK_ACCESS_CARDS: QuickAccessCard[] = [
+/** Official Examination Timetables & Schedules */
+export const OFFICIAL_TIMETABLES: TimetableItem[] = [
   {
-    id: 'qa-regular',
-    title: 'Regular Results',
-    shortDesc: 'Semester End Examination regular results for PUC, Engineering & M.Tech.',
-    iconType: 'regular',
-    badge: 'Semester End',
-    actionText: 'Browse Regular',
-    filterResultType: 'Regular',
-    gradientType: 'cyan',
+    id: 'tt-est-remedial-2017-19',
+    title: 'Engineering 1st Year to 4th Year (2017, 2018 & 2019 Batches) Semester-II EST Remedial Examination Time Table',
+    programme: 'Engineering',
+    session: 'Semester-II EST Remedial',
+    academicYear: 'A.Y. 2024-25',
+    date: 'August 02, 2025',
+    fileUrl: 'http://rguktn.ac.in/examcell/docs/2017,2018,2019_E4-E1_Sem-2_Time_Table.pdf',
+    isCurrent: true,
+    tag: 'EST Remedial',
   },
   {
-    id: 'qa-remedial',
-    title: 'Remedial Results',
-    shortDesc: 'Backlog clearance examination notifications, schedules & declared grades.',
-    iconType: 'remedial',
-    badge: 'Backlogs',
-    actionText: 'Browse Remedial',
-    filterResultType: 'Remedial',
-    gradientType: 'blue',
+    id: 'tt-sem-nuzvid-2025-26',
+    title: 'RGUKT Nuzvid Campus — Semester Examination Schedules 2025-26',
+    programme: 'Integrated',
+    session: 'Semester End Examination (SEE)',
+    academicYear: 'A.Y. 2025-26',
+    date: 'Academic Year 2025-26',
+    fileUrl: '/docs/academics/exam-schedule-nuzvid-sem1.pdf',
+    isCurrent: true,
+    tag: 'Semester Schedule',
   },
   {
-    id: 'qa-recounting',
-    title: 'Recounting',
-    shortDesc: 'Marks verification and recount registration results for all batches.',
-    iconType: 'recounting',
-    badge: 'Verification',
-    actionText: 'View Recounting',
-    filterResultType: 'Recounting & Revaluation',
-    gradientType: 'purple',
+    id: 'tt-puc-engg-est-sem2',
+    title: 'A.Y. 2017-18 Engineering & PUC EST Examination Final Time Table of Semester-2',
+    programme: 'Integrated',
+    session: 'Semester-2 EST Final',
+    academicYear: 'A.Y. 2017-18',
+    date: 'April 18, 2018',
+    fileUrl: 'http://rguktn.ac.in/examcell/Time Table/Final_A.Y-2017-18_Engineering_EST Examination_Time Table of Semester-2.pdf',
+    isArchived: true,
+    tag: 'Archived Schedule',
   },
   {
-    id: 'qa-revaluation',
-    title: 'Revaluation',
-    shortDesc: 'Answer script re-evaluation outcomes and online registration window.',
-    iconType: 'revaluation',
-    badge: 'Re-eval',
-    actionText: 'View Revaluation',
-    filterResultType: 'Recounting & Revaluation',
-    gradientType: 'pink',
+    id: 'tt-puc-sem1-remedial',
+    title: 'A.Y. 2017-18 PUC Semester-1 End Semester Remedial & Grade Improvement Examination Timetable',
+    programme: 'PUC',
+    session: 'PUC Sem-1 Remedial & GI',
+    academicYear: 'A.Y. 2017-18',
+    date: 'June 20, 2018',
+    fileUrl: 'http://examcell.rguktn.ac.in/docs/A.Y-17-18_ PUC_Semester-1_End Semester_Remedial_ & GI Examination Time Table.pdf',
+    isArchived: true,
+    tag: 'Archived Schedule',
   },
   {
-    id: 'qa-freshmode',
-    title: 'Fresh Mode',
-    shortDesc: 'Special fresh mode examination registrations & published result sheets.',
-    iconType: 'freshmode',
-    badge: 'Special Mode',
-    actionText: 'Fresh Mode Results',
-    filterResultType: 'Fresh Mode',
-    gradientType: 'green',
+    id: 'tt-engg-sem1-remedial',
+    title: 'A.Y. 2017-18 Engineering Semester-1 End Semester Remedial & Grade Improvement Examination Timetable',
+    programme: 'Engineering',
+    session: 'Engineering Sem-1 Remedial & GI',
+    academicYear: 'A.Y. 2017-18',
+    date: 'June 20, 2018',
+    fileUrl: 'http://examcell.rguktn.ac.in/docs/A.Y-17-18_Engineering _Semester-1_End Semester_Remedial_ & GI  ExaminationTime Table.pdf',
+    isArchived: true,
+    tag: 'Archived Schedule',
+  },
+];
+
+/** Step-by-Step Examination Procedures */
+export const EXAM_PROCEDURE_STEPS: ExamProcedureStep[] = [
+  {
+    stepNumber: '01',
+    title: 'Online Examination Registration',
+    subtitle: 'Course enrollment & confirmation',
+    description: 'Students must register for regular semester examinations or supplementary/remedial drives via the university intranet SMS portal within the declared registration timeframe.',
+    points: [
+      'Regular semester end examination registration is facilitated through departmental academic coordinators.',
+      'Remedial, Recounting, Revaluation & Fresh Mode registrations must be completed through the dedicated SMS Re-Exam portal.',
+      'Students must verify course codes, subject credits, and ensure compliance with minimum attendance prerequisites (75%).',
+    ],
+    actionLink: {
+      label: 'SMS Re-Exam Portal',
+      url: 'https://tinyurl.com/rguktn-re-exam-registration',
+    },
   },
   {
-    id: 'qa-puc',
-    title: 'PUC Results',
-    shortDesc: 'Pre-University Course (P1 & P2) regular, remedial and consolidated grade sheets.',
-    iconType: 'puc',
-    badge: 'Pre-University',
-    actionText: 'Browse PUC',
-    filterProgramme: 'PUC',
-    gradientType: 'cyan',
+    stepNumber: '02',
+    title: 'Hall Ticket Issuance & Verification',
+    subtitle: 'Admit card generation & biometric desk',
+    description: 'Eligible students generate and download official examination Hall Tickets containing session dates, assigned exam halls, and individual roll credentials.',
+    points: [
+      'Hall tickets are issued online through the Examination Cell portal prior to commencement of examinations.',
+      'Candidates must carry the physical printed Hall Ticket along with their official RGUKT Student ID Card to every session.',
+      'Entry is subject to invigilator verification and strict seating plan compliance.',
+    ],
   },
   {
-    id: 'qa-engineering',
-    title: 'Engineering Results',
-    shortDesc: 'B.Tech 4-year undergraduate semester results, minor degrees & lab results.',
-    iconType: 'engineering',
-    badge: 'B.Tech / UG',
-    actionText: 'Browse Engineering',
-    filterProgramme: 'Engineering',
-    gradientType: 'blue',
+    stepNumber: '03',
+    title: 'Conduct of Examinations & Code of Ethics',
+    subtitle: 'Invigilation, confidentiality & PwD accommodations',
+    description: 'Examinations are conducted across designated academic blocks under strict central surveillance, external observers, and institutional flying squads.',
+    points: [
+      'Students must report to the examination hall at least 15 minutes before scheduled start time.',
+      'Strict adherence to university malpractice regulations; electronic gadgets, unauthorized chits, or smart wearables are strictly barred.',
+      'Benchmark disability candidates receive scribe allocation and compensatory time as per statutory SCRIBE RULES.',
+    ],
   },
   {
-    id: 'qa-mtech',
-    title: 'M.Tech Results',
-    shortDesc: 'Postgraduate regular semester end and project evaluation grade reports.',
-    iconType: 'mtech',
-    badge: 'PG / M.Tech',
-    actionText: 'Browse M.Tech',
-    filterProgramme: 'M.Tech',
-    gradientType: 'purple',
+    stepNumber: '04',
+    title: 'Central Evaluation & Result Declaration',
+    subtitle: 'Anonymous coding, blind evaluation & grade computation',
+    description: 'Answer scripts undergo double-blind evaluation, confidential mark entry, and rigorous academic council moderation before final grade sheets are published.',
+    points: [
+      'Grading is computed following the 10-point scale academic framework (O, A+, A, B+, B, C, D, F/Remedial).',
+      'Continuous Internal Evaluation (CIE - 40%) is combined with Semester End Examination (SEE - 60%).',
+      'Results are officially published online on the Examination Cell server (examcell.rguktn.ac.in).',
+    ],
+  },
+  {
+    stepNumber: '05',
+    title: 'Recounting of Marks & Answer Script Revaluation',
+    subtitle: 'Post-declaration scrutiny window',
+    description: 'Students who seek verification of marks or re-evaluation of answer scripts can apply online within the stipulated notification window.',
+    points: [
+      'Online application window opens immediately after result declaration (typically 5 to 7 days).',
+      'Prescribed fee per subject (as notified in official release) must be paid online.',
+      'Recounting and revaluation results are officially published and revised grade memos are updated.',
+    ],
+  },
+  {
+    stepNumber: '06',
+    title: 'Remedial Exams & Fresh Mode Clearances',
+    subtitle: 'Backlog clearance & special attempt opportunities',
+    description: 'Remedial and Grand Remedial drives are organized twice annually to facilitate seamless academic progression and degree completion.',
+    points: [
+      'Conducted for PUC (P1, P2) and Engineering (E1 to E4) across odd and even semesters.',
+      'Students with backlogs can register for multiple subjects subject to schedule compatibility.',
+      'Fresh Mode assessments are provided for eligible candidates as sanctioned by university regulations.',
+    ],
   },
 ];
 
@@ -639,15 +701,15 @@ export const CERTIFICATE_SERVICES: CertificateServiceInfo[] = [
       'Consolidated Marks Memo (CMM)',
       'Provisional Certificate (PC)',
       'Original Degree Certificate (OD)',
-      'Advance Original Degree (for urgent employment/higher studies)',
+      'Advance Original Degree (for urgent employment / higher studies)',
     ],
     contactEmail: 'ecell_certificates@rguktn.ac.in',
   },
   {
-    category: "Assistant Registrar's Office",
+    category: "Assistant Registrar's Academic Section",
     title: 'Study, Conduct & Migration Certificates',
     issuingOffice: "Assistant Registrar's Academic Section",
-    requirement: 'Study/Bonafide on regular request; Transfer/Migration requires No Due Certificate.',
+    requirement: 'Study/Bonafide on regular application; Transfer & Migration require No Due Certificate.',
     items: [
       'Study Certificates & Bonafide Certificates',
       'Conduct & Character Certificates',
