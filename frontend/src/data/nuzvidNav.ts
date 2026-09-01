@@ -8,7 +8,6 @@ export { isNavLinkActive };
 const R = '/nuzvid';
 const ADMISSIONS = '/nuzvid/admissions';
 const ALUMNI = '/nuzvid/alumni';
-const EXAMCELL = '/nuzvid/examinations';
 const CDPC = '/nuzvid/students/career-development';
 const FEE_PAY = 'https://www.onlinesbi.sbi/sbicollect/icollecthome.htm';
 
@@ -140,12 +139,40 @@ export const NUZVID_MENUS: NavMenu[] = [
       { label: 'Student Fee Challan', href: `${R}/downloads/Challan.pdf` },
     ],
   },
+  {
+    key: 'examinations',
+    label: 'Examinations & Results',
+    href: '/nuzvid/examinations',
+    items: [
+      { label: 'Examination Overview', href: '/nuzvid/examinations' },
+      { label: 'Notifications & Updates', href: '/nuzvid/examinations/notifications' },
+      { label: 'Examination Timetables', href: '/nuzvid/examinations/timetables' },
+      { label: 'Examination Procedures', href: '/nuzvid/examinations/procedures' },
+      { label: 'Results', href: '/nuzvid/examinations/results' },
+      { label: 'Regulations & Downloads', href: '/nuzvid/examinations/regulations' },
+      { label: 'Certificates & Verification', href: '/nuzvid/examinations/certificates' },
+      { label: 'Contact / Exam Cell', href: '/nuzvid/examinations/contact' },
+    ],
+  },
+  {
+    key: 'library',
+    label: 'Library',
+    href: '/nuzvid/library',
+    items: [
+      { label: 'Library Home', href: '/nuzvid/library' },
+      { label: 'Circulation', href: '/nuzvid/library/circulation' },
+      { label: 'OPAC', href: '/nuzvid/library/opac' },
+      { label: 'Facilities', href: '/nuzvid/library/facilities' },
+      { label: 'Floor-Wise Details', href: '/nuzvid/library/floorwise-plan' },
+      { label: 'General Rules', href: '/nuzvid/library/general-rules' },
+      { label: 'Staff Details', href: '/nuzvid/library/staff-details' },
+      { label: 'Contact Us', href: '/nuzvid/library/contact-us' },
+    ],
+  },
 ];
 
 /** Top-level navbar links (no dropdown) — matches rguktn.ac.in */
 export const NUZVID_FLAT_LINKS: NavLink[] = [
-  { label: 'Examinations & Results', href: EXAMCELL },
-  { label: 'Library', href: '/nuzvid/library' },
   { label: 'Placements', href: '/nuzvid/placements' },
   { label: 'Tenders', href: '/nuzvid/tenders' },
   { label: 'Careers', href: '/nuzvid/careers' },

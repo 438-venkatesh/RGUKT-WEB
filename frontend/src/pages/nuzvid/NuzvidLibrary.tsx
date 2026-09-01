@@ -1,332 +1,743 @@
-import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import {
+  BookOpen,
+  Search,
+  ExternalLink,
+  Wifi,
+  Printer,
+  Droplets,
+  Layers,
+  Building,
+  Laptop,
+  Unlock,
+  Award,
+  Sparkles,
+  Clock,
+  Users,
+  UserCheck,
+  Cpu,
+  Globe,
+  Microscope,
+  FileText,
+  Compass,
+  Newspaper,
+  MessagesSquare,
+  Armchair,
+  Phone,
+  Mail,
+  MapPin,
+  ChevronRight,
+  Database,
+  CheckCircle2,
+} from 'lucide-react';
+import {
+  LIBRARY_OBJECTIVES,
+  LIBRARY_FACILITIES,
+  E_RESOURCES,
+  CONTENT_DOMAIN_LINKS,
+  OPAC_CONFIG,
+  FLOOR_PLANS,
+  GENERAL_RULES,
+  CIRCULATION_TIMINGS,
+  CIRCULATION_RULES,
+  CIRCULATION_POLICIES,
+  LIBRARY_STAFF,
+  LIBRARY_CONTACT,
+} from '../../data/libraryData';
 import './NuzvidLibrary.css';
 
-type Tab = 'home' | 'circulation' | 'opac' | 'facilities' | 'floorplan' | 'rules' | 'staff' | 'contact';
+interface NuzvidLibraryProps {
+  section?: string;
+}
 
-const TABS: { id: Tab; label: string }[] = [
-  { id: 'home',        label: 'Library Home' },
-  { id: 'circulation', label: 'Circulation' },
-  { id: 'opac',        label: 'OPAC' },
-  { id: 'facilities',  label: 'Facilities' },
-  { id: 'floorplan',   label: 'Floor-Wise Details' },
-  { id: 'rules',       label: 'General Rules' },
-  { id: 'staff',       label: 'Staff Details' },
-  { id: 'contact',     label: 'Contact Us' },
-];
+export default function NuzvidLibrary({ section }: NuzvidLibraryProps) {
+  const location = useLocation();
 
-const STATS = [
-  { value: '85,289 sq.ft', label: 'Plinth Area' },
-  { value: '20,000+',      label: 'Books' },
-  { value: '10,000+',      label: 'Periodicals' },
-  { value: '8',            label: 'E-Resource Platforms' },
-];
+  // Determine section from props or pathname
+  let currentSection = section || 'home';
+  const path = location.pathname.toLowerCase();
 
-const ERESOURCES = [
-  { name: 'Knimbus e-Library',         href: 'https://rguktap.knimbus.com/' },
-  { name: 'IEEE Xplore Digital Library', href: '#' },
-  { name: 'ASCE Journals',             href: '#' },
-  { name: 'ASME Journals',             href: '#' },
-  { name: 'NPTEL / SWAYAM',            href: 'https://swayam.gov.in/nc_details/NPTEL' },
-  { name: 'National Digital Library',  href: 'https://ndl.iitkgp.ac.in/' },
-  { name: 'e-ShodhSindhu',             href: '#' },
-  { name: 'RGUKT Content Domain',      href: '#' },
-];
-
-const CIRCULATION_ROWS = [
-  { category: 'Faculty',           books: '10 books', period: '1 semester' },
-  { category: 'Research Scholars', books: '6 books',  period: '30 days' },
-  { category: 'UG / PG Students',  books: '3 books',  period: '15 days' },
-  { category: 'Support Staff',     books: '2 books',  period: '15 days' },
-];
-
-const FACILITIES = [
-  { name: 'Reading Halls',                 desc: 'Spacious, well-lit reading halls for individual and group study.' },
-  { name: 'Digital Resource Centre',       desc: 'Computer terminals with access to e-books, e-journals and e-content.' },
-  { name: 'Reprography',                   desc: 'Photocopying and scanning services for reference material.' },
-  { name: 'Newspaper & Periodicals',       desc: 'Daily newspapers and current periodicals in multiple languages.' },
-  { name: 'Book Bank',                     desc: 'Subsidised textbook lending scheme for eligible students.' },
-  { name: 'Wi-Fi Access',                  desc: 'Campus Wi-Fi coverage throughout the library building.' },
-];
-
-const FLOORS = [
-  { name: 'Ground Floor', desc: 'Circulation desk, reference section, newspapers & periodicals' },
-  { name: 'First Floor',  desc: 'Text books, additional reading books, reading halls' },
-  { name: 'Second Floor', desc: 'Digital resource centre, research section, book bank' },
-  { name: 'Third Floor',  desc: 'Silent study zones and group discussion rooms' },
-];
-
-const RULES = [
-  'Library membership is mandatory for all registered students and staff.',
-  'Identity cards must be produced for borrowing or renewing books.',
-  'Reference books, periodicals and rare collections are for reading-room use only.',
-  'A fine is levied for overdue books as per the prevailing rate per day.',
-  'Loss or damage to library material must be reported and compensated.',
-  'Silence must be maintained at all times inside the library premises.',
-  'Mobile phones must be kept on silent mode inside the library.',
-  'Library working hours are displayed at the entrance and may vary during examinations.',
-];
-
-const STAFF = [
-  { name: 'Dr. V Krishna Murthy', role: 'Librarian',           email: 'librarian@rguktn.ac.in' },
-  { name: 'Mr. B Ravi Kumar',     role: 'Assistant Librarian',  email: 'asstlib@rguktn.ac.in' },
-  { name: 'Ms. K Swathi',         role: 'Library Attendant',    email: 'library@rguktn.ac.in' },
-  { name: 'Mr. P Suresh',         role: 'Library Attendant',    email: 'library@rguktn.ac.in' },
-];
-
-const c = {
-  primary:   '#0B2B5C',
-  accent:    '#1565C0',
-  surface:   '#FFFFFF',
-  surface2:  '#EBF0F8',
-  text:      '#1A2535',
-  textMuted: '#5A6A7E',
-  border:    '#C8D8F0',
-  bg:        '#F1F4F9',
-};
-
-export default function NuzvidLibrary() {
-  const [tab,   setTab]   = useState<Tab>('home');
-  const [query, setQuery] = useState('');
-
-  const activeLabel = TABS.find(t => t.id === tab)?.label ?? 'Library Home';
+  if (path.includes('circulation')) currentSection = 'circulation';
+  else if (path.includes('opac')) currentSection = 'opac';
+  else if (path.includes('facilities')) currentSection = 'facilities';
+  else if (path.includes('floorwise') || path.includes('floor-plan')) currentSection = 'floorwise-plan';
+  else if (path.includes('general-rules') || path.includes('rules')) currentSection = 'general-rules';
+  else if (path.includes('staff-details') || path.includes('staff')) currentSection = 'staff-details';
+  else if (path.includes('contact-us') || path.includes('contact')) currentSection = 'contact-us';
+  else if (path.includes('rgukt-content') || path.includes('content-domain')) currentSection = 'rgukt-content';
 
   return (
-    <div className="nzlib-root" style={{ background: c.bg, color: c.text }}>
-      <div className="nzlib-inner">
+    <div className="nzlib-page">
+      <div className="nzlib-container">
 
-        {/* ── Sidebar ── */}
-        <aside className="nzlib-sidebar">
-          <div className="nzlib-sidebar-label" style={{ color: c.textMuted }}>Library</div>
-          <nav aria-label="Library sections">
-            {TABS.map(t => (
-              <button
-                key={t.id}
-                className={`nzlib-tab-btn${tab === t.id ? ' nzlib-tab-btn--active' : ''}`}
-                onClick={() => setTab(t.id)}
-                style={{
-                  color:      tab === t.id ? c.primary : c.textMuted,
-                  fontWeight: tab === t.id ? 700 : 500,
-                  background: tab === t.id ? c.surface2 : 'transparent',
-                }}
-              >
-                {t.label}
-              </button>
-            ))}
-          </nav>
-        </aside>
+        {/* ════════════════════════════════════════════════════════════
+            1. LIBRARY HOME / OVERVIEW
+            ════════════════════════════════════════════════════════════ */}
+        {currentSection === 'home' && (
+          <div>
+            {/* Breadcrumb */}
+            <div className="nzlib-breadcrumb">
+              <span>RGUKT Nuzvid</span>
+              <ChevronRight size={12} />
+              <span>Library</span>
+              <ChevronRight size={12} />
+              <span className="current">Library Home</span>
+            </div>
 
-        {/* ── Main content ── */}
-        <div className="nzlib-content">
-          <h1 className="nzlib-h1">{activeLabel}</h1>
+            {/* Intro Header */}
+            <div className="nzlib-header-box">
+              <h1 className="nzlib-sec-title">University Library</h1>
+              <p className="nzlib-sec-desc">
+                The Central Library of Rajiv Gandhi University of Knowledge Technologies, Nuzvid Campus.
+              </p>
+            </div>
 
-          {/* ── Library Home ── */}
-          {tab === 'home' && (
-            <div>
-              <div className="nzlib-stats-grid">
-                {STATS.map(s => (
-                  <div key={s.label} className="nzlib-stat" style={{ background: c.primary }}>
-                    <div className="nzlib-stat-val">{s.value}</div>
-                    <div className="nzlib-stat-lbl">{s.label}</div>
-                  </div>
-                ))}
+            {/* Intro Section: Text Left, Image Right */}
+            <div className="nzlib-intro-card">
+              <div className="nzlib-intro-left">
+                <div className="nzlib-intro-badge">
+                  <Sparkles size={14} />
+                  <span>Central Library Portal</span>
+                </div>
+                <h2 className="nzlib-intro-heading">Welcome to RGUKT Nuzvid Central Library</h2>
+
+                <ul className="nzlib-bullets-list">
+                  <li className="nzlib-bullet-item">
+                    <span className="nzlib-bullet-icon">
+                      <CheckCircle2 size={12} />
+                    </span>
+                    <span>The Central Library supports the teaching and research programmes of the Institute.</span>
+                  </li>
+                  <li className="nzlib-bullet-item">
+                    <span className="nzlib-bullet-icon">
+                      <CheckCircle2 size={12} />
+                    </span>
+                    <span>It provides facilities for general reading and disseminates information according to user requirements.</span>
+                  </li>
+                  <li className="nzlib-bullet-item">
+                    <span className="nzlib-bullet-icon">
+                      <CheckCircle2 size={12} />
+                    </span>
+                    <span>The Library is housed in a separate building with a plinth area of <strong>85,289 Sq. ft.</strong></span>
+                  </li>
+                  <li className="nzlib-bullet-item">
+                    <span className="nzlib-bullet-icon">
+                      <CheckCircle2 size={12} />
+                    </span>
+                    <span>It provides access to knowledge through electronic resources and printed copies.</span>
+                  </li>
+                  <li className="nzlib-bullet-item">
+                    <span className="nzlib-bullet-icon">
+                      <CheckCircle2 size={12} />
+                    </span>
+                    <span>The Library is developed to meet the needs of students and faculty.</span>
+                  </li>
+                  <li className="nzlib-bullet-item">
+                    <span className="nzlib-bullet-icon">
+                      <CheckCircle2 size={12} />
+                    </span>
+                    <span>Students have open access to the Library to make use of books.</span>
+                  </li>
+                  <li className="nzlib-bullet-item">
+                    <span className="nzlib-bullet-icon">
+                      <CheckCircle2 size={12} />
+                    </span>
+                    <span>Online resources are also produced by RGUKT to serve the needs of students.</span>
+                  </li>
+                  <li className="nzlib-bullet-item">
+                    <span className="nzlib-bullet-icon">
+                      <CheckCircle2 size={12} />
+                    </span>
+                    <span>Video Recordings are prepared in well-established studios within RGUKT.</span>
+                  </li>
+                </ul>
               </div>
-              <p className="nzlib-para" style={{ color: c.textMuted }}>
-                The Central Library supports the teaching and research programs of the Institute and provides facilities
-                for general reading and disseminates information according to the requirement of the users. It is housed
-                in a separate building with a plinth area of 85,289 sq. ft.
-              </p>
-              <p className="nzlib-para" style={{ color: c.textMuted }}>
-                The Library is exposed to vast knowledge on various disciplines through electronic resources and printed
-                copies, with online resources produced by RGUKT to serve the needs of students.
-              </p>
 
-              <h2 className="nzlib-h2">Objectives of the Library</h2>
-              <ul className="nzlib-list" style={{ color: c.textMuted }}>
-                <li>Procure library collection as a basic requirement for enriching quality education</li>
-                <li>Maintain Text Books, Additional Reading Books, Reference Books, Newspapers, Magazines and Periodicals</li>
-                <li>Encourage self-learning among students</li>
-                <li>Keep libraries open in the late hours after classroom sessions</li>
-                <li>Motivate students towards a study culture</li>
-                <li>Procure books on personality development</li>
-                <li>Ensure library support through automation and automated services</li>
-                <li>Provide electronic resources — e-Books, e-Journals and e-Content</li>
-                <li>Support research material needs</li>
-              </ul>
+              <div className="nzlib-intro-right">
+                <div className="nzlib-img-frame">
+                  <img
+                    src="/gallery/nuzvid-library-intro.jpeg"
+                    alt="Central Library RGUKT Nuzvid"
+                    className="nzlib-img-element"
+                    fetchPriority="high"
+                    decoding="async"
+                  />
+                  <div className="nzlib-img-caption">
+                    Central Library • RGUKT Nuzvid (85,289 Sq. Ft.)
+                  </div>
+                </div>
+              </div>
+            </div>
 
-              <h2 className="nzlib-h2">E-Resources</h2>
-              <div className="nzlib-eresources">
-                {ERESOURCES.map(r => (
+            {/* Objectives Section */}
+            <div className="nzlib-sec-block-header">
+              <h3 className="nzlib-sec-block-title">Objectives of Library</h3>
+              <p className="nzlib-sec-block-sub">
+                Official institutional objectives guiding collection development, academic enrichment, and study culture.
+              </p>
+            </div>
+
+            <div className="nzlib-obj-grid">
+              {LIBRARY_OBJECTIVES.map((obj, idx) => (
+                <div key={idx} className={`nzlib-obj-box grad-${idx % 4}`}>
+                  <div className="nzlib-obj-icon">
+                    {obj.icon === 'award' && <Award size={20} />}
+                    {obj.icon === 'book-open' && <BookOpen size={20} />}
+                    {obj.icon === 'sparkles' && <Sparkles size={20} />}
+                    {obj.icon === 'clock' && <Clock size={20} />}
+                    {obj.icon === 'users' && <Users size={20} />}
+                    {obj.icon === 'user-check' && <UserCheck size={20} />}
+                    {obj.icon === 'cpu' && <Cpu size={20} />}
+                    {obj.icon === 'globe' && <Globe size={20} />}
+                    {obj.icon === 'microscope' && <Microscope size={20} />}
+                  </div>
+                  <h4>{obj.title}</h4>
+                  <p>{obj.detail}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* E-Resources Section */}
+            <div className="nzlib-sec-block-header">
+              <h3 className="nzlib-sec-block-title">Digital & E-Resources</h3>
+              <p className="nzlib-sec-block-sub">
+                Verified electronic repositories, subscribed national courseware, and international peer-reviewed journals.
+              </p>
+            </div>
+
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '20px' }}>
+              {E_RESOURCES.map((res, idx) => (
+                <div
+                  key={idx}
+                  style={{
+                    background: 'var(--lib-surface)',
+                    border: '1px solid var(--lib-border)',
+                    borderRadius: '10px',
+                    padding: '20px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    boxShadow: 'var(--lib-shadow-sm)',
+                    backgroundImage: `var(--grad-${['cyan-blue', 'purple-cyan', 'green-cyan', 'pink-purple'][idx % 4]})`,
+                  }}
+                >
+                  <div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
+                      <span style={{ fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', padding: '3px 8px', borderRadius: '4px', background: 'rgba(10,39,68,0.08)', color: 'var(--lib-primary)' }}>
+                        {res.badge}
+                      </span>
+                      {res.category === 'journal' && <BookOpen size={16} style={{ color: 'var(--lib-accent)' }} />}
+                      {res.category === 'ebook' && <Layers size={16} style={{ color: 'var(--lib-gold)' }} />}
+                      {res.category === 'courseware' && <Laptop size={16} style={{ color: 'var(--lib-primary)' }} />}
+                      {res.category === 'repository' && <Globe size={16} style={{ color: 'var(--lib-primary)' }} />}
+                    </div>
+                    <h4 style={{ fontSize: '15.5px', fontWeight: 700, margin: '0 0 4px', color: 'var(--lib-text)' }}>
+                      {res.name}
+                    </h4>
+                    <div style={{ fontSize: '12px', fontWeight: 600, color: 'var(--lib-text-light)', marginBottom: '8px' }}>
+                      {res.provider}
+                    </div>
+                    <p style={{ fontSize: '13px', color: 'var(--lib-text-muted)', lineHeight: '1.5', margin: '0 0 16px' }}>
+                      {res.description}
+                    </p>
+                  </div>
                   <a
-                    key={r.name}
-                    href={r.href}
+                    href={res.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="nzlib-eresource"
-                    style={{ background: c.surface, border: `1px solid ${c.border}`, color: c.text }}
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      padding: '9px 14px',
+                      background: 'var(--lib-surface)',
+                      color: 'var(--lib-primary)',
+                      border: '1px solid var(--lib-border)',
+                      borderRadius: '6px',
+                      fontSize: '12.5px',
+                      fontWeight: 700,
+                      textDecoration: 'none',
+                    }}
                   >
-                    <span>{r.name}</span>
-                    <ExtLinkIcon stroke={c.textMuted} />
+                    <span>Access Resource →</span>
+                    <ExternalLink size={13} />
                   </a>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
-          )}
+          </div>
+        )}
 
-          {/* ── Circulation ── */}
-          {tab === 'circulation' && (
-            <div>
-              <p className="nzlib-para" style={{ color: c.textMuted }}>
-                Circulation policies govern how books and materials are borrowed, renewed and returned by students and faculty.
+        {/* ════════════════════════════════════════════════════════════
+            2. CIRCULATION SUBSECTION
+            ════════════════════════════════════════════════════════════ */}
+        {currentSection === 'circulation' && (
+          <div>
+            <div className="nzlib-breadcrumb">
+              <span>RGUKT Nuzvid</span>
+              <ChevronRight size={12} />
+              <span>Library</span>
+              <ChevronRight size={12} />
+              <span className="current">Circulation</span>
+            </div>
+
+            <div className="nzlib-header-box">
+              <h1 className="nzlib-sec-title">Circulation</h1>
+              <p className="nzlib-sec-desc">
+                Operating hours, borrowing quotas, book issue and return guidelines, and overdue policy.
               </p>
-              <div className="nzlib-table-wrap" style={{ border: `1px solid ${c.border}` }}>
-                <table className="nzlib-table">
-                  <thead>
-                    <tr style={{ background: c.surface2 }}>
-                      <th>Member Category</th>
-                      <th>Books Issued</th>
-                      <th>Loan Period</th>
+            </div>
+
+            {/* Operating Hours Cards */}
+            <div className="nzlib-hours-grid">
+              {CIRCULATION_TIMINGS.map((t, idx) => (
+                <div key={idx} className="nzlib-hour-card">
+                  <div className="nzlib-hour-days">{t.days}</div>
+                  <div className="nzlib-hour-time">{t.timing}</div>
+                  <div className="nzlib-hour-note">{t.note}</div>
+                </div>
+              ))}
+            </div>
+
+            {/* Borrowing Quotas Table */}
+            <div className="nzlib-table-container">
+              <div className="nzlib-table-head">
+                <h4>Borrowing Entitlement and Renewal Periods</h4>
+              </div>
+              <table className="nzlib-data-table">
+                <thead>
+                  <tr>
+                    <th>Member Category</th>
+                    <th>Eligible User Group</th>
+                    <th>Books Issued</th>
+                    <th>1st Renewal (Online)</th>
+                    <th>2nd Renewal (In Person)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {CIRCULATION_RULES.map((r, idx) => (
+                    <tr key={idx}>
+                      <td><strong>{r.memberCategory}</strong></td>
+                      <td>{r.eligibleGroup}</td>
+                      <td><strong style={{ color: 'var(--lib-accent)' }}>{r.booksIssued} Books</strong></td>
+                      <td>{r.firstRenewalOnline}</td>
+                      <td>{r.secondRenewalInPerson}</td>
                     </tr>
-                  </thead>
-                  <tbody>
-                    {CIRCULATION_ROWS.map((r, i) => (
-                      <tr key={r.category} style={{ background: i % 2 === 0 ? c.surface : c.bg, borderTop: `1px solid ${c.border}` }}>
-                        <td className="nzlib-td-bold">{r.category}</td>
-                        <td>{r.books}</td>
-                        <td>{r.period}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
+                  ))}
+                </tbody>
+              </table>
             </div>
-          )}
 
-          {/* ── OPAC ── */}
-          {tab === 'opac' && (
-            <div>
-              <p className="nzlib-para" style={{ color: c.textMuted }}>
-                Search the Online Public Access Catalogue (OPAC) to check availability of books, journals and reference
-                material across the collection.
-              </p>
-              <div className="nzlib-opac-row">
-                <input
-                  type="text"
-                  className="nzlib-opac-inp"
-                  placeholder="Search by title, author, ISBN or subject..."
-                  value={query}
-                  onChange={e => setQuery(e.target.value)}
-                  style={{ border: `1px solid ${c.border}`, background: c.surface, color: c.text }}
-                />
-                <button
-                  className="nzlib-opac-btn"
-                  style={{ background: c.primary }}
-                >
-                  Search
-                </button>
-              </div>
-              <p className="nzlib-hint" style={{ color: c.textMuted }}>
-                Results are drawn from the live library management system catalogue.
-              </p>
-            </div>
-          )}
-
-          {/* ── Facilities ── */}
-          {tab === 'facilities' && (
-            <div className="nzlib-facilities-grid">
-              {FACILITIES.map(f => (
-                <div
-                  key={f.name}
-                  className="nzlib-facility"
-                  style={{ background: c.surface, border: `1px solid ${c.border}` }}
-                >
-                  <div className="nzlib-facility-name">{f.name}</div>
-                  <p className="nzlib-facility-desc" style={{ color: c.textMuted }}>{f.desc}</p>
+            {/* Circulation Policies */}
+            <div className="nzlib-rules-cards-grid">
+              {CIRCULATION_POLICIES.map((p, idx) => (
+                <div key={idx} className="nzlib-circ-policy-card">
+                  <h5>{p.title}</h5>
+                  <p>{p.desc}</p>
                 </div>
               ))}
             </div>
-          )}
+          </div>
+        )}
 
-          {/* ── Floor-Wise Details ── */}
-          {tab === 'floorplan' && (
-            <div className="nzlib-floors">
-              {FLOORS.map(fl => (
-                <div
-                  key={fl.name}
-                  className="nzlib-floor"
-                  style={{ background: c.surface, border: `1px solid ${c.border}` }}
-                >
-                  <div className="nzlib-floor-name">{fl.name}</div>
-                  <div className="nzlib-floor-desc" style={{ color: c.textMuted }}>{fl.desc}</div>
-                </div>
-              ))}
+        {/* ════════════════════════════════════════════════════════════
+            3. OPAC SUBSECTION
+            ════════════════════════════════════════════════════════════ */}
+        {currentSection === 'opac' && (
+          <div>
+            <div className="nzlib-breadcrumb">
+              <span>RGUKT Nuzvid</span>
+              <ChevronRight size={12} />
+              <span>Library</span>
+              <ChevronRight size={12} />
+              <span className="current">OPAC</span>
             </div>
-          )}
 
-          {/* ── General Rules ── */}
-          {tab === 'rules' && (
-            <ol className="nzlib-rules" style={{ color: c.textMuted }}>
-              {RULES.map(r => (
-                <li key={r}>{r}</li>
-              ))}
-            </ol>
-          )}
+            <div className="nzlib-header-box">
+              <h1 className="nzlib-sec-title">Online Public Access Catalog (OPAC)</h1>
+              <p className="nzlib-sec-desc">
+                Automated catalog search, live availability, and account services powered by Koha Software.
+              </p>
+            </div>
 
-          {/* ── Staff Details ── */}
-          {tab === 'staff' && (
-            <div className="nzlib-staff-grid">
-              {STAFF.map(s => (
-                <div
-                  key={s.name}
-                  className="nzlib-staff-card"
-                  style={{ background: c.surface, border: `1px solid ${c.border}` }}
-                >
-                  <div className="nzlib-avatar" style={{ background: c.surface2, color: c.textMuted }}>
-                    <PersonIcon />
+            <div className="nzlib-opac-banner">
+              <div className="nzlib-opac-banner-left">
+                <h3>Koha Integrated Library System</h3>
+                <p>
+                  The library is fully automated with <strong>Koha Integrated Library Software</strong>.
+                  Students and faculty can search the collection by Title, Author, Publisher, Subject Heading,
+                  and Keywords.
+                </p>
+                <div className="nzlib-opac-tags">
+                  <div className="nzlib-opac-tag-chip">
+                    Campus IP: <strong>{OPAC_CONFIG.internalIp}</strong>
                   </div>
-                  <div className="nzlib-staff-name">{s.name}</div>
-                  <div className="nzlib-staff-role" style={{ color: c.textMuted }}>{s.role}</div>
-                  <a href={`mailto:${s.email}`} className="nzlib-staff-email" style={{ color: c.primary }}>
-                    {s.email}
+                  <div className="nzlib-opac-tag-chip">
+                    Software: <strong>{OPAC_CONFIG.software}</strong>
+                  </div>
+                  <div className="nzlib-opac-tag-chip">
+                    Status: <strong>Open Access & Circulation</strong>
+                  </div>
+                </div>
+              </div>
+
+              <div className="nzlib-opac-banner-right">
+                <h4>Campus Live Catalog Portal</h4>
+                <p>Directly browse availability, call numbers, and rack locations on the Koha server.</p>
+                <a
+                  href={OPAC_CONFIG.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="nzlib-opac-launch-btn"
+                >
+                  <Search size={18} />
+                  <span>Search Library Catalogue →</span>
+                </a>
+              </div>
+            </div>
+
+            <h3 style={{ fontSize: '18px', fontWeight: 700, margin: '32px 0 16px', color: 'var(--lib-text)' }}>
+              Catalog Search Criteria Supported in Koha
+            </h3>
+
+            <div className="nzlib-search-fields-grid">
+              {OPAC_CONFIG.searchFields.map(f => (
+                <div key={f.label} className="nzlib-search-field-card">
+                  <Database size={22} style={{ color: 'var(--lib-primary)', margin: '0 auto' }} />
+                  <h5>Search by {f.label}</h5>
+                  <p>{f.placeholder}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* ════════════════════════════════════════════════════════════
+            4. FACILITIES SUBSECTION
+            ════════════════════════════════════════════════════════════ */}
+        {currentSection === 'facilities' && (
+          <div>
+            <div className="nzlib-breadcrumb">
+              <span>RGUKT Nuzvid</span>
+              <ChevronRight size={12} />
+              <span>Library</span>
+              <ChevronRight size={12} />
+              <span className="current">Facilities</span>
+            </div>
+
+            <div className="nzlib-header-box">
+              <h1 className="nzlib-sec-title">Library Facilities</h1>
+              <p className="nzlib-sec-desc">
+                Verified academic infrastructure and support services available in the Central Library.
+              </p>
+            </div>
+
+            <div className="nzlib-facilities-3col">
+              {LIBRARY_FACILITIES.map((fac, idx) => (
+                <div key={fac.id} className={`nzlib-fac-box grad-${idx % 4}`}>
+                  <div className="nzlib-fac-icon-wrap">
+                    {fac.id === 'open-access' && <Unlock size={22} />}
+                    {fac.id === 'ict-wifi' && <Wifi size={22} />}
+                    {fac.id === 'referencing' && <Search size={22} />}
+                    {fac.id === 'photocopy' && <Printer size={22} />}
+                    {fac.id === 'furniture' && <Armchair size={22} />}
+                    {fac.id === 'amenities' && <Droplets size={22} />}
+                    {fac.id === 'discussion-rooms' && <MessagesSquare size={22} />}
+                    {fac.id === 'pyq-papers' && <FileText size={22} />}
+                    {fac.id === 'career-higher-edu' && <Compass size={22} />}
+                    {fac.id === 'newspaper-clippings' && <Newspaper size={22} />}
+                  </div>
+                  <div className="nzlib-fac-text-block">
+                    <h4>{fac.name}</h4>
+                    <p>{fac.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* ════════════════════════════════════════════════════════════
+            5. FLOOR-WISE DETAILS SUBSECTION
+            ════════════════════════════════════════════════════════════ */}
+        {currentSection === 'floorwise-plan' && (
+          <div>
+            <div className="nzlib-breadcrumb">
+              <span>RGUKT Nuzvid</span>
+              <ChevronRight size={12} />
+              <span>Library</span>
+              <ChevronRight size={12} />
+              <span className="current">Floor-Wise Details</span>
+            </div>
+
+            <div className="nzlib-header-box">
+              <h1 className="nzlib-sec-title">Floor-Wise Details</h1>
+              <p className="nzlib-sec-desc">
+                Complete directory of the 31 rooms distributed across the 3 floors of the Central Library building.
+              </p>
+            </div>
+
+            {FLOOR_PLANS.map(floor => (
+              <div key={floor.floorId} className="nzlib-floorplan-block">
+                <div className="nzlib-floor-card-container">
+                  <div className="nzlib-floor-card-header">
+                    <h3>{floor.floorName}</h3>
+                    <span>{floor.rooms.length} Dedicated Rooms</span>
+                  </div>
+
+                  <table className="nzlib-floor-rooms-table">
+                    <thead>
+                      <tr>
+                        <th style={{ width: '80px' }}>S.No</th>
+                        <th style={{ width: '120px' }}>Room No</th>
+                        <th>Name of the Room / Facility</th>
+                        <th style={{ width: '220px' }}>Category</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {floor.rooms.map(room => (
+                        <tr key={room.sNo}>
+                          <td>{room.sNo}</td>
+                          <td><strong>{room.roomNo}</strong></td>
+                          <td>
+                            <strong>{room.name}</strong>
+                            {room.description && (
+                              <div style={{ fontSize: '12.5px', color: 'var(--lib-text-muted)', marginTop: '2px' }}>
+                                {room.description}
+                              </div>
+                            )}
+                          </td>
+                          <td>
+                            <span style={{ fontSize: '12px', padding: '3px 8px', borderRadius: '4px', background: 'var(--lib-surface-alt)', border: '1px solid var(--lib-border)' }}>
+                              {room.category}
+                            </span>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* ════════════════════════════════════════════════════════════
+            6. GENERAL RULES SUBSECTION
+            ════════════════════════════════════════════════════════════ */}
+        {currentSection === 'general-rules' && (
+          <div>
+            <div className="nzlib-breadcrumb">
+              <span>RGUKT Nuzvid</span>
+              <ChevronRight size={12} />
+              <span>Library</span>
+              <ChevronRight size={12} />
+              <span className="current">General Rules</span>
+            </div>
+
+            <div className="nzlib-header-box">
+              <h1 className="nzlib-sec-title">General Rules & Guidelines</h1>
+              <p className="nzlib-sec-desc">
+                Official code of conduct established by RGUKT Nuzvid to maintain an academic atmosphere.
+              </p>
+            </div>
+
+            <div className="nzlib-rules-numbered-list">
+              {GENERAL_RULES.map((rule, idx) => (
+                <div key={idx} className="nzlib-numbered-rule-card">
+                  <div className="nzlib-num-badge">
+                    {String(idx + 1).padStart(2, '0')}
+                  </div>
+                  <p>{rule}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* ════════════════════════════════════════════════════════════
+            7. STAFF DETAILS SUBSECTION
+            ════════════════════════════════════════════════════════════ */}
+        {currentSection === 'staff-details' && (
+          <div>
+            <div className="nzlib-breadcrumb">
+              <span>RGUKT Nuzvid</span>
+              <ChevronRight size={12} />
+              <span>Library</span>
+              <ChevronRight size={12} />
+              <span className="current">Staff Details</span>
+            </div>
+
+            <div className="nzlib-header-box">
+              <h1 className="nzlib-sec-title">Library Staff Details</h1>
+              <p className="nzlib-sec-desc">
+                Official administration and management staff of the Central Library.
+              </p>
+            </div>
+
+            <div className="nzlib-staff-cards-grid">
+              {LIBRARY_STAFF.map(member => (
+                <div key={member.sNo} className="nzlib-staff-member-box">
+                  <div className="nzlib-staff-avatar-circle">
+                    {member.name.charAt(0)}
+                  </div>
+                  <div className="nzlib-staff-info-col">
+                    <h4>{member.name}</h4>
+                    <div className="nzlib-staff-desig-tag">{member.designation}</div>
+                    <p className="nzlib-staff-desc-text">{member.roleDescription}</p>
+                    {member.phone && (
+                      <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', marginTop: '6px', fontSize: '13px', fontWeight: 600, color: 'var(--lib-primary)' }}>
+                        <Phone size={13} />
+                        <span>Phone: {member.phone}</span>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* ════════════════════════════════════════════════════════════
+            8. CONTACT US SUBSECTION
+            ════════════════════════════════════════════════════════════ */}
+        {currentSection === 'contact-us' && (
+          <div>
+            <div className="nzlib-breadcrumb">
+              <span>RGUKT Nuzvid</span>
+              <ChevronRight size={12} />
+              <span>Library</span>
+              <ChevronRight size={12} />
+              <span className="current">Contact Us</span>
+            </div>
+
+            <div className="nzlib-header-box">
+              <h1 className="nzlib-sec-title">Contact Us</h1>
+              <p className="nzlib-sec-desc">
+                Communication details and location map of the Central Library.
+              </p>
+            </div>
+
+            <div className="nzlib-contact-full-layout">
+              <div className="nzlib-contact-card-box">
+                <h3>Library Administration Office</h3>
+                <div className="nzlib-contact-field-row">
+                  <Building size={18} />
+                  <div>
+                    <strong>{LIBRARY_CONTACT.building}</strong>
+                    <br />
+                    {LIBRARY_CONTACT.campus}
+                  </div>
+                </div>
+                <div className="nzlib-contact-field-row">
+                  <MapPin size={18} />
+                  <div>{LIBRARY_CONTACT.address}</div>
+                </div>
+                <div className="nzlib-contact-field-row">
+                  <Phone size={18} />
+                  <div>{LIBRARY_CONTACT.phone}</div>
+                </div>
+                <div className="nzlib-contact-field-row">
+                  <Mail size={18} />
+                  <div>
+                    <a href={`mailto:${LIBRARY_CONTACT.email}`} style={{ color: 'var(--lib-accent)', textDecoration: 'none', fontWeight: 600 }}>
+                      {LIBRARY_CONTACT.email}
+                    </a>
+                  </div>
+                </div>
+                <div className="nzlib-contact-field-row">
+                  <Globe size={18} />
+                  <div>
+                    <a href={LIBRARY_CONTACT.officialWeb} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--lib-primary)', textDecoration: 'underline', fontWeight: 600 }}>
+                      Official Website: rguktn.ac.in/library/
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div className="nzlib-map-container">
+                <iframe
+                  title="RGUKT Nuzvid Central Library Map"
+                  src={LIBRARY_CONTACT.mapEmbedUrl}
+                  loading="lazy"
+                  allowFullScreen
+                />
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* ════════════════════════════════════════════════════════════
+            9. RGUKT CONTENT DOMAIN SUBSECTION
+            ════════════════════════════════════════════════════════════ */}
+        {currentSection === 'rgukt-content' && (
+          <div>
+            <div className="nzlib-breadcrumb">
+              <span>RGUKT Nuzvid</span>
+              <ChevronRight size={12} />
+              <span>Library</span>
+              <ChevronRight size={12} />
+              <span className="current">RGUKT Content Domain</span>
+            </div>
+
+            <div className="nzlib-header-box">
+              <h1 className="nzlib-sec-title">RGUKT Content Domain</h1>
+              <p className="nzlib-sec-desc">
+                Engineering year-wise digital content, lecture notes, and video modules hosted on the campus intranet.
+              </p>
+            </div>
+
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '20px' }}>
+              {CONTENT_DOMAIN_LINKS.map((item, idx) => (
+                <div
+                  key={item.sNo}
+                  style={{
+                    background: 'var(--lib-surface)',
+                    border: '1px solid var(--lib-border)',
+                    borderRadius: '10px',
+                    padding: '24px',
+                    boxShadow: 'var(--lib-shadow-sm)',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    backgroundImage: `var(--grad-${['cyan-blue', 'purple-cyan', 'green-cyan', 'pink-purple'][idx % 4]})`,
+                  }}
+                >
+                  <div>
+                    <span style={{ fontSize: '11.5px', fontWeight: 700, padding: '4px 10px', borderRadius: '4px', background: 'var(--lib-primary)', color: '#FFFFFF', display: 'inline-block', marginBottom: '12px' }}>
+                      {item.year}
+                    </span>
+                    <h4 style={{ fontSize: '16px', fontWeight: 700, margin: '0 0 8px', color: 'var(--lib-text)' }}>{item.title}</h4>
+                    <p style={{ fontSize: '13px', color: 'var(--lib-text-muted)', lineHeight: '1.55', margin: '0 0 20px' }}>{item.desc}</p>
+                  </div>
+                  <a
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      padding: '10px 16px',
+                      background: 'var(--lib-surface)',
+                      color: 'var(--lib-primary)',
+                      border: '1px solid var(--lib-border)',
+                      borderRadius: '6px',
+                      fontSize: '13px',
+                      fontWeight: 700,
+                      textDecoration: 'none',
+                    }}
+                  >
+                    <span>Access Content ({item.code}) →</span>
+                    <ExternalLink size={14} />
                   </a>
                 </div>
               ))}
             </div>
-          )}
+          </div>
+        )}
 
-          {/* ── Contact Us ── */}
-          {tab === 'contact' && (
-            <div
-              className="nzlib-contact-card"
-              style={{ background: c.surface, border: `1px solid ${c.border}` }}
-            >
-              <div className="nzlib-contact-heading">Library Administration Office</div>
-              <p className="nzlib-contact-body" style={{ color: c.textMuted }}>
-                Central Library Building<br />
-                RGUKT Nuzvid, NH-9, Krishna District<br />
-                Andhra Pradesh 521202<br />
-                <a href="mailto:library@rguktn.ac.in" style={{ color: c.primary }}>library@rguktn.ac.in</a><br />
-                +91-8656-235150
-              </p>
-            </div>
-          )}
-        </div>
       </div>
     </div>
-  );
-}
-
-/* ── Inline SVG icons ── */
-function ExtLinkIcon({ stroke }: { stroke: string }) {
-  return (
-    <svg width={14} height={14} viewBox="0 0 24 24" fill="none" stroke={stroke} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden style={{ flexShrink: 0 }}>
-      <path d="M7 17L17 7" /><path d="M7 7h10v10" />
-    </svg>
-  );
-}
-function PersonIcon() {
-  return (
-    <svg width={24} height={24} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-      <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" /><circle cx={12} cy={7} r={4} />
-    </svg>
   );
 }

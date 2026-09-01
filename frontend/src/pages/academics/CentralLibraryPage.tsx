@@ -1,5 +1,5 @@
-import AcademicsPageView from '../../components/AcademicsPageView';
+import NuzvidLibrary from '../nuzvid/NuzvidLibrary';
 
 export default function CentralLibraryPage() {
-  return <AcademicsPageView slug="central-library" />;
+  return <NuzvidLibrary />;
 }
